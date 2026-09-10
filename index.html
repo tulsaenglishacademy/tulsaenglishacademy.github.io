@@ -10,7 +10,15 @@
 .booking-embed iframe{display:block;width:100%;height:820px;border:0;background:#fff}
 .booking-fallback{text-align:center;padding:18px 20px 22px;color:var(--muted);font-size:14px;background:#fff;border-top:1px solid var(--line)}
 .booking-fallback .btn{margin-top:12px;background:linear-gradient(90deg,var(--p),var(--pd));color:#fff}
-@media(max-width:760px){.booking-embed iframe{height:900px}}
+.instagram-minimal-section{padding:38px 0 42px;background:var(--bg)}
+.instagram-minimal-inner{display:flex;justify-content:center;align-items:center}
+.instagram-icon-link{width:68px;height:68px;border-radius:20px;display:grid;place-items:center;background:radial-gradient(circle at 31% 107%,#fdf497 0 8%,#fdf497 8%,#fd5949 35%,#d6249f 62%,#285AEB 92%);box-shadow:0 10px 26px rgba(131,71,180,.18);transition:transform .18s ease,box-shadow .18s ease;position:relative}
+.instagram-icon-link:hover{transform:translateY(-3px) scale(1.025);box-shadow:0 16px 34px rgba(131,71,180,.24)}
+.instagram-icon-link:focus-visible{outline:4px solid rgba(114,80,239,.22);outline-offset:5px}
+.instagram-mark{width:36px;height:36px;border:3px solid #fff;border-radius:11px;position:relative}
+.instagram-mark:before{content:"";position:absolute;width:12px;height:12px;border:3px solid #fff;border-radius:50%;left:9px;top:9px}
+.instagram-mark:after{content:"";position:absolute;width:5px;height:5px;background:#fff;border-radius:50%;right:5px;top:5px}
+@media(max-width:760px){.booking-embed iframe{height:900px}.instagram-minimal-section{padding:30px 0 34px}.instagram-icon-link{width:56px;height:56px;border-radius:17px}.instagram-mark{width:30px;height:30px;border-radius:9px}.instagram-mark:before{width:10px;height:10px;left:7px;top:7px}.instagram-mark:after{width:4px;height:4px;right:4px;top:4px}}
 </style>
 </head>
 <body>
@@ -19,7 +27,7 @@
     <a href="#" aria-label="Tulsa Outreach Network"><img class="brand-logo" src="tulsa-logo-white.png" alt="Tulsa Outreach Network logo"></a>
     <div class="top-actions">
       <div class="lang" aria-label="Language switcher"><button id="esBtn" class="active" type="button">ES</button><button id="enBtn" type="button">EN</button></div>
-      <a class="ig-mini" href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="ig-icon" aria-hidden="true"></span><span class="label">Instagram</span></a>
+      <a class="ig-mini" href="https://www.instagram.com/tulsaenglishacademy/" target="_blank" rel="noopener"><span class="ig-icon" aria-hidden="true"></span><span class="label">Instagram</span></a>
     </div>
   </div>
 </header>
@@ -33,7 +41,7 @@
     <p data-lang="en">Build practical English for work, appointments, shopping, and everyday life — with clear explanations that connect to Spanish.</p>
     <div class="hero-cta">
       <a class="btn btn-white" href="#step1"><span data-lang="es">Mira cómo funcionan las clases ↓</span><span data-lang="en">See how the classes work ↓</span></a>
-      <a class="btn btn-ghost" href="https://www.instagram.com/" target="_blank" rel="noopener"><span class="ig-icon"></span><span data-lang="es">Ver Instagram</span><span data-lang="en">View Instagram</span></a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/tulsaenglishacademy/" target="_blank" rel="noopener"><span class="ig-icon"></span><span data-lang="es">Ver Instagram</span><span data-lang="en">View Instagram</span></a>
     </div>
     <div class="proof"><span data-lang="es">Clases para adultos</span><span data-lang="es">Grupos pequeños</span><span data-lang="es">Horarios flexibles</span><span data-lang="en">Adult classes</span><span data-lang="en">Small groups</span><span data-lang="en">Flexible schedules</span></div>
   </div>
@@ -82,15 +90,11 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="shell">
-    <div class="instagram-card">
-      <span class="ig-icon" style="width:28px;height:28px;margin-bottom:14px"></span>
-      <h2 data-lang="es">Conoce más en Instagram</h2><h2 data-lang="en">See more on Instagram</h2>
-      <p data-lang="es">Mira publicaciones de Tulsa English Academy, novedades de las clases y contenido para nuestra comunidad.</p>
-      <p data-lang="en">See Tulsa English Academy posts, class updates, and content for our community.</p>
-      <a class="btn insta-btn" href="https://www.instagram.com/" target="_blank" rel="noopener"><span data-lang="es">VISITAR INSTAGRAM →</span><span data-lang="en">VISIT INSTAGRAM →</span></a>
-    </div>
+<section class="instagram-minimal-section" aria-label="Instagram">
+  <div class="shell instagram-minimal-inner">
+    <a class="instagram-icon-link" href="https://www.instagram.com/tulsaenglishacademy/" target="_blank" rel="noopener" aria-label="Visitar Tulsa English Academy en Instagram" title="@tulsaenglishacademy">
+      <span class="instagram-mark" aria-hidden="true"></span>
+    </a>
   </div>
 </section>
 
