@@ -34,7 +34,7 @@ a{text-decoration:none;color:inherit}.shell{width:min(100% - 28px,980px);margin:
 <section class="hero"><div class="shell">
 <h1>English Placement Test</h1>
 <p>Find your estimated English level and the best starting point for your studies.<span class="es">Descubre tu nivel estimado de inglés y el mejor punto de inicio para tus estudios.</span></p>
-<div class="hero-badges"><span>40 Questions</span><span>A1 • A2 • B1</span><span>Listening Included</span><span>About 15–20 Minutes</span></div>
+<div class="hero-badges"><span>29 Questions</span><span>A1 • A2 • B1</span><span>Listening Included</span><span>About 15–20 Minutes</span></div>
 </div></section>
 
 <main class="main"><div class="shell">
@@ -95,7 +95,6 @@ const questions=[
 {level:"A1",skill:"Listening",prompt:"How old is Daniel?",instruction:"Listen and choose one correct answer.",type:"single",listen:"My name is Daniel. I'm thirty-eight years old, and I live in Tulsa with my wife.",options:["28","30","38","48"],answer:[2]},
 {level:"A1",skill:"Grammar",prompt:"_____ three people waiting in the office.",instruction:"Choose one correct answer.",type:"single",options:["There is","There are","They are","It is"],answer:[1]},
 {level:"A1",skill:"Grammar",prompt:"My husband _____ to work at 7:00 every morning.",instruction:"Choose one correct answer.",type:"single",options:["go","goes","going","is go"],answer:[1]},
-{level:"A1",skill:"Practical English",prompt:"What time is it?",instruction:"Choose two correct answers.",type:"multi",visual:"clock",options:["It's seven thirty.","It's half past seven.","It's half past eight.","It's seven fifteen."],answer:[0,1]},
 {level:"A1",skill:"Grammar",prompt:"Look! The children _____ outside.",instruction:"Choose one correct answer.",type:"single",options:["play","plays","are playing","is playing"],answer:[2]},
 {level:"A1",skill:"Listening",prompt:"What time does the speaker leave home?",instruction:"Listen and choose one correct answer.",type:"single",listen:"I usually eat breakfast at seven. I leave home at seven forty-five and start work at eight thirty.",options:["7:00","7:30","7:45","8:30"],answer:[2]},
 {level:"A1",skill:"Grammar",prompt:"Yesterday I _____ groceries after work.",instruction:"Choose one correct answer.",type:"single",options:["buy","bought","buying","buys"],answer:[1]},
@@ -105,10 +104,8 @@ const questions=[
 
 {level:"A2",skill:"Vocabulary",prompt:"My mother's sister is my _____.",instruction:"Choose one correct answer.",type:"single",options:["cousin","aunt","niece","grandmother"],answer:[1]},
 {level:"A2",skill:"Grammar",prompt:"This apartment is _____ than my old apartment.",instruction:"Choose one correct answer.",type:"single",options:["big","biggest","bigger","more big"],answer:[2]},
-{level:"A2",skill:"Listening",prompt:"Where is the bank?",instruction:"Look at the map, listen and choose one correct answer.",type:"single",listen:"Go straight for two blocks. Turn right at the pharmacy. The bank is next to the grocery store.",visual:"map",options:["Across from the pharmacy","Next to the grocery store","Behind the pharmacy","Inside the grocery store"],answer:[1]},
 {level:"A2",skill:"Practical English",prompt:"Server: “What would you like to order?”",instruction:"Choose two natural answers.",type:"multi",options:["I'd like the chicken, please.","Could I have the chicken, please?","I like have chicken.","I could chicken, please."],answer:[0,1]},
 {level:"A2",skill:"Grammar",prompt:"Carlos is a very _____ driver. He always drives _____.",instruction:"Choose one correct answer.",type:"single",options:["careful / carefully","carefully / careful","careful / careful","carefully / carefully"],answer:[0]},
-{level:"A2",skill:"Grammar",prompt:"I _____ take the bus to work, but I _____ go by car.",instruction:"Look at the picture and choose one correct answer.",type:"single",visual:"frequency",options:["usually / sometimes","sometimes / usually","never / always","always / never"],answer:[0]},
 {level:"A2",skill:"Listening",prompt:"What are they going to do Saturday?",instruction:"Listen and choose one correct answer.",type:"single",listen:"We were going to stay home Saturday, but my sister invited us to dinner. So we're going to her house instead.",options:["Stay home","Go to a restaurant","Visit his sister","Visit her sister"],answer:[3]},
 {level:"A2",skill:"Grammar",prompt:"Look at those dark clouds. It _____ rain.",instruction:"Choose one correct answer.",type:"single",options:["going","is going to","goes to","will going"],answer:[1]},
 {level:"A2",skill:"Grammar",prompt:"I _____ dinner when my phone rang.",instruction:"Choose one correct answer.",type:"single",options:["cooked","am cooking","was cooking","have cooked"],answer:[2]},
@@ -118,20 +115,13 @@ const questions=[
 {level:"A2",skill:"Vocabulary",prompt:"At the clothing store, Maria _____ her jacket before she _____ a new one.",instruction:"Choose one correct answer.",type:"single",options:["took off / tried on","took out / tried in","took on / tried off","took away / tried over"],answer:[0]},
 {level:"A2",skill:"Reading",prompt:"What time should Javier arrive this week?",instruction:"Read the paragraph and choose one correct answer.",type:"single",passage:"Javier works at a warehouse. His normal shift begins at 8:00 a.m., but this week his supervisor asked him to arrive thirty minutes earlier because the company is very busy.",options:["7:00","7:30","8:00","8:30"],answer:[1]},
 
-{level:"B1",skill:"Grammar",prompt:"Before I bought a car, I _____ the bus to work every day.",instruction:"Choose one correct answer.",type:"single",options:["used to take","use to took","used to taking","use take"],answer:[0]},
-{level:"B1",skill:"Grammar",prompt:"What would you like to do tonight? I _____ stay home than go out.",instruction:"Choose one correct answer.",type:"single",options:["prefer","would rather","rather to","would prefer than"],answer:[1]},
 {level:"B1",skill:"Grammar",prompt:"I _____ at this company for six years.",instruction:"Choose one correct answer.",type:"single",options:["work","worked","have worked","am working"],answer:[2]},
 {level:"B1",skill:"Listening",prompt:"Why does the speaker prefer the current job?",instruction:"Listen and choose one correct answer.",type:"single",listen:"I liked my old job because the schedule was flexible, but my current job pays much better. If I had to choose, I'd probably stay where I am now.",options:["The schedule is better.","It is closer to home.","It pays more.","The work is easier."],answer:[2]},
 {level:"B1",skill:"Vocabulary",prompt:"After waiting two hours for the doctor, Carlos became very frustrated. Which TWO words are closest in meaning to “frustrated”?",instruction:"Choose two correct answers.",type:"multi",options:["annoyed","irritated","excited","relaxed"],answer:[0,1]},
 {level:"B1",skill:"Practical English",prompt:"Customer: “May I speak to Ms. Torres?” Receptionist: “She's in a meeting right now. May I take your number and ask her to _____?”",instruction:"Choose one correct answer.",type:"single",options:["call you back","call back you","return you","phone back to"],answer:[0]},
-{level:"B1",skill:"Grammar",prompt:"When we arrived at the airport, the plane _____.",instruction:"Choose one correct answer.",type:"single",options:["already left","has already left","had already left","was already leave"],answer:[2]},
 {level:"B1",skill:"Grammar",prompt:"The class is challenging, _____ I think it is very useful.",instruction:"Choose one correct answer.",type:"single",options:["because","but","so","unless"],answer:[1]},
 {level:"B1",skill:"Grammar",prompt:"If I _____ enough time after work, I _____ to the gym.",instruction:"Choose one correct answer.",type:"single",options:["have / will go","will have / go","had / will go","have / went"],answer:[0]},
-{level:"B1",skill:"Listening",prompt:"Why are the employees being asked to stay late?",instruction:"Listen and choose one correct answer.",type:"single",listen:"We normally close at five, but we have a large order that must be finished tonight. The manager asked everyone if they could stay until six thirty.",options:["Someone arrived late.","The store changed its normal hours.","They need to finish a large order.","They have a meeting."],answer:[2]},
-{level:"B1",skill:"Grammar",prompt:"If I _____ more free time, I _____ English every day.",instruction:"Choose one correct answer.",type:"single",options:["have / studied","had / would study","would have / study","had / will study"],answer:[1]},
-{level:"B1",skill:"Grammar",prompt:"You missed your appointment because you left home too late. You _____ earlier.",instruction:"Choose one correct answer.",type:"single",options:["should leave","should have left","must left","should had left"],answer:[1]},
-{level:"B1",skill:"Reading",prompt:"Why is Rosa considering moving?",instruction:"Read the paragraph and choose one correct answer.",type:"single",passage:"Rosa recently started a new job. Her salary is better than at her previous job, and she likes her coworkers. However, her commute now takes almost an hour each way. She is considering moving closer to her workplace.",options:["She dislikes her coworkers.","Her salary is too low.","Her commute is long.","She wants a different job."],answer:[2]},
-{level:"B1",skill:"Listening",prompt:"What happened?",instruction:"Listen and choose one correct answer.",type:"single",listen:"I was supposed to meet my supervisor at nine, but traffic was much worse than usual. I called her before the meeting started and explained the situation. Fortunately, she moved our meeting to ten.",options:["The supervisor canceled the meeting.","The employee forgot about the meeting.","The meeting was moved because the employee was delayed.","The employee arrived before nine."],answer:[2]}
+
 ];
 
 let current=0, answers=Array(questions.length).fill(null), student={};
@@ -189,9 +179,31 @@ function renderGrid(){
  questionGrid.innerHTML=questions.map((q,i)=>'<button type="button" class="q-jump '+(answers[i]?'done ':'')+(i===current?'current':'')+'" data-i="'+i+'">'+(i+1)+'</button>').join("");
  questionGrid.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{current=Number(b.dataset.i);renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"})}));
 }
+let preferredVoice=null;
+function choosePreferredVoice(){
+ const voices=speechSynthesis.getVoices();
+ const preferredNames=["Microsoft Aria Online (Natural) - English (United States)","Microsoft Jenny Online (Natural) - English (United States)","Google US English","Samantha","Ava","Zira"];
+ preferredVoice=preferredNames.map(n=>voices.find(v=>v.name===n)).find(Boolean)
+   || voices.find(v=>/en-US/i.test(v.lang)&&/(Aria|Jenny|Samantha|Ava|Zira|female|natural)/i.test(v.name))
+   || voices.find(v=>/en-US/i.test(v.lang))
+   || voices.find(v=>/^en/i.test(v.lang))
+   || null;
+}
+if("speechSynthesis" in window){
+ choosePreferredVoice();
+ speechSynthesis.onvoiceschanged=choosePreferredVoice;
+}
 function speak(text){
  if(!("speechSynthesis" in window)){alert("Audio playback is not supported in this browser.");return}
- speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text);u.lang="en-US";u.rate=.92;speechSynthesis.speak(u);
+ speechSynthesis.cancel();
+ choosePreferredVoice();
+ const u=new SpeechSynthesisUtterance(text);
+ u.lang="en-US";
+ if(preferredVoice)u.voice=preferredVoice;
+ u.rate=.88;
+ u.pitch=1.03;
+ u.volume=1;
+ speechSynthesis.speak(u);
 }
 prevBtn.addEventListener("click",()=>{if(current>0){current--;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"})}});
 nextBtn.addEventListener("click",()=>{if(current<questions.length-1){current++;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"})}});
@@ -201,22 +213,27 @@ function isCorrect(i){const a=(answers[i]||[]).slice().sort((x,y)=>x-y), b=quest
 function scoreRange(start,end){let n=0;for(let i=start;i<=end;i++)if(isCorrect(i))n++;return n}
 function submitTest(){
  const firstMissing=answers.findIndex(a=>!a);
- if(firstMissing!==-1){alert("Please answer all 40 questions before submitting. / Por favor responde las 40 preguntas antes de enviar.");current=firstMissing;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"});return}
- const a1=scoreRange(0,11),a2=scoreRange(12,25),b1=scoreRange(26,39),total=a1+a2+b1;
+ if(firstMissing!==-1){alert("Please answer all 29 questions before submitting. / Por favor responde las 40 preguntas antes de enviar.");current=firstMissing;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"});return}
+ const levelIndexes={A1:[],A2:[],B1:[]};
+ questions.forEach((q,i)=>levelIndexes[q.level].push(i));
+ const scoreLevel=l=>levelIndexes[l].reduce((n,i)=>n+(isCorrect(i)?1:0),0);
+ const a1=scoreLevel("A1"),a2=scoreLevel("A2"),b1=scoreLevel("B1"),total=a1+a2+b1;
+ const a1Max=levelIndexes.A1.length,a2Max=levelIndexes.A2.length,b1Max=levelIndexes.B1.length;
  let level,rec,explain;
- if(a1<7){level="A1 Foundations";rec="Recommended starting point: A1 Foundations";explain="You are building the basic grammar, vocabulary, listening, and everyday English needed for A1."}
- else if(a2<8){level="A1";rec="Recommended class: A1";explain="You show a basic command of everyday English. An A1 course will strengthen your foundation before moving into A2 material."}
- else if(a1>=10&&a2>=10&&b1>=8){level="B1";rec="Recommended class: B1";explain="You show consistent understanding across A1 and A2 and enough B1 comprehension to begin B1-level study."}
- else if(a1>=9&&a2>=9&&b1>=6){level="High A2 / Low B1";rec="Recommended class: High A2 / Low B1";explain="Your A1 and A2 foundation is strong and you are beginning to understand B1 material. A transition-level class is the best fit."}
+ const a1Pct=a1/a1Max, a2Pct=a2/a2Max, b1Pct=b1/b1Max;
+ if(a1Pct<0.58){level="A1 Foundations";rec="Recommended starting point: A1 Foundations";explain="You are building the basic grammar, vocabulary, listening, and everyday English needed for A1."}
+ else if(a2Pct<0.58){level="A1";rec="Recommended class: A1";explain="You show a basic command of everyday English. An A1 course will strengthen your foundation before moving into A2 material."}
+ else if(a1Pct>=0.82&&a2Pct>=0.75&&b1Pct>=0.67){level="B1";rec="Recommended class: B1";explain="You show consistent understanding across A1 and A2 and enough B1 comprehension to begin B1-level study."}
+ else if(a1Pct>=0.75&&a2Pct>=0.67&&b1Pct>=0.50){level="High A2 / Low B1";rec="Recommended class: High A2 / Low B1";explain="Your A1 and A2 foundation is strong and you are beginning to understand B1 material. A transition-level class is the best fit."}
  else{level="A2";rec="Recommended class: A2";explain="You understand much of the A1 and A2 material, but more practice is recommended before moving fully into B1."}
  const skills={};
  questions.forEach((q,i)=>{skills[q.skill]??={ok:0,total:0};skills[q.skill].total++;if(isCorrect(i))skills[q.skill].ok++});
  studentGreeting.textContent=student.firstName+", your estimated English level is:";
  resultLevel.textContent=level;recommendation.textContent=rec;resultExplanation.textContent=explain;
- a1Score.textContent=a1+"/12";a2Score.textContent=a2+"/14";b1Score.textContent=b1+"/14";
+ a1Score.textContent=a1+"/"+a1Max;a2Score.textContent=a2+"/"+a2Max;b1Score.textContent=b1+"/"+b1Max;
  skillList.innerHTML=Object.entries(skills).map(([k,v])=>'<div class="skill"><span>'+esc(k)+'</span><strong>'+v.ok+'/'+v.total+'</strong></div>').join("");
  testArea.classList.add("hidden");resultCard.classList.remove("hidden");window.scrollTo({top:resultCard.offsetTop-90,behavior:"smooth"});
- sendResults({a1,a2,b1,total,level,rec,skills});
+ sendResults({a1,a2,b1,a1Max,a2Max,b1Max,total,level,rec,skills});
 }
 async function sendResults(r){
  const status=emailStatus;
@@ -231,10 +248,10 @@ async function sendResults(r){
  payload.append("WhatsApp",student.whatsapp);
  payload.append("Estimated Level",r.level);
  payload.append("Recommended Placement",r.rec);
- payload.append("Total Score",r.total+"/40");
- payload.append("A1 Score",r.a1+"/12");
- payload.append("A2 Score",r.a2+"/14");
- payload.append("B1 Score",r.b1+"/14");
+ payload.append("Total Score",r.total+"/29");
+ payload.append("A1 Score",r.a1+"/"+r.a1Max);
+ payload.append("A2 Score",r.a2+"/"+r.a2Max);
+ payload.append("B1 Score",r.b1+"/"+r.b1Max);
  payload.append("Skill Snapshot",skillText);
  try{
   const res=await fetch("https://formsubmit.co/ajax/tulsaoutreachnetwork@gmail.com",{method:"POST",headers:{"Accept":"application/json"},body:payload});
