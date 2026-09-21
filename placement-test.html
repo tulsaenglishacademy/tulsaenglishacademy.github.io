@@ -34,7 +34,7 @@ a{text-decoration:none;color:inherit}.shell{width:min(100% - 28px,980px);margin:
 <section class="hero"><div class="shell">
 <h1>English Placement Test</h1>
 <p>Find your estimated English level and the best starting point for your studies.<span class="es">Descubre tu nivel estimado de inglés y el mejor punto de inicio para tus estudios.</span></p>
-<div class="hero-badges"><span>29 Questions</span><span>A1 • A2 • B1</span><span>Listening Included</span><span>About 15–20 Minutes</span></div>
+<div class="hero-badges"><span>30 Questions</span><span>A1 • A2 • B1</span><span>Listening Included</span><span>About 15–20 Minutes</span></div>
 </div></section>
 
 <main class="main"><div class="shell">
@@ -115,7 +115,7 @@ const questions=[
 {level:"A2",skill:"Vocabulary",prompt:"At the clothing store, Maria _____ her jacket before she _____ a new one.",instruction:"Choose one correct answer.",type:"single",options:["took off / tried on","took out / tried in","took on / tried off","took away / tried over"],answer:[0]},
 {level:"A2",skill:"Reading",prompt:"What time should Javier arrive this week?",instruction:"Read the paragraph and choose one correct answer.",type:"single",passage:"Javier works at a warehouse. His normal shift begins at 8:00 a.m., but this week his supervisor asked him to arrive thirty minutes earlier because the company is very busy.",options:["7:00","7:30","8:00","8:30"],answer:[1]},
 
-{level:"B1",skill:"Grammar",prompt:"I _____ at this company for six years.",instruction:"Choose one correct answer.",type:"single",options:["work","worked","have worked","am working"],answer:[2]},
+{level:"B1",skill:"Grammar",prompt:"Before I bought a car, I _____ the bus to work every day.",instruction:"Choose one correct answer.",type:"single",options:["used to take","use to took","used to taking","use take"],answer:[0]},\n{level:"B1",skill:"Grammar",prompt:"I _____ at this company for six years.",instruction:"Choose one correct answer.",type:"single",options:["work","worked","have worked","am working"],answer:[2]},
 {level:"B1",skill:"Listening",prompt:"Why does the speaker prefer the current job?",instruction:"Listen and choose one correct answer.",type:"single",listen:"I liked my old job because the schedule was flexible, but my current job pays much better. If I had to choose, I'd probably stay where I am now.",options:["The schedule is better.","It is closer to home.","It pays more.","The work is easier."],answer:[2]},
 {level:"B1",skill:"Vocabulary",prompt:"After waiting two hours for the doctor, Carlos became very frustrated. Which TWO words are closest in meaning to “frustrated”?",instruction:"Choose two correct answers.",type:"multi",options:["annoyed","irritated","excited","relaxed"],answer:[0,1]},
 {level:"B1",skill:"Practical English",prompt:"Customer: “May I speak to Ms. Torres?” Receptionist: “She's in a meeting right now. May I take your number and ask her to _____?”",instruction:"Choose one correct answer.",type:"single",options:["call you back","call back you","return you","phone back to"],answer:[0]},
@@ -182,9 +182,9 @@ function renderGrid(){
 let preferredVoice=null;
 function choosePreferredVoice(){
  const voices=speechSynthesis.getVoices();
- const preferredNames=["Microsoft Aria Online (Natural) - English (United States)","Microsoft Jenny Online (Natural) - English (United States)","Google US English","Samantha","Ava","Zira"];
+ const preferredNames=["Microsoft Jenny Online (Natural) - English (United States)","Microsoft Ava Online (Natural) - English (United States)","Microsoft Aria Online (Natural) - English (United States)","Google UK English Female","Google US English","Samantha","Zira"];
  preferredVoice=preferredNames.map(n=>voices.find(v=>v.name===n)).find(Boolean)
-   || voices.find(v=>/en-US/i.test(v.lang)&&/(Aria|Jenny|Samantha|Ava|Zira|female|natural)/i.test(v.name))
+   || voices.find(v=>/en-US/i.test(v.lang)&&/(Jenny|Ava|Aria|Samantha|Zira|female|natural)/i.test(v.name))
    || voices.find(v=>/en-US/i.test(v.lang))
    || voices.find(v=>/^en/i.test(v.lang))
    || null;
@@ -200,8 +200,8 @@ function speak(text){
  const u=new SpeechSynthesisUtterance(text);
  u.lang="en-US";
  if(preferredVoice)u.voice=preferredVoice;
- u.rate=.88;
- u.pitch=1.03;
+ u.rate=.84;
+ u.pitch=1.0;
  u.volume=1;
  speechSynthesis.speak(u);
 }
@@ -213,7 +213,7 @@ function isCorrect(i){const a=(answers[i]||[]).slice().sort((x,y)=>x-y), b=quest
 function scoreRange(start,end){let n=0;for(let i=start;i<=end;i++)if(isCorrect(i))n++;return n}
 function submitTest(){
  const firstMissing=answers.findIndex(a=>!a);
- if(firstMissing!==-1){alert("Please answer all 29 questions before submitting. / Por favor responde las 40 preguntas antes de enviar.");current=firstMissing;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"});return}
+ if(firstMissing!==-1){alert("Please answer all 30 questions before submitting. / Por favor responde las 40 preguntas antes de enviar.");current=firstMissing;renderQuestion();window.scrollTo({top:testArea.offsetTop-80,behavior:"smooth"});return}
  const levelIndexes={A1:[],A2:[],B1:[]};
  questions.forEach((q,i)=>levelIndexes[q.level].push(i));
  const scoreLevel=l=>levelIndexes[l].reduce((n,i)=>n+(isCorrect(i)?1:0),0);
@@ -248,7 +248,7 @@ async function sendResults(r){
  payload.append("WhatsApp",student.whatsapp);
  payload.append("Estimated Level",r.level);
  payload.append("Recommended Placement",r.rec);
- payload.append("Total Score",r.total+"/29");
+ payload.append("Total Score",r.total+"/30");
  payload.append("A1 Score",r.a1+"/"+r.a1Max);
  payload.append("A2 Score",r.a2+"/"+r.a2Max);
  payload.append("B1 Score",r.b1+"/"+r.b1Max);
