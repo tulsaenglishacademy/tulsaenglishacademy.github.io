@@ -127,11 +127,47 @@ const questions=[
 
 let current=0, answers=Array(questions.length).fill(null), student={};
 
-const startCard=document.getElementById("startCard"),testArea=document.getElementById("testArea"),resultCard=document.getElementById("resultCard");
-document.getElementById("studentForm").addEventListener("submit",e=>{
+const startCard=document.getElementById("startCard");
+const testArea=document.getElementById("testArea");
+const resultCard=document.getElementById("resultCard");
+const studentForm=document.getElementById("studentForm");
+const firstName=document.getElementById("firstName");
+const lastName=document.getElementById("lastName");
+const email=document.getElementById("email");
+const whatsapp=document.getElementById("whatsapp");
+const questionCard=document.getElementById("questionCard");
+const progressBar=document.getElementById("progressBar");
+const progressText=document.getElementById("progressText");
+const answeredText=document.getElementById("answeredText");
+const questionGrid=document.getElementById("questionGrid");
+const prevBtn=document.getElementById("prevBtn");
+const nextBtn=document.getElementById("nextBtn");
+const submitBtn=document.getElementById("submitBtn");
+const studentGreeting=document.getElementById("studentGreeting");
+const resultLevel=document.getElementById("resultLevel");
+const recommendation=document.getElementById("recommendation");
+const resultExplanation=document.getElementById("resultExplanation");
+const a1Score=document.getElementById("a1Score");
+const a2Score=document.getElementById("a2Score");
+const b1Score=document.getElementById("b1Score");
+const skillList=document.getElementById("skillList");
+const emailStatus=document.getElementById("emailStatus");
+
+studentForm.addEventListener("submit",e=>{
  e.preventDefault();
  student={firstName:firstName.value.trim(),lastName:lastName.value.trim(),email:email.value.trim(),whatsapp:whatsapp.value.trim()};
- startCard.classList.add("hidden");testArea.classList.remove("hidden");renderQuestion();window.scrollTo({top:0,behavior:"smooth"});
+ startCard.classList.add("hidden");
+ testArea.classList.remove("hidden");
+ try{
+   renderQuestion();
+ }catch(err){
+   console.error(err);
+   startCard.classList.remove("hidden");
+   testArea.classList.add("hidden");
+   alert("The test could not start. Please refresh the page and try again.");
+   return;
+ }
+ window.scrollTo({top:0,behavior:"smooth"});
 });
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
 function visualHTML(type){
