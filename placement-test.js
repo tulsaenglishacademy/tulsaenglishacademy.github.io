@@ -64,8 +64,18 @@ const b1Score=document.getElementById("b1Score");
 const skillList=document.getElementById("skillList");
 const emailStatus=document.getElementById("emailStatus");
 
-studentForm.addEventListener("submit",e=>{
- e.preventDefault();
+const startTestBtn=document.getElementById("startTestBtn");
+function beginTest(e){
+ if(e)e.preventDefault();
+ if(!firstName.value.trim()||!lastName.value.trim()||!email.value.trim()||!whatsapp.value.trim()){
+   alert("Please complete all fields before starting. / Por favor completa todos los campos antes de comenzar.");
+   return;
+ }
+ const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+ if(!emailOk){
+   alert("Please enter a valid email address. / Por favor ingresa un correo electrónico válido.");
+   return;
+ }
  student={firstName:firstName.value.trim(),lastName:lastName.value.trim(),email:email.value.trim(),whatsapp:whatsapp.value.trim()};
  startCard.classList.add("hidden");
  testArea.classList.remove("hidden");
@@ -79,7 +89,9 @@ studentForm.addEventListener("submit",e=>{
    return;
  }
  window.scrollTo({top:0,behavior:"smooth"});
-});
+}
+startTestBtn.addEventListener("click",beginTest);
+studentForm.addEventListener("submit",beginTest);
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]))}
 function visualHTML(type){
  if(type==="clock") return '<div class="visual"><div class="clock"><div class="clock-dot"></div></div></div>';
