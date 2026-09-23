@@ -1,0 +1,12 @@
+.category.carousel{padding:0;overflow:hidden;background:#fff;border-color:#d9d0f3}
+.carousel-photo{aspect-ratio:1.08/1;background-size:500% auto;background-repeat:no-repeat;transition:background-position .35s ease;border-bottom:2px solid var(--line)}
+.carousel-body{padding:14px}
+.category .category-name{color:var(--pd);font-size:.78rem;font-weight:950;text-transform:uppercase;letter-spacing:.08em}
+.slide-word{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+.slide-word strong{font-size:1.3rem}
+.mini-audio{width:36px;height:36px;font-size:.8rem}
+.category .slide-translation{min-height:42px;margin:3px 0;font-size:.82rem}
+.slide-controls{display:grid;grid-template-columns:40px 1fr 40px;gap:6px;align-items:center;margin-top:10px}
+.slide-controls button{width:40px;height:40px;border:2px solid var(--p);border-radius:50%;background:#fff;color:var(--pd);font-size:1.5rem;font-weight:900;cursor:pointer}
+.slide-count{text-align:center;font-size:.78rem;color:var(--muted);font-weight:850}
+@media(prefers-reduced-motion:reduce){.carousel-photo{transition:none}}
