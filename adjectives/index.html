@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7250ef">
+  <meta name="description" content="Learn 200 common English adjectives with pictures, IPA pronunciation, Spanish translations, examples, and quizzes.">
+  <title>200 Everyday Adjectives | Tulsa English Academy</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%237250ef'/%3E%3Cpath d='M16 15h32v8H16zm0 13h24v8H16zm0 13h32v8H16z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#lesson">Skip to adjective</a>
+  <header class="topbar">
+    <a class="brand" href="../"><img src="../tulsa-logo-white-clean.svg" alt="Tulsa English Academy"><span>200 Everyday Adjectives</span></a>
+    <div class="top-actions">
+      <button id="libraryBtn" class="top-button" type="button">Word Library</button>
+      <button id="quizBtn" class="top-button accent" type="button">Quick Quiz</button>
+      <a class="top-button" href="../parts-of-speech/">Parts of Speech</a>
+    </div>
+  </header>
+
+  <main id="lesson" tabindex="-1">
+    <section class="lesson-shell" aria-labelledby="word">
+      <div class="image-panel">
+        <div id="loading" class="image-loading">Loading visual…</div>
+        <img id="adjectiveImage" alt="" decoding="async">
+        <span id="categoryBadge" class="category-badge"></span>
+      </div>
+
+      <article class="word-panel">
+        <div class="word-content">
+          <p id="counter" class="eyebrow"></p>
+          <h1 id="word" dir="ltr"></h1>
+          <div class="pronunciation-row">
+            <span id="ipa" class="ipa" dir="ltr"></span>
+            <button id="speakBtn" class="round-button" type="button" aria-label="Listen to pronunciation">🔊</button>
+          </div>
+          <div class="translation-card">
+            <span>ESPAÑOL</span>
+            <strong id="spanish"></strong>
+          </div>
+          <div class="example-card">
+            <span>EXAMPLE SENTENCE</span>
+            <p id="example" dir="ltr"></p>
+            <p id="exampleSpanish"></p>
+            <button id="sentenceBtn" class="listen-sentence" type="button">🔊 Listen to sentence</button>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+          <div class="control-buttons">
+            <button id="prevBtn" class="button secondary" type="button">← Previous</button>
+            <button id="knownBtn" class="button known" type="button">✓ Mark learned</button>
+            <button id="nextBtn" class="button primary" type="button">Next →</button>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <dialog id="libraryDialog" class="dialog library-dialog">
+    <form method="dialog" class="dialog-head"><div><p class="eyebrow">200 PRACTICAL WORDS</p><h2>Adjective Library</h2></div><button class="close" aria-label="Close">×</button></form>
+    <div class="filters">
+      <label><span>Search</span><input id="searchInput" type="search" placeholder="Search English or Spanish…"></label>
+      <label><span>Category</span><select id="categorySelect"></select></label>
+      <p id="learnedCount"></p>
+    </div>
+    <div id="wordGrid" class="word-grid"></div>
+  </dialog>
+
+  <dialog id="quizDialog" class="dialog quiz-dialog">
+    <form method="dialog" class="dialog-head"><div><p class="eyebrow">5 QUESTIONS</p><h2>Quick Adjective Quiz</h2></div><button class="close" aria-label="Close">×</button></form>
+    <div id="quizContent"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
