@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#5b35d5">
+  <meta name="description" content="A live multiplayer Present Perfect speaking game for Tulsa English Academy.">
+  <title>Present Perfect Live | Tulsa English Academy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="app-header">
+      <a class="brand" href="../" aria-label="Return to Tulsa English Academy home">
+        <img src="../tulsa-logo-white-clean.svg" alt="Tulsa English Academy">
+      </a>
+      <div class="connection-pill" id="connectionPill" role="status">
+        <span class="status-dot"></span>
+        <span id="connectionText">Ready to connect</span>
+      </div>
+    </header>
+
+    <section class="setup-view" id="setupView">
+      <div class="setup-copy">
+        <span class="kicker">Live classroom speaking game</span>
+        <h1>Present Perfect<br><span>Already · Still · Yet</span></h1>
+        <p>Join from any phone. Spin for a student, ask the question, answer the follow-up, and complete all 50 speaking turns together.</p>
+        <p class="setup-copy-es">Únete desde cualquier teléfono. Gira para seleccionar a un estudiante, haz la pregunta, responde la pregunta adicional y completen juntos las 50 rondas.</p>
+      </div>
+
+      <div class="setup-panel">
+        <div class="role-tabs" role="tablist" aria-label="Choose how to join">
+          <button class="role-tab active" id="teacherTab" type="button" role="tab" aria-selected="true">Teacher</button>
+          <button class="role-tab" id="studentTab" type="button" role="tab" aria-selected="false">Student</button>
+        </div>
+
+        <form class="join-form" id="teacherForm">
+          <div class="form-heading">
+            <span class="form-icon">★</span>
+            <div><strong>Create a live room</strong><small>Crea una sala en vivo</small></div>
+          </div>
+          <label for="teacherName">Teacher name</label>
+          <input id="teacherName" name="teacherName" autocomplete="name" maxlength="24" placeholder="Teacher" value="Teacher">
+          <button class="primary-button" id="createRoomButton" type="submit">Create room</button>
+          <p class="privacy-note">No account needed. Keep this screen open while the class plays.</p>
+        </form>
+
+        <form class="join-form hidden" id="studentForm">
+          <div class="form-heading">
+            <span class="form-icon">↗</span>
+            <div><strong>Join your class</strong><small>Únete a tu clase</small></div>
+          </div>
+          <label for="studentName">Your name</label>
+          <input id="studentName" name="studentName" autocomplete="name" maxlength="24" placeholder="Enter your name" required>
+          <label for="roomCodeInput">Room code</label>
+          <input class="room-input" id="roomCodeInput" name="roomCode" maxlength="6" inputmode="text" autocapitalize="characters" autocomplete="off" placeholder="ABC123" required>
+          <button class="primary-button" id="joinRoomButton" type="submit">Join room</button>
+          <p class="form-error" id="joinError" role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="game-view hidden" id="gameView" aria-label="Present Perfect live game">
+      <aside class="class-panel">
+        <div class="room-card">
+          <span class="small-label">Room code</span>
+          <div class="room-code-row"><strong id="roomCodeDisplay">------</strong><button id="copyRoomButton" type="button">Copy</button></div>
+          <p>Students: open this page and enter the code.</p>
+          <button class="share-button" id="shareRoomButton" type="button">Share join link</button>
+        </div>
+
+        <div class="progress-block">
+          <div class="progress-heading"><span>Class progress</span><strong id="progressText">0 / 50</strong></div>
+          <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+        </div>
+
+        <div class="players-heading"><span>Players</span><strong id="playerCount">0</strong></div>
+        <div class="player-list" id="playerList" aria-live="polite"></div>
+        <p class="empty-players" id="emptyPlayers">Waiting for students to join…</p>
+
+        <div class="host-actions" id="hostActions">
+          <button class="text-button" id="newGameButton" type="button">Start a new game</button>
+          <button class="text-button danger" id="endRoomButton" type="button">End room</button>
+        </div>
+      </aside>
+
+      <section class="question-stage">
+        <div class="stage-topline">
+          <div><span class="role-badge" id="roleBadge">Teacher</span><span class="question-number" id="questionNumber">Question 1 of 50</span></div>
+          <button class="players-toggle" id="playersToggle" type="button">Players <span id="mobilePlayerCount">0</span></button>
+        </div>
+
+        <div class="question-card" id="questionCard">
+          <span class="focus-chip" id="focusChip">ALREADY</span>
+          <div class="question-content">
+            <h2 id="questionEnglish">Waiting for students to join.</h2>
+            <p class="translation" id="questionSpanish">Esperando que los estudiantes se unan.</p>
+            <div class="follow-up" id="followUpBlock">
+              <span>Follow-up · Pregunta adicional</span>
+              <h3 id="followEnglish">The game can begin when everyone is ready.</h3>
+              <p id="followSpanish">El juego puede comenzar cuando todos estén listos.</p>
+            </div>
+          </div>
+
+          <div class="selected-player" id="selectedPlayer" aria-live="assertive">
+            <span class="selected-label">Selected player · Estudiante seleccionado</span>
+            <strong id="selectedPlayerName">Ready?</strong>
+          </div>
+        </div>
+
+        <div class="game-controls">
+          <button class="spin-button" id="startGameButton" type="button">Start the game</button>
+          <button class="spin-button hidden" id="spinButton" type="button"><span aria-hidden="true">↻</span> Spin for a player</button>
+          <button class="complete-button hidden" id="completeButton" type="button">Complete turn <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="turn-instruction" id="turnInstruction">Wait for at least two students, then begin.</p>
+      </section>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
