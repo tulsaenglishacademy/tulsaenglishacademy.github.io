@@ -36,7 +36,7 @@ function render(){
  $('progressText').textContent='Question '+(state.index+1)+' of '+state.order.length+' · '+complete+' completed · '+(state.order.length-complete)+' remaining';
  const pct=Math.round(complete/state.order.length*100);$('progressBar').style.width=pct+'%';$('progress').setAttribute('aria-valuenow',pct);
  $('category').textContent=q.category;$('questionTitle').textContent=q.prompt;$('questionTitle').tabIndex=-1;
- $('streak').textContent='🔥 '+state.streak+' / 3';
+ $('streak').textContent='🔥 '+(state.streak ? ((state.streak-1)%3)+1 : 0)+' / 3';$('streak').setAttribute('aria-label','Current streak: '+state.streak+' correct answers');
  $('muteBtn').textContent=state.muted?'🔇':'🔊';$('muteBtn').setAttribute('aria-pressed',String(state.muted));$('muteBtn').setAttribute('aria-label',state.muted?'Unmute timer warning':'Mute timer warning');
  $('levelChip').textContent=['Easy','Medium','Brain Melter 🧠🔥'][state.level-1];
  const support=document.querySelector('.clue-panel');support.classList.toggle('hidden',state.level===3);document.querySelector('.activity').classList.toggle('no-support',state.level===3);
