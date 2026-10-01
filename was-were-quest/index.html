@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#6750a4">
+<title>Was &amp; Were Quest | Tulsa English Academy</title>
+<meta name="description" content="Practice was and were with English and Spanish support, answer tiles, and real-life conversation questions.">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to game</a>
+<main id="main" class="app">
+<header class="site-header"><div class="brand"><img src="../verb-quest/assets/tulsa-english-academy-logo.png" alt="Tulsa English Academy"></div><button id="newGameBtn" class="btn neutral hidden" type="button">New Game</button></header>
+<section id="setup" class="setup card" aria-labelledby="setupTitle">
+<form id="setupForm" class="setup-form">
+<h2 id="setupTitle">Make the past your own.</h2>
+<p class="form-order" aria-label="Was and were"><span>WAS</span><span>WERE</span></p>
+<label class="difficulty-label" for="difficulty">Game difficulty</label>
+<select id="difficulty"><option value="1">Easy</option><option value="2">Medium</option><option value="3">Brain Melter 🧠🔥</option></select>
+<div class="menu-instructions"><p>Choose or arrange the tiles to practice was and were.</p><p lang="es">Elige u ordena las fichas para practicar was y were.</p></div>
+<button class="btn primary wide" type="submit">Start Game</button>
+</form></section>
+<section id="game" class="game hidden" aria-label="Was and were game">
+<div class="game-top"><div class="progress-wrap"><div id="progressText" class="progress-text"></div><div id="progress" class="progress" role="progressbar" aria-label="Game progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressBar"></span></div></div><div class="timer-wrap"><div id="timer" class="timer"><strong id="timerNumber">00:45</strong></div><button id="muteBtn" class="icon-btn" type="button" aria-pressed="false" aria-label="Mute timer warning">🔊</button></div></div>
+<article class="activity card">
+<section class="clue-panel" aria-label="Learning support"><div id="levelChip" class="level-chip"></div><div id="photoFrame" class="photo-frame"><div id="verbPhoto" class="verb-photo" role="img"></div></div><p id="spanishClue" class="sentence-clue" lang="es"></p><p id="exampleClue" class="sentence-clue"></p></section>
+<section class="answer-panel" aria-labelledby="questionTitle"><div class="answer-heading"><div><p id="category" class="kicker"></p><h2 id="questionTitle"></h2></div><div id="streak" class="streak">🔥 0 / 3</div></div>
+<div id="answerSlots" class="order-slots hidden" aria-label="Sentence order"></div>
+<div id="tileBank" class="tile-bank" aria-label="Answer choices"></div>
+<p id="interactionHelp" class="interaction-help"></p><p id="attemptMessage" class="attempt-message" role="status"></p>
+<div class="answer-actions"><button id="checkBtn" class="btn primary">Check Answer</button><button id="resetBtn" class="btn secondary">Reset Answer</button><button id="nextBtn" class="btn primary hidden">Next Question</button></div></section>
+<section id="feedbackPanel" class="feedback-panel hidden" aria-labelledby="feedbackTitle"><div id="feedbackStatus" class="feedback-status" role="status"></div><h2 id="feedbackTitle" class="correct-answer"></h2><p id="explanation"></p><button id="pronounceBtn" class="btn secondary" type="button">🔊 Hear the answer</button><div class="speaking-practice"><p class="kicker">Your turn to speak · Ahora habla tú</p><p id="speakingQuestion"></p><p id="followUp"></p><p class="interaction-help">Answer in a complete sentence, add a detail, then ask a follow-up question.<br><span lang="es">Responde con una oración completa, agrega un detalle y haz otra pregunta relacionada.</span></p></div></section>
+</article></section>
+<section id="results" class="results card hidden" aria-labelledby="resultsTitle"><div class="trophy" aria-hidden="true">🏆</div><p class="kicker">Was &amp; Were Quest</p><h2 id="resultsTitle">Game complete!</h2><div id="stats" class="stats"></div><div id="difficultQuestions" class="difficult-verbs"></div><div class="result-actions"><button id="reviewBtn" class="btn primary">Review Missed Questions</button><button id="playAgainBtn" class="btn secondary">Play Again</button><button id="resultsNewBtn" class="btn neutral">Start New Game</button></div></section>
+</main>
+<div id="confirmDialog" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="confirmTitle"><div class="dialog"><h2 id="confirmTitle">Start a new game?</h2><p>Current progress will be lost.</p><div><button id="continueBtn" class="btn secondary">Continue Current Game</button><button id="confirmNewBtn" class="btn danger">Start New Game</button></div></div></div>
+<div id="resumeDialog" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="resumeTitle"><div class="dialog"><h2 id="resumeTitle">Resume your game?</h2><p>A game in progress was saved on this device.</p><div><button id="resumeBtn" class="btn primary">Resume Game</button><button id="discardBtn" class="btn secondary">Discard Saved Game</button></div></div></div>
+<div id="announcer" class="sr-only" aria-live="polite"></div>
+<script src="../verb-quest/game-core.js"></script><script src="content.js?v=1"></script><script src="app.js?v=1"></script>
+</body></html>
