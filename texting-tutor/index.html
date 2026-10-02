@@ -20,7 +20,7 @@ header{display:flex;align-items:center;gap:12px;padding:11px 15px;border-bottom:
 <div class="composer"><div class="tools"><button class="tool" data-help="es">🇪🇸 Spanish Help</button><button class="tool" data-help="simple">Simpler English</button><button class="tool" data-help="answer">Help me answer</button><button class="tool" data-help="another">Another question</button><button class="tool" data-help="recap">Recap</button></div><form id="form" class="sendrow"><label class="sr" for="input">Type your reply</label><input id="input" maxlength="400" autocomplete="off" placeholder="Type a message…"><button class="send">Send</button></form></div>
 </section></main><div class="modal" id="modal" role="dialog" aria-modal="true"><div class="card"><h2>Clear this chat?</h2><p>This removes the saved conversation and selected subject from this device.</p><div class="card-actions"><button class="pill" id="cancel">Cancel</button><button class="danger" id="confirm">Clear chat</button></div></div></div>
 <script>
-const KEY="tea_texting_tutor_v4";
+const KEY="tea_texting_tutor_v5";
 const curriculum={"BE VERBS":["Am / is / are","Was / were","There is / there are","There was / there were"],"PRESENT":["Simple present","Present continuous","Simple present versus present continuous"],"PAST":["Simple past: regular verbs","Simple past: irregular verbs","Past continuous","Simple past versus past continuous"],"PERFECT TENSES":["Present perfect","Ever / never","Already / yet / still","Since / for","Present perfect versus simple past"],"FUTURE":["Going to","Will","Present continuous for future arrangements"],"ABILITY, ADVICE, AND OBLIGATIONS":["Can / could","Should","Must / have to","Permission and requests"],"DESCRIBING AND COMPARING":["Adjectives","Adverbs","Comparatives","Superlatives"],"PEOPLE, THINGS, AND QUANTITIES":["Pronouns","Possessives","Articles","Countable and uncountable nouns","Some / any","Much / many"],"TIME, PLACE, AND HABITS":["Prepositions","Frequency adverbs","Past-time expressions"],"EVERYDAY EXPRESSIONS":["Phrasal verbs","Common phrases","Natural greetings and responses"],"LATER-LEVEL SUBJECTS":["Past perfect","Conditionals","Passive voice","Reported speech"]};
 const L={
 present:{name:"Am / is / are",es:"Usamos am/is/are para identidad, estado, descripción y ubicación.",structures:["I am","you/we/they are","he/she/it is"],suggest:["I’m at home.","It’s pretty busy.","My favorite snack is fruit."],qs:[["location","Are you home or out somewhere?","¿Estás en casa o en algún lugar afuera?"],["day","How’s your day? Is it busy or pretty relaxed?","¿Cómo va tu día? ¿Está ocupado o tranquilo?"],["food","What’s your favorite snack?","¿Cuál es tu merienda favorita?"],["mood","How are you feeling today?","¿Cómo te sientes hoy?"],["weather","What’s the weather like where you are?","¿Cómo está el clima donde estás?"],["people","Who’s someone you’re close to? What are they like?","¿Quién es alguien cercano a ti? ¿Cómo es?"],["routine","Are your mornings usually busy?","¿Tus mañanas suelen ser ocupadas?"]]},
@@ -77,10 +77,42 @@ function ack(t){let s=clean(t);if(/busy/.test(s))return"Sounds like you had a lo
 function follow(t){let s=clean(t),tag=S.current?.tag;if(s.length<3||/^(idk|i don't know|i dont know|not sure)$/.test(s))return"No problem. Want an easier version of the question?";if(tag==="day")return/\bbusy\b/.test(s)?"Was it busy all day, or only part of the day?":"What made it feel that way?";if(tag==="weekend")return/relax|home|quiet/.test(s)?"What was the most relaxing part?":"Who were you with?";if(tag==="location")return"What do you like about that place?";if(tag==="food")return S.lesson==="irregular"?"Who did you eat with?":"Why was it memorable?";if(tag==="people")return S.lesson==="irregular"?"Who did you talk to the most?":"What were they like?";if(tag==="mood")return"What made you feel that way?";if(tag==="weather")return"Was that good weather for you?";if(tag==="buy")return"Where did you buy it?";if(tag==="see")return"Who did you watch it with?";if(tag==="get")return"How did you feel when you got the news?";if(tag==="take")return"Did you use everything you took?";if(tag==="make")return"Who ate it with you?";return"Tell me a little more about that."}
 function reply(t){let a=analyze(t);if(a.kind==="unclear"){add("tutor","I’m not completely sure what you mean. Could you say it another way? You can also tap “Help me answer.”");return}if(a.kind==="unsure"){add("tutor","No worries 🙂 Let’s make it easier. "+(S.lesson==="present"?"Try starting with “I am…”":S.lesson==="pastbe"?"Try starting with “It was…” or “I was…”":"Think of one thing you did. Try “I went…”, “I ate…”, or “I saw…”"));return}let o=ack(t);if(a.kind==="mistake"){let corrected=a.sentence.trim();corrected=corrected.charAt(0).toUpperCase()+corrected.slice(1);if(!/[.!?]$/.test(corrected))corrected+=".";o+="\n\nSmall correction: “"+corrected+"” "+a.why;S.fixes.push(corrected);S.fixes=S.fixes.slice(-6)}o+="\n\n"+follow(t);add("tutor",o)}
 document.getElementById("form").onsubmit=e=>{e.preventDefault();let t=I.value.trim();if(!t)return;I.value="";add("student",t);if(!S.lesson){typing(()=>smallTalkReply(t));return}typing(()=>reply(t))};
-document.querySelectorAll("[data-help]").forEach(b=>b.onclick=()=>{if(!S.lesson){add("tutor","Choose a subject first, and I’ll help from there.");return}let l=L[S.lesson],h=b.dataset.help;if(h==="es")add("tutor",(S.current?.es||l.es)+"\n\nGrammar help: "+l.es);if(h==="simple")add("tutor","Sure. Let’s make it simpler:\n\n"+(S.lesson==="present"?"How are you today?":S.lesson==="pastbe"?"How was yesterday?":"Where did you go yesterday?"));if(h==="answer")add("tutor","You could start with one of these:\n• "+l.suggest.join("\n• "));if(h==="another")typing(next);if(h==="recap")add("tutor","Quick practice recap — "+l.name+"\n\n"+(S.fixes.length?"Useful corrected sentences:\n• "+S.fixes.slice(-3).join("\n• "):"You haven’t needed any saved target-grammar corrections yet.")+"\n\nKeep using: "+l.structures.slice(0,3).join(" • "))});
+document.querySelectorAll("[data-help]").forEach(b=>b.onclick=()=>{let h=b.dataset.help;if(!S.lesson){
+ if(h==="es")add("tutor","Claro 🙂 Puedes escribir en inglés y te ayudaré. Si cometes un error claro, te mostraré una corrección breve.");
+ if(h==="simple")add("tutor","Sure 🙂 Let’s keep it simple. How are you today?");
+ if(h==="answer")add("tutor","You could say: “I’m good.” “I’m tired.” “My day is busy.” or just answer naturally.");
+ if(h==="another")add("tutor","Sure 🙂 What have you been up to today?");
+ if(h==="recap")add("tutor","We’re just chatting so far. Once we practice a grammar subject, I can give you a short recap.");
+ return;}let l=L[S.lesson];if(h==="es")add("tutor",(S.current?.es||l.es)+"\n\nGrammar help: "+l.es);if(h==="simple")add("tutor","Sure. Let’s make it simpler:\n\n"+(S.lesson==="present"?"How are you today?":S.lesson==="pastbe"?"How was yesterday?":"Where did you go yesterday?"));if(h==="answer")add("tutor","You could start with one of these:\n• "+l.suggest.join("\n• "));if(h==="another")typing(next);if(h==="recap")add("tutor","Quick practice recap — "+l.name+"\n\n"+(S.fixes.length?"Useful corrected sentences:\n• "+S.fixes.slice(-3).join("\n• "):"You haven’t needed any saved target-grammar corrections yet.")+"\n\nKeep using: "+l.structures.slice(0,3).join(" • "))});
 document.getElementById("change").onclick=()=>{S.lesson=null;S.current=null;S.phase="choose";add("tutor","Sure. What do you feel like practicing?")};document.getElementById("clear").onclick=()=>document.getElementById("modal").classList.add("open");document.getElementById("cancel").onclick=()=>document.getElementById("modal").classList.remove("open");document.getElementById("confirm").onclick=()=>{localStorage.removeItem(KEY);S={lesson:null,msg:[],used:{},current:null,fixes:[],phase:"hello"};document.getElementById("modal").classList.remove("open");start()};
+function generalCorrection(t){
+ let s=clean(t);
+ if(/^(i|im|i m)\s+(ok|okay|fine|good|great|tired|busy|happy|sad)$/.test(s)){
+   let feeling=s.split(" ").pop();
+   return{sentence:"I’m "+feeling+".",why:"With a feeling or condition, use am after I."};
+ }
+ if(/^i\s+not\s+(ok|okay|fine|good|tired|busy|happy)$/.test(s)){
+   let feeling=s.split(" ").pop();
+   return{sentence:"I’m not "+feeling+".",why:"Use am with I: I am / I’m."};
+ }
+ if(/^(he|she|it)\s+(ok|okay|fine|good|great|tired|busy|happy|sad)$/.test(s)){
+   let p=s.split(" ")[0], feeling=s.split(" ").pop();
+   return{sentence:p.charAt(0).toUpperCase()+p.slice(1)+" is "+feeling+".",why:"Use is after he, she, or it."};
+ }
+ if(/^(you|we|they)\s+(ok|okay|fine|good|great|tired|busy|happy|sad)$/.test(s)){
+   let p=s.split(" ")[0], feeling=s.split(" ").pop();
+   return{sentence:p.charAt(0).toUpperCase()+p.slice(1)+" are "+feeling+".",why:"Use are after you, we, or they."};
+ }
+ return null;
+}
 function openingReply(t){
  let s=clean(t);
+ let general=generalCorrection(t);
+ if(general){
+   let corrected=general.sentence;
+   add("tutor","I got you 🙂 Small correction: “"+corrected+"” "+general.why+"\n\nHow’s your day going?");
+   S.phase="smalltalk";save();return;
+ }
  if(/^(hi|hey|hello|hiya|good morning|good afternoon|good evening)$/.test(s)){
    S.phase="smalltalk";
    let r=["Hey 🙂 How’s your day going?","Hi! How are you doing today?","Hey there! How’s everything going?"];
