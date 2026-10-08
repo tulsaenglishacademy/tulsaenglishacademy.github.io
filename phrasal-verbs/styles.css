@@ -1,0 +1,27 @@
+@import url('../adjectives/styles.css');
+.lesson-shell{width:min(1200px,96vw);aspect-ratio:auto;min-height:680px;grid-template-columns:1fr 1fr}
+.word-panel{padding:28px;overflow:visible}
+.word-panel h1{font-size:clamp(2.4rem,4vw,4rem);line-height:1.08;overflow-wrap:normal}
+.pronunciation-row{margin:12px 0}
+.image-panel{min-height:560px}
+.scene{width:100%;aspect-ratio:1;background-image:url('assets/scenes.webp');background-size:500% 400%;background-repeat:no-repeat;border-radius:18px;box-shadow:0 8px 30px #17193f14}
+.meaning-task{margin:18px 0}
+.meaning-task h2{font-size:1.05rem;line-height:1.5;margin:0 0 10px}
+.meaning-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.meaning-option{min-height:52px;border:2px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);padding:12px;text-align:left;font:inherit;font-weight:700;cursor:pointer}
+.meaning-option:hover:not(:disabled){border-color:var(--purple);background:#f6f2ff}
+.meaning-option.correct{background:#e6f7ef;border-color:var(--green);color:#0d5e44}
+.meaning-option.wrong{background:#fff0f2;border-color:var(--red);color:#8d1f36}
+.meaning-option:disabled{cursor:default}
+.meaning-feedback{line-height:1.5;font-weight:700;margin:12px 0 0}
+.meaning-feedback:empty{display:none}
+.example-card{margin-top:0}
+[hidden]{display:none!important}
+.translation-card{margin:12px 0}
+.category-badge{bottom:24px;left:24px}
+.image-caption{position:absolute;top:20px;left:20px;font-size:.75rem;color:var(--navy);background:#ffffffe6;padding:6px 10px;border-radius:999px}
+.controls{margin-top:16px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.word-chip span{line-height:1.4}
+@media(max-width:800px){.lesson-shell{width:min(100%,650px);height:auto;min-height:0;grid-template-columns:1fr;grid-template-rows:auto auto}.image-panel{min-height:0;padding:20px}.scene{max-width:520px}.word-panel{padding:24px}.top-actions{flex-wrap:wrap}.category-badge{bottom:28px}.example-card p+p{display:block}}
+@media(max-width:480px){.image-panel{padding:12px}.word-panel{padding:18px}.scene{border-radius:12px}.category-badge{left:20px;bottom:20px;font-size:.65rem}.meaning-options{grid-template-columns:1fr 1fr}.meaning-option{font-size:.94rem;padding:10px}.word-panel h1{font-size:2.5rem}.button{min-height:44px}.image-caption{top:16px;left:16px}.topbar{gap:8px}.control-buttons{grid-template-columns:1fr 1fr}}
