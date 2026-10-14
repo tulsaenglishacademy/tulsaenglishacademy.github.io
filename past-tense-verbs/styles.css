@@ -3,8 +3,8 @@
 .word-panel{padding:28px;overflow:visible}
 .word-panel h1{font-size:clamp(2.4rem,4vw,4rem);line-height:1.08;overflow-wrap:anywhere}
 .pronunciation-row{margin:8px 0 12px}
-.image-panel{min-height:560px}
-.scene{width:100%;aspect-ratio:1;background-image:url('assets/scenes.webp');background-size:500% 500%;background-repeat:no-repeat;border-radius:18px;box-shadow:0 8px 30px #17193f14}
+.image-panel{min-height:560px;align-content:start}
+.scene{width:100%;aspect-ratio:1;margin-top:36px;background-image:url('assets/scenes.webp');background-size:500% 500%;background-repeat:no-repeat;border-radius:18px;box-shadow:0 8px 30px #17193f14}
 .verb-tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
 .verb-tags span{border-radius:999px;padding:6px 10px;background:#eee9ff;color:var(--purple-dark);font-size:.77rem;font-weight:850;line-height:1.4}
 .verb-tags span+span{background:#fff4d1;color:#715100}
@@ -30,7 +30,7 @@
 .past-card .ipa{font-size:1rem}
 .past-card .round-button{flex-shrink:0}
 .usage-note{font-size:.92rem;line-height:1.5;margin:10px 0;color:var(--muted)}
-.category-badge{bottom:24px;left:24px}
+.category-badge{position:static;justify-self:start;margin-top:16px}
 .image-caption{position:absolute;top:20px;left:20px;font-size:.75rem;color:var(--navy);background:#ffffffe6;padding:6px 10px;border-radius:999px}
 .controls{margin-top:12px}
 .synonyms{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
