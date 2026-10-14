@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#7250ef">
+  <meta name="description" content="Learn 100 everyday regular and irregular verbs in the past tense with images, IPA pronunciation, Spanish, action and non-action labels, and contextual synonyms.">
+  <title>100 Everyday Past-Tense Verbs | Tulsa English Academy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#lesson">Skip to verb</a>
+  <header class="topbar">
+    <a class="brand" href="../"><img src="../tulsa-logo-white-clean.svg" alt="Tulsa English Academy"><span>100 Everyday Past-Tense Verbs</span></a>
+    <div class="top-actions">
+      <button id="libraryBtn" class="top-button" type="button">Verb Library</button>
+      <button id="quizBtn" class="top-button accent" type="button">Quick Quiz</button>
+      <a class="top-button" href="../phrasal-verbs/">Phrasal Verbs</a>
+    </div>
+  </header>
+  <main id="lesson" tabindex="-1">
+    <section class="lesson-shell" aria-labelledby="word">
+      <div class="image-panel">
+        <div id="scene" class="scene" role="img"></div>
+        <span class="image-caption">Realistic illustration</span>
+        <span id="categoryBadge" class="category-badge"></span>
+      </div>
+      <article class="word-panel">
+        <div class="word-content">
+          <p id="counter" class="eyebrow"></p>
+          <div class="verb-tags"><span id="regularTag"></span><span id="actionTag"></span></div>
+          <p class="form-label">BASE FORM · FORMA BASE</p>
+          <h1 id="word"></h1>
+          <div class="pronunciation-row"><span id="ipa" class="ipa"></span><button id="speakBtn" class="round-button" type="button" aria-label="Listen to base form">🔊</button></div>
+          <div class="translation-card"><span>ESPAÑOL</span><strong id="spanish" lang="es"></strong></div>
+          <section class="meaning-task" aria-labelledby="taskTitle">
+            <h2 id="taskTitle">Complete the sentence in the past.<br><small lang="es">Completa la oración en pasado.</small></h2>
+            <div class="example-card"><span>PAST SIMPLE · PASADO SIMPLE</span><p id="example"></p><p id="exampleSpanish" lang="es" hidden></p><button id="sentenceBtn" class="listen-sentence" type="button" hidden>🔊 Listen to sentence</button></div>
+            <div id="meaningOptions" class="meaning-options"></div>
+            <p id="meaningFeedback" class="meaning-feedback" role="status"></p>
+          </section>
+          <div id="pastCard" class="past-card" hidden><div><span class="form-label">PAST FORM · FORMA EN PASADO</span><strong id="pastForm"></strong><span id="pastIpa" class="ipa"></span></div><button id="pastSpeakBtn" class="round-button" type="button" aria-label="Listen to past form">🔊</button></div>
+          <p id="usageNote" class="usage-note" hidden></p>
+          <button id="retryBtn" class="listen-sentence" type="button" hidden>↻ Practice this verb again</button>
+          <details class="synonyms"><summary>Synonyms by context <small lang="es">· Sinónimos según el contexto</small></summary><p class="context-note">Similar meanings may need different words or sentence structures.<br><span lang="es">Los significados similares pueden requerir otras palabras o estructuras.</span></p><div id="synonymList"></div></details>
+        </div>
+        <div class="controls">
+          <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+          <div class="control-buttons"><button id="prevBtn" class="button secondary" type="button">← Previous</button><button id="knownBtn" class="button known" type="button">✓ Mark learned</button><button id="nextBtn" class="button primary" type="button">Next →</button></div>
+        </div>
+      </article>
+    </section>
+    <p class="lesson-note">50 regular + 50 irregular · American English pronunciation<br><span lang="es">La etiqueta de acción o no acción corresponde al significado de la oración.</span></p>
+  </main>
+  <dialog id="libraryDialog" class="dialog library-dialog">
+    <form method="dialog" class="dialog-head"><div><p class="eyebrow">100 EVERYDAY VERBS</p><h2>Verb Library</h2></div><button class="close" aria-label="Close library">×</button></form>
+    <div class="filters">
+      <label><span>Search / Buscar</span><input id="searchInput" type="search" placeholder="Base, past form, or Spanish…"></label>
+      <label><span>Category</span><select id="categorySelect"></select></label>
+      <label><span>Verb type</span><select id="typeSelect"><option value="All">All verbs</option value="Regular">Regular</option><option value="Irregular">Irregular</option><option value="Action">Action in example</option><option value="Non-action">Non-action in example</option></select></label>
+      <p id="learnedCount"></p>
+    </div>
+    <div id="wordGrid" class="word-grid"></div>
+  </dialog>
+  <dialog id="quizDialog" class="dialog quiz-dialog">
+    <form method="dialog" class="dialog-head"><div><p id="quizEyebrow" class="eyebrow">5 QUESTIONS</p><h2 id="quizTitle">Quick Past-Tense Quiz</h2></div><button class="close" aria-label="Close quiz">×</button></form>
+    <div id="quizContent"></div>
+  </dialog>
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
