@@ -74,13 +74,13 @@ const topics = [
 ['History','Researchers',true,'translate','translates','translated','translated','old documents','into modern English','for the museum last month','for the archive this year','for the new exhibit'],
 ['History','Historians',true,'examine','examines','examined','examined','the causes of the French Revolution','in a new book','for their class presentation','for generations','in the documentary next year'],
 ['History','Archaeologists',true,'uncover','uncovers','uncovered','uncovered','ancient pottery','near the old city','during the dig last summer','at excavation sites for years','during the next field season'],
-['History','The Wright brothers',false,'build','builds','built','built','the first powered airplane','with a small team','in 1903','after years of experiments','in a student’s model workshop'],
+['History','The Wright brothers',true,'build','builds','built','built','the first powered airplane','with a small team','in 1903','after years of experiments','in a student’s model workshop'],
 ['History','People',true,'invent','invents','invented','invented','the wheel','in a history lesson','thousands of years ago','in many different places','again in a silly time-travel story'],
 ['History','The ancient Egyptians',true,'construct','constructs','constructed','constructed','the pyramids','with careful planning','over many years','as royal tombs','in a history class model'],
 ['History','The Apollo 11 crew',false,'carry','carries','carried','carried','scientific equipment','to the Moon','in 1969','for the lunar mission','in a future classroom simulation'],
 ['History','The United States',false,'adopt','adopts','adopted','adopted','the Declaration of Independence','after a public debate','in 1776','as a founding document','in a history role-play'],
 ['History','Nelson Mandela',false,'lead','leads','led','led','the movement against apartheid','with courage','for many years','during a difficult era','in a student-made documentary'],
-['History','The first Olympic Games',false,'bring','brings','brought','brought','athletes together','in ancient Greece','in Olympia','from different places','in a modern history game'],
+['History','The first Olympic Games',true,'bring','brings','brought','brought','athletes together','in ancient Greece','in Olympia','from different places','in a modern history game'],
 ['History','The Gutenberg press',false,'change','changes','changed','changed','the spread of books','across Europe','in the fifteenth century','over time','in a museum demonstration'],
 ['History','The Panama Canal',false,'connect','connects','connected','connected','the Atlantic and Pacific Oceans','through Central America','when it opened in 1914','for ships ever since','for a new model ship route'],
 ['History','Historians',true,'record','records','recorded','recorded','the events of the past','in books and archives','for the local history project','in many ways','in a digital exhibit'],
@@ -107,7 +107,7 @@ const topics = [
 ['Pop Culture','Fans',true,'collect','collects','collected','collected','movie posters','for their rooms','at the convention','for many years','at the next fan event'],
 ['Pop Culture','The theater',false,'show','shows','showed','shown','a classic comedy','on the big screen','for its anniversary','every summer','during the film festival'],
 ['Pop Culture','Writers',true,'adapt','adapts','adapted','adapted','the comic book','for television','for the new series','for the screen many times','for a new animated show'],
-['Pop Culture','The dancers',false,'rehearse','rehearses','rehearsed','rehearsed','the choreography','after school','before Friday’s show','for weeks','for the spring performance'],
+['Pop Culture','The dancers',true,'rehearse','rehearses','rehearsed','rehearsed','the choreography','after school','before Friday’s show','for weeks','for the spring performance'],
 ['Pop Culture','Fans',true,'name','names','named','their favorite characters','in online polls','after the premiere','in fan surveys for years','in the next class poll'],
 // Surprising Facts & Science (20 topics)
 ['Facts & Science','Scientists',true,'study','studies','studied','studied','the migration of monarch butterflies','each year','in the field last season','for many decades','with new tracking tools next year'],
@@ -117,7 +117,7 @@ const topics = [
 ['Facts & Science','Plants',true,'absorb','absorbs','absorbed','absorbed','sunlight','through their leaves','during yesterday’s sunny afternoon','to make food','in the greenhouse this week'],
 ['Facts & Science','Engineers',true,'design','designs','designed','designed','strong bridges','with computer models','for the new river crossing','with careful testing for years','for the city next summer'],
 ['Facts & Science','Astronomers',true,'observe','observes','observed','observed','distant stars','through powerful telescopes','last night','for centuries','during the next clear night'],
-['Facts & Science','Ocean waves',false,'carry','carries','carried','carried','energy','across the sea','during the storm','over long distances','toward the coast tomorrow'],
+['Facts & Science','Ocean waves',true,'carry','carries','carried','carried','energy','across the sea','during the storm','over long distances','toward the coast tomorrow'],
 ['Facts & Science','Researchers',true,'discover','discovers','discovered','discovered','new species','in remote forests','during the last expedition','in many regions','on the next expedition'],
 ['Facts & Science','The Moon',false,'reflect','reflects','reflected','reflected','light from the Sun','toward Earth','last night','throughout its orbit','again tonight'],
 ['Facts & Science','Robots',true,'follow','follows','followed','followed','simple instructions','with sensors','during yesterday’s test','in factories for years','in the next demonstration'],
@@ -145,7 +145,7 @@ for(const t of topics){const [category,subject,plural,base,sForm,past,pp,obj,pNo
   if(form.kind==='future'){active=`${subject} will ${base} ${obj} ${pFuture}.`;passive=`${cap(obj)} will be ${pp} ${pFuture} by ${subject.toLowerCase()}.`;}
   cards.push({category,tense:form.name,hint:form.hint,active,passive});
 }}
-function objPlural(obj){return /^(the )?(arepas|hallacas|tequeños|coffee beans|bright hammocks|kites|stories|colors of|travel photos|colorful murals|beaches of|letters of|ancient coins|old documents|causes of|pyramids|athletes|maps of|events of|coastlines|early newspapers|stone roads|historic buildings|action scenes|cartoon characters|superhero movies|songs|new video game worlds|dance videos|actors|graphic novels|movie costumes|celebrity portraits|movie posters|favorite characters|flowering plants|monarch butterflies|strong bridges|distant stars|new species|simple instructions|volcanic rocks|clouds|ultrasound waves|water samples|ingredients|dams|books|aluminum cans)/i.test(obj)}
+function objPlural(obj){return /^(the )?(arepas|hallacas|tequeños|coffee beans|bright hammocks|kites|stories|colors of|travel photos|colorful murals|beaches of|letters of|ancient coins|old documents|causes of|pyramids|athletes|maps of|events of|coastlines|early newspapers|stone roads|historic buildings|action scenes|cartoon characters|superhero movies|songs|new video game worlds|dance videos|actors|graphic novels|movie costumes|celebrity portraits|movie posters|favorite characters|flowering plants|monarch butterflies|strong bridges|distant stars|new species|simple instructions|volcanic rocks|clouds|ultrasound waves|water samples|ingredients|dams|books|aluminum cans|atlantic and pacific oceans)/i.test(obj)}
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1)}
 const categoryNames=[...new Set(cards.map(c=>c.category))];
 const $=id=>document.getElementById(id);let deck=[],turn=0,teams=[],scores=[],goal=10,round=0,current=null,timerId=null,timeLeft=0,timerSeconds=45,toastId=null;
