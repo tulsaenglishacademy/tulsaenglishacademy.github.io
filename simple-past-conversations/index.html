@@ -1,0 +1,2434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple Past Conversations | Tulsa English Academy</title>
+<meta name="description" content="A2 speaking practice with 320 simple past questions for Venezuelan English learners.">
+<style>
+:root{color-scheme:light;--ink:#241c37;--muted:#5c536c;--purple:#5537a2;--soft:#eee7fb;--line:#dcd3ec}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top left,#ece2ff,transparent 55%),#fbf9ff;color:var(--ink);font:1rem/1.55 system-ui,sans-serif}
+main{width:min(960px,calc(100% - 28px));margin:32px auto}
+section.panel{padding:clamp(20px,5vw,44px);border-radius:24px;border:1px solid var(--line);background:#fff;box-shadow:0 12px 32px #37265a12}
+h1{font-size:clamp(2.1rem,6vw,4rem);line-height:1.06;margin:.25em 0;letter-spacing:-.04em}
+h2{line-height:1.25}
+.eyebrow,.badge{font-weight:800;color:var(--purple)}
+.muted{color:var(--muted)}
+fieldset{border:0;padding:0;margin:20px 0}
+legend{font-weight:800;margin-bottom:8px}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.topics label{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;gap:8px;align-items:center}
+input{accent-color:var(--purple)}
+.controls,.actions,.badges{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.controls label{display:grid;gap:4px;font-weight:700}
+button,select{font:inherit;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+button{font-weight:800;cursor:pointer;min-height:44px}
+button.primary{background:var(--purple);color:#fff;border-color:var(--purple)}
+button:disabled{opacity:.6;cursor:default}
+:focus-visible{outline:3px solid #b57200;outline-offset:3px}
+.prompt{margin:16px 0;padding:clamp(18px,5vw,42px);border-radius:20px;background:var(--soft)}
+.prompt h2{font-size:clamp(1.6rem,4vw,2.8rem);margin:.5em 0}
+.badge{background:#fff;padding:4px 10px;border-radius:999px;font-size:.85rem}
+details{margin:16px 0;padding:12px 16px;background:#f7f3fc;border-radius:12px}
+summary{cursor:pointer;font-weight:800}
+#question-list{max-height:400px;overflow:auto}
+#question-list li{padding:4px 0}
+#help{padding:12px 16px;border-radius:12px;background:#fff}
+[hidden]{display:none!important}
+@media(max-width:560px){.topics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<section class="panel" id="setup" aria-labelledby="title">
+<div class="eyebrow">TULSA ENGLISH ACADEMY · A2 SPEAKING</div>
+<h1 id="title">Simple Past Conversations</h1>
+<p>Talk about life in Venezuela and the United States with <strong>320 questions</strong>. Read a question aloud, answer in a full sentence, then switch roles.</p>
+<p><strong>Question:</strong> Where did you <strong>go</strong> last weekend?<br><strong>Answer:</strong> I <strong>went</strong> to the market.</p>
+<p class="muted">Use the base verb after <strong>did</strong>. Use the past form in your answer. You can skip a question or imagine an answer if you haven’t had that experience.</p>
+<div class="controls">
+<label for="verb-type">Verb practice<select id="verb-type"><option value="All">Regular + irregular</option><option value="Regular">Regular only</option><option value="Irregular">Irregular only</option></select></label>
+<label for="timer-choice">Speaking timer<select id="timer-choice"><option value="0">No timer</option><option value="30">30 seconds</option><option value="45">45 seconds</option><option value="60">60 seconds</option></select></label>
+</div>
+<fieldset><legend>Choose your topics</legend><div id="topics" class="topics"></div></fieldset>
+<div class="actions"><button class="primary" id="start">Start speaking</button><span id="count" class="muted" aria-live="polite"></span></div>
+<details><summary id="browse-label">Browse questions</summary><div id="question-list" tabindex="0" aria-label="Questions by topic"></div></details>
+</section>
+<section class="panel" id="game" aria-label="Speaking practice" hidden>
+<div class="actions"><button id="back">← Choose topics</button><span id="timer" class="muted"></span></div>
+<article class="prompt">
+<div class="badges"><span class="badge" id="topic"></span><span class="badge" id="kind"></span><span class="badge" id="number"></span></div>
+<h2 id="question" tabindex="-1"></h2>
+<p>Answer aloud in the simple past. Add one detail if you can.</p>
+<div id="help" aria-live="polite" hidden></div>
+</article>
+<div class="actions"><button id="hint" aria-controls="help" aria-expanded="false">Show verb &amp; answer starter</button><button class="primary" id="next">Next question →</button></div>
+<p class="muted" id="remaining"></p>
+</section>
+</main>
+<script>
+const questions = [
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "live",
+    "past": "lived",
+    "type": "Regular",
+    "question": "Where did you live when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "live",
+    "past": "lived",
+    "type": "Regular",
+    "question": "Who did you live with during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "wake up",
+    "past": "woke up",
+    "type": "Irregular",
+    "question": "What time did you wake up when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "wake up",
+    "past": "woke up",
+    "type": "Irregular",
+    "question": "What time did you wake up during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "walk",
+    "past": "walked",
+    "type": "Regular",
+    "question": "Where did you walk with friends when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "walk",
+    "past": "walked",
+    "type": "Regular",
+    "question": "Where did you walk with friends during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Where did you meet your friends when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Where did you meet your friends during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What games did you play when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What games did you play during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What TV shows did you watch when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What TV shows did you watch during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "Where did you buy a snack when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "Where did you buy a snack during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat for breakfast when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat for breakfast during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink with lunch when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink with lunch during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What music did you listen to when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What music did you listen to during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help at home when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help at home during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "clean",
+    "past": "cleaned",
+    "type": "Regular",
+    "question": "How often did you clean your room when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "clean",
+    "past": "cleaned",
+    "type": "Regular",
+    "question": "How often did you clean your room during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What clothes did you wear on hot days when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What clothes did you wear on hot days during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which neighbors did you visit when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which neighbors did you visit during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go on Sundays when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go on Sundays during a school break in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "relax",
+    "past": "relaxed",
+    "type": "Regular",
+    "question": "Where did you relax after a busy day when you lived in Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "relax",
+    "past": "relaxed",
+    "type": "Regular",
+    "question": "Where did you relax after a busy day during a school break in Venezuela?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "Where did you stay during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "Where did you stay on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go for a walk during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go for a walk on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What interesting places did you see during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What interesting places did you see on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "try",
+    "past": "tried",
+    "type": "Regular",
+    "question": "What new food did you try during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "try",
+    "past": "tried",
+    "type": "Regular",
+    "question": "What new food did you try on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What apps did you use to find places during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What apps did you use to find places on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What photos did you take during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What photos did you take on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "Who did you ask for directions during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "Who did you ask for directions on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "find",
+    "past": "found",
+    "type": "Irregular",
+    "question": "Where did you find food from Venezuela during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "find",
+    "past": "found",
+    "type": "Irregular",
+    "question": "Where did you find food from Venezuela on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "cook",
+    "past": "cooked",
+    "type": "Regular",
+    "question": "What did you cook at home during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "cook",
+    "past": "cooked",
+    "type": "Regular",
+    "question": "What did you cook at home on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "call",
+    "past": "called",
+    "type": "Regular",
+    "question": "Who did you call to share your news during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "call",
+    "past": "called",
+    "type": "Regular",
+    "question": "Who did you call to share your news on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "hear",
+    "past": "heard",
+    "type": "Irregular",
+    "question": "What new English words did you hear during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "hear",
+    "past": "heard",
+    "type": "Irregular",
+    "question": "What new English words did you hear on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What did you learn about your area during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What did you learn about your area on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which park did you visit during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which park did you visit on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What plans did you make with friends during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What plans did you make with friends on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "drive",
+    "past": "drove",
+    "type": "Irregular",
+    "question": "Where did you drive during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "drive",
+    "past": "drove",
+    "type": "Irregular",
+    "question": "Where did you drive on a recent weekend in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "wait",
+    "past": "waited",
+    "type": "Regular",
+    "question": "Where did you wait for a bus during your first month in the United States?"
+  },
+  {
+    "topic": "United States · Everyday life",
+    "verb": "wait",
+    "past": "waited",
+    "type": "Regular",
+    "question": "Where did you wait for a bus on a recent weekend in the United States?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "start",
+    "past": "started",
+    "type": "Regular",
+    "question": "What time did you start work at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "start",
+    "past": "started",
+    "type": "Regular",
+    "question": "What time did you start work at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What did you wear to work at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What did you wear to work at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What new skill did you learn at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What new skill did you learn at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Who did you meet on the first day of your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Who did you meet on your first day at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help during a busy day at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help during a busy day at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "When did you take your lunch break at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "When did you take your lunch break at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat during your break at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat during your break at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "finish",
+    "past": "finished",
+    "type": "Regular",
+    "question": "What time did you finish work at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "finish",
+    "past": "finished",
+    "type": "Regular",
+    "question": "What time did you finish work at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What tools did you use at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What tools did you use at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "write",
+    "past": "wrote",
+    "type": "Irregular",
+    "question": "What did you write down during training at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "write",
+    "past": "wrote",
+    "type": "Irregular",
+    "question": "What did you write down during training at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "talk",
+    "past": "talked",
+    "type": "Regular",
+    "question": "Who did you talk to when you needed help at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "talk",
+    "past": "talked",
+    "type": "Regular",
+    "question": "Who did you talk to when you needed help at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What did you make or prepare at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What did you make or prepare at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "answer",
+    "past": "answered",
+    "type": "Regular",
+    "question": "What questions did you answer at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "answer",
+    "past": "answered",
+    "type": "Regular",
+    "question": "What questions did you answer at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "get",
+    "past": "got",
+    "type": "Irregular",
+    "question": "How did you get to work at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "get",
+    "past": "got",
+    "type": "Irregular",
+    "question": "How did you get to work at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What part of the job did you enjoy at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What part of the job did you enjoy at your most recent job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring from home at your first job?"
+  },
+  {
+    "topic": "Work & First jobs",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring from home at your most recent job?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "study",
+    "past": "studied",
+    "type": "Regular",
+    "question": "What subjects did you study when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "study",
+    "past": "studied",
+    "type": "Regular",
+    "question": "What subjects did you study the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "sit",
+    "past": "sat",
+    "type": "Irregular",
+    "question": "Where did you sit in the classroom when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "sit",
+    "past": "sat",
+    "type": "Irregular",
+    "question": "Where did you sit in the classroom the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "read",
+    "past": "read",
+    "type": "Irregular",
+    "question": "What did you read in class when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "read",
+    "past": "read",
+    "type": "Irregular",
+    "question": "What did you read in class the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "write",
+    "past": "wrote",
+    "type": "Irregular",
+    "question": "What did you write in your notebook when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "write",
+    "past": "wrote",
+    "type": "Irregular",
+    "question": "What did you write in your notebook the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "practice",
+    "past": "practiced",
+    "type": "Regular",
+    "question": "What did you practice with a partner when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "practice",
+    "past": "practiced",
+    "type": "Regular",
+    "question": "What did you practice with a partner the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What new words did you learn when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "learn",
+    "past": "learned",
+    "type": "Regular",
+    "question": "What new words did you learn the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What question did you ask the teacher when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What question did you ask the teacher the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What notes did you take when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What notes did you take the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "finish",
+    "past": "finished",
+    "type": "Regular",
+    "question": "Where did you finish your homework when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "finish",
+    "past": "finished",
+    "type": "Regular",
+    "question": "Where did you finish your homework the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "do",
+    "past": "did",
+    "type": "Irregular",
+    "question": "What did you do before an exam when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "do",
+    "past": "did",
+    "type": "Irregular",
+    "question": "What did you do before an exam the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help with homework when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help with homework the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "speak",
+    "past": "spoke",
+    "type": "Irregular",
+    "question": "What language did you speak with classmates when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "speak",
+    "past": "spoke",
+    "type": "Irregular",
+    "question": "What language did you speak with classmates the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What videos did you watch to learn when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What videos did you watch to learn the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What dictionary or app did you use when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "use",
+    "past": "used",
+    "type": "Regular",
+    "question": "What dictionary or app did you use the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "forget",
+    "past": "forgot",
+    "type": "Irregular",
+    "question": "What did you forget to bring to class when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "forget",
+    "past": "forgot",
+    "type": "Irregular",
+    "question": "What did you forget to bring to class the last time you took a class?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What activity did you enjoy most when you were in school?"
+  },
+  {
+    "topic": "School & Learning English",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What activity did you enjoy most the last time you took a class?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "cook",
+    "past": "cooked",
+    "type": "Regular",
+    "question": "What did you cook with your family last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "cook",
+    "past": "cooked",
+    "type": "Regular",
+    "question": "What did you cook with your family when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat together last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat together when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help at home last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "help",
+    "past": "helped",
+    "type": "Regular",
+    "question": "Who did you help at home when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which relatives did you visit last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which relatives did you visit when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "tell",
+    "past": "told",
+    "type": "Irregular",
+    "question": "What stories did you tell at home last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "tell",
+    "past": "told",
+    "type": "Irregular",
+    "question": "What stories did you tell at home when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring to a family meal last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring to a family meal when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "call",
+    "past": "called",
+    "type": "Regular",
+    "question": "Who did you call in your family last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "call",
+    "past": "called",
+    "type": "Regular",
+    "question": "Who did you call in your family when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "clean",
+    "past": "cleaned",
+    "type": "Regular",
+    "question": "What did you clean at home last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "clean",
+    "past": "cleaned",
+    "type": "Regular",
+    "question": "What did you clean at home when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What did you play with your cousins last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What did you play with your cousins when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What did you watch with your family last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What did you watch with your family when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "share",
+    "past": "shared",
+    "type": "Regular",
+    "question": "What did you share with your siblings last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "share",
+    "past": "shared",
+    "type": "Regular",
+    "question": "What did you share with your siblings when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What did you make for someone in your family last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What did you make for someone in your family when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "give",
+    "past": "gave",
+    "type": "Irregular",
+    "question": "What did you give a family member last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "give",
+    "past": "gave",
+    "type": "Irregular",
+    "question": "What did you give a family member when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "wash",
+    "past": "washed",
+    "type": "Regular",
+    "question": "What dishes did you wash last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "wash",
+    "past": "washed",
+    "type": "Regular",
+    "question": "What dishes did you wash when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "do",
+    "past": "did",
+    "type": "Irregular",
+    "question": "What chores did you do last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "do",
+    "past": "did",
+    "type": "Irregular",
+    "question": "What chores did you do when you were a child?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go with your family last weekend?"
+  },
+  {
+    "topic": "Family & Home",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go with your family when you were a child?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "celebrate",
+    "past": "celebrated",
+    "type": "Regular",
+    "question": "What did you celebrate at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "celebrate",
+    "past": "celebrated",
+    "type": "Regular",
+    "question": "What did you celebrate at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "invite",
+    "past": "invited",
+    "type": "Regular",
+    "question": "Who did you invite at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "invite",
+    "past": "invited",
+    "type": "Regular",
+    "question": "Who did you invite at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What did you wear at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "wear",
+    "past": "wore",
+    "type": "Irregular",
+    "question": "What did you wear at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "decorate",
+    "past": "decorated",
+    "type": "Regular",
+    "question": "How did you decorate the room at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "decorate",
+    "past": "decorated",
+    "type": "Regular",
+    "question": "How did you decorate the room at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring to share at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "bring",
+    "past": "brought",
+    "type": "Irregular",
+    "question": "What did you bring to share at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "dance",
+    "past": "danced",
+    "type": "Regular",
+    "question": "What songs did you dance to at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "dance",
+    "past": "danced",
+    "type": "Regular",
+    "question": "What songs did you dance to at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "sing",
+    "past": "sang",
+    "type": "Irregular",
+    "question": "What songs did you sing at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "sing",
+    "past": "sang",
+    "type": "Irregular",
+    "question": "What songs did you sing at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "give",
+    "past": "gave",
+    "type": "Irregular",
+    "question": "What gifts did you give at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "give",
+    "past": "gave",
+    "type": "Irregular",
+    "question": "What gifts did you give at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "receive",
+    "past": "received",
+    "type": "Regular",
+    "question": "What gifts did you receive at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "receive",
+    "past": "received",
+    "type": "Regular",
+    "question": "What gifts did you receive at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What dessert did you make at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "make",
+    "past": "made",
+    "type": "Irregular",
+    "question": "What dessert did you make at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What special food did you eat at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What special food did you eat at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "Who did you take photos with at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "Who did you take photos with at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What kind of music did you listen to at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What kind of music did you listen to at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "How long did you stay at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "How long did you stay at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "say",
+    "past": "said",
+    "type": "Irregular",
+    "question": "What did you say to the host before you left at your last family celebration?"
+  },
+  {
+    "topic": "Traditions & Celebrations",
+    "verb": "say",
+    "past": "said",
+    "type": "Irregular",
+    "question": "What did you say to the host before you left at a celebration you remember from Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go shopping the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go shopping the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "What did you buy first the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "What did you buy first the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "pay",
+    "past": "paid",
+    "type": "Irregular",
+    "question": "How did you pay the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "pay",
+    "past": "paid",
+    "type": "Irregular",
+    "question": "How did you pay the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "spend",
+    "past": "spent",
+    "type": "Irregular",
+    "question": "How much did you spend on food the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "spend",
+    "past": "spent",
+    "type": "Irregular",
+    "question": "How much did you spend on food the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "look",
+    "past": "looked",
+    "type": "Regular",
+    "question": "What did you look for in the store the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "look",
+    "past": "looked",
+    "type": "Regular",
+    "question": "What did you look for in the store the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "find",
+    "past": "found",
+    "type": "Irregular",
+    "question": "What good deal did you find the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "find",
+    "past": "found",
+    "type": "Irregular",
+    "question": "What good deal did you find the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What did you ask the cashier the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What did you ask the cashier the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "Which brand did you choose the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "Which brand did you choose the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "carry",
+    "past": "carried",
+    "type": "Regular",
+    "question": "How did you carry your groceries home the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "carry",
+    "past": "carried",
+    "type": "Regular",
+    "question": "How did you carry your groceries home the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "forget",
+    "past": "forgot",
+    "type": "Irregular",
+    "question": "What did you forget to buy the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "forget",
+    "past": "forgot",
+    "type": "Irregular",
+    "question": "What did you forget to buy the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "compare",
+    "past": "compared",
+    "type": "Regular",
+    "question": "What prices did you compare the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "compare",
+    "past": "compared",
+    "type": "Regular",
+    "question": "What prices did you compare the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "try on",
+    "past": "tried on",
+    "type": "Regular",
+    "question": "What clothes did you try on the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "try on",
+    "past": "tried on",
+    "type": "Regular",
+    "question": "What clothes did you try on the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What did you see in the shop window the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What did you see in the shop window the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which stores did you visit the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which stores did you visit the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What kind of bag did you take with you the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What kind of bag did you take with you the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "save",
+    "past": "saved",
+    "type": "Regular",
+    "question": "How did you save money the last time you shopped in Venezuela?"
+  },
+  {
+    "topic": "Shopping & Markets",
+    "verb": "save",
+    "past": "saved",
+    "type": "Regular",
+    "question": "How did you save money the last time you shopped in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "travel",
+    "past": "traveled",
+    "type": "Regular",
+    "question": "Who did you travel with on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "travel",
+    "past": "traveled",
+    "type": "Regular",
+    "question": "Who did you travel with on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go first on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go first on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What kind of transportation did you take on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What kind of transportation did you take on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "Where did you stay overnight on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "stay",
+    "past": "stayed",
+    "type": "Regular",
+    "question": "Where did you stay overnight on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "pack",
+    "past": "packed",
+    "type": "Regular",
+    "question": "What did you pack in your bag on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "pack",
+    "past": "packed",
+    "type": "Regular",
+    "question": "What did you pack in your bag on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "leave",
+    "past": "left",
+    "type": "Irregular",
+    "question": "What time did you leave home on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "leave",
+    "past": "left",
+    "type": "Irregular",
+    "question": "What time did you leave home on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "arrive",
+    "past": "arrived",
+    "type": "Regular",
+    "question": "What time did you arrive on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "arrive",
+    "past": "arrived",
+    "type": "Regular",
+    "question": "What time did you arrive on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What did you see along the way on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "see",
+    "past": "saw",
+    "type": "Irregular",
+    "question": "What did you see along the way on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "Where did you eat during the trip on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "Where did you eat during the trip on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "stop",
+    "past": "stopped",
+    "type": "Regular",
+    "question": "Where did you stop to rest on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "stop",
+    "past": "stopped",
+    "type": "Regular",
+    "question": "Where did you stop to rest on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "drive",
+    "past": "drove",
+    "type": "Irregular",
+    "question": "Who did you drive with on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "drive",
+    "past": "drove",
+    "type": "Irregular",
+    "question": "Who did you drive with on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "walk",
+    "past": "walked",
+    "type": "Regular",
+    "question": "Where did you walk after lunch on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "walk",
+    "past": "walked",
+    "type": "Regular",
+    "question": "Where did you walk after lunch on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "What did you buy to remember the trip on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "What did you buy to remember the trip on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "What beach, town, or park did you visit on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "What beach, town, or park did you visit on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "feel",
+    "past": "felt",
+    "type": "Irregular",
+    "question": "How did you feel at the end of the trip on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "feel",
+    "past": "felt",
+    "type": "Irregular",
+    "question": "How did you feel at the end of the trip on a trip in the United States?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What did you enjoy most about the trip on a trip in Venezuela?"
+  },
+  {
+    "topic": "Trips & Getting Around",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What did you enjoy most about the trip on a trip in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go for a drink when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go for a drink when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink with your meal when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "drink",
+    "past": "drank",
+    "type": "Irregular",
+    "question": "What did you drink with your meal when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "order",
+    "past": "ordered",
+    "type": "Regular",
+    "question": "What food did you order when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "order",
+    "past": "ordered",
+    "type": "Regular",
+    "question": "What food did you order when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "What dessert did you choose when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "What dessert did you choose when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat with your friends when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "eat",
+    "past": "ate",
+    "type": "Irregular",
+    "question": "What did you eat with your friends when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "try",
+    "past": "tried",
+    "type": "Regular",
+    "question": "What dish did you try for the first time when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "try",
+    "past": "tried",
+    "type": "Regular",
+    "question": "What dish did you try for the first time when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Who did you meet for coffee when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "meet",
+    "past": "met",
+    "type": "Irregular",
+    "question": "Who did you meet for coffee when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "pay",
+    "past": "paid",
+    "type": "Irregular",
+    "question": "How did you pay for your meal when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "pay",
+    "past": "paid",
+    "type": "Irregular",
+    "question": "How did you pay for your meal when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "share",
+    "past": "shared",
+    "type": "Regular",
+    "question": "What snack did you share when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "share",
+    "past": "shared",
+    "type": "Regular",
+    "question": "What snack did you share when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What did you ask the server when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "ask",
+    "past": "asked",
+    "type": "Regular",
+    "question": "What did you ask the server when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "wait",
+    "past": "waited",
+    "type": "Regular",
+    "question": "How long did you wait for your food when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "wait",
+    "past": "waited",
+    "type": "Regular",
+    "question": "How long did you wait for your food when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "sit",
+    "past": "sat",
+    "type": "Irregular",
+    "question": "Where did you sit in the restaurant when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "sit",
+    "past": "sat",
+    "type": "Irregular",
+    "question": "Where did you sit in the restaurant when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "Where did you buy juice or soda when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "buy",
+    "past": "bought",
+    "type": "Irregular",
+    "question": "Where did you buy juice or soda when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "talk",
+    "past": "talked",
+    "type": "Regular",
+    "question": "What did you talk about over lunch when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "talk",
+    "past": "talked",
+    "type": "Regular",
+    "question": "What did you talk about over lunch when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What did you enjoy about the place when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "enjoy",
+    "past": "enjoyed",
+    "type": "Regular",
+    "question": "What did you enjoy about the place when you last went out in the United States?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "tip",
+    "past": "tipped",
+    "type": "Regular",
+    "question": "How much did you tip the server when you last went out in Venezuela?"
+  },
+  {
+    "topic": "Food, Drinks & Going Out",
+    "verb": "tip",
+    "past": "tipped",
+    "type": "Regular",
+    "question": "How much did you tip the server when you last went out in the United States?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What sport did you play on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "play",
+    "past": "played",
+    "type": "Regular",
+    "question": "What sport did you play on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What movie did you watch on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "watch",
+    "past": "watched",
+    "type": "Regular",
+    "question": "What movie did you watch on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What band did you listen to on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "listen",
+    "past": "listened",
+    "type": "Regular",
+    "question": "What band did you listen to on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "read",
+    "past": "read",
+    "type": "Irregular",
+    "question": "What book or magazine did you read on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "read",
+    "past": "read",
+    "type": "Irregular",
+    "question": "What book or magazine did you read on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go to have fun on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "go",
+    "past": "went",
+    "type": "Irregular",
+    "question": "Where did you go to have fun on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "swim",
+    "past": "swam",
+    "type": "Irregular",
+    "question": "Where did you swim on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "swim",
+    "past": "swam",
+    "type": "Irregular",
+    "question": "Where did you swim on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "run",
+    "past": "ran",
+    "type": "Irregular",
+    "question": "Where did you run or jog on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "run",
+    "past": "ran",
+    "type": "Irregular",
+    "question": "Where did you run or jog on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "draw",
+    "past": "drew",
+    "type": "Irregular",
+    "question": "What did you draw on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "draw",
+    "past": "drew",
+    "type": "Irregular",
+    "question": "What did you draw on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "ride",
+    "past": "rode",
+    "type": "Irregular",
+    "question": "Where did you ride a bike on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "ride",
+    "past": "rode",
+    "type": "Irregular",
+    "question": "Where did you ride a bike on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "dance",
+    "past": "danced",
+    "type": "Regular",
+    "question": "Who did you dance with on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "dance",
+    "past": "danced",
+    "type": "Regular",
+    "question": "Who did you dance with on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "spend",
+    "past": "spent",
+    "type": "Irregular",
+    "question": "Who did you spend time with on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "spend",
+    "past": "spent",
+    "type": "Irregular",
+    "question": "Who did you spend time with on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What pictures did you take on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "take",
+    "past": "took",
+    "type": "Irregular",
+    "question": "What pictures did you take on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which places did you visit for fun on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "visit",
+    "past": "visited",
+    "type": "Regular",
+    "question": "Which places did you visit for fun on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "relax",
+    "past": "relaxed",
+    "type": "Regular",
+    "question": "How did you relax on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "relax",
+    "past": "relaxed",
+    "type": "Regular",
+    "question": "How did you relax on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "invite",
+    "past": "invited",
+    "type": "Regular",
+    "question": "Who did you invite to go out with you on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "invite",
+    "past": "invited",
+    "type": "Regular",
+    "question": "Who did you invite to go out with you on a recent day off?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "What activity did you choose for the afternoon on weekends in Venezuela?"
+  },
+  {
+    "topic": "Free Time & Favorites",
+    "verb": "choose",
+    "past": "chose",
+    "type": "Irregular",
+    "question": "What activity did you choose for the afternoon on a recent day off?"
+  }
+];
+const byId = id => document.getElementById(id);
+const topicNames = [...new Set(questions.map(card => card.topic))];
+let selectedQuestions = [];
+let deck = [];
+let current;
+let number = 0;
+let timerId;
+const topics = byId('topics');
+
+for (const topic of topicNames) {
+  const label = document.createElement('label');
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.value = topic;
+  input.checked = true;
+  label.append(input, topic);
+  topics.append(label);
+}
+
+function refreshSelection() {
+  const chosen = new Set(Array.from(topics.querySelectorAll('input:checked'), input => input.value));
+  const type = byId('verb-type').value;
+  selectedQuestions = questions.filter(card => chosen.has(card.topic) && (type === 'All' || card.type === type));
+  byId('count').textContent = selectedQuestions.length + ' questions selected';
+  byId('start').disabled = selectedQuestions.length === 0;
+  byId('browse-label').textContent = 'Browse ' + selectedQuestions.length + ' selected questions';
+  const list = byId('question-list');
+  list.replaceChildren();
+  for (const topic of topicNames) {
+    const matching = selectedQuestions.filter(card => card.topic === topic);
+    if (matching.length === 0) continue;
+    const heading = document.createElement('h3');
+    heading.textContent = topic;
+    const items = document.createElement('ol');
+    for (const card of matching) {
+      const item = document.createElement('li');
+      item.textContent = card.question;
+      items.append(item);
+    }
+    list.append(heading, items);
+  }
+}
+
+function shuffled(cards) {
+  const result = [...cards];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function startTimer() {
+  clearInterval(timerId);
+  const seconds = Number(byId('timer-choice').value);
+  const timer = byId('timer');
+  timer.textContent = seconds ? seconds + ' seconds' : '';
+  if (!seconds) return;
+  const deadline = Date.now() + seconds * 1000;
+  timerId = setInterval(() => {
+    const left = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    timer.textContent = left ? left + ' seconds' : 'Time is up. Switch speakers.';
+    if (!left) clearInterval(timerId);
+  }, 250);
+}
+
+function nextQuestion() {
+  if (deck.length === 0) {
+    deck = shuffled(selectedQuestions);
+    const last = deck.length - 1;
+    if (last > 0 && deck[last] === current) {
+      [deck[0], deck[last]] = [deck[last], deck[0]];
+    }
+  }
+  current = deck.pop();
+  number++;
+  byId('topic').textContent = current.topic;
+  byId('kind').textContent = current.type + ' verb';
+  byId('number').textContent = 'Question ' + number;
+  byId('question').textContent = current.question;
+  byId('remaining').textContent = deck.length + ' questions left before reshuffling';
+  byId('help').hidden = true;
+  byId('hint').setAttribute('aria-expanded', 'false');
+  byId('question').focus();
+  startTimer();
+}
+
+function toggleHint() {
+  const help = byId('help');
+  const starter = 'I ' + current.past + ' …';
+  const verb = document.createElement('strong');
+  verb.textContent = current.verb + ' → ' + current.past;
+  const answer = document.createElement('p');
+  answer.textContent = 'Start your answer with “' + starter + '”';
+  help.replaceChildren(verb, answer);
+  help.hidden = !help.hidden;
+  byId('hint').setAttribute('aria-expanded', String(!help.hidden));
+}
+
+topics.addEventListener('change', refreshSelection);
+byId('verb-type').addEventListener('change', refreshSelection);
+byId('start').addEventListener('click', () => {
+  if (!selectedQuestions.length) return;
+  deck = [];
+  current = undefined;
+  number = 0;
+  byId('setup').hidden = true;
+  byId('game').hidden = false;
+  nextQuestion();
+});
+byId('back').addEventListener('click', () => {
+  clearInterval(timerId);
+  byId('game').hidden = true;
+  byId('setup').hidden = false;
+  byId('start').focus();
+});
+byId('next').addEventListener('click', nextQuestion);
+byId('hint').addEventListener('click', toggleHint);
+refreshSelection();
+</script>
+</body>
+</html>
