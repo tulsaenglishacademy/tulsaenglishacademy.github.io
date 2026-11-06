@@ -37,6 +37,8 @@ summary{cursor:pointer;font-weight:800}
 #help{padding:12px 16px;border-radius:12px;background:#fff}
 [hidden]{display:none!important}
 @media(max-width:560px){.topics{grid-template-columns:1fr}}
+.translation{display:block;color:var(--muted);line-height:1.45;margin:4px 0 0}
+.prompt .translation{font-size:clamp(1.05rem,3vw,1.45rem);margin:-.1em 0 .8em}
 </style>
 </head>
 <body>
@@ -59,7 +61,8 @@ summary{cursor:pointer;font-weight:800}
 <div class="actions"><button id="back">← Choose topics</button><span id="timer" class="muted"></span></div>
 <article class="prompt">
 <div class="badges"><span class="badge" id="topic"></span><span class="badge" id="kind"></span><span class="badge" id="number"></span></div>
-<h2 id="question" tabindex="-1"></h2>
+<h2 id="question" tabindex="-1" aria-describedby="question-es"></h2>
+<p id="question-es" lang="es" class="translation"></p>
 <p>Answer aloud in the simple past. Add one detail if you can.</p>
 <div id="help" aria-live="polite" hidden></div>
 </article>
@@ -74,2240 +77,2560 @@ const questions = [
     "verb": "live",
     "past": "lived",
     "type": "Regular",
-    "question": "Where did you live when you lived in Venezuela?"
+    "question": "Where did you live in Venezuela?",
+    "spanish": "¿Dónde viviste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "live",
     "past": "lived",
     "type": "Regular",
-    "question": "Who did you live with during a school break in Venezuela?"
+    "question": "Who did you live with in Venezuela?",
+    "spanish": "¿Con quién viviste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "wake up",
     "past": "woke up",
     "type": "Irregular",
-    "question": "What time did you wake up when you lived in Venezuela?"
+    "question": "What time did you wake up in Venezuela?",
+    "spanish": "¿A qué hora te despertaste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "wake up",
     "past": "woke up",
     "type": "Irregular",
-    "question": "What time did you wake up during a school break in Venezuela?"
+    "question": "What time did you wake up on vacation in Venezuela?",
+    "spanish": "¿A qué hora te despertaste de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "walk",
     "past": "walked",
     "type": "Regular",
-    "question": "Where did you walk with friends when you lived in Venezuela?"
+    "question": "Where did you walk with friends in Venezuela?",
+    "spanish": "¿Por dónde caminaste con tus amigos en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "walk",
     "past": "walked",
     "type": "Regular",
-    "question": "Where did you walk with friends during a school break in Venezuela?"
+    "question": "Where did you walk with friends on vacation in Venezuela?",
+    "spanish": "¿Por dónde caminaste con tus amigos de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Where did you meet your friends when you lived in Venezuela?"
+    "question": "Where did you meet your friends in Venezuela?",
+    "spanish": "¿Dónde te encontraste con tus amigos en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Where did you meet your friends during a school break in Venezuela?"
+    "question": "Where did you meet your friends on vacation in Venezuela?",
+    "spanish": "¿Dónde te encontraste con tus amigos de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What games did you play when you lived in Venezuela?"
+    "question": "What games did you play in Venezuela?",
+    "spanish": "¿A qué jugaste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What games did you play during a school break in Venezuela?"
+    "question": "What games did you play on vacation in Venezuela?",
+    "spanish": "¿A qué jugaste de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What TV shows did you watch when you lived in Venezuela?"
+    "question": "What shows did you watch in Venezuela?",
+    "spanish": "¿Qué programas viste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What TV shows did you watch during a school break in Venezuela?"
+    "question": "What shows did you watch on vacation in Venezuela?",
+    "spanish": "¿Qué programas viste de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "Where did you buy a snack when you lived in Venezuela?"
+    "question": "Where did you buy a snack in Venezuela?",
+    "spanish": "¿Dónde compraste una merienda en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "Where did you buy a snack during a school break in Venezuela?"
+    "question": "Where did you buy a snack on vacation in Venezuela?",
+    "spanish": "¿Dónde compraste una merienda de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat for breakfast when you lived in Venezuela?"
+    "question": "What did you eat for breakfast in Venezuela?",
+    "spanish": "¿Qué comiste en el desayuno en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat for breakfast during a school break in Venezuela?"
+    "question": "What did you eat for breakfast on vacation in Venezuela?",
+    "spanish": "¿Qué comiste en el desayuno de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink with lunch when you lived in Venezuela?"
+    "question": "What did you drink with lunch in Venezuela?",
+    "spanish": "¿Qué tomaste con el almuerzo en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink with lunch during a school break in Venezuela?"
+    "question": "What did you drink with lunch on vacation in Venezuela?",
+    "spanish": "¿Qué tomaste con el almuerzo de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What music did you listen to when you lived in Venezuela?"
+    "question": "What music did you listen to in Venezuela?",
+    "spanish": "¿Qué música escuchaste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What music did you listen to during a school break in Venezuela?"
+    "question": "What music did you listen to on vacation in Venezuela?",
+    "spanish": "¿Qué música escuchaste de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help at home when you lived in Venezuela?"
+    "question": "Who did you help at home in Venezuela?",
+    "spanish": "¿A quién ayudaste en casa en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help at home during a school break in Venezuela?"
+    "question": "Who did you help at home on vacation in Venezuela?",
+    "spanish": "¿A quién ayudaste en casa de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "clean",
     "past": "cleaned",
     "type": "Regular",
-    "question": "How often did you clean your room when you lived in Venezuela?"
+    "question": "When did you clean your room in Venezuela?",
+    "spanish": "¿Cuándo limpiaste tu cuarto en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "clean",
     "past": "cleaned",
     "type": "Regular",
-    "question": "How often did you clean your room during a school break in Venezuela?"
+    "question": "When did you clean your room on vacation in Venezuela?",
+    "spanish": "¿Cuándo limpiaste tu cuarto de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What clothes did you wear on hot days when you lived in Venezuela?"
+    "question": "What did you wear on hot days in Venezuela?",
+    "spanish": "¿Qué ropa usaste en los días de calor en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What clothes did you wear on hot days during a school break in Venezuela?"
+    "question": "What did you wear on hot days on vacation in Venezuela?",
+    "spanish": "¿Qué ropa usaste en los días de calor de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which neighbors did you visit when you lived in Venezuela?"
+    "question": "Who did you visit in Venezuela?",
+    "spanish": "¿A quién visitaste en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which neighbors did you visit during a school break in Venezuela?"
+    "question": "Who did you visit on vacation in Venezuela?",
+    "spanish": "¿A quién visitaste de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go on Sundays when you lived in Venezuela?"
+    "question": "Where did you go on Sundays in Venezuela?",
+    "spanish": "¿Adónde fuiste los domingos en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go on Sundays during a school break in Venezuela?"
-  },
-  {
-    "topic": "Venezuela · Everyday life",
-    "verb": "relax",
-    "past": "relaxed",
-    "type": "Regular",
-    "question": "Where did you relax after a busy day when you lived in Venezuela?"
+    "question": "Where did you go on Sundays on vacation in Venezuela?",
+    "spanish": "¿Adónde fuiste los domingos de vacaciones en Venezuela?"
   },
   {
     "topic": "Venezuela · Everyday life",
     "verb": "relax",
     "past": "relaxed",
     "type": "Regular",
-    "question": "Where did you relax after a busy day during a school break in Venezuela?"
+    "question": "Where did you relax in Venezuela?",
+    "spanish": "¿Dónde descansaste en Venezuela?"
+  },
+  {
+    "topic": "Venezuela · Everyday life",
+    "verb": "relax",
+    "past": "relaxed",
+    "type": "Regular",
+    "question": "Where did you relax on vacation in Venezuela?",
+    "spanish": "¿Dónde descansaste de vacaciones en Venezuela?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "Where did you stay during your first month in the United States?"
+    "question": "Where did you stay when you first got to the U.S.?",
+    "spanish": "¿Dónde te quedaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "Where did you stay on a recent weekend in the United States?"
+    "question": "Where did you stay last weekend in the U.S.?",
+    "spanish": "¿Dónde te quedaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go for a walk during your first month in the United States?"
+    "question": "Where did you go for a walk when you first got to the U.S.?",
+    "spanish": "¿Adónde fuiste a caminar cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go for a walk on a recent weekend in the United States?"
+    "question": "Where did you go for a walk last weekend in the U.S.?",
+    "spanish": "¿Adónde fuiste a caminar el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What interesting places did you see during your first month in the United States?"
+    "question": "What places did you see when you first got to the U.S.?",
+    "spanish": "¿Qué lugares viste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What interesting places did you see on a recent weekend in the United States?"
+    "question": "What places did you see last weekend in the U.S.?",
+    "spanish": "¿Qué lugares viste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "try",
     "past": "tried",
     "type": "Regular",
-    "question": "What new food did you try during your first month in the United States?"
+    "question": "What new food did you try when you first got to the U.S.?",
+    "spanish": "¿Qué comida nueva probaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "try",
     "past": "tried",
     "type": "Regular",
-    "question": "What new food did you try on a recent weekend in the United States?"
+    "question": "What new food did you try last weekend in the U.S.?",
+    "spanish": "¿Qué comida nueva probaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What apps did you use to find places during your first month in the United States?"
+    "question": "What apps did you use when you first got to the U.S.?",
+    "spanish": "¿Qué aplicaciones usaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What apps did you use to find places on a recent weekend in the United States?"
+    "question": "What apps did you use last weekend in the U.S.?",
+    "spanish": "¿Qué aplicaciones usaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What photos did you take during your first month in the United States?"
+    "question": "What photos did you take when you first got to the U.S.?",
+    "spanish": "¿Qué fotos tomaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What photos did you take on a recent weekend in the United States?"
+    "question": "What photos did you take last weekend in the U.S.?",
+    "spanish": "¿Qué fotos tomaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "Who did you ask for directions during your first month in the United States?"
+    "question": "Who did you ask for help when you first got to the U.S.?",
+    "spanish": "¿A quién le pediste ayuda cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "Who did you ask for directions on a recent weekend in the United States?"
+    "question": "Who did you ask for help last weekend in the U.S.?",
+    "spanish": "¿A quién le pediste ayuda el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "find",
     "past": "found",
     "type": "Irregular",
-    "question": "Where did you find food from Venezuela during your first month in the United States?"
+    "question": "Where did you find Venezuelan food when you first got to the U.S.?",
+    "spanish": "¿Dónde encontraste comida venezolana cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "find",
     "past": "found",
     "type": "Irregular",
-    "question": "Where did you find food from Venezuela on a recent weekend in the United States?"
+    "question": "Where did you find Venezuelan food last weekend in the U.S.?",
+    "spanish": "¿Dónde encontraste comida venezolana el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "cook",
     "past": "cooked",
     "type": "Regular",
-    "question": "What did you cook at home during your first month in the United States?"
+    "question": "What did you cook when you first got to the U.S.?",
+    "spanish": "¿Qué cocinaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "cook",
     "past": "cooked",
     "type": "Regular",
-    "question": "What did you cook at home on a recent weekend in the United States?"
+    "question": "What did you cook last weekend in the U.S.?",
+    "spanish": "¿Qué cocinaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "call",
     "past": "called",
     "type": "Regular",
-    "question": "Who did you call to share your news during your first month in the United States?"
+    "question": "Who did you call when you first got to the U.S.?",
+    "spanish": "¿A quién llamaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "call",
     "past": "called",
     "type": "Regular",
-    "question": "Who did you call to share your news on a recent weekend in the United States?"
+    "question": "Who did you call last weekend in the U.S.?",
+    "spanish": "¿A quién llamaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "hear",
     "past": "heard",
     "type": "Irregular",
-    "question": "What new English words did you hear during your first month in the United States?"
+    "question": "What English words did you hear when you first got to the U.S.?",
+    "spanish": "¿Qué palabras en inglés escuchaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "hear",
     "past": "heard",
     "type": "Irregular",
-    "question": "What new English words did you hear on a recent weekend in the United States?"
+    "question": "What English words did you hear last weekend in the U.S.?",
+    "spanish": "¿Qué palabras en inglés escuchaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What did you learn about your area during your first month in the United States?"
+    "question": "What did you learn when you first got to the U.S.?",
+    "spanish": "¿Qué aprendiste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What did you learn about your area on a recent weekend in the United States?"
+    "question": "What did you learn last weekend in the U.S.?",
+    "spanish": "¿Qué aprendiste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which park did you visit during your first month in the United States?"
+    "question": "What park did you visit when you first got to the U.S.?",
+    "spanish": "¿Qué parque visitaste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which park did you visit on a recent weekend in the United States?"
+    "question": "What park did you visit last weekend in the U.S.?",
+    "spanish": "¿Qué parque visitaste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What plans did you make with friends during your first month in the United States?"
+    "question": "What plans did you make when you first got to the U.S.?",
+    "spanish": "¿Qué planes hiciste cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What plans did you make with friends on a recent weekend in the United States?"
+    "question": "What plans did you make last weekend in the U.S.?",
+    "spanish": "¿Qué planes hiciste el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "drive",
     "past": "drove",
     "type": "Irregular",
-    "question": "Where did you drive during your first month in the United States?"
+    "question": "Where did you drive when you first got to the U.S.?",
+    "spanish": "¿Adónde fuiste manejando cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "drive",
     "past": "drove",
     "type": "Irregular",
-    "question": "Where did you drive on a recent weekend in the United States?"
+    "question": "Where did you drive last weekend in the U.S.?",
+    "spanish": "¿Adónde fuiste manejando el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "wait",
     "past": "waited",
     "type": "Regular",
-    "question": "Where did you wait for a bus during your first month in the United States?"
+    "question": "Where did you wait for the bus when you first got to the U.S.?",
+    "spanish": "¿Dónde esperaste el autobús cuando llegaste a Estados Unidos?"
   },
   {
     "topic": "United States · Everyday life",
     "verb": "wait",
     "past": "waited",
     "type": "Regular",
-    "question": "Where did you wait for a bus on a recent weekend in the United States?"
+    "question": "Where did you wait for the bus last weekend in the U.S.?",
+    "spanish": "¿Dónde esperaste el autobús el fin de semana pasado en Estados Unidos?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "start",
     "past": "started",
     "type": "Regular",
-    "question": "What time did you start work at your first job?"
+    "question": "What time did you start work at your first job?",
+    "spanish": "¿A qué hora empezaste a trabajar en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "start",
     "past": "started",
     "type": "Regular",
-    "question": "What time did you start work at your most recent job?"
+    "question": "What time did you start work at your last job?",
+    "spanish": "¿A qué hora empezaste a trabajar en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What did you wear to work at your first job?"
+    "question": "What did you wear at your first job?",
+    "spanish": "¿Qué ropa usaste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What did you wear to work at your most recent job?"
+    "question": "What did you wear at your last job?",
+    "spanish": "¿Qué ropa usaste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What new skill did you learn at your first job?"
+    "question": "What did you learn at your first job?",
+    "spanish": "¿Qué aprendiste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What new skill did you learn at your most recent job?"
+    "question": "What did you learn at your last job?",
+    "spanish": "¿Qué aprendiste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Who did you meet on the first day of your first job?"
+    "question": "Who did you meet at your first job?",
+    "spanish": "¿A quién conociste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Who did you meet on your first day at your most recent job?"
+    "question": "Who did you meet at your last job?",
+    "spanish": "¿A quién conociste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help during a busy day at your first job?"
+    "question": "Who did you help at your first job?",
+    "spanish": "¿A quién ayudaste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help during a busy day at your most recent job?"
+    "question": "Who did you help at your last job?",
+    "spanish": "¿A quién ayudaste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "When did you take your lunch break at your first job?"
+    "question": "When did you take a break at your first job?",
+    "spanish": "¿Cuándo tomaste un descanso en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "When did you take your lunch break at your most recent job?"
+    "question": "When did you take a break at your last job?",
+    "spanish": "¿Cuándo tomaste un descanso en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat during your break at your first job?"
+    "question": "What did you eat for lunch at your first job?",
+    "spanish": "¿Qué comiste en el almuerzo en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat during your break at your most recent job?"
+    "question": "What did you eat for lunch at your last job?",
+    "spanish": "¿Qué comiste en el almuerzo en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "finish",
     "past": "finished",
     "type": "Regular",
-    "question": "What time did you finish work at your first job?"
+    "question": "What time did you finish work at your first job?",
+    "spanish": "¿A qué hora terminaste de trabajar en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "finish",
     "past": "finished",
     "type": "Regular",
-    "question": "What time did you finish work at your most recent job?"
+    "question": "What time did you finish work at your last job?",
+    "spanish": "¿A qué hora terminaste de trabajar en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What tools did you use at your first job?"
+    "question": "What tools did you use at your first job?",
+    "spanish": "¿Qué herramientas usaste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What tools did you use at your most recent job?"
+    "question": "What tools did you use at your last job?",
+    "spanish": "¿Qué herramientas usaste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "write",
     "past": "wrote",
     "type": "Irregular",
-    "question": "What did you write down during training at your first job?"
+    "question": "What did you write at your first job?",
+    "spanish": "¿Qué escribiste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "write",
     "past": "wrote",
     "type": "Irregular",
-    "question": "What did you write down during training at your most recent job?"
+    "question": "What did you write at your last job?",
+    "spanish": "¿Qué escribiste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "talk",
     "past": "talked",
     "type": "Regular",
-    "question": "Who did you talk to when you needed help at your first job?"
+    "question": "Who did you talk to at your first job?",
+    "spanish": "¿Con quién hablaste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "talk",
     "past": "talked",
     "type": "Regular",
-    "question": "Who did you talk to when you needed help at your most recent job?"
+    "question": "Who did you talk to at your last job?",
+    "spanish": "¿Con quién hablaste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What did you make or prepare at your first job?"
+    "question": "What did you make at your first job?",
+    "spanish": "¿Qué hiciste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What did you make or prepare at your most recent job?"
+    "question": "What did you make at your last job?",
+    "spanish": "¿Qué hiciste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "answer",
     "past": "answered",
     "type": "Regular",
-    "question": "What questions did you answer at your first job?"
+    "question": "What questions did you answer at your first job?",
+    "spanish": "¿Qué preguntas respondiste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "answer",
     "past": "answered",
     "type": "Regular",
-    "question": "What questions did you answer at your most recent job?"
+    "question": "What questions did you answer at your last job?",
+    "spanish": "¿Qué preguntas respondiste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "get",
     "past": "got",
     "type": "Irregular",
-    "question": "How did you get to work at your first job?"
+    "question": "How did you get to work at your first job?",
+    "spanish": "¿Cómo llegaste al trabajo en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "get",
     "past": "got",
     "type": "Irregular",
-    "question": "How did you get to work at your most recent job?"
+    "question": "How did you get to work at your last job?",
+    "spanish": "¿Cómo llegaste al trabajo en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What part of the job did you enjoy at your first job?"
+    "question": "What did you enjoy at your first job?",
+    "spanish": "¿Qué disfrutaste en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What part of the job did you enjoy at your most recent job?"
+    "question": "What did you enjoy at your last job?",
+    "spanish": "¿Qué disfrutaste en tu último trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring from home at your first job?"
+    "question": "What did you bring from home at your first job?",
+    "spanish": "¿Qué trajiste de casa en tu primer trabajo?"
   },
   {
     "topic": "Work & First jobs",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring from home at your most recent job?"
+    "question": "What did you bring from home at your last job?",
+    "spanish": "¿Qué trajiste de casa en tu último trabajo?"
   },
   {
     "topic": "School & Learning English",
     "verb": "study",
     "past": "studied",
     "type": "Regular",
-    "question": "What subjects did you study when you were in school?"
+    "question": "What did you study in school?",
+    "spanish": "¿Qué estudiaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "study",
     "past": "studied",
     "type": "Regular",
-    "question": "What subjects did you study the last time you took a class?"
+    "question": "What did you study in your last class?",
+    "spanish": "¿Qué estudiaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "sit",
     "past": "sat",
     "type": "Irregular",
-    "question": "Where did you sit in the classroom when you were in school?"
+    "question": "Where did you sit in school?",
+    "spanish": "¿Dónde te sentaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "sit",
     "past": "sat",
     "type": "Irregular",
-    "question": "Where did you sit in the classroom the last time you took a class?"
+    "question": "Where did you sit in your last class?",
+    "spanish": "¿Dónde te sentaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "read",
     "past": "read",
     "type": "Irregular",
-    "question": "What did you read in class when you were in school?"
+    "question": "What did you read in school?",
+    "spanish": "¿Qué leíste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "read",
     "past": "read",
     "type": "Irregular",
-    "question": "What did you read in class the last time you took a class?"
+    "question": "What did you read in your last class?",
+    "spanish": "¿Qué leíste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "write",
     "past": "wrote",
     "type": "Irregular",
-    "question": "What did you write in your notebook when you were in school?"
+    "question": "What did you write in school?",
+    "spanish": "¿Qué escribiste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "write",
     "past": "wrote",
     "type": "Irregular",
-    "question": "What did you write in your notebook the last time you took a class?"
+    "question": "What did you write in your last class?",
+    "spanish": "¿Qué escribiste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "practice",
     "past": "practiced",
     "type": "Regular",
-    "question": "What did you practice with a partner when you were in school?"
+    "question": "What did you practice in school?",
+    "spanish": "¿Qué practicaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "practice",
     "past": "practiced",
     "type": "Regular",
-    "question": "What did you practice with a partner the last time you took a class?"
+    "question": "What did you practice in your last class?",
+    "spanish": "¿Qué practicaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What new words did you learn when you were in school?"
+    "question": "What words did you learn in school?",
+    "spanish": "¿Qué palabras aprendiste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "learn",
     "past": "learned",
     "type": "Regular",
-    "question": "What new words did you learn the last time you took a class?"
+    "question": "What words did you learn in your last class?",
+    "spanish": "¿Qué palabras aprendiste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What question did you ask the teacher when you were in school?"
+    "question": "What did you ask the teacher in school?",
+    "spanish": "¿Qué le preguntaste al profesor en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What question did you ask the teacher the last time you took a class?"
+    "question": "What did you ask the teacher in your last class?",
+    "spanish": "¿Qué le preguntaste al profesor en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What notes did you take when you were in school?"
+    "question": "What notes did you take in school?",
+    "spanish": "¿Qué apuntes tomaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What notes did you take the last time you took a class?"
+    "question": "What notes did you take in your last class?",
+    "spanish": "¿Qué apuntes tomaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "finish",
     "past": "finished",
     "type": "Regular",
-    "question": "Where did you finish your homework when you were in school?"
+    "question": "When did you finish your work in school?",
+    "spanish": "¿Cuándo terminaste tu trabajo en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "finish",
     "past": "finished",
     "type": "Regular",
-    "question": "Where did you finish your homework the last time you took a class?"
+    "question": "When did you finish your work in your last class?",
+    "spanish": "¿Cuándo terminaste tu trabajo en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "do",
     "past": "did",
     "type": "Irregular",
-    "question": "What did you do before an exam when you were in school?"
+    "question": "What did you do before class in school?",
+    "spanish": "¿Qué hiciste antes de la clase en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "do",
     "past": "did",
     "type": "Irregular",
-    "question": "What did you do before an exam the last time you took a class?"
+    "question": "What did you do before class in your last class?",
+    "spanish": "¿Qué hiciste antes de la clase en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help with homework when you were in school?"
+    "question": "Who did you help in school?",
+    "spanish": "¿A quién ayudaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help with homework the last time you took a class?"
+    "question": "Who did you help in your last class?",
+    "spanish": "¿A quién ayudaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "speak",
     "past": "spoke",
     "type": "Irregular",
-    "question": "What language did you speak with classmates when you were in school?"
+    "question": "What language did you speak in school?",
+    "spanish": "¿Qué idioma hablaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "speak",
     "past": "spoke",
     "type": "Irregular",
-    "question": "What language did you speak with classmates the last time you took a class?"
+    "question": "What language did you speak in your last class?",
+    "spanish": "¿Qué idioma hablaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What videos did you watch to learn when you were in school?"
+    "question": "What videos did you watch in school?",
+    "spanish": "¿Qué videos viste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What videos did you watch to learn the last time you took a class?"
+    "question": "What videos did you watch in your last class?",
+    "spanish": "¿Qué videos viste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What dictionary or app did you use when you were in school?"
+    "question": "What app did you use in school?",
+    "spanish": "¿Qué aplicación usaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "use",
     "past": "used",
     "type": "Regular",
-    "question": "What dictionary or app did you use the last time you took a class?"
+    "question": "What app did you use in your last class?",
+    "spanish": "¿Qué aplicación usaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "forget",
     "past": "forgot",
     "type": "Irregular",
-    "question": "What did you forget to bring to class when you were in school?"
+    "question": "What did you forget in school?",
+    "spanish": "¿Qué olvidaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "forget",
     "past": "forgot",
     "type": "Irregular",
-    "question": "What did you forget to bring to class the last time you took a class?"
+    "question": "What did you forget in your last class?",
+    "spanish": "¿Qué olvidaste en tu última clase?"
   },
   {
     "topic": "School & Learning English",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What activity did you enjoy most when you were in school?"
+    "question": "What did you enjoy in school?",
+    "spanish": "¿Qué disfrutaste en la escuela?"
   },
   {
     "topic": "School & Learning English",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What activity did you enjoy most the last time you took a class?"
+    "question": "What did you enjoy in your last class?",
+    "spanish": "¿Qué disfrutaste en tu última clase?"
   },
   {
     "topic": "Family & Home",
     "verb": "cook",
     "past": "cooked",
     "type": "Regular",
-    "question": "What did you cook with your family last weekend?"
+    "question": "What did you cook with your family last weekend?",
+    "spanish": "¿Qué cocinaste con tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "cook",
     "past": "cooked",
     "type": "Regular",
-    "question": "What did you cook with your family when you were a child?"
+    "question": "What did you cook with your family as a child?",
+    "spanish": "¿Qué cocinaste con tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat together last weekend?"
+    "question": "What did you eat with your family last weekend?",
+    "spanish": "¿Qué comiste con tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat together when you were a child?"
+    "question": "What did you eat with your family as a child?",
+    "spanish": "¿Qué comiste con tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help at home last weekend?"
+    "question": "Who did you help at home last weekend?",
+    "spanish": "¿A quién ayudaste en casa el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "help",
     "past": "helped",
     "type": "Regular",
-    "question": "Who did you help at home when you were a child?"
+    "question": "Who did you help at home as a child?",
+    "spanish": "¿A quién ayudaste en casa cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which relatives did you visit last weekend?"
+    "question": "Who did you visit last weekend?",
+    "spanish": "¿A quién visitaste el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which relatives did you visit when you were a child?"
+    "question": "Who did you visit as a child?",
+    "spanish": "¿A quién visitaste cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "tell",
     "past": "told",
     "type": "Irregular",
-    "question": "What stories did you tell at home last weekend?"
+    "question": "What stories did you tell last weekend?",
+    "spanish": "¿Qué historias contaste el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "tell",
     "past": "told",
     "type": "Irregular",
-    "question": "What stories did you tell at home when you were a child?"
+    "question": "What stories did you tell as a child?",
+    "spanish": "¿Qué historias contaste cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring to a family meal last weekend?"
+    "question": "What did you bring to a family meal last weekend?",
+    "spanish": "¿Qué trajiste a una comida familiar el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring to a family meal when you were a child?"
+    "question": "What did you bring to a family meal as a child?",
+    "spanish": "¿Qué trajiste a una comida familiar cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "call",
     "past": "called",
     "type": "Regular",
-    "question": "Who did you call in your family last weekend?"
+    "question": "Who did you call in your family last weekend?",
+    "spanish": "¿A quién llamaste de tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "call",
     "past": "called",
     "type": "Regular",
-    "question": "Who did you call in your family when you were a child?"
+    "question": "Who did you call in your family as a child?",
+    "spanish": "¿A quién llamaste de tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "clean",
     "past": "cleaned",
     "type": "Regular",
-    "question": "What did you clean at home last weekend?"
+    "question": "What did you clean last weekend?",
+    "spanish": "¿Qué limpiaste el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "clean",
     "past": "cleaned",
     "type": "Regular",
-    "question": "What did you clean at home when you were a child?"
+    "question": "What did you clean as a child?",
+    "spanish": "¿Qué limpiaste cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What did you play with your cousins last weekend?"
+    "question": "What games did you play with your cousins last weekend?",
+    "spanish": "¿A qué jugaste con tus primos el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What did you play with your cousins when you were a child?"
+    "question": "What games did you play with your cousins as a child?",
+    "spanish": "¿A qué jugaste con tus primos cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What did you watch with your family last weekend?"
+    "question": "What did you watch with your family last weekend?",
+    "spanish": "¿Qué viste con tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What did you watch with your family when you were a child?"
+    "question": "What did you watch with your family as a child?",
+    "spanish": "¿Qué viste con tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "share",
     "past": "shared",
     "type": "Regular",
-    "question": "What did you share with your siblings last weekend?"
+    "question": "What did you share with your family last weekend?",
+    "spanish": "¿Qué compartiste con tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "share",
     "past": "shared",
     "type": "Regular",
-    "question": "What did you share with your siblings when you were a child?"
+    "question": "What did you share with your family as a child?",
+    "spanish": "¿Qué compartiste con tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What did you make for someone in your family last weekend?"
+    "question": "What did you make for your family last weekend?",
+    "spanish": "¿Qué hiciste para tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What did you make for someone in your family when you were a child?"
+    "question": "What did you make for your family as a child?",
+    "spanish": "¿Qué hiciste para tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "give",
     "past": "gave",
     "type": "Irregular",
-    "question": "What did you give a family member last weekend?"
+    "question": "What did you give your family last weekend?",
+    "spanish": "¿Qué le diste a tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "give",
     "past": "gave",
     "type": "Irregular",
-    "question": "What did you give a family member when you were a child?"
+    "question": "What did you give your family as a child?",
+    "spanish": "¿Qué le diste a tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "wash",
     "past": "washed",
     "type": "Regular",
-    "question": "What dishes did you wash last weekend?"
+    "question": "What dishes did you wash last weekend?",
+    "spanish": "¿Qué platos lavaste el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "wash",
     "past": "washed",
     "type": "Regular",
-    "question": "What dishes did you wash when you were a child?"
+    "question": "What dishes did you wash as a child?",
+    "spanish": "¿Qué platos lavaste cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "do",
     "past": "did",
     "type": "Irregular",
-    "question": "What chores did you do last weekend?"
+    "question": "What did you do to help at home last weekend?",
+    "spanish": "¿Qué hiciste para ayudar en casa el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "do",
     "past": "did",
     "type": "Irregular",
-    "question": "What chores did you do when you were a child?"
+    "question": "What did you do to help at home as a child?",
+    "spanish": "¿Qué hiciste para ayudar en casa cuando eras niño o niña?"
   },
   {
     "topic": "Family & Home",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go with your family last weekend?"
+    "question": "Where did you go with your family last weekend?",
+    "spanish": "¿Adónde fuiste con tu familia el fin de semana pasado?"
   },
   {
     "topic": "Family & Home",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go with your family when you were a child?"
+    "question": "Where did you go with your family as a child?",
+    "spanish": "¿Adónde fuiste con tu familia cuando eras niño o niña?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "celebrate",
     "past": "celebrated",
     "type": "Regular",
-    "question": "What did you celebrate at your last family celebration?"
+    "question": "What did you celebrate at your last family party?",
+    "spanish": "¿Qué celebraste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "celebrate",
     "past": "celebrated",
     "type": "Regular",
-    "question": "What did you celebrate at a celebration you remember from Venezuela?"
+    "question": "What did you celebrate at a party in Venezuela?",
+    "spanish": "¿Qué celebraste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "invite",
     "past": "invited",
     "type": "Regular",
-    "question": "Who did you invite at your last family celebration?"
+    "question": "Who did you invite at your last family party?",
+    "spanish": "¿A quién invitaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "invite",
     "past": "invited",
     "type": "Regular",
-    "question": "Who did you invite at a celebration you remember from Venezuela?"
+    "question": "Who did you invite at a party in Venezuela?",
+    "spanish": "¿A quién invitaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What did you wear at your last family celebration?"
+    "question": "What did you wear at your last family party?",
+    "spanish": "¿Qué ropa usaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "wear",
     "past": "wore",
     "type": "Irregular",
-    "question": "What did you wear at a celebration you remember from Venezuela?"
+    "question": "What did you wear at a party in Venezuela?",
+    "spanish": "¿Qué ropa usaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "decorate",
     "past": "decorated",
     "type": "Regular",
-    "question": "How did you decorate the room at your last family celebration?"
+    "question": "How did you decorate at your last family party?",
+    "spanish": "¿Cómo decoraste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "decorate",
     "past": "decorated",
     "type": "Regular",
-    "question": "How did you decorate the room at a celebration you remember from Venezuela?"
+    "question": "How did you decorate at a party in Venezuela?",
+    "spanish": "¿Cómo decoraste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring to share at your last family celebration?"
+    "question": "What did you bring at your last family party?",
+    "spanish": "¿Qué trajiste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "bring",
     "past": "brought",
     "type": "Irregular",
-    "question": "What did you bring to share at a celebration you remember from Venezuela?"
+    "question": "What did you bring at a party in Venezuela?",
+    "spanish": "¿Qué trajiste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "dance",
     "past": "danced",
     "type": "Regular",
-    "question": "What songs did you dance to at your last family celebration?"
+    "question": "What music did you dance to at your last family party?",
+    "spanish": "¿Con qué música bailaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "dance",
     "past": "danced",
     "type": "Regular",
-    "question": "What songs did you dance to at a celebration you remember from Venezuela?"
+    "question": "What music did you dance to at a party in Venezuela?",
+    "spanish": "¿Con qué música bailaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "sing",
     "past": "sang",
     "type": "Irregular",
-    "question": "What songs did you sing at your last family celebration?"
+    "question": "What songs did you sing at your last family party?",
+    "spanish": "¿Qué canciones cantaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "sing",
     "past": "sang",
     "type": "Irregular",
-    "question": "What songs did you sing at a celebration you remember from Venezuela?"
+    "question": "What songs did you sing at a party in Venezuela?",
+    "spanish": "¿Qué canciones cantaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "give",
     "past": "gave",
     "type": "Irregular",
-    "question": "What gifts did you give at your last family celebration?"
+    "question": "What gifts did you give at your last family party?",
+    "spanish": "¿Qué regalos diste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "give",
     "past": "gave",
     "type": "Irregular",
-    "question": "What gifts did you give at a celebration you remember from Venezuela?"
+    "question": "What gifts did you give at a party in Venezuela?",
+    "spanish": "¿Qué regalos diste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "receive",
     "past": "received",
     "type": "Regular",
-    "question": "What gifts did you receive at your last family celebration?"
+    "question": "What gifts did you receive at your last family party?",
+    "spanish": "¿Qué regalos recibiste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "receive",
     "past": "received",
     "type": "Regular",
-    "question": "What gifts did you receive at a celebration you remember from Venezuela?"
+    "question": "What gifts did you receive at a party in Venezuela?",
+    "spanish": "¿Qué regalos recibiste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What dessert did you make at your last family celebration?"
+    "question": "What dessert did you make at your last family party?",
+    "spanish": "¿Qué postre hiciste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "make",
     "past": "made",
     "type": "Irregular",
-    "question": "What dessert did you make at a celebration you remember from Venezuela?"
+    "question": "What dessert did you make at a party in Venezuela?",
+    "spanish": "¿Qué postre hiciste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink at your last family celebration?"
+    "question": "What did you drink at your last family party?",
+    "spanish": "¿Qué tomaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink at a celebration you remember from Venezuela?"
+    "question": "What did you drink at a party in Venezuela?",
+    "spanish": "¿Qué tomaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What special food did you eat at your last family celebration?"
+    "question": "What did you eat at your last family party?",
+    "spanish": "¿Qué comiste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What special food did you eat at a celebration you remember from Venezuela?"
+    "question": "What did you eat at a party in Venezuela?",
+    "spanish": "¿Qué comiste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "Who did you take photos with at your last family celebration?"
+    "question": "What photos did you take at your last family party?",
+    "spanish": "¿Qué fotos tomaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "Who did you take photos with at a celebration you remember from Venezuela?"
+    "question": "What photos did you take at a party in Venezuela?",
+    "spanish": "¿Qué fotos tomaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What kind of music did you listen to at your last family celebration?"
+    "question": "What music did you listen to at your last family party?",
+    "spanish": "¿Qué música escuchaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What kind of music did you listen to at a celebration you remember from Venezuela?"
+    "question": "What music did you listen to at a party in Venezuela?",
+    "spanish": "¿Qué música escuchaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "How long did you stay at your last family celebration?"
+    "question": "How long did you stay at your last family party?",
+    "spanish": "¿Cuánto tiempo te quedaste en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "How long did you stay at a celebration you remember from Venezuela?"
+    "question": "How long did you stay at a party in Venezuela?",
+    "spanish": "¿Cuánto tiempo te quedaste en una fiesta en Venezuela?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "say",
     "past": "said",
     "type": "Irregular",
-    "question": "What did you say to the host before you left at your last family celebration?"
+    "question": "What did you say when you left at your last family party?",
+    "spanish": "¿Qué dijiste al irte en tu última fiesta familiar?"
   },
   {
     "topic": "Traditions & Celebrations",
     "verb": "say",
     "past": "said",
     "type": "Irregular",
-    "question": "What did you say to the host before you left at a celebration you remember from Venezuela?"
+    "question": "What did you say when you left at a party in Venezuela?",
+    "spanish": "¿Qué dijiste al irte en una fiesta en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go shopping the last time you shopped in Venezuela?"
+    "question": "Where did you go shopping in Venezuela?",
+    "spanish": "¿Adónde fuiste de compras en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go shopping the last time you shopped in the United States?"
+    "question": "Where did you go shopping in the U.S.?",
+    "spanish": "¿Adónde fuiste de compras en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "What did you buy first the last time you shopped in Venezuela?"
+    "question": "What did you buy at the market in Venezuela?",
+    "spanish": "¿Qué compraste en el mercado en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "What did you buy first the last time you shopped in the United States?"
+    "question": "What did you buy at the market in the U.S.?",
+    "spanish": "¿Qué compraste en el mercado en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "pay",
     "past": "paid",
     "type": "Irregular",
-    "question": "How did you pay the last time you shopped in Venezuela?"
+    "question": "How did you pay for your food in Venezuela?",
+    "spanish": "¿Cómo pagaste la comida en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "pay",
     "past": "paid",
     "type": "Irregular",
-    "question": "How did you pay the last time you shopped in the United States?"
+    "question": "How did you pay for your food in the U.S.?",
+    "spanish": "¿Cómo pagaste la comida en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "spend",
     "past": "spent",
     "type": "Irregular",
-    "question": "How much did you spend on food the last time you shopped in Venezuela?"
+    "question": "How much did you spend on food in Venezuela?",
+    "spanish": "¿Cuánto gastaste en comida en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "spend",
     "past": "spent",
     "type": "Irregular",
-    "question": "How much did you spend on food the last time you shopped in the United States?"
+    "question": "How much did you spend on food in the U.S.?",
+    "spanish": "¿Cuánto gastaste en comida en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "look",
     "past": "looked",
     "type": "Regular",
-    "question": "What did you look for in the store the last time you shopped in Venezuela?"
+    "question": "What did you look for at the store in Venezuela?",
+    "spanish": "¿Qué buscaste en la tienda en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "look",
     "past": "looked",
     "type": "Regular",
-    "question": "What did you look for in the store the last time you shopped in the United States?"
+    "question": "What did you look for at the store in the U.S.?",
+    "spanish": "¿Qué buscaste en la tienda en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "find",
     "past": "found",
     "type": "Irregular",
-    "question": "What good deal did you find the last time you shopped in Venezuela?"
+    "question": "What deal did you find in Venezuela?",
+    "spanish": "¿Qué oferta encontraste en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "find",
     "past": "found",
     "type": "Irregular",
-    "question": "What good deal did you find the last time you shopped in the United States?"
+    "question": "What deal did you find in the U.S.?",
+    "spanish": "¿Qué oferta encontraste en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What did you ask the cashier the last time you shopped in Venezuela?"
+    "question": "What did you ask the cashier in Venezuela?",
+    "spanish": "¿Qué le preguntaste al cajero en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What did you ask the cashier the last time you shopped in the United States?"
+    "question": "What did you ask the cashier in the U.S.?",
+    "spanish": "¿Qué le preguntaste al cajero en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "Which brand did you choose the last time you shopped in Venezuela?"
+    "question": "What brand did you choose in Venezuela?",
+    "spanish": "¿Qué marca elegiste en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "Which brand did you choose the last time you shopped in the United States?"
+    "question": "What brand did you choose in the U.S.?",
+    "spanish": "¿Qué marca elegiste en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "carry",
     "past": "carried",
     "type": "Regular",
-    "question": "How did you carry your groceries home the last time you shopped in Venezuela?"
+    "question": "How did you carry your bags home in Venezuela?",
+    "spanish": "¿Cómo llevaste las bolsas a casa en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "carry",
     "past": "carried",
     "type": "Regular",
-    "question": "How did you carry your groceries home the last time you shopped in the United States?"
+    "question": "How did you carry your bags home in the U.S.?",
+    "spanish": "¿Cómo llevaste las bolsas a casa en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "forget",
     "past": "forgot",
     "type": "Irregular",
-    "question": "What did you forget to buy the last time you shopped in Venezuela?"
+    "question": "What did you forget to buy in Venezuela?",
+    "spanish": "¿Qué olvidaste comprar en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "forget",
     "past": "forgot",
     "type": "Irregular",
-    "question": "What did you forget to buy the last time you shopped in the United States?"
+    "question": "What did you forget to buy in the U.S.?",
+    "spanish": "¿Qué olvidaste comprar en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "compare",
     "past": "compared",
     "type": "Regular",
-    "question": "What prices did you compare the last time you shopped in Venezuela?"
+    "question": "What prices did you compare in Venezuela?",
+    "spanish": "¿Qué precios comparaste en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "compare",
     "past": "compared",
     "type": "Regular",
-    "question": "What prices did you compare the last time you shopped in the United States?"
+    "question": "What prices did you compare in the U.S.?",
+    "spanish": "¿Qué precios comparaste en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "try on",
     "past": "tried on",
     "type": "Regular",
-    "question": "What clothes did you try on the last time you shopped in Venezuela?"
+    "question": "What clothes did you try on in Venezuela?",
+    "spanish": "¿Qué ropa te probaste en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "try on",
     "past": "tried on",
     "type": "Regular",
-    "question": "What clothes did you try on the last time you shopped in the United States?"
+    "question": "What clothes did you try on in the U.S.?",
+    "spanish": "¿Qué ropa te probaste en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What did you see in the shop window the last time you shopped in Venezuela?"
+    "question": "What did you see in the store in Venezuela?",
+    "spanish": "¿Qué viste en la tienda en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What did you see in the shop window the last time you shopped in the United States?"
+    "question": "What did you see in the store in the U.S.?",
+    "spanish": "¿Qué viste en la tienda en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which stores did you visit the last time you shopped in Venezuela?"
+    "question": "What stores did you visit in Venezuela?",
+    "spanish": "¿Qué tiendas visitaste en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which stores did you visit the last time you shopped in the United States?"
+    "question": "What stores did you visit in the U.S.?",
+    "spanish": "¿Qué tiendas visitaste en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What kind of bag did you take with you the last time you shopped in Venezuela?"
+    "question": "What bag did you take to the store in Venezuela?",
+    "spanish": "¿Qué bolsa llevaste a la tienda en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What kind of bag did you take with you the last time you shopped in the United States?"
+    "question": "What bag did you take to the store in the U.S.?",
+    "spanish": "¿Qué bolsa llevaste a la tienda en Estados Unidos?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "save",
     "past": "saved",
     "type": "Regular",
-    "question": "How did you save money the last time you shopped in Venezuela?"
+    "question": "How did you save money in Venezuela?",
+    "spanish": "¿Cómo ahorraste dinero en Venezuela?"
   },
   {
     "topic": "Shopping & Markets",
     "verb": "save",
     "past": "saved",
     "type": "Regular",
-    "question": "How did you save money the last time you shopped in the United States?"
+    "question": "How did you save money in the U.S.?",
+    "spanish": "¿Cómo ahorraste dinero en Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "travel",
     "past": "traveled",
     "type": "Regular",
-    "question": "Who did you travel with on a trip in Venezuela?"
+    "question": "Who did you travel with on your last trip in Venezuela?",
+    "spanish": "¿Con quién viajaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "travel",
     "past": "traveled",
     "type": "Regular",
-    "question": "Who did you travel with on a trip in the United States?"
+    "question": "Who did you travel with on your last trip in the U.S.?",
+    "spanish": "¿Con quién viajaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go first on a trip in Venezuela?"
+    "question": "Where did you go first on your last trip in Venezuela?",
+    "spanish": "¿Adónde fuiste primero en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go first on a trip in the United States?"
+    "question": "Where did you go first on your last trip in the U.S.?",
+    "spanish": "¿Adónde fuiste primero en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What kind of transportation did you take on a trip in Venezuela?"
+    "question": "What bus or train did you take on your last trip in Venezuela?",
+    "spanish": "¿Qué autobús o tren tomaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What kind of transportation did you take on a trip in the United States?"
+    "question": "What bus or train did you take on your last trip in the U.S.?",
+    "spanish": "¿Qué autobús o tren tomaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "Where did you stay overnight on a trip in Venezuela?"
+    "question": "Where did you stay on your last trip in Venezuela?",
+    "spanish": "¿Dónde te quedaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "stay",
     "past": "stayed",
     "type": "Regular",
-    "question": "Where did you stay overnight on a trip in the United States?"
+    "question": "Where did you stay on your last trip in the U.S.?",
+    "spanish": "¿Dónde te quedaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "pack",
     "past": "packed",
     "type": "Regular",
-    "question": "What did you pack in your bag on a trip in Venezuela?"
+    "question": "What did you pack on your last trip in Venezuela?",
+    "spanish": "¿Qué empacaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "pack",
     "past": "packed",
     "type": "Regular",
-    "question": "What did you pack in your bag on a trip in the United States?"
+    "question": "What did you pack on your last trip in the U.S.?",
+    "spanish": "¿Qué empacaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "leave",
     "past": "left",
     "type": "Irregular",
-    "question": "What time did you leave home on a trip in Venezuela?"
+    "question": "When did you leave on your last trip in Venezuela?",
+    "spanish": "¿Cuándo saliste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "leave",
     "past": "left",
     "type": "Irregular",
-    "question": "What time did you leave home on a trip in the United States?"
+    "question": "When did you leave on your last trip in the U.S.?",
+    "spanish": "¿Cuándo saliste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "arrive",
     "past": "arrived",
     "type": "Regular",
-    "question": "What time did you arrive on a trip in Venezuela?"
+    "question": "When did you arrive on your last trip in Venezuela?",
+    "spanish": "¿Cuándo llegaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "arrive",
     "past": "arrived",
     "type": "Regular",
-    "question": "What time did you arrive on a trip in the United States?"
+    "question": "When did you arrive on your last trip in the U.S.?",
+    "spanish": "¿Cuándo llegaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What did you see along the way on a trip in Venezuela?"
+    "question": "What did you see on your last trip in Venezuela?",
+    "spanish": "¿Qué viste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "see",
     "past": "saw",
     "type": "Irregular",
-    "question": "What did you see along the way on a trip in the United States?"
+    "question": "What did you see on your last trip in the U.S.?",
+    "spanish": "¿Qué viste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "Where did you eat during the trip on a trip in Venezuela?"
+    "question": "Where did you eat on your last trip in Venezuela?",
+    "spanish": "¿Dónde comiste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "Where did you eat during the trip on a trip in the United States?"
+    "question": "Where did you eat on your last trip in the U.S.?",
+    "spanish": "¿Dónde comiste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "stop",
     "past": "stopped",
     "type": "Regular",
-    "question": "Where did you stop to rest on a trip in Venezuela?"
+    "question": "Where did you stop on your last trip in Venezuela?",
+    "spanish": "¿Dónde paraste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "stop",
     "past": "stopped",
     "type": "Regular",
-    "question": "Where did you stop to rest on a trip in the United States?"
+    "question": "Where did you stop on your last trip in the U.S.?",
+    "spanish": "¿Dónde paraste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "drive",
     "past": "drove",
     "type": "Irregular",
-    "question": "Who did you drive with on a trip in Venezuela?"
+    "question": "Who did you drive with on your last trip in Venezuela?",
+    "spanish": "¿Con quién viajaste en carro en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "drive",
     "past": "drove",
     "type": "Irregular",
-    "question": "Who did you drive with on a trip in the United States?"
+    "question": "Who did you drive with on your last trip in the U.S.?",
+    "spanish": "¿Con quién viajaste en carro en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "walk",
     "past": "walked",
     "type": "Regular",
-    "question": "Where did you walk after lunch on a trip in Venezuela?"
+    "question": "Where did you walk on your last trip in Venezuela?",
+    "spanish": "¿Por dónde caminaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "walk",
     "past": "walked",
     "type": "Regular",
-    "question": "Where did you walk after lunch on a trip in the United States?"
+    "question": "Where did you walk on your last trip in the U.S.?",
+    "spanish": "¿Por dónde caminaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "What did you buy to remember the trip on a trip in Venezuela?"
+    "question": "What did you buy on your last trip in Venezuela?",
+    "spanish": "¿Qué compraste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "What did you buy to remember the trip on a trip in the United States?"
+    "question": "What did you buy on your last trip in the U.S.?",
+    "spanish": "¿Qué compraste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "What beach, town, or park did you visit on a trip in Venezuela?"
+    "question": "What places did you visit on your last trip in Venezuela?",
+    "spanish": "¿Qué lugares visitaste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "What beach, town, or park did you visit on a trip in the United States?"
+    "question": "What places did you visit on your last trip in the U.S.?",
+    "spanish": "¿Qué lugares visitaste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "feel",
     "past": "felt",
     "type": "Irregular",
-    "question": "How did you feel at the end of the trip on a trip in Venezuela?"
+    "question": "How did you feel on your last trip in Venezuela?",
+    "spanish": "¿Cómo te sentiste en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "feel",
     "past": "felt",
     "type": "Irregular",
-    "question": "How did you feel at the end of the trip on a trip in the United States?"
+    "question": "How did you feel on your last trip in the U.S.?",
+    "spanish": "¿Cómo te sentiste en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What did you enjoy most about the trip on a trip in Venezuela?"
+    "question": "What did you enjoy most on your last trip in Venezuela?",
+    "spanish": "¿Qué disfrutaste más en tu último viaje por Venezuela?"
   },
   {
     "topic": "Trips & Getting Around",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What did you enjoy most about the trip on a trip in the United States?"
+    "question": "What did you enjoy most on your last trip in the U.S.?",
+    "spanish": "¿Qué disfrutaste más en tu último viaje por Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go for a drink when you last went out in Venezuela?"
+    "question": "Where did you go for a drink in Venezuela?",
+    "spanish": "¿Adónde fuiste a tomar algo en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go for a drink when you last went out in the United States?"
+    "question": "Where did you go for a drink in the U.S.?",
+    "spanish": "¿Adónde fuiste a tomar algo en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink with your meal when you last went out in Venezuela?"
+    "question": "What did you drink with dinner in Venezuela?",
+    "spanish": "¿Qué tomaste con la cena en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "drink",
     "past": "drank",
     "type": "Irregular",
-    "question": "What did you drink with your meal when you last went out in the United States?"
+    "question": "What did you drink with dinner in the U.S.?",
+    "spanish": "¿Qué tomaste con la cena en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "order",
     "past": "ordered",
     "type": "Regular",
-    "question": "What food did you order when you last went out in Venezuela?"
+    "question": "What did you order at a restaurant in Venezuela?",
+    "spanish": "¿Qué pediste en un restaurante en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "order",
     "past": "ordered",
     "type": "Regular",
-    "question": "What food did you order when you last went out in the United States?"
+    "question": "What did you order at a restaurant in the U.S.?",
+    "spanish": "¿Qué pediste en un restaurante en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "What dessert did you choose when you last went out in Venezuela?"
+    "question": "What dessert did you choose in Venezuela?",
+    "spanish": "¿Qué postre elegiste en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "What dessert did you choose when you last went out in the United States?"
+    "question": "What dessert did you choose in the U.S.?",
+    "spanish": "¿Qué postre elegiste en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat with your friends when you last went out in Venezuela?"
+    "question": "What did you eat with friends in Venezuela?",
+    "spanish": "¿Qué comiste con tus amigos en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "eat",
     "past": "ate",
     "type": "Irregular",
-    "question": "What did you eat with your friends when you last went out in the United States?"
+    "question": "What did you eat with friends in the U.S.?",
+    "spanish": "¿Qué comiste con tus amigos en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "try",
     "past": "tried",
     "type": "Regular",
-    "question": "What dish did you try for the first time when you last went out in Venezuela?"
+    "question": "What new dish did you try in Venezuela?",
+    "spanish": "¿Qué plato nuevo probaste en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "try",
     "past": "tried",
     "type": "Regular",
-    "question": "What dish did you try for the first time when you last went out in the United States?"
+    "question": "What new dish did you try in the U.S.?",
+    "spanish": "¿Qué plato nuevo probaste en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Who did you meet for coffee when you last went out in Venezuela?"
+    "question": "Who did you meet for coffee in Venezuela?",
+    "spanish": "¿Con quién te encontraste para tomar café en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "meet",
     "past": "met",
     "type": "Irregular",
-    "question": "Who did you meet for coffee when you last went out in the United States?"
+    "question": "Who did you meet for coffee in the U.S.?",
+    "spanish": "¿Con quién te encontraste para tomar café en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "pay",
     "past": "paid",
     "type": "Irregular",
-    "question": "How did you pay for your meal when you last went out in Venezuela?"
+    "question": "How did you pay for dinner in Venezuela?",
+    "spanish": "¿Cómo pagaste la cena en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "pay",
     "past": "paid",
     "type": "Irregular",
-    "question": "How did you pay for your meal when you last went out in the United States?"
+    "question": "How did you pay for dinner in the U.S.?",
+    "spanish": "¿Cómo pagaste la cena en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "share",
     "past": "shared",
     "type": "Regular",
-    "question": "What snack did you share when you last went out in Venezuela?"
+    "question": "What snack did you share in Venezuela?",
+    "spanish": "¿Qué merienda compartiste en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "share",
     "past": "shared",
     "type": "Regular",
-    "question": "What snack did you share when you last went out in the United States?"
+    "question": "What snack did you share in the U.S.?",
+    "spanish": "¿Qué merienda compartiste en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What did you ask the server when you last went out in Venezuela?"
+    "question": "What did you ask the server in Venezuela?",
+    "spanish": "¿Qué le preguntaste al mesero en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "ask",
     "past": "asked",
     "type": "Regular",
-    "question": "What did you ask the server when you last went out in the United States?"
+    "question": "What did you ask the server in the U.S.?",
+    "spanish": "¿Qué le preguntaste al mesero en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "wait",
     "past": "waited",
     "type": "Regular",
-    "question": "How long did you wait for your food when you last went out in Venezuela?"
+    "question": "How long did you wait for your food in Venezuela?",
+    "spanish": "¿Cuánto tiempo esperaste tu comida en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "wait",
     "past": "waited",
     "type": "Regular",
-    "question": "How long did you wait for your food when you last went out in the United States?"
+    "question": "How long did you wait for your food in the U.S.?",
+    "spanish": "¿Cuánto tiempo esperaste tu comida en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "sit",
     "past": "sat",
     "type": "Irregular",
-    "question": "Where did you sit in the restaurant when you last went out in Venezuela?"
+    "question": "Where did you sit at the café in Venezuela?",
+    "spanish": "¿Dónde te sentaste en el café en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "sit",
     "past": "sat",
     "type": "Irregular",
-    "question": "Where did you sit in the restaurant when you last went out in the United States?"
+    "question": "Where did you sit at the café in the U.S.?",
+    "spanish": "¿Dónde te sentaste en el café en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "Where did you buy juice or soda when you last went out in Venezuela?"
+    "question": "Where did you buy juice in Venezuela?",
+    "spanish": "¿Dónde compraste jugo en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "buy",
     "past": "bought",
     "type": "Irregular",
-    "question": "Where did you buy juice or soda when you last went out in the United States?"
+    "question": "Where did you buy juice in the U.S.?",
+    "spanish": "¿Dónde compraste jugo en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "talk",
     "past": "talked",
     "type": "Regular",
-    "question": "What did you talk about over lunch when you last went out in Venezuela?"
+    "question": "What did you talk about at lunch in Venezuela?",
+    "spanish": "¿De qué hablaste durante el almuerzo en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "talk",
     "past": "talked",
     "type": "Regular",
-    "question": "What did you talk about over lunch when you last went out in the United States?"
+    "question": "What did you talk about at lunch in the U.S.?",
+    "spanish": "¿De qué hablaste durante el almuerzo en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What did you enjoy about the place when you last went out in Venezuela?"
+    "question": "What did you enjoy about the food in Venezuela?",
+    "spanish": "¿Qué disfrutaste de la comida en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "enjoy",
     "past": "enjoyed",
     "type": "Regular",
-    "question": "What did you enjoy about the place when you last went out in the United States?"
+    "question": "What did you enjoy about the food in the U.S.?",
+    "spanish": "¿Qué disfrutaste de la comida en Estados Unidos?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "tip",
     "past": "tipped",
     "type": "Regular",
-    "question": "How much did you tip the server when you last went out in Venezuela?"
+    "question": "How much did you tip at the restaurant in Venezuela?",
+    "spanish": "¿Cuánto dejaste de propina en el restaurante en Venezuela?"
   },
   {
     "topic": "Food, Drinks & Going Out",
     "verb": "tip",
     "past": "tipped",
     "type": "Regular",
-    "question": "How much did you tip the server when you last went out in the United States?"
+    "question": "How much did you tip at the restaurant in the U.S.?",
+    "spanish": "¿Cuánto dejaste de propina en el restaurante en Estados Unidos?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What sport did you play on weekends in Venezuela?"
+    "question": "What sport did you play on weekends in Venezuela?",
+    "spanish": "¿Qué deporte practicaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "play",
     "past": "played",
     "type": "Regular",
-    "question": "What sport did you play on a recent day off?"
+    "question": "What sport did you play on your last day off?",
+    "spanish": "¿Qué deporte practicaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What movie did you watch on weekends in Venezuela?"
+    "question": "What movie did you watch on weekends in Venezuela?",
+    "spanish": "¿Qué película viste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "watch",
     "past": "watched",
     "type": "Regular",
-    "question": "What movie did you watch on a recent day off?"
+    "question": "What movie did you watch on your last day off?",
+    "spanish": "¿Qué película viste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What band did you listen to on weekends in Venezuela?"
+    "question": "What music did you listen to on weekends in Venezuela?",
+    "spanish": "¿Qué música escuchaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "listen",
     "past": "listened",
     "type": "Regular",
-    "question": "What band did you listen to on a recent day off?"
+    "question": "What music did you listen to on your last day off?",
+    "spanish": "¿Qué música escuchaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "read",
     "past": "read",
     "type": "Irregular",
-    "question": "What book or magazine did you read on weekends in Venezuela?"
+    "question": "What did you read on weekends in Venezuela?",
+    "spanish": "¿Qué leíste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "read",
     "past": "read",
     "type": "Irregular",
-    "question": "What book or magazine did you read on a recent day off?"
+    "question": "What did you read on your last day off?",
+    "spanish": "¿Qué leíste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go to have fun on weekends in Venezuela?"
+    "question": "Where did you go for fun on weekends in Venezuela?",
+    "spanish": "¿Adónde fuiste a divertirte los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "go",
     "past": "went",
     "type": "Irregular",
-    "question": "Where did you go to have fun on a recent day off?"
+    "question": "Where did you go for fun on your last day off?",
+    "spanish": "¿Adónde fuiste a divertirte en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "swim",
     "past": "swam",
     "type": "Irregular",
-    "question": "Where did you swim on weekends in Venezuela?"
+    "question": "Where did you swim on weekends in Venezuela?",
+    "spanish": "¿Dónde nadaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "swim",
     "past": "swam",
     "type": "Irregular",
-    "question": "Where did you swim on a recent day off?"
+    "question": "Where did you swim on your last day off?",
+    "spanish": "¿Dónde nadaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "run",
     "past": "ran",
     "type": "Irregular",
-    "question": "Where did you run or jog on weekends in Venezuela?"
+    "question": "Where did you run on weekends in Venezuela?",
+    "spanish": "¿Dónde corriste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "run",
     "past": "ran",
     "type": "Irregular",
-    "question": "Where did you run or jog on a recent day off?"
+    "question": "Where did you run on your last day off?",
+    "spanish": "¿Dónde corriste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "draw",
     "past": "drew",
     "type": "Irregular",
-    "question": "What did you draw on weekends in Venezuela?"
+    "question": "What did you draw on weekends in Venezuela?",
+    "spanish": "¿Qué dibujaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "draw",
     "past": "drew",
     "type": "Irregular",
-    "question": "What did you draw on a recent day off?"
+    "question": "What did you draw on your last day off?",
+    "spanish": "¿Qué dibujaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "ride",
     "past": "rode",
     "type": "Irregular",
-    "question": "Where did you ride a bike on weekends in Venezuela?"
+    "question": "Where did you ride your bike on weekends in Venezuela?",
+    "spanish": "¿Dónde montaste bicicleta los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "ride",
     "past": "rode",
     "type": "Irregular",
-    "question": "Where did you ride a bike on a recent day off?"
+    "question": "Where did you ride your bike on your last day off?",
+    "spanish": "¿Dónde montaste bicicleta en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "dance",
     "past": "danced",
     "type": "Regular",
-    "question": "Who did you dance with on weekends in Venezuela?"
+    "question": "Who did you dance with on weekends in Venezuela?",
+    "spanish": "¿Con quién bailaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "dance",
     "past": "danced",
     "type": "Regular",
-    "question": "Who did you dance with on a recent day off?"
+    "question": "Who did you dance with on your last day off?",
+    "spanish": "¿Con quién bailaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "spend",
     "past": "spent",
     "type": "Irregular",
-    "question": "Who did you spend time with on weekends in Venezuela?"
+    "question": "Who did you spend time with on weekends in Venezuela?",
+    "spanish": "¿Con quién pasaste el tiempo los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "spend",
     "past": "spent",
     "type": "Irregular",
-    "question": "Who did you spend time with on a recent day off?"
+    "question": "Who did you spend time with on your last day off?",
+    "spanish": "¿Con quién pasaste el tiempo en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What pictures did you take on weekends in Venezuela?"
+    "question": "What pictures did you take on weekends in Venezuela?",
+    "spanish": "¿Qué fotos tomaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "take",
     "past": "took",
     "type": "Irregular",
-    "question": "What pictures did you take on a recent day off?"
+    "question": "What pictures did you take on your last day off?",
+    "spanish": "¿Qué fotos tomaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which places did you visit for fun on weekends in Venezuela?"
+    "question": "What places did you visit on weekends in Venezuela?",
+    "spanish": "¿Qué lugares visitaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "visit",
     "past": "visited",
     "type": "Regular",
-    "question": "Which places did you visit for fun on a recent day off?"
+    "question": "What places did you visit on your last day off?",
+    "spanish": "¿Qué lugares visitaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "relax",
     "past": "relaxed",
     "type": "Regular",
-    "question": "How did you relax on weekends in Venezuela?"
+    "question": "How did you relax on weekends in Venezuela?",
+    "spanish": "¿Cómo descansaste los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "relax",
     "past": "relaxed",
     "type": "Regular",
-    "question": "How did you relax on a recent day off?"
+    "question": "How did you relax on your last day off?",
+    "spanish": "¿Cómo descansaste en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "invite",
     "past": "invited",
     "type": "Regular",
-    "question": "Who did you invite to go out with you on weekends in Venezuela?"
+    "question": "Who did you invite to go out on weekends in Venezuela?",
+    "spanish": "¿A quién invitaste a salir los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "invite",
     "past": "invited",
     "type": "Regular",
-    "question": "Who did you invite to go out with you on a recent day off?"
+    "question": "Who did you invite to go out on your last day off?",
+    "spanish": "¿A quién invitaste a salir en tu último día libre?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "What activity did you choose for the afternoon on weekends in Venezuela?"
+    "question": "What did you choose to do on weekends in Venezuela?",
+    "spanish": "¿Qué elegiste hacer los fines de semana en Venezuela?"
   },
   {
     "topic": "Free Time & Favorites",
     "verb": "choose",
     "past": "chose",
     "type": "Irregular",
-    "question": "What activity did you choose for the afternoon on a recent day off?"
+    "question": "What did you choose to do on your last day off?",
+    "spanish": "¿Qué elegiste hacer en tu último día libre?"
   }
 ];
 const byId = id => document.getElementById(id);
@@ -2347,6 +2670,11 @@ function refreshSelection() {
     for (const card of matching) {
       const item = document.createElement('li');
       item.textContent = card.question;
+      const translation = document.createElement('span');
+      translation.lang = 'es';
+      translation.className = 'translation';
+      translation.textContent = card.spanish;
+      item.append(translation);
       items.append(item);
     }
     list.append(heading, items);
@@ -2390,6 +2718,7 @@ function nextQuestion() {
   byId('kind').textContent = current.type + ' verb';
   byId('number').textContent = 'Question ' + number;
   byId('question').textContent = current.question;
+  byId('question-es').textContent = current.spanish;
   byId('remaining').textContent = deck.length + ' questions left before reshuffling';
   byId('help').hidden = true;
   byId('hint').setAttribute('aria-expanded', 'false');
