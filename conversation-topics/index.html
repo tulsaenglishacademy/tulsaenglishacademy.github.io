@@ -1,0 +1,2113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="320 A2 English conversation questions with Spanish translations, inspired by Internet TESL Journal themes.">
+<title>Conversation Topics | Tulsa English Academy</title>
+<style>
+:root{color-scheme:light;--ink:#241c37;--muted:#5c536c;--purple:#5537a2;--soft:#eee7fb;--line:#dcd3ec}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top left,#ece2ff,transparent 55%),#fbf9ff;color:var(--ink);font:1rem/1.55 system-ui,sans-serif}
+main{width:min(960px,calc(100% - 28px));margin:32px auto}
+section.panel{padding:clamp(20px,5vw,44px);border-radius:24px;border:1px solid var(--line);background:#fff;box-shadow:0 12px 32px #37265a12}
+h1{font-size:clamp(2.1rem,6vw,4rem);line-height:1.06;margin:.25em 0;letter-spacing:-.04em}
+h2{line-height:1.25}
+.eyebrow,.badge{font-weight:800;color:var(--purple)}
+.muted{color:var(--muted)}
+fieldset{border:0;padding:0;margin:20px 0}
+legend{font-weight:800;margin-bottom:8px}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.topics label{border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;gap:8px;align-items:center}
+input{accent-color:var(--purple)}
+.controls,.actions,.badges{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.controls label{display:grid;gap:4px;font-weight:700}
+button,select{font:inherit;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+button{font-weight:800;cursor:pointer;min-height:44px}
+button.primary{background:var(--purple);color:#fff;border-color:var(--purple)}
+button:disabled{opacity:.6;cursor:default}
+:focus-visible{outline:3px solid #b57200;outline-offset:3px}
+.prompt{margin:16px 0;padding:clamp(18px,5vw,42px);border-radius:20px;background:var(--soft)}
+.prompt h2{font-size:clamp(1.6rem,4vw,2.8rem);margin:.5em 0}
+.badge{background:#fff;padding:4px 10px;border-radius:999px;font-size:.85rem}
+details{margin:16px 0;padding:12px 16px;background:#f7f3fc;border-radius:12px}
+summary{cursor:pointer;font-weight:800}
+#question-list{max-height:400px;overflow:auto}
+#question-list li{padding:4px 0}
+#help{padding:12px 16px;border-radius:12px;background:#fff}
+[hidden]{display:none!important}
+@media(max-width:560px){.topics{grid-template-columns:1fr}}
+.translation{display:block;color:var(--muted);line-height:1.45;margin:4px 0 0}
+.prompt .translation{font-size:clamp(1.05rem,3vw,1.45rem);margin:-.1em 0 .8em}
+
+.followup{border-top:1px solid var(--line);padding-top:12px}
+.source-note{font-size:.85rem;color:var(--muted);margin:20px 0 0}
+.source-note a{color:var(--purple)}
+.topic-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+</style>
+</head>
+<body>
+<main>
+<section class="panel" id="setup" aria-labelledby="title">
+<div class="eyebrow">TULSA ENGLISH ACADEMY · A2 SPEAKING</div>
+<h1 id="title">Conversation Topics</h1>
+<p>Choose a topic and start talking with <strong>320 short questions</strong>. Each question has a Spanish translation underneath.</p>
+<p>Read the question aloud. Share your answer, ask a follow-up question, then switch speakers.</p>
+<p class="muted" lang="es">Lee la pregunta en voz alta. Responde, haz otra pregunta y cambia de turno con tu compañero. Puedes saltar cualquier pregunta.</p>
+<fieldset><legend>Choose your topics</legend><div id="topics" class="topics"></div><div class="topic-tools"><button id="select-all" type="button">Select all</button><button id="clear-all" type="button">Clear all</button></div></fieldset>
+<div class="actions"><button class="primary" id="start" type="button">Start talking</button><span id="count" class="muted" aria-live="polite"></span></div>
+<details><summary id="browse-label">Browse questions</summary><div id="question-list" tabindex="0" aria-label="Questions by topic"></div></details>
+<p class="source-note">Themes and selected prompts adapted from the Internet TESL Journal, with additional original questions and Spanish translations for this game. <a href="https://aitech.ac.jp/~iteslj/questions/" target="_blank" rel="noopener">Explore the original topic collection</a>.</p>
+</section>
+<section class="panel" id="game" aria-label="Conversation practice" hidden>
+<div class="actions"><button id="back" type="button">← Choose topics</button></div>
+<article class="prompt">
+<div class="badges"><span class="badge" id="topic"></span><span class="badge" id="number"></span></div>
+<h2 id="question" tabindex="-1" aria-describedby="question-es"></h2>
+<p id="question-es" lang="es" class="translation"></p>
+<p>Say your answer aloud. Add a reason or an example.</p>
+<div id="help" aria-live="polite" hidden>
+<p>Start with “I…” or “In my family…”</p>
+<p lang="es">Empieza con «Yo…» o «En mi familia…».</p>
+<p class="followup">Keep talking with “Why?”, “Who with?” or “Can you tell me more?”</p>
+<p lang="es">Sigue conversando con «¿Por qué?», «¿Con quién?» o «¿Puedes contarme más?».</p>
+</div>
+</article>
+<div class="actions"><button id="hint" type="button" aria-controls="help" aria-expanded="false">Speaking help</button><button class="primary" id="next" type="button">Next question →</button></div>
+<p class="muted" id="remaining"></p>
+<p class="source-note"><a id="topic-source" target="_blank" rel="noopener">Explore this original TESL Journal theme</a>.</p>
+</section>
+</main>
+<script>
+const questions = [
+  {
+    "topic": "Family",
+    "question": "Who lives in your family home?",
+    "spanish": "¿Quién vive en tu casa familiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Are you the oldest child in your family?",
+    "spanish": "¿Eres el hijo o la hija mayor de tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "How often do you see your cousins?",
+    "spanish": "¿Con qué frecuencia ves a tus primos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What do you enjoy doing with relatives?",
+    "spanish": "¿Qué te gusta hacer con tus familiares?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What work do your relatives do?",
+    "spanish": "¿En qué trabajan tus familiares?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What did your family teach you?",
+    "spanish": "¿Qué te enseñó tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Who cooks arepas in your family?",
+    "spanish": "¿Quién prepara arepas en tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Who usually sends family photos?",
+    "spanish": "¿Quién suele enviar las fotos familiares?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What do you talk about at dinner?",
+    "spanish": "¿De qué hablan durante la cena?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Who tells funny stories at home?",
+    "spanish": "¿Quién cuenta historias graciosas en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What did you do with your family last Sunday?",
+    "spanish": "¿Qué hiciste con tu familia el domingo pasado?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Who helped you with schoolwork?",
+    "spanish": "¿Quién te ayudó con las tareas escolares?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What game can you teach a younger relative?",
+    "spanish": "¿Qué juego le puedes enseñar a un familiar menor?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Where do you want to take your family?",
+    "spanish": "¿Adónde quieres llevar a tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What food reminds you of a relative?",
+    "spanish": "¿Qué comida te recuerda a un familiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "How do you contact family in another city?",
+    "spanish": "¿Cómo te comunicas con tu familia en otra ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What do you like about family meals?",
+    "spanish": "¿Qué te gusta de las comidas familiares?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "Who likes the same music as you?",
+    "spanish": "¿A quién le gusta la misma música que a ti?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What small gift could you make for a relative?",
+    "spanish": "¿Qué regalo pequeño podrías hacer para un familiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Family",
+    "question": "What family photo makes you smile?",
+    "spanish": "¿Qué foto familiar te hace sonreír?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/family.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "Which meal do you enjoy most?",
+    "spanish": "¿Qué comida del día disfrutas más?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What can you cook without a recipe?",
+    "spanish": "¿Qué puedes cocinar sin una receta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "When do you usually have lunch?",
+    "spanish": "¿A qué hora sueles almorzar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "Which food from home do you miss?",
+    "spanish": "¿Qué comida de tu país extrañas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What was on your plate yesterday evening?",
+    "spanish": "¿Qué había en tu plato ayer por la noche?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "Do you choose home cooking or restaurant food?",
+    "spanish": "¿Prefieres la comida casera o la de restaurante?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What do you put inside an arepa?",
+    "spanish": "¿Qué le pones a una arepa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What fruit do you buy each week?",
+    "spanish": "¿Qué fruta compras cada semana?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What do you drink when it is hot?",
+    "spanish": "¿Qué tomas cuando hace calor?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What snack do you take to work?",
+    "spanish": "¿Qué merienda llevas al trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What food did you dislike as a child?",
+    "spanish": "¿Qué comida no te gustaba cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "Who makes your favorite soup?",
+    "spanish": "¿Quién prepara tu sopa favorita?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What would you cook for a new friend?",
+    "spanish": "¿Qué cocinarías para un amigo nuevo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What do you add to your coffee?",
+    "spanish": "¿Qué le agregas al café?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "Where can you buy Venezuelan food nearby?",
+    "spanish": "¿Dónde puedes comprar comida venezolana cerca?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What meal is easy to make after work?",
+    "spanish": "¿Qué comida es fácil de preparar después del trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What food do you take on a picnic?",
+    "spanish": "¿Qué comida llevas a un picnic?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What did you eat before class today?",
+    "spanish": "¿Qué comiste antes de la clase de hoy?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What food would you like to learn to make?",
+    "spanish": "¿Qué comida te gustaría aprender a preparar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Food & Eating",
+    "question": "What do you like on your pizza?",
+    "spanish": "¿Qué te gusta ponerle a la pizza?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/food.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What do you enjoy after work or class?",
+    "spanish": "¿Qué te gusta hacer después del trabajo o de clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "When can you take time for a hobby?",
+    "spanish": "¿Cuándo puedes dedicarle tiempo a un pasatiempo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "Who joins you in your favorite activity?",
+    "spanish": "¿Quién te acompaña en tu actividad favorita?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What did you enjoy doing last Saturday?",
+    "spanish": "¿Qué disfrutaste hacer el sábado pasado?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What activity would you like to start?",
+    "spanish": "¿Qué actividad te gustaría empezar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What hobby did you enjoy as a child?",
+    "spanish": "¿Qué pasatiempo disfrutabas cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What can you do for fun without spending money?",
+    "spanish": "¿Qué puedes hacer para divertirte sin gastar dinero?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "Where do you go to relax near home?",
+    "spanish": "¿Adónde vas para relajarte cerca de casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What do you do when you have ten free minutes?",
+    "spanish": "¿Qué haces cuando tienes diez minutos libres?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "Do you like doing things alone or with others?",
+    "spanish": "¿Te gusta hacer cosas a solas o con otras personas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What hobby could you teach a friend?",
+    "spanish": "¿Qué pasatiempo podrías enseñarle a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What do you enjoy doing outside?",
+    "spanish": "¿Qué te gusta hacer al aire libre?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What do you do for fun on a rainy day?",
+    "spanish": "¿Qué haces para divertirte un día de lluvia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What activity helps you feel calm?",
+    "spanish": "¿Qué actividad te ayuda a sentir tranquilidad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What do you need for your favorite hobby?",
+    "spanish": "¿Qué necesitas para tu pasatiempo favorito?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What free activity is popular where you live?",
+    "spanish": "¿Qué actividad gratuita es popular donde vives?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What did you do for fun in Venezuela?",
+    "spanish": "¿Qué hacías para divertirte en Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What would you like to do this Sunday?",
+    "spanish": "¿Qué te gustaría hacer este domingo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "What hobby do people in your family enjoy?",
+    "spanish": "¿Qué pasatiempo disfrutan las personas de tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Free Time & Hobbies",
+    "question": "How do you choose what to do on a day off?",
+    "spanish": "¿Cómo eliges qué hacer en un día libre?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/freetime.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "How would you describe a close friend?",
+    "spanish": "¿Cómo describirías a un amigo cercano?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "How do you contact friends who live far away?",
+    "spanish": "¿Cómo te comunicas con amigos que viven lejos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "Where can you meet people in your town?",
+    "spanish": "¿Dónde puedes conocer gente en tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What helps you become friends with someone?",
+    "spanish": "¿Qué te ayuda a hacerte amigo de alguien?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What do you enjoy sharing with friends?",
+    "spanish": "¿Qué te gusta compartir con tus amigos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "How did you meet a childhood friend?",
+    "spanish": "¿Cómo conociste a un amigo de la infancia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What makes you laugh with your friends?",
+    "spanish": "¿Qué te hace reír con tus amigos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "Where would you take a friend visiting Tulsa?",
+    "spanish": "¿Adónde llevarías a un amigo que visitara Tulsa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What message did you send a friend recently?",
+    "spanish": "¿Qué mensaje le enviaste a un amigo recientemente?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What activity do you and a friend both like?",
+    "spanish": "¿Qué actividad les gusta a ti y a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "How can you help a friend learn English?",
+    "spanish": "¿Cómo puedes ayudar a un amigo a aprender inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What food do you share with friends?",
+    "spanish": "¿Qué comida compartes con tus amigos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "Do you like meeting one friend or several friends?",
+    "spanish": "¿Te gusta reunirte con un amigo o con varios?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What did you learn from a friend?",
+    "spanish": "¿Qué aprendiste de un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What do you do when a friend needs help?",
+    "spanish": "¿Qué haces cuando un amigo necesita ayuda?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What do you like about your classmates?",
+    "spanish": "¿Qué te gusta de tus compañeros de clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "When did you last call a friend?",
+    "spanish": "¿Cuándo fue la última vez que llamaste a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What small gift could you give a friend?",
+    "spanish": "¿Qué regalo pequeño podrías darle a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "How do you make plans with friends?",
+    "spanish": "¿Cómo haces planes con tus amigos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Friends",
+    "question": "What would you like to do together next weekend?",
+    "spanish": "¿Qué les gustaría hacer juntos el próximo fin de semana?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/friends.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What tasks do you do in your job?",
+    "spanish": "¿Qué tareas haces en tu trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What job did you do first?",
+    "spanish": "¿Cuál fue tu primer trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What is a normal workday like for you?",
+    "spanish": "¿Cómo es un día normal de trabajo para ti?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What do you like about a job you know?",
+    "spanish": "¿Qué te gusta de un trabajo que conoces?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "Do you sometimes work extra hours?",
+    "spanish": "¿A veces trabajas horas extra?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What job would you like to try?",
+    "spanish": "¿Qué trabajo te gustaría probar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What do you take to work each day?",
+    "spanish": "¿Qué llevas al trabajo cada día?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What English words do you use at work?",
+    "spanish": "¿Qué palabras en inglés usas en el trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "Who can help you with a new task?",
+    "spanish": "¿Quién te puede ayudar con una tarea nueva?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What work skill are you proud of?",
+    "spanish": "¿De qué habilidad laboral te sientes orgulloso u orgullosa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What do you eat during a work break?",
+    "spanish": "¿Qué comes durante un descanso en el trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "How do you get ready for work?",
+    "spanish": "¿Cómo te preparas para ir al trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What do you do when work is busy?",
+    "spanish": "¿Qué haces cuando hay mucho trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What job did someone in your family do?",
+    "spanish": "¿Qué trabajo hacía alguien de tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What work clothes feel comfortable?",
+    "spanish": "¿Qué ropa de trabajo te resulta cómoda?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What tool or app makes your work easier?",
+    "spanish": "¿Qué herramienta o aplicación facilita tu trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What did you learn at your last job?",
+    "spanish": "¿Qué aprendiste en tu último trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What would you ask a new coworker?",
+    "spanish": "¿Qué le preguntarías a un compañero de trabajo nuevo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What do you do after a long workday?",
+    "spanish": "¿Qué haces después de un día largo de trabajo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "Jobs & Work",
+    "question": "What would you like to learn for a future job?",
+    "spanish": "¿Qué te gustaría aprender para un trabajo futuro?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/jobs.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What subject did you enjoy at school?",
+    "spanish": "¿Qué materia disfrutabas en la escuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "Did your school ask students to wear uniforms?",
+    "spanish": "¿En tu escuela les pedían uniforme a los estudiantes?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What school club did you join or want to join?",
+    "spanish": "¿A qué club escolar te uniste o querías unirte?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "How did you look up new words in class?",
+    "spanish": "¿Cómo buscabas palabras nuevas en clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What was your trip to school like?",
+    "spanish": "¿Cómo era tu viaje a la escuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What do you remember about a favorite teacher?",
+    "spanish": "¿Qué recuerdas de un profesor favorito?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What helps you remember an English word?",
+    "spanish": "¿Qué te ayuda a recordar una palabra en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "Where do you like to study at home?",
+    "spanish": "¿Dónde te gusta estudiar en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What did you write in class today?",
+    "spanish": "¿Qué escribiste hoy en clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What English phrase did you use this week?",
+    "spanish": "¿Qué frase en inglés usaste esta semana?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What do you carry in your school bag?",
+    "spanish": "¿Qué llevas en tu bolso para clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What can you learn from a classmate?",
+    "spanish": "¿Qué puedes aprender de un compañero de clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "How do you ask someone to repeat a word?",
+    "spanish": "¿Cómo le pides a alguien que repita una palabra?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What do you enjoy reading in English?",
+    "spanish": "¿Qué te gusta leer en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What was easy in your last lesson?",
+    "spanish": "¿Qué fue fácil en tu última clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What would you like to practice next class?",
+    "spanish": "¿Qué te gustaría practicar en la próxima clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What game helped you learn something?",
+    "spanish": "¿Qué juego te ayudó a aprender algo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "Who helped you study when you were younger?",
+    "spanish": "¿Quién te ayudaba a estudiar cuando eras más joven?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "How do you feel before speaking English?",
+    "spanish": "¿Cómo te sientes antes de hablar inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "School & Learning",
+    "question": "What learning goal do you have for this month?",
+    "spanish": "¿Qué meta de aprendizaje tienes para este mes?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/school.html"
+  },
+  {
+    "topic": "Home",
+    "question": "Which room do you enjoy spending time in?",
+    "spanish": "¿En qué habitación te gusta pasar tiempo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What do you like about your current home?",
+    "spanish": "¿Qué te gusta de tu casa actual?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "How is your home different from your home in Venezuela?",
+    "spanish": "¿En qué se diferencia tu casa de la que tenías en Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What would you like to change in your home?",
+    "spanish": "¿Qué te gustaría cambiar en tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What furniture is in your bedroom?",
+    "spanish": "¿Qué muebles hay en tu cuarto?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "Who lives near your home?",
+    "spanish": "¿Quién vive cerca de tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What can you see from a window at home?",
+    "spanish": "¿Qué puedes ver desde una ventana de tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "Where do you keep your keys?",
+    "spanish": "¿Dónde guardas las llaves?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What do you do first when you get home?",
+    "spanish": "¿Qué haces primero cuando llegas a casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What color would you choose for a kitchen?",
+    "spanish": "¿Qué color elegirías para una cocina?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What makes your home feel comfortable?",
+    "spanish": "¿Qué hace que tu casa sea cómoda?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "Where do you sit to read or watch TV?",
+    "spanish": "¿Dónde te sientas a leer o ver televisión?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What small thing did you fix at home?",
+    "spanish": "¿Qué cosa pequeña arreglaste en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "How do you share housework?",
+    "spanish": "¿Cómo comparten las tareas de la casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What do you grow in a pot or garden?",
+    "spanish": "¿Qué cultivas en una maceta o jardín?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "Where do visitors sit in your home?",
+    "spanish": "¿Dónde se sientan las visitas en tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What do you like about your kitchen?",
+    "spanish": "¿Qué te gusta de tu cocina?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What did your childhood bedroom look like?",
+    "spanish": "¿Cómo era tu cuarto de la infancia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What would you put in a small guest room?",
+    "spanish": "¿Qué pondrías en un cuarto pequeño para visitas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Home",
+    "question": "What sound do you often hear at home?",
+    "spanish": "¿Qué sonido escuchas a menudo en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/home.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "How would you describe the place you grew up?",
+    "spanish": "¿Cómo describirías el lugar donde creciste?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What is your town known for?",
+    "spanish": "¿Por qué es conocida tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What do you miss about your old town?",
+    "spanish": "¿Qué extrañas de tu antigua ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What can a visitor do in your hometown?",
+    "spanish": "¿Qué puede hacer una persona que visita tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "When is a good month to visit your hometown?",
+    "spanish": "¿Qué mes es bueno para visitar tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What festival takes place in your hometown?",
+    "spanish": "¿Qué fiesta se celebra en tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "Where did you buy bread in your old neighborhood?",
+    "spanish": "¿Dónde comprabas pan en tu antiguo barrio?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What park did you visit as a child?",
+    "spanish": "¿Qué parque visitabas cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What place in your town would you photograph?",
+    "spanish": "¿Qué lugar de tu ciudad fotografiarías?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What smells remind you of your hometown?",
+    "spanish": "¿Qué olores te recuerdan a tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "How do people travel around your town?",
+    "spanish": "¿Cómo se transporta la gente en tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What do you like about your town now?",
+    "spanish": "¿Qué te gusta de la ciudad donde vives ahora?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What is near your old school?",
+    "spanish": "¿Qué hay cerca de tu antigua escuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What food should a visitor try there?",
+    "spanish": "¿Qué comida debería probar una persona que visite ese lugar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "Where did you meet friends after school?",
+    "spanish": "¿Dónde te reunías con tus amigos después de la escuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What building is easy to recognize in your town?",
+    "spanish": "¿Qué edificio es fácil de reconocer en tu ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What did you do in the town center?",
+    "spanish": "¿Qué hacías en el centro de la ciudad?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What place would you show a visitor first?",
+    "spanish": "¿Qué lugar le mostrarías primero a una visita?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What do you enjoy about a small town?",
+    "spanish": "¿Qué disfrutas de un pueblo pequeño?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Hometowns",
+    "question": "What do you enjoy about a big city?",
+    "spanish": "¿Qué disfrutas de una ciudad grande?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/hometowns.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "How do you check prices before buying something?",
+    "spanish": "¿Cómo revisas los precios antes de comprar algo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What are you saving up to buy?",
+    "spanish": "¿Qué estás ahorrando para comprar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "Do you prefer new or used items?",
+    "spanish": "¿Prefieres artículos nuevos o usados?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you enjoy about going shopping?",
+    "spanish": "¿Qué disfrutas de ir de compras?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "When do you leave a tip at a restaurant?",
+    "spanish": "¿Cuándo dejas propina en un restaurante?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What did you spend money on yesterday?",
+    "spanish": "¿En qué gastaste dinero ayer?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you put on a shopping list?",
+    "spanish": "¿Qué pones en una lista de compras?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What shop is close to your home?",
+    "spanish": "¿Qué tienda está cerca de tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "How do you ask the price in English?",
+    "spanish": "¿Cómo preguntas el precio en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you buy for a school day?",
+    "spanish": "¿Qué compras para un día de clases?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What can you buy with five dollars nearby?",
+    "spanish": "¿Qué puedes comprar con cinco dólares cerca?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you usually buy online?",
+    "spanish": "¿Qué sueles comprar por internet?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "Who helps you choose a big purchase?",
+    "spanish": "¿Quién te ayuda a elegir una compra importante?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you do with shopping receipts?",
+    "spanish": "¿Qué haces con los recibos de compra?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What item did you buy and use for years?",
+    "spanish": "¿Qué artículo compraste y usaste durante años?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you take when you go grocery shopping?",
+    "spanish": "¿Qué llevas cuando vas a comprar comida?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What store would you recommend to a friend?",
+    "spanish": "¿Qué tienda le recomendarías a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What do you do when an item costs too much?",
+    "spanish": "¿Qué haces cuando un artículo cuesta demasiado?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What did you buy on your last trip?",
+    "spanish": "¿Qué compraste en tu último viaje?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Shopping & Money",
+    "question": "What small purchase makes your day better?",
+    "spanish": "¿Qué compra pequeña mejora tu día?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/money.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "Where do you hope to go on your next vacation?",
+    "spanish": "¿Adónde esperas ir en tus próximas vacaciones?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "Who would you choose as a travel partner?",
+    "spanish": "¿A quién elegirías para viajar contigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "Which trip do you remember most fondly?",
+    "spanish": "¿Qué viaje recuerdas con más cariño?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "Do you choose a bus, a car, or a plane for trips?",
+    "spanish": "¿Eliges autobús, carro o avión para viajar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you do on a rainy vacation day?",
+    "spanish": "¿Qué haces en un día de lluvia durante las vacaciones?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What happened on a school trip you remember?",
+    "spanish": "¿Qué pasó en un viaje escolar que recuerdas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you pack first for a trip?",
+    "spanish": "¿Qué empacas primero para un viaje?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What snack do you bring on a bus?",
+    "spanish": "¿Qué merienda llevas en el autobús?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "Where do you like to stop during a road trip?",
+    "spanish": "¿Dónde te gusta parar durante un viaje en carro?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What photo do you always take on vacation?",
+    "spanish": "¿Qué foto siempre tomas en vacaciones?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What place in Venezuela do you want to show a friend?",
+    "spanish": "¿Qué lugar de Venezuela le quieres mostrar a un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What place in the U.S. would you like to visit?",
+    "spanish": "¿Qué lugar de Estados Unidos te gustaría visitar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "How do you choose where to stay?",
+    "spanish": "¿Cómo eliges dónde quedarte?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you enjoy about a beach trip?",
+    "spanish": "¿Qué disfrutas de un viaje a la playa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you enjoy about visiting mountains?",
+    "spanish": "¿Qué disfrutas de visitar las montañas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you check before leaving home?",
+    "spanish": "¿Qué revisas antes de salir de casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "How do you ask for directions in English?",
+    "spanish": "¿Cómo pides indicaciones en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What souvenir do you like to bring home?",
+    "spanish": "¿Qué recuerdo te gusta llevar a casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What would you do on a one-day trip near Tulsa?",
+    "spanish": "¿Qué harías en un viaje de un día cerca de Tulsa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Travel",
+    "question": "What do you tell friends after a trip?",
+    "spanish": "¿Qué les cuentas a tus amigos después de un viaje?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/travel.html"
+  },
+  {
+    "topic": "Music",
+    "question": "Which type of music do you enjoy most?",
+    "spanish": "¿Qué tipo de música disfrutas más?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What instrument can you play or want to learn?",
+    "spanish": "¿Qué instrumento puedes tocar o quieres aprender?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "Do you enjoy singing with other people?",
+    "spanish": "¿Disfrutas cantar con otras personas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "How do you feel after listening to music?",
+    "spanish": "¿Cómo te sientes después de escuchar música?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What concert would you like to attend?",
+    "spanish": "¿A qué concierto te gustaría ir?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "When do you turn on music during the day?",
+    "spanish": "¿Cuándo pones música durante el día?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What song reminds you of Venezuela?",
+    "spanish": "¿Qué canción te recuerda a Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What music do you play while cooking?",
+    "spanish": "¿Qué música pones mientras cocinas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "Who shares new songs with you?",
+    "spanish": "¿Quién comparte canciones nuevas contigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What song makes you want to dance?",
+    "spanish": "¿Qué canción te da ganas de bailar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What music did you hear at home as a child?",
+    "spanish": "¿Qué música escuchabas en casa cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What English song would you like to understand?",
+    "spanish": "¿Qué canción en inglés te gustaría entender?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What music do you enjoy on a long drive?",
+    "spanish": "¿Qué música disfrutas en un viaje largo en carro?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "Where do you listen to live music nearby?",
+    "spanish": "¿Dónde escuchas música en vivo cerca?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What singer would you invite to a party?",
+    "spanish": "¿A qué cantante invitarías a una fiesta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What do you do when a favorite song starts?",
+    "spanish": "¿Qué haces cuando empieza una canción que te encanta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What music helps you relax after class?",
+    "spanish": "¿Qué música te ayuda a relajarte después de clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What song do people sing on special days in your family?",
+    "spanish": "¿Qué canción cantan en los días especiales de tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "How do you find new music?",
+    "spanish": "¿Cómo encuentras música nueva?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Music",
+    "question": "What music would you share with this class?",
+    "spanish": "¿Qué música compartirías con esta clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/music.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "Which movie would you happily watch again?",
+    "spanish": "¿Qué película volverías a ver con gusto?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "Which is better for you, a movie at home or at the cinema?",
+    "spanish": "¿Qué prefieres, una película en casa o en el cine?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What type of movie do you usually choose?",
+    "spanish": "¿Qué tipo de película sueles elegir?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What did you think of the last movie you watched?",
+    "spanish": "¿Qué opinaste de la última película que viste?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "Which actor would you enjoy meeting?",
+    "spanish": "¿A qué actor te gustaría conocer?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What do you think about talking during a film?",
+    "spanish": "¿Qué opinas de hablar durante una película?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What snack do you like during a movie?",
+    "spanish": "¿Qué merienda te gusta comer durante una película?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "Who chooses what to watch in your home?",
+    "spanish": "¿Quién elige qué ver en tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What show did you enjoy as a child?",
+    "spanish": "¿Qué programa disfrutabas cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What movie reminds you of a family member?",
+    "spanish": "¿Qué película te recuerda a un familiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What English show is easy for you to follow?",
+    "spanish": "¿Qué programa en inglés te resulta fácil de seguir?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "Do subtitles help you enjoy a film?",
+    "spanish": "¿Los subtítulos te ayudan a disfrutar una película?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What do you do when a film is boring?",
+    "spanish": "¿Qué haces cuando una película es aburrida?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What place from a movie would you like to visit?",
+    "spanish": "¿Qué lugar de una película te gustaría visitar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What funny scene do you remember?",
+    "spanish": "¿Qué escena graciosa recuerdas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What program do you watch to learn something?",
+    "spanish": "¿Qué programa ves para aprender algo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What do you like about short videos?",
+    "spanish": "¿Qué te gusta de los videos cortos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What movie would you show your classmates?",
+    "spanish": "¿Qué película les mostrarías a tus compañeros?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "When do you have time to watch a show?",
+    "spanish": "¿Cuándo tienes tiempo para ver un programa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Movies & TV",
+    "question": "What story from Venezuela could become a movie?",
+    "spanish": "¿Qué historia de Venezuela podría convertirse en película?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/movies.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What clothes do you choose for a normal day?",
+    "spanish": "¿Qué ropa eliges para un día normal?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What colors look nice on you?",
+    "spanish": "¿Qué colores te quedan bien?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "How often do you shop for clothes?",
+    "spanish": "¿Con qué frecuencia compras ropa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "Do you like wearing a hat or cap?",
+    "spanish": "¿Te gusta usar sombrero o gorra?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What clothes did you put on yesterday?",
+    "spanish": "¿Qué ropa te pusiste ayer?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you like about shopping for new clothes?",
+    "spanish": "¿Qué te gusta de comprar ropa nueva?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What shoes are comfortable for work?",
+    "spanish": "¿Qué zapatos son cómodos para trabajar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you wear when it rains?",
+    "spanish": "¿Qué te pones cuando llueve?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What clothing do you need for winter in the U.S.?",
+    "spanish": "¿Qué ropa necesitas para el invierno en Estados Unidos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you wear to a family party?",
+    "spanish": "¿Qué ropa usas para una fiesta familiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you keep in your jacket pocket?",
+    "spanish": "¿Qué guardas en el bolsillo de tu chaqueta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you do with clothes you no longer use?",
+    "spanish": "¿Qué haces con la ropa que ya no usas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "Who can help you choose clothes for a special day?",
+    "spanish": "¿Quién te puede ayudar a elegir ropa para un día especial?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What clothes are easy to pack for a trip?",
+    "spanish": "¿Qué ropa es fácil de empacar para un viaje?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What color would you choose for a class T-shirt?",
+    "spanish": "¿Qué color elegirías para una camiseta de la clase?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you wear to relax at home?",
+    "spanish": "¿Qué ropa usas para descansar en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What did you wear to school in Venezuela?",
+    "spanish": "¿Qué ropa usabas para ir a la escuela en Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What clothing gift did you enjoy receiving?",
+    "spanish": "¿Qué regalo de ropa te gustó recibir?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you check before buying shoes?",
+    "spanish": "¿Qué revisas antes de comprar zapatos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Clothes",
+    "question": "What do you like about your favorite jacket?",
+    "spanish": "¿Qué te gusta de tu chaqueta favorita?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/clothes.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "Which season feels most comfortable to you?",
+    "spanish": "¿En qué estación te sientes más a gusto?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "Do you prefer a warm day or a cool day?",
+    "spanish": "¿Prefieres un día cálido o uno fresco?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you enjoy about snowy days?",
+    "spanish": "¿Qué disfrutas de los días de nieve?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "When does your hometown get the most rain?",
+    "spanish": "¿Cuándo llueve más en tu ciudad de origen?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What happened the last time bad weather changed your plans?",
+    "spanish": "¿Qué pasó la última vez que el mal tiempo cambió tus planes?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What kind of weather do you want on vacation?",
+    "spanish": "¿Qué tipo de clima quieres en tus vacaciones?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you do outside on a sunny morning?",
+    "spanish": "¿Qué haces afuera en una mañana soleada?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you carry when rain is expected?",
+    "spanish": "¿Qué llevas cuando se espera lluvia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "How is today's weather different from Venezuela's weather?",
+    "spanish": "¿En qué se diferencia el clima de hoy del de Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What drink do you enjoy on a cold day?",
+    "spanish": "¿Qué bebida disfrutas en un día frío?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you like to cook when it rains?",
+    "spanish": "¿Qué te gusta cocinar cuando llueve?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What clothes do you wear on a windy day?",
+    "spanish": "¿Qué ropa usas en un día de viento?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What season is good for walking near your home?",
+    "spanish": "¿Qué estación es buena para caminar cerca de tu casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you see outside in spring?",
+    "spanish": "¿Qué ves afuera en primavera?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "How do you check tomorrow's weather?",
+    "spanish": "¿Cómo revisas el clima de mañana?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you do for fun when it is too hot outside?",
+    "spanish": "¿Qué haces para divertirte cuando hace demasiado calor afuera?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What was the weather like on your last trip?",
+    "spanish": "¿Cómo estuvo el clima en tu último viaje?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What do you enjoy about fall colors?",
+    "spanish": "¿Qué disfrutas de los colores del otoño?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What weather words do you know in English?",
+    "spanish": "¿Qué palabras sobre el clima conoces en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Weather & Seasons",
+    "question": "What would you do on a perfect sunny afternoon?",
+    "spanish": "¿Qué harías en una tarde soleada perfecta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/weather.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What do you enjoy doing on your birthday?",
+    "spanish": "¿Qué disfrutas hacer en tu cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What birthday tradition does your family follow?",
+    "spanish": "¿Qué tradición de cumpleaños sigue tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What birthday memory makes you happy?",
+    "spanish": "¿Qué recuerdo de cumpleaños te hace feliz?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What gift did you really enjoy receiving?",
+    "spanish": "¿Qué regalo disfrutaste mucho recibir?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "Do you prefer a quiet birthday or a big party?",
+    "spanish": "¿Prefieres un cumpleaños tranquilo o una fiesta grande?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "Whose birthday is easy for you to remember?",
+    "spanish": "¿El cumpleaños de quién te resulta fácil recordar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What cake flavor would you choose?",
+    "spanish": "¿Qué sabor de torta elegirías?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "Who would you invite to a small birthday meal?",
+    "spanish": "¿A quién invitarías a una comida pequeña de cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What food would you serve at your party?",
+    "spanish": "¿Qué comida servirías en tu fiesta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "How do you say happy birthday in English?",
+    "spanish": "¿Cómo dices feliz cumpleaños en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What can you do for a friend's birthday for free?",
+    "spanish": "¿Qué puedes hacer gratis para el cumpleaños de un amigo?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "How do you celebrate with a relative far away?",
+    "spanish": "¿Cómo celebras con un familiar que está lejos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What music would you choose for a birthday party?",
+    "spanish": "¿Qué música elegirías para una fiesta de cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What did you do on your last birthday?",
+    "spanish": "¿Qué hiciste en tu último cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What decorations can you make at home?",
+    "spanish": "¿Qué decoraciones puedes hacer en casa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What birthday message would you write to a classmate?",
+    "spanish": "¿Qué mensaje de cumpleaños le escribirías a un compañero?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What game could adults play at a party?",
+    "spanish": "¿Qué juego podrían jugar los adultos en una fiesta?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "What do you like about surprise gifts?",
+    "spanish": "¿Qué te gusta de los regalos sorpresa?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "Where would you like to spend your next birthday?",
+    "spanish": "¿Dónde te gustaría pasar tu próximo cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Birthdays",
+    "question": "How do you thank someone for a birthday gift?",
+    "spanish": "¿Cómo le agradeces a alguien un regalo de cumpleaños?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/birthdays.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animal would you choose as a pet?",
+    "spanish": "¿Qué animal elegirías como mascota?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animals lived near you as a child?",
+    "spanish": "¿Qué animales vivían cerca de ti cuando eras niño o niña?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "How do people choose names for their pets?",
+    "spanish": "¿Cómo elige la gente los nombres de sus mascotas?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animals can you see in Venezuela?",
+    "spanish": "¿Qué animales puedes ver en Venezuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "Who looks after pets in your family?",
+    "spanish": "¿Quién cuida a las mascotas en tu familia?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What do you enjoy about visiting a zoo?",
+    "spanish": "¿Qué disfrutas de visitar un zoológico?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What birds do you see near your home now?",
+    "spanish": "¿Qué aves ves cerca de tu casa ahora?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What do you like about dogs?",
+    "spanish": "¿Qué te gusta de los perros?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What do you like about cats?",
+    "spanish": "¿Qué te gusta de los gatos?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animal would you like to photograph?",
+    "spanish": "¿Qué animal te gustaría fotografiar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "How can you help an animal shelter?",
+    "spanish": "¿Cómo puedes ayudar a un refugio de animales?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What should someone buy before getting a pet?",
+    "spanish": "¿Qué debería comprar alguien antes de tener una mascota?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What does a pet need each day?",
+    "spanish": "¿Qué necesita una mascota cada día?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What funny thing did an animal do near you?",
+    "spanish": "¿Qué cosa graciosa hizo un animal cerca de ti?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "Where can people walk dogs in your neighborhood?",
+    "spanish": "¿Dónde puede la gente pasear perros en tu barrio?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animal sounds do you know in English?",
+    "spanish": "¿Qué sonidos de animales conoces en inglés?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animal did you learn about at school?",
+    "spanish": "¿Sobre qué animal aprendiste en la escuela?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What animal would you like to draw?",
+    "spanish": "¿Qué animal te gustaría dibujar?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What can children learn by caring for a pet?",
+    "spanish": "¿Qué pueden aprender los niños al cuidar una mascota?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  },
+  {
+    "topic": "Animals & Pets",
+    "question": "What would you ask someone about their pet?",
+    "spanish": "¿Qué le preguntarías a alguien sobre su mascota?",
+    "source": "https://aitech.ac.jp/~iteslj/questions/animals.html"
+  }
+];
+const byId = id => document.getElementById(id);
+const topicNames = [...new Set(questions.map(card => card.topic))];
+const topics = byId('topics');
+let selectedQuestions = [];
+let deck = [];
+let current;
+let number = 0;
+
+for (const topic of topicNames) {
+  const label = document.createElement('label');
+  const input = document.createElement('input');
+  input.type = 'checkbox';
+  input.value = topic;
+  input.checked = true;
+  label.append(input, topic);
+  topics.append(label);
+}
+
+function refreshSelection() {
+  const chosen = new Set(Array.from(topics.querySelectorAll('input:checked'), input => input.value));
+  selectedQuestions = questions.filter(card => chosen.has(card.topic));
+  byId('count').textContent = selectedQuestions.length + ' questions selected';
+  byId('start').disabled = selectedQuestions.length === 0;
+  byId('browse-label').textContent = 'Browse ' + selectedQuestions.length + ' selected questions';
+  const list = byId('question-list');
+  list.replaceChildren();
+  for (const topic of topicNames) {
+    const matching = selectedQuestions.filter(card => card.topic === topic);
+    if (matching.length === 0) continue;
+    const heading = document.createElement('h3');
+    heading.textContent = topic;
+    const items = document.createElement('ol');
+    for (const card of matching) {
+      const item = document.createElement('li');
+      item.textContent = card.question;
+      const translation = document.createElement('span');
+      translation.lang = 'es';
+      translation.className = 'translation';
+      translation.textContent = card.spanish;
+      item.append(translation);
+      items.append(item);
+    }
+    list.append(heading, items);
+  }
+}
+
+function shuffled(cards) {
+  const result = [...cards];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+function nextQuestion() {
+  if (deck.length === 0) {
+    deck = shuffled(selectedQuestions);
+    const last = deck.length - 1;
+    if (last > 0 && deck[last] === current) {
+      [deck[0], deck[last]] = [deck[last], deck[0]];
+    }
+  }
+  current = deck.pop();
+  number++;
+  byId('topic').textContent = current.topic;
+  byId('number').textContent = 'Question ' + number;
+  byId('question').textContent = current.question;
+  byId('question-es').textContent = current.spanish;
+  byId('topic-source').href = current.source;
+  byId('remaining').textContent = deck.length + ' questions left before reshuffling';
+  byId('help').hidden = true;
+  byId('hint').setAttribute('aria-expanded', 'false');
+  byId('question').focus();
+}
+
+function setAllTopics(checked) {
+  for (const input of topics.querySelectorAll('input')) {
+    input.checked = checked;
+  }
+  refreshSelection();
+}
+
+topics.addEventListener('change', refreshSelection);
+byId('select-all').addEventListener('click', () => setAllTopics(true));
+byId('clear-all').addEventListener('click', () => setAllTopics(false));
+byId('start').addEventListener('click', () => {
+  if (!selectedQuestions.length) return;
+  deck = [];
+  current = undefined;
+  number = 0;
+  byId('setup').hidden = true;
+  byId('game').hidden = false;
+  nextQuestion();
+});
+byId('back').addEventListener('click', () => {
+  byId('game').hidden = true;
+  byId('setup').hidden = false;
+  byId('start').focus();
+});
+byId('next').addEventListener('click', nextQuestion);
+byId('hint').addEventListener('click', () => {
+  const help = byId('help');
+  help.hidden = !help.hidden;
+  byId('hint').setAttribute('aria-expanded', String(!help.hidden));
+});
+refreshSelection();
+</script>
+</body>
+</html>
