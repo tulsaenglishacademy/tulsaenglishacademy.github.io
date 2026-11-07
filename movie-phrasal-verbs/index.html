@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Movie Phrasal Verbs | Tulsa English Academy</title>
-<meta name="description" content="Learn 20 everyday phrasal verbs with verified movie references and 100 bilingual speaking prompts.">
+<title>B1 Movie Phrasal Verbs | Tulsa English Academy</title>
+<meta name="description" content="Practise 11 B1 phrasal verbs from five Hollywood movies with 110 bilingual speaking prompts.">
 <style>
 :root{color-scheme:light;--ink:#251e34;--muted:#63586f;--purple:#60399d;--line:#ded5ea;--gold:#ffe3a0}
 *{box-sizing:border-box}
@@ -50,8 +50,8 @@ a{color:#563195}
 <section class="panel" id="setup" aria-labelledby="title">
 <div class="intro">
 <div class="kicker">TULSA ENGLISH ACADEMY · ENGLISH THROUGH MOVIES</div>
-<h1 id="title">Movie Phrasal Verbs</h1>
-<p>20 everyday expressions. 5 Hollywood movies. 100 speaking questions.</p>
+<h1 id="title">B1 Movie Phrasal Verbs</h1>
+<p>11 B1 expressions. 5 Hollywood movies. 110 speaking prompts.</p>
 <div class="instructions"><span>1 · Guess the meaning</span><span>2 · Reveal &amp; learn</span><span>3 · Talk about your life</span></div>
 </div>
 <p>Choose your movies, read a phrasal verb, and guess its meaning aloud. Reveal the explanation and movie connection, then answer the speaking question.</p>
@@ -60,7 +60,7 @@ a{color:#563195}
 <div class="actions"><button id="start" class="primary" type="button">Start playing</button><span id="count" class="muted" aria-live="polite"></span></div>
 <details><summary id="study-summary">Study the phrasal verbs</summary><div id="study-list" tabindex="0" aria-label="Phrasal verb study list"></div></details>
 <p class="note">Movie connections are short paraphrases checked against scripts or transcripts. Practice examples and questions are original. References are linked with each card.</p>
-<p class="note">Everyday vocabulary reference. <a href="https://ccaps.umn.edu/esl-resources/students/vocabulary/150-most-common-phrasal-verbs" target="_blank" rel="noopener">University of Minnesota phrasal verb collection</a>.</p>
+<p class="note">Level references: Cambridge B1 list and Cambridge Learner’s Dictionary. Levels apply to the target meaning. <a href="https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf" target="_blank" rel="noopener">Cambridge B1 phrasal verb list</a>.</p>
 </section>
 <section class="panel" id="game" aria-label="Movie phrasal verb practice" hidden>
 <button id="back" type="button">← Choose movies</button>
@@ -74,7 +74,7 @@ a{color:#563195}
 <p><strong>Everyday example</strong><br><span id="example"></span><span id="example-es" lang="es" class="translation"></span></p>
 <p><strong>Movie connection</strong><br><span id="scene"></span><span id="scene-es" lang="es" class="translation"></span></p>
 <p id="usage-note" class="note"></p>
-<a id="source" target="_blank" rel="noopener">Read the movie reference</a>
+<a id="source" target="_blank" rel="noopener">Read the movie reference</a><br><a id="level-source" target="_blank" rel="noopener">Check the B1 level reference</a>
 </div>
 <div class="question"><div class="kicker" style="color:#60399d">YOUR TURN TO SPEAK</div><h2 id="question" aria-describedby="question-es"></h2><p id="question-es" class="translation" lang="es"></p><p class="note">Use the phrasal verb in your answer. Add a reason or an example.</p></div>
 <div class="actions"><button id="reveal" type="button" aria-controls="learning" aria-expanded="false">Reveal meaning &amp; movie connection</button><button id="next" class="primary" type="button">Next question →</button></div>
@@ -90,495 +90,61 @@ const entries = [
       "year": 2003,
       "url": "https://www.stockq.org/moviescript/F/finding-nemo.php"
     },
-    "verb": "wake up",
-    "past": "woke up",
-    "meaning": "stop sleeping",
-    "spanish": "despertarse",
-    "scene": "Nemo is excited about school and wakes his father.",
-    "example": "I wake up at six.",
-    "exampleEs": "Me despierto a las seis.",
+    "verb": "give up",
+    "past": "gave up",
+    "meaning": "Stop trying to achieve something.",
+    "spanish": "Dejar de intentar conseguir algo; rendirse.",
+    "scene": "Marlin encourages the fish trapped in a net to keep trying.",
+    "sceneEs": "Marlin anima a los peces atrapados en una red a seguir intentándolo.",
+    "example": "I nearly gave up learning to drive, but my sister helped me.",
+    "exampleEs": "Casi me rendí cuando aprendía a manejar, pero mi hermana me ayudó.",
     "questions": [
       {
-        "en": "What time do you wake up on workdays?",
-        "es": "¿A qué hora te despiertas los días de trabajo?"
+        "en": "When did you want to give up learning something? What helped you continue?",
+        "es": "¿Cuándo quisiste rendirte al aprender algo? ¿Qué te ayudó a continuar?"
       },
       {
-        "en": "Who wakes you up in the morning?",
-        "es": "¿Quién te despierta por la mañana?"
+        "en": "Would you give up a difficult course or ask for help? Why?",
+        "es": "¿Abandonarías un curso difícil o pedirías ayuda? ¿Por qué?"
       },
       {
-        "en": "Did you wake up early today?",
-        "es": "¿Te despertaste temprano hoy?"
+        "en": "Who in your family refuses to give up? Give an example.",
+        "es": "¿Quién de tu familia se niega a rendirse? Da un ejemplo."
       },
       {
-        "en": "What helps you wake up when you feel tired?",
-        "es": "¿Qué te ayuda a despertarte cuando tienes sueño?"
+        "en": "What would you say to a friend who wants to give up looking for work?",
+        "es": "¿Qué le dirías a un amigo que quiere dejar de buscar trabajo?"
       },
       {
-        "en": "What time did you wake up in Venezuela?",
-        "es": "¿A qué hora te despertabas en Venezuela?"
+        "en": "Did moving to another country make you want to give up a goal? Explain.",
+        "es": "¿Mudarte a otro país te hizo querer abandonar una meta? Explica."
+      },
+      {
+        "en": "Imagine a conversation about learning a difficult skill. Use “give up” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre aprender una habilidad difícil. Usa “give up” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with learning a difficult skill. Use “give up” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con aprender una habilidad difícil. Usa “give up” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about learning a difficult skill. Use “give up” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre aprender una habilidad difícil. Usa “give up” y explica tu razón."
+      },
+      {
+        "en": "Compare learning a difficult skill in Venezuela and in the USA. Use “give up” in your answer.",
+        "es": "Compara aprender una habilidad difícil en Venezuela y en Estados Unidos. Usa “give up” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about learning a difficult skill. Use the past form “gave up” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre aprender una habilidad difícil. Usa la forma de pasado “gave up” y explica el resultado."
       }
     ],
-    "sceneEs": "Nemo está emocionado por la escuela y despierta a su papá."
+    "levelSource": "https://dictionary.cambridge.org/us/dictionary/learner-english/give-up-sth?q=give-up-sth_1",
+    "note": "B1 target sense: Stop trying to achieve something. Practise this meaning; other senses may have different CEFR levels."
   },
   {
     "id": 2,
-    "film": {
-      "title": "Finding Nemo",
-      "year": 2003,
-      "url": "https://www.stockq.org/moviescript/F/finding-nemo.php"
-    },
-    "verb": "get up",
-    "past": "got up",
-    "meaning": "leave your bed",
-    "spanish": "levantarse de la cama",
-    "scene": "Nemo urges his father to leave bed for school.",
-    "example": "I get up after my alarm rings.",
-    "exampleEs": "Me levanto después de que suena la alarma.",
-    "questions": [
-      {
-        "en": "Do you get up when your alarm rings?",
-        "es": "¿Te levantas cuando suena la alarma?"
-      },
-      {
-        "en": "What do you do after you get up?",
-        "es": "¿Qué haces después de levantarte?"
-      },
-      {
-        "en": "What time did you get up yesterday?",
-        "es": "¿A qué hora te levantaste ayer?"
-      },
-      {
-        "en": "Do you get up later on Sundays?",
-        "es": "¿Te levantas más tarde los domingos?"
-      },
-      {
-        "en": "Who gets up first in your home?",
-        "es": "¿Quién se levanta primero en tu casa?"
-      }
-    ],
-    "sceneEs": "Nemo le pide a su papá que se levante para ir a la escuela."
-  },
-  {
-    "id": 3,
-    "film": {
-      "title": "Finding Nemo",
-      "year": 2003,
-      "url": "https://www.stockq.org/moviescript/F/finding-nemo.php"
-    },
-    "verb": "hold on",
-    "past": "held on",
-    "meaning": "wait a moment",
-    "spanish": "esperar un momento",
-    "scene": "Marlin asks Nemo to wait before crossing.",
-    "example": "Hold on. I need my keys.",
-    "exampleEs": "Espera un momento. Necesito mis llaves.",
-    "questions": [
-      {
-        "en": "When do you ask someone to hold on?",
-        "es": "¿Cuándo le pides a alguien que espere un momento?"
-      },
-      {
-        "en": "Can you ask a caller to hold on politely?",
-        "es": "¿Puedes pedirle amablemente a alguien por teléfono que espere?"
-      },
-      {
-        "en": "Who asks you to hold on at home?",
-        "es": "¿Quién te pide que esperes en casa?"
-      },
-      {
-        "en": "What do you say after a friend asks you to hold on?",
-        "es": "¿Qué dices después de que un amigo te pide que esperes?"
-      },
-      {
-        "en": "When did you last tell someone to hold on?",
-        "es": "¿Cuándo fue la última vez que le dijiste a alguien que esperara?"
-      }
-    ],
-    "sceneEs": "Marlin le pide a Nemo que espere antes de cruzar."
-  },
-  {
-    "id": 4,
-    "film": {
-      "title": "Finding Nemo",
-      "year": 2003,
-      "url": "https://www.stockq.org/moviescript/F/finding-nemo.php"
-    },
-    "verb": "give up",
-    "past": "gave up",
-    "meaning": "stop trying",
-    "spanish": "rendirse; dejar de intentarlo",
-    "scene": "Marlin encourages the trapped fish to keep trying.",
-    "example": "I will not give up learning English.",
-    "exampleEs": "No me rendiré con el aprendizaje del inglés.",
-    "questions": [
-      {
-        "en": "What helps you not give up on English?",
-        "es": "¿Qué te ayuda a no rendirte con el inglés?"
-      },
-      {
-        "en": "Who tells you not to give up?",
-        "es": "¿Quién te dice que no te rindas?"
-      },
-      {
-        "en": "Did you ever give up a difficult game?",
-        "es": "¿Alguna vez dejaste de intentar terminar un juego difícil?"
-      },
-      {
-        "en": "What goal do you not want to give up on?",
-        "es": "¿Con qué meta no quieres rendirte?"
-      },
-      {
-        "en": "What can you say to a friend who wants to give up?",
-        "es": "¿Qué le puedes decir a un amigo que quiere rendirse?"
-      }
-    ],
-    "sceneEs": "Marlin anima a los peces atrapados a seguir intentándolo."
-  },
-  {
-    "id": 5,
-    "film": {
-      "title": "Toy Story",
-      "year": 1995,
-      "url": "https://imsdb.com/scripts/Toy-Story.html"
-    },
-    "verb": "calm down",
-    "past": "calmed down",
-    "meaning": "become less worried or excited",
-    "spanish": "calmarse",
-    "scene": "Woody tries to settle the nervous toys.",
-    "example": "I take a walk to calm down.",
-    "exampleEs": "Camino un rato para calmarme.",
-    "questions": [
-      {
-        "en": "What helps you calm down before class?",
-        "es": "¿Qué te ayuda a calmarte antes de clase?"
-      },
-      {
-        "en": "Does music help you calm down?",
-        "es": "¿La música te ayuda a calmarte?"
-      },
-      {
-        "en": "Where do you go to calm down?",
-        "es": "¿Adónde vas para calmarte?"
-      },
-      {
-        "en": "Who helps you calm down when you are worried?",
-        "es": "¿Quién te ayuda a calmarte cuando estás preocupado o preocupada?"
-      },
-      {
-        "en": "How did you calm down before your first day at work?",
-        "es": "¿Cómo te calmaste antes de tu primer día de trabajo?"
-      }
-    ],
-    "sceneEs": "Woody intenta calmar a los juguetes nerviosos."
-  },
-  {
-    "id": 6,
-    "film": {
-      "title": "Toy Story",
-      "year": 1995,
-      "url": "https://imsdb.com/scripts/Toy-Story.html"
-    },
-    "verb": "find out",
-    "past": "found out",
-    "meaning": "discover new information",
-    "spanish": "enterarse; averiguar",
-    "scene": "Woody uses a baby monitor to learn about Andy's gifts.",
-    "example": "I found out that class starts at seven.",
-    "exampleEs": "Me enteré de que la clase empieza a las siete.",
-    "questions": [
-      {
-        "en": "How do you find out about local events?",
-        "es": "¿Cómo te enteras de los eventos de tu zona?"
-      },
-      {
-        "en": "What did you find out in class today?",
-        "es": "¿Qué averiguaste hoy en clase?"
-      },
-      {
-        "en": "How can you find out a store's hours?",
-        "es": "¿Cómo puedes averiguar el horario de una tienda?"
-      },
-      {
-        "en": "Who helps you find out about new jobs?",
-        "es": "¿Quién te ayuda a enterarte de empleos nuevos?"
-      },
-      {
-        "en": "What did you find out about the U.S. after arriving?",
-        "es": "¿De qué te enteraste sobre Estados Unidos después de llegar?"
-      }
-    ],
-    "sceneEs": "Woody usa un monitor de bebé para enterarse de los regalos de Andy."
-  },
-  {
-    "id": 7,
-    "film": {
-      "title": "Toy Story",
-      "year": 1995,
-      "url": "https://imsdb.com/scripts/Toy-Story.html"
-    },
-    "verb": "look out",
-    "past": "looked out",
-    "meaning": "be careful about danger",
-    "spanish": "tener cuidado; estar alerta",
-    "scene": "Buzz warns Woody during the road chase.",
-    "example": "Look out! There is a bike behind you.",
-    "exampleEs": "¡Cuidado! Hay una bicicleta detrás de ti.",
-    "questions": [
-      {
-        "en": "When might you shout “Look out!”?",
-        "es": "¿Cuándo podrías gritar «¡Cuidado!»?"
-      },
-      {
-        "en": "What would you say if a ball flew toward a friend?",
-        "es": "¿Qué dirías si una pelota fuera hacia un amigo?"
-      },
-      {
-        "en": "Where do you need to look out for bikes?",
-        "es": "¿Dónde necesitas estar pendiente de las bicicletas?"
-      },
-      {
-        "en": "Did someone tell you to look out recently?",
-        "es": "¿Alguien te dijo recientemente que tuvieras cuidado?"
-      },
-      {
-        "en": "What should people look out for in a parking lot?",
-        "es": "¿De qué debería estar pendiente la gente en un estacionamiento?"
-      }
-    ],
-    "sceneEs": "Buzz le advierte a Woody de un peligro durante la persecución."
-  },
-  {
-    "id": 8,
-    "film": {
-      "title": "Toy Story",
-      "year": 1995,
-      "url": "https://imsdb.com/scripts/Toy-Story.html"
-    },
-    "verb": "split up",
-    "past": "split up",
-    "meaning": "separate into smaller groups",
-    "spanish": "separarse; dividirse en grupos",
-    "scene": "Buzz suggests separating while escaping from Sid's dog.",
-    "example": "We split up to buy things faster.",
-    "exampleEs": "Nos separamos para comprar más rápido.",
-    "questions": [
-      {
-        "en": "Do you split up when shopping with family?",
-        "es": "¿Se separan cuando van de compras en familia?"
-      },
-      {
-        "en": "When did your class split up into pairs?",
-        "es": "¿Cuándo se dividió tu clase en parejas?"
-      },
-      {
-        "en": "Why might friends split up at a large store?",
-        "es": "¿Por qué podrían separarse unos amigos en una tienda grande?"
-      },
-      {
-        "en": "Where do you meet after you split up at the mall?",
-        "es": "¿Dónde se reúnen después de separarse en el centro comercial?"
-      },
-      {
-        "en": "Would you split up or stay together on a new trip?",
-        "es": "¿Se separarían o se quedarían juntos en un viaje a un lugar nuevo?"
-      }
-    ],
-    "sceneEs": "Buzz propone separarse para escapar del perro de Sid."
-  },
-  {
-    "id": 9,
-    "film": {
-      "title": "Back to the Future",
-      "year": 1985,
-      "url": "https://www.stockq.org/moviescript/B/back-to-the-future.php"
-    },
-    "verb": "hook up",
-    "past": "hooked up",
-    "meaning": "connect equipment",
-    "spanish": "conectar equipos",
-    "scene": "Doc warns Marty about connecting to an amplifier.",
-    "example": "Can you hook up the speaker?",
-    "exampleEs": "¿Puedes conectar el altavoz?",
-    "questions": [
-      {
-        "en": "Can you hook up a speaker to your phone?",
-        "es": "¿Puedes conectar un altavoz a tu teléfono?"
-      },
-      {
-        "en": "Who hooks up new equipment in your home?",
-        "es": "¿Quién conecta los equipos nuevos en tu casa?"
-      },
-      {
-        "en": "What did you hook up to your TV?",
-        "es": "¿Qué conectaste a tu televisor?"
-      },
-      {
-        "en": "Can you ask for help hooking up a printer?",
-        "es": "¿Puedes pedir ayuda para conectar una impresora?"
-      },
-      {
-        "en": "What equipment do you hook up at work or school?",
-        "es": "¿Qué equipos conectas en el trabajo o en la escuela?"
-      }
-    ],
-    "sceneEs": "Doc le advierte a Marty sobre conectar equipos a un amplificador."
-  },
-  {
-    "id": 10,
-    "film": {
-      "title": "Back to the Future",
-      "year": 1985,
-      "url": "https://www.stockq.org/moviescript/B/back-to-the-future.php"
-    },
-    "verb": "get in",
-    "past": "got in",
-    "meaning": "enter a car or small vehicle",
-    "spanish": "entrar; subirse a un carro",
-    "scene": "Doc tells Marty to enter the car.",
-    "example": "Get in the car. We are ready.",
-    "exampleEs": "Súbete al carro. Estamos listos.",
-    "questions": [
-      {
-        "en": "Which side of the car do you get in on?",
-        "es": "¿Por qué lado del carro te subes?"
-      },
-      {
-        "en": "What do you do after you get in a car?",
-        "es": "¿Qué haces después de subirte a un carro?"
-      },
-      {
-        "en": "What do you take with you when you get in a taxi?",
-        "es": "¿Qué llevas contigo cuando te subes a un taxi?"
-      },
-      {
-        "en": "When did you last get in a friend's car?",
-        "es": "¿Cuándo fue la última vez que te subiste al carro de un amigo?"
-      },
-      {
-        "en": "How can you invite someone to get in your car?",
-        "es": "¿Cómo puedes invitar a alguien a subirse a tu carro?"
-      }
-    ],
-    "sceneEs": "Doc le dice a Marty que se suba al carro."
-  },
-  {
-    "id": 11,
-    "film": {
-      "title": "Back to the Future",
-      "year": 1985,
-      "url": "https://www.stockq.org/moviescript/B/back-to-the-future.php"
-    },
-    "verb": "come back",
-    "past": "came back",
-    "meaning": "return to a place",
-    "spanish": "volver; regresar",
-    "scene": "Doc asks Marty to return with him to the future.",
-    "example": "Please come back tomorrow.",
-    "exampleEs": "Por favor, vuelve mañana.",
-    "questions": [
-      {
-        "en": "What place do you want to come back to?",
-        "es": "¿A qué lugar quieres volver?"
-      },
-      {
-        "en": "When do you usually come back home?",
-        "es": "¿Cuándo sueles regresar a casa?"
-      },
-      {
-        "en": "Who do you want to come back for a visit?",
-        "es": "¿Quién quieres que vuelva de visita?"
-      },
-      {
-        "en": "What did you do when you came back from your last trip?",
-        "es": "¿Qué hiciste cuando regresaste de tu último viaje?"
-      },
-      {
-        "en": "What shop would you come back to?",
-        "es": "¿A qué tienda volverías?"
-      }
-    ],
-    "sceneEs": "Doc le pide a Marty que vuelva con él al futuro."
-  },
-  {
-    "id": 12,
-    "film": {
-      "title": "Back to the Future",
-      "year": 1985,
-      "url": "https://www.stockq.org/moviescript/B/back-to-the-future.php"
-    },
-    "verb": "get out",
-    "past": "got out",
-    "meaning": "leave a place or vehicle",
-    "spanish": "salir; bajarse de un carro",
-    "scene": "Biff tells Marty to leave.",
-    "example": "I got out of the taxi near my house.",
-    "exampleEs": "Me bajé del taxi cerca de mi casa.",
-    "questions": [
-      {
-        "en": "Where did you get out of your car today?",
-        "es": "¿Dónde te bajaste del carro hoy?"
-      },
-      {
-        "en": "What do you check before you get out of a taxi?",
-        "es": "¿Qué revisas antes de bajarte de un taxi?"
-      },
-      {
-        "en": "When do you like to get out of the house?",
-        "es": "¿Cuándo te gusta salir de casa?"
-      },
-      {
-        "en": "Who helps children get out of a car in your family?",
-        "es": "¿Quién ayuda a los niños a bajarse del carro en tu familia?"
-      },
-      {
-        "en": "What do you take when you get out of the car?",
-        "es": "¿Qué llevas contigo cuando te bajas del carro?"
-      }
-    ],
-    "sceneEs": "Biff le dice a Marty que se vaya."
-  },
-  {
-    "id": 13,
-    "film": {
-      "title": "Titanic",
-      "year": 1997,
-      "url": "https://www.stockq.org/moviescript/T/titanic.php"
-    },
-    "verb": "put on",
-    "past": "put on",
-    "meaning": "start wearing something",
-    "spanish": "ponerse ropa o un accesorio",
-    "scene": "Passengers are told to wear lifebelts.",
-    "example": "I put on my jacket before leaving.",
-    "exampleEs": "Me pongo la chaqueta antes de salir.",
-    "questions": [
-      {
-        "en": "What do you put on before work?",
-        "es": "¿Qué te pones antes de ir al trabajo?"
-      },
-      {
-        "en": "What did you put on this morning?",
-        "es": "¿Qué te pusiste esta mañana?"
-      },
-      {
-        "en": "What do you put on when it is cold?",
-        "es": "¿Qué te pones cuando hace frío?"
-      },
-      {
-        "en": "Do you put on comfortable shoes for long walks?",
-        "es": "¿Te pones zapatos cómodos para caminar mucho?"
-      },
-      {
-        "en": "What do you put on for a family party?",
-        "es": "¿Qué te pones para una fiesta familiar?"
-      }
-    ],
-    "sceneEs": "Les dicen a los pasajeros que se pongan los chalecos salvavidas."
-  },
-  {
-    "id": 14,
     "film": {
       "title": "Titanic",
       "year": 1997,
@@ -586,113 +152,179 @@ const entries = [
     },
     "verb": "carry on",
     "past": "carried on",
-    "meaning": "continue doing something",
-    "spanish": "continuar; seguir",
-    "scene": "Jack tells crew members to continue working.",
-    "example": "We carried on talking after class.",
-    "exampleEs": "Seguimos conversando después de clase.",
+    "meaning": "Continue an activity.",
+    "spanish": "Continuar con una actividad.",
+    "scene": "Jack tells the workers to continue while he passes through their work area.",
+    "sceneEs": "Jack les dice a los trabajadores que continúen mientras pasa por su zona de trabajo.",
+    "example": "We carried on studying after the break.",
+    "exampleEs": "Seguimos estudiando después del descanso.",
     "questions": [
       {
-        "en": "What helps you carry on studying when you are tired?",
-        "es": "¿Qué te ayuda a seguir estudiando cuando tienes sueño?"
+        "en": "How do you carry on studying when you feel tired?",
+        "es": "¿Cómo sigues estudiando cuando te sientes cansado?"
       },
       {
-        "en": "Do you carry on talking after class?",
-        "es": "¿Sigues conversando después de clase?"
+        "en": "Tell us about a time you carried on working during a problem.",
+        "es": "Cuéntanos de una vez que seguiste trabajando durante un problema."
       },
       {
-        "en": "What activity would you like to carry on doing?",
-        "es": "¿Qué actividad te gustaría seguir haciendo?"
+        "en": "Would you carry on with an outdoor party in the rain? Why?",
+        "es": "¿Continuarías una fiesta al aire libre si llueve? ¿Por qué?"
       },
       {
-        "en": "When did you carry on working after a short break?",
-        "es": "¿Cuándo seguiste trabajando después de un descanso corto?"
+        "en": "Which Venezuelan tradition do you want to carry on celebrating in the USA?",
+        "es": "¿Qué tradición venezolana quieres seguir celebrando en Estados Unidos?"
       },
       {
-        "en": "How can you tell a classmate to carry on speaking?",
-        "es": "¿Cómo le puedes decir a un compañero que siga hablando?"
+        "en": "What helps you carry on after making a mistake in English?",
+        "es": "¿Qué te ayuda a continuar después de cometer un error en inglés?"
+      },
+      {
+        "en": "Imagine a conversation about continuing a course after a problem. Use “carry on” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre continuar un curso después de un problema. Usa “carry on” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with continuing a course after a problem. Use “carry on” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con continuar un curso después de un problema. Usa “carry on” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about continuing a course after a problem. Use “carry on” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre continuar un curso después de un problema. Usa “carry on” y explica tu razón."
+      },
+      {
+        "en": "Compare continuing a course after a problem in Venezuela and in the USA. Use “carry on” in your answer.",
+        "es": "Compara continuar un curso después de un problema en Venezuela y en Estados Unidos. Usa “carry on” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about continuing a course after a problem. Use the past form “carried on” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre continuar un curso después de un problema. Usa la forma de pasado “carried on” y explica el resultado."
       }
     ],
-    "sceneEs": "Jack les dice a unos tripulantes que sigan trabajando."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Continue an activity. Practise this meaning; other senses may have different CEFR levels."
   },
   {
-    "id": 15,
+    "id": 3,
     "film": {
       "title": "Titanic",
       "year": 1997,
       "url": "https://www.stockq.org/moviescript/T/titanic.php"
     },
-    "verb": "get back",
-    "past": "got back",
-    "meaning": "move away or move backward",
-    "spanish": "retroceder; alejarse",
-    "scene": "Crew members order the crowd to move back.",
-    "example": "Please get back from the edge.",
-    "exampleEs": "Por favor, aléjate del borde.",
+    "verb": "keep up",
+    "past": "kept up",
+    "meaning": "Maintain a good standard or level of effort.",
+    "spanish": "Mantener un buen nivel o esfuerzo.",
+    "scene": "Jack encourages the workers to maintain their good work.",
+    "sceneEs": "Jack anima a los trabajadores a mantener su buen trabajo.",
+    "example": "She kept up her excellent attendance all semester.",
+    "exampleEs": "Ella mantuvo su excelente asistencia todo el semestre.",
     "questions": [
       {
-        "en": "Why should people get back from a road's edge?",
-        "es": "¿Por qué debería la gente alejarse del borde de la calle?"
+        "en": "How can you keep up your English practice during a busy week?",
+        "es": "¿Cómo puedes mantener tu práctica de inglés durante una semana ocupada?"
       },
       {
-        "en": "When might a worker ask people to get back?",
-        "es": "¿Cuándo podría un trabajador pedirle a la gente que retroceda?"
+        "en": "What helps a team keep up its good work?",
+        "es": "¿Qué ayuda a un equipo a mantener su buen trabajo?"
       },
       {
-        "en": "How can you ask a child to get back from a hot stove?",
-        "es": "¿Cómo le puedes pedir a un niño que se aleje de una cocina caliente?"
+        "en": "Have you kept up a healthy routine for several months? Explain.",
+        "es": "¿Has mantenido una rutina saludable durante varios meses? Explica."
       },
       {
-        "en": "What could you say if a crowd needs to get back?",
-        "es": "¿Qué podrías decir si un grupo de personas necesita retroceder?"
+        "en": "Is it harder to keep up good attendance at work or at school? Why?",
+        "es": "¿Es más difícil mantener una buena asistencia al trabajo o a clases? ¿Por qué?"
       },
       {
-        "en": "Where should visitors get back from a fence?",
-        "es": "¿Dónde deberían las visitas alejarse de una cerca?"
+        "en": "How could you keep up your effort if progress was slow?",
+        "es": "¿Cómo podrías mantener tu esfuerzo si el progreso fuera lento?"
+      },
+      {
+        "en": "Imagine a conversation about maintaining good work during a busy month. Use “keep up” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre mantener un buen trabajo durante un mes ocupado. Usa “keep up” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with maintaining good work during a busy month. Use “keep up” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con mantener un buen trabajo durante un mes ocupado. Usa “keep up” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about maintaining good work during a busy month. Use “keep up” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre mantener un buen trabajo durante un mes ocupado. Usa “keep up” y explica tu razón."
+      },
+      {
+        "en": "Compare maintaining good work during a busy month in Venezuela and in the USA. Use “keep up” in your answer.",
+        "es": "Compara mantener un buen trabajo durante un mes ocupado en Venezuela y en Estados Unidos. Usa “keep up” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about maintaining good work during a busy month. Use the past form “kept up” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre mantener un buen trabajo durante un mes ocupado. Usa la forma de pasado “kept up” y explica el resultado."
       }
     ],
-    "sceneEs": "Los tripulantes le ordenan a la multitud que retroceda."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 sense: maintain a standard or effort, as in keep up the good work."
   },
   {
-    "id": 16,
+    "id": 4,
     "film": {
-      "title": "Titanic",
-      "year": 1997,
-      "url": "https://www.stockq.org/moviescript/T/titanic.php"
+      "title": "Jurassic Park",
+      "year": 1993,
+      "url": "https://www.stockq.org/moviescript/J/jurassic-park.php"
     },
-    "verb": "sit down",
-    "past": "sat down",
-    "meaning": "move into a seat",
-    "spanish": "sentarse",
-    "scene": "A crew member tells a lifeboat passenger to sit.",
-    "example": "I sit down to eat lunch.",
-    "exampleEs": "Me siento para almorzar.",
+    "verb": "deal with",
+    "past": "dealt with",
+    "meaning": "Take action to manage a problem or situation.",
+    "spanish": "Afrontar o resolver un problema o una situación.",
+    "scene": "Early discussions concern how to handle the park's problems and an inspection.",
+    "sceneEs": "Las primeras conversaciones tratan de cómo afrontar los problemas del parque y una inspección.",
+    "example": "We dealt with the complaint before lunch.",
+    "exampleEs": "Resolvimos la queja antes del almuerzo.",
     "questions": [
       {
-        "en": "Where do you sit down to eat breakfast?",
-        "es": "¿Dónde te sientas a desayunar?"
+        "en": "What problem did you have to deal with during your first week in the USA?",
+        "es": "¿Qué problema tuviste que afrontar durante tu primera semana en Estados Unidos?"
       },
       {
-        "en": "When did you last sit down to read?",
-        "es": "¿Cuándo fue la última vez que te sentaste a leer?"
+        "en": "How do you deal with an unhappy customer?",
+        "es": "¿Cómo atiendes a un cliente descontento?"
       },
       {
-        "en": "Where do you like to sit down after work?",
-        "es": "¿Dónde te gusta sentarte después del trabajo?"
+        "en": "Who deals with unexpected problems in your family? Give an example.",
+        "es": "¿Quién se encarga de los problemas inesperados en tu familia? Da un ejemplo."
       },
       {
-        "en": "How can you invite a guest to sit down?",
-        "es": "¿Cómo puedes invitar a una visita a sentarse?"
+        "en": "How would you deal with a mistake in a restaurant bill?",
+        "es": "¿Cómo resolverías un error en la cuenta de un restaurante?"
       },
       {
-        "en": "Do you sit down or stand when you call friends?",
-        "es": "¿Te sientas o te quedas de pie cuando llamas a tus amigos?"
+        "en": "Is dealing with stress easier with friends or alone? Why?",
+        "es": "¿Es más fácil afrontar el estrés con amigos o a solas? ¿Por qué?"
+      },
+      {
+        "en": "Imagine a conversation about handling a problem at work. Use “deal with” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre afrontar un problema en el trabajo. Usa “deal with” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with handling a problem at work. Use “deal with” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con afrontar un problema en el trabajo. Usa “deal with” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about handling a problem at work. Use “deal with” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre afrontar un problema en el trabajo. Usa “deal with” y explica tu razón."
+      },
+      {
+        "en": "Compare handling a problem at work in Venezuela and in the USA. Use “deal with” in your answer.",
+        "es": "Compara afrontar un problema en el trabajo en Venezuela y en Estados Unidos. Usa “deal with” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about handling a problem at work. Use the past form “dealt with” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre afrontar un problema en el trabajo. Usa la forma de pasado “dealt with” y explica el resultado."
       }
     ],
-    "sceneEs": "Un tripulante le dice a un pasajero de un bote que se siente."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Take action to manage a problem or situation. Practise this meaning; other senses may have different CEFR levels."
   },
   {
-    "id": 17,
+    "id": 5,
     "film": {
       "title": "Jurassic Park",
       "year": 1993,
@@ -700,148 +332,416 @@ const entries = [
     },
     "verb": "shut down",
     "past": "shut down",
-    "meaning": "stop a system from operating",
-    "spanish": "apagar un sistema; detener su funcionamiento",
-    "scene": "The park team discusses stopping the computer system.",
-    "example": "I shut down my computer at night.",
-    "exampleEs": "Apago la computadora por la noche.",
+    "meaning": "Stop a computer, machine, or system from operating.",
+    "spanish": "Apagar un equipo o detener un sistema.",
+    "scene": "The park's computer system is switched off as part of an attempt to restore control.",
+    "sceneEs": "Apagan el sistema informático del parque para intentar recuperar el control.",
+    "example": "Please shut down the computers before you leave.",
+    "exampleEs": "Por favor, apaga las computadoras antes de salir.",
     "questions": [
       {
-        "en": "When do you shut down your computer?",
-        "es": "¿Cuándo apagas la computadora?"
+        "en": "When should a workplace shut down its computers? Why?",
+        "es": "¿Cuándo debería un lugar de trabajo apagar sus computadoras? ¿Por qué?"
       },
       {
-        "en": "Who shuts down equipment at your workplace?",
-        "es": "¿Quién apaga los equipos en tu trabajo?"
+        "en": "Have you ever lost work when a computer shut down? What happened?",
+        "es": "¿Alguna vez perdiste trabajo cuando se apagó una computadora? ¿Qué pasó?"
       },
       {
-        "en": "What do you save before shutting down a computer?",
-        "es": "¿Qué guardas antes de apagar una computadora?"
+        "en": "What should you check before shutting down a shared computer?",
+        "es": "¿Qué deberías revisar antes de apagar una computadora compartida?"
       },
       {
-        "en": "Did you shut down your laptop after your last class?",
-        "es": "¿Apagaste la laptop después de tu última clase?"
+        "en": "How would you explain a system shutdown to a customer?",
+        "es": "¿Cómo le explicarías a un cliente que se apagó el sistema?"
       },
       {
-        "en": "What happens when a computer shuts down during work?",
-        "es": "¿Qué pasa cuando una computadora se apaga mientras trabajas?"
+        "en": "Would you shut down your phone every night? Explain your choice.",
+        "es": "¿Apagarías tu teléfono todas las noches? Explica tu decisión."
+      },
+      {
+        "en": "Imagine a conversation about stopping a computer system for repairs. Use “shut down” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre detener un sistema informático para repararlo. Usa “shut down” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with stopping a computer system for repairs. Use “shut down” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con detener un sistema informático para repararlo. Usa “shut down” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about stopping a computer system for repairs. Use “shut down” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre detener un sistema informático para repararlo. Usa “shut down” y explica tu razón."
+      },
+      {
+        "en": "Compare stopping a computer system for repairs in Venezuela and in the USA. Use “shut down” in your answer.",
+        "es": "Compara detener un sistema informático para repararlo en Venezuela y en Estados Unidos. Usa “shut down” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about stopping a computer system for repairs. Use the past form “shut down” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre detener un sistema informático para repararlo. Usa la forma de pasado “shut down” y explica el resultado."
       }
     ],
-    "sceneEs": "El equipo del parque habla de apagar el sistema de computadoras."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 sense here: stop a machine or system. Other meanings may have different levels."
   },
   {
-    "id": 18,
+    "id": 6,
     "film": {
-      "title": "Jurassic Park",
-      "year": 1993,
-      "url": "https://www.stockq.org/moviescript/J/jurassic-park.php"
+      "title": "Forrest Gump",
+      "year": 1994,
+      "url": "https://www.stockq.org/moviescript/F/forrest-gump.php"
     },
-    "verb": "take over",
-    "past": "took over",
-    "meaning": "start doing someone else's task",
-    "spanish": "hacerse cargo; tomar el relevo",
-    "scene": "Specialists begin the next part of the genetics work.",
-    "example": "My coworker took over while I ate lunch.",
-    "exampleEs": "Mi compañero se hizo cargo mientras yo almorzaba.",
+    "verb": "get together",
+    "past": "got together",
+    "meaning": "Meet and spend time with other people.",
+    "spanish": "Reunirse y pasar tiempo con otras personas.",
+    "scene": "People in Greenbow meet to discuss offering Forrest a job.",
+    "sceneEs": "Varias personas de Greenbow se reúnen para hablar de ofrecerle un trabajo a Forrest.",
+    "example": "Our neighbors got together to plan a celebration.",
+    "exampleEs": "Nuestros vecinos se reunieron para organizar una celebración.",
     "questions": [
       {
-        "en": "Who can take over your tasks when you are away?",
-        "es": "¿Quién puede hacerse cargo de tus tareas cuando no estás?"
+        "en": "When did your family last get together in Venezuela? What did you do?",
+        "es": "¿Cuándo se reunió tu familia por última vez en Venezuela? ¿Qué hicieron?"
       },
       {
-        "en": "When did you take over a task from someone?",
-        "es": "¿Cuándo te hiciste cargo de una tarea de otra persona?"
+        "en": "Where could classmates get together without spending much money?",
+        "es": "¿Dónde podrían reunirse los compañeros sin gastar mucho dinero?"
       },
       {
-        "en": "Can you ask a classmate to take over reading?",
-        "es": "¿Puedes pedirle a un compañero que continúe la lectura por ti?"
+        "en": "How often should old friends get together? Why?",
+        "es": "¿Con qué frecuencia deberían reunirse los viejos amigos? ¿Por qué?"
       },
       {
-        "en": "Who takes over cooking when the cook is busy?",
-        "es": "¿Quién se hace cargo de cocinar cuando quien cocina está ocupado?"
+        "en": "What makes it difficult for your relatives to get together?",
+        "es": "¿Qué dificulta que tus familiares se reúnan?"
       },
       {
-        "en": "What do you need to know before you take over a job?",
-        "es": "¿Qué necesitas saber antes de hacerte cargo de un trabajo?"
+        "en": "If your whole family got together next weekend, what would you plan?",
+        "es": "Si toda tu familia se reuniera el próximo fin de semana, ¿qué organizarías?"
+      },
+      {
+        "en": "Imagine a conversation about organizing a family reunion. Use “get together” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre organizar una reunión familiar. Usa “get together” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with organizing a family reunion. Use “get together” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con organizar una reunión familiar. Usa “get together” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about organizing a family reunion. Use “get together” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre organizar una reunión familiar. Usa “get together” y explica tu razón."
+      },
+      {
+        "en": "Compare organizing a family reunion in Venezuela and in the USA. Use “get together” in your answer.",
+        "es": "Compara organizar una reunión familiar en Venezuela y en Estados Unidos. Usa “get together” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about organizing a family reunion. Use the past form “got together” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre organizar una reunión familiar. Usa la forma de pasado “got together” y explica el resultado."
       }
     ],
-    "sceneEs": "Los especialistas empiezan la siguiente parte del trabajo de genética."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Meet and spend time with other people. Practise this meaning; other senses may have different CEFR levels."
   },
   {
-    "id": 19,
+    "id": 7,
     "film": {
-      "title": "Jurassic Park",
-      "year": 1993,
-      "url": "https://www.stockq.org/moviescript/J/jurassic-park.php"
+      "title": "Forrest Gump",
+      "year": 1994,
+      "url": "https://www.stockq.org/moviescript/F/forrest-gump.php"
     },
-    "verb": "fill in",
-    "past": "filled in",
-    "meaning": "add missing information or parts",
-    "spanish": "completar información o partes que faltan",
-    "scene": "The park explanation describes completing gaps in DNA.",
-    "example": "Please fill in the missing words.",
-    "exampleEs": "Por favor, completa las palabras que faltan.",
+    "verb": "carry out",
+    "past": "carried out",
+    "meaning": "Perform or complete a planned or required action.",
+    "spanish": "Realizar o llevar a cabo una acción prevista o necesaria.",
+    "scene": "The narration describes Governor Wallace acting on his announced plan during school integration.",
+    "sceneEs": "La narración describe cómo el gobernador Wallace lleva a cabo su plan anunciado durante la integración escolar.",
+    "example": "The team carried out the safety checks.",
+    "exampleEs": "El equipo realizó las revisiones de seguridad.",
     "questions": [
       {
-        "en": "What information do you fill in on a school form?",
-        "es": "¿Qué información completas en un formulario escolar?"
+        "en": "What checks do people carry out before starting work in your profession?",
+        "es": "¿Qué revisiones realiza la gente antes de trabajar en tu profesión?"
       },
       {
-        "en": "Who helps you fill in forms in English?",
-        "es": "¿Quién te ayuda a completar formularios en inglés?"
+        "en": "Tell us about a plan your family carried out successfully.",
+        "es": "Cuéntanos de un plan que tu familia llevó a cabo con éxito."
       },
       {
-        "en": "Can you fill in a blank with a new phrasal verb?",
-        "es": "¿Puedes completar un espacio con un phrasal verb nuevo?"
+        "en": "What task would be difficult to carry out without clear instructions?",
+        "es": "¿Qué tarea sería difícil realizar sin instrucciones claras?"
       },
       {
-        "en": "What did you fill in on your last class worksheet?",
-        "es": "¿Qué completaste en tu última hoja de ejercicios?"
+        "en": "How can a manager check that a task was carried out correctly?",
+        "es": "¿Cómo puede un gerente comprobar que una tarea se realizó correctamente?"
       },
       {
-        "en": "What do you check after you fill in a form?",
-        "es": "¿Qué revisas después de completar un formulario?"
+        "en": "Would you rather plan a project or carry it out? Why?",
+        "es": "¿Preferirías planificar un proyecto o llevarlo a cabo? ¿Por qué?"
+      },
+      {
+        "en": "Imagine a conversation about completing a task at work. Use “carry out” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre realizar una tarea en el trabajo. Usa “carry out” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with completing a task at work. Use “carry out” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con realizar una tarea en el trabajo. Usa “carry out” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about completing a task at work. Use “carry out” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre realizar una tarea en el trabajo. Usa “carry out” y explica tu razón."
+      },
+      {
+        "en": "Compare completing a task at work in Venezuela and in the USA. Use “carry out” in your answer.",
+        "es": "Compara realizar una tarea en el trabajo en Venezuela y en Estados Unidos. Usa “carry out” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about completing a task at work. Use the past form “carried out” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre realizar una tarea en el trabajo. Usa la forma de pasado “carried out” y explica el resultado."
       }
     ],
-    "sceneEs": "La explicación del parque describe cómo completar espacios en el ADN."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Perform or complete a planned or required action. Practise this meaning; other senses may have different CEFR levels."
   },
   {
-    "id": 20,
+    "id": 8,
     "film": {
-      "title": "Jurassic Park",
-      "year": 1993,
-      "url": "https://www.stockq.org/moviescript/J/jurassic-park.php"
+      "title": "Forrest Gump",
+      "year": 1994,
+      "url": "https://www.stockq.org/moviescript/F/forrest-gump.php"
     },
-    "verb": "slow down",
-    "past": "slowed down",
-    "meaning": "make something happen less quickly",
-    "spanish": "reducir la velocidad; ir más despacio",
-    "scene": "The park lawyer says inspections delay progress.",
-    "example": "Please slow down when you speak.",
-    "exampleEs": "Por favor, habla más despacio.",
+    "verb": "sign up",
+    "past": "signed up",
+    "meaning": "Register to join a course or an organized activity.",
+    "spanish": "Inscribirse en un curso o una actividad organizada.",
+    "scene": "A news report mentions students registering for summer classes.",
+    "sceneEs": "Un reportaje menciona a estudiantes que se inscriben en clases de verano.",
+    "example": "I signed up for an evening English course.",
+    "exampleEs": "Me inscribí en un curso de inglés por la noche.",
     "questions": [
       {
-        "en": "When do you ask someone to slow down in English?",
-        "es": "¿Cuándo le pides a alguien que hable más despacio en inglés?"
+        "en": "Why did you sign up for English classes?",
+        "es": "¿Por qué te inscribiste en clases de inglés?"
       },
       {
-        "en": "What helps you slow down after a busy day?",
-        "es": "¿Qué te ayuda a bajar el ritmo después de un día ocupado?"
+        "en": "What course would you sign up for if it were free? Explain.",
+        "es": "¿En qué curso te inscribirías si fuera gratis? Explica."
       },
       {
-        "en": "Where do drivers need to slow down near your home?",
-        "es": "¿Dónde necesitan los conductores ir más despacio cerca de tu casa?"
+        "en": "What should you check before signing up for an online course?",
+        "es": "¿Qué deberías revisar antes de inscribirte en un curso en línea?"
       },
       {
-        "en": "Do you slow down when you read a new word?",
-        "es": "¿Vas más despacio cuando lees una palabra nueva?"
+        "en": "Have you signed up for an activity and then changed your mind? Why?",
+        "es": "¿Te has inscrito en una actividad y luego has cambiado de opinión? ¿Por qué?"
       },
       {
-        "en": "How can you politely ask a teacher to slow down?",
-        "es": "¿Cómo le puedes pedir amablemente a un profesor que hable más despacio?"
+        "en": "Would you sign up for a class alone or with a friend? Why?",
+        "es": "¿Te inscribirías en una clase a solas o con un amigo? ¿Por qué?"
+      },
+      {
+        "en": "Imagine a conversation about registering for a new class. Use “sign up” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre inscribirse en una clase nueva. Usa “sign up” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with registering for a new class. Use “sign up” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con inscribirse en una clase nueva. Usa “sign up” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about registering for a new class. Use “sign up” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre inscribirse en una clase nueva. Usa “sign up” y explica tu razón."
+      },
+      {
+        "en": "Compare registering for a new class in Venezuela and in the USA. Use “sign up” in your answer.",
+        "es": "Compara inscribirse en una clase nueva en Venezuela y en Estados Unidos. Usa “sign up” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about registering for a new class. Use the past form “signed up” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre inscribirse en una clase nueva. Usa la forma de pasado “signed up” y explica el resultado."
       }
     ],
-    "sceneEs": "El abogado del parque dice que las inspecciones retrasan el progreso."
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Register to join a course or an organized activity. Practise this meaning; other senses may have different CEFR levels."
+  },
+  {
+    "id": 9,
+    "film": {
+      "title": "Forrest Gump",
+      "year": 1994,
+      "url": "https://www.stockq.org/moviescript/F/forrest-gump.php"
+    },
+    "verb": "turn into",
+    "past": "turned into",
+    "meaning": "Change into a different thing or become something different.",
+    "spanish": "Transformarse en algo diferente.",
+    "scene": "Forrest recalls Jenny wishing she could become a bird.",
+    "sceneEs": "Forrest recuerda que Jenny deseaba convertirse en un pájaro.",
+    "example": "Our short visit turned into a long conversation.",
+    "exampleEs": "Nuestra visita corta se convirtió en una conversación larga.",
+    "questions": [
+      {
+        "en": "Has a hobby ever turned into a job for someone you know? Explain.",
+        "es": "¿Algún pasatiempo se ha convertido en un trabajo para alguien que conoces? Explica."
+      },
+      {
+        "en": "How could an empty room turn into a useful space for your family?",
+        "es": "¿Cómo podría una habitación vacía convertirse en un espacio útil para tu familia?"
+      },
+      {
+        "en": "Tell us about a small problem that turned into a bigger one.",
+        "es": "Cuéntanos de un problema pequeño que se convirtió en uno más grande."
+      },
+      {
+        "en": "Can an online friendship turn into a close friendship? Why?",
+        "es": "¿Puede una amistad en línea convertirse en una amistad cercana? ¿Por qué?"
+      },
+      {
+        "en": "What simple meal could you turn into something special for guests?",
+        "es": "¿Qué comida sencilla podrías convertir en algo especial para tus invitados?"
+      },
+      {
+        "en": "Imagine a conversation about a small idea becoming a bigger project. Use “turn into” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre una idea pequeña que se convierte en un proyecto más grande. Usa “turn into” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with a small idea becoming a bigger project. Use “turn into” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con una idea pequeña que se convierte en un proyecto más grande. Usa “turn into” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about a small idea becoming a bigger project. Use “turn into” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre una idea pequeña que se convierte en un proyecto más grande. Usa “turn into” y explica tu razón."
+      },
+      {
+        "en": "Compare a small idea becoming a bigger project in Venezuela and in the USA. Use “turn into” in your answer.",
+        "es": "Compara una idea pequeña que se convierte en un proyecto más grande en Venezuela y en Estados Unidos. Usa “turn into” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about a small idea becoming a bigger project. Use the past form “turned into” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre una idea pequeña que se convierte en un proyecto más grande. Usa la forma de pasado “turned into” y explica el resultado."
+      }
+    ],
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Change into a different thing or become something different. Practise this meaning; other senses may have different CEFR levels."
+  },
+  {
+    "id": 10,
+    "film": {
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "url": "https://www.stockq.org/moviescript/B/back-to-the-future-part-iii.php"
+    },
+    "verb": "set up",
+    "past": "set up",
+    "meaning": "Establish a business or organize a system.",
+    "spanish": "Fundar un negocio u organizar un sistema.",
+    "scene": "Doc's letter explains that he established himself as a blacksmith in the Old West.",
+    "sceneEs": "La carta de Doc explica que se estableció como herrero en el Viejo Oeste.",
+    "example": "My cousin set up a small bakery.",
+    "exampleEs": "Mi primo abrió una pequeña panadería.",
+    "questions": [
+      {
+        "en": "What business would you like to set up in Venezuela or the USA? Why?",
+        "es": "¿Qué negocio te gustaría abrir en Venezuela o Estados Unidos? ¿Por qué?"
+      },
+      {
+        "en": "What would you need before setting up a food business?",
+        "es": "¿Qué necesitarías antes de abrir un negocio de comida?"
+      },
+      {
+        "en": "Do you know someone who set up a business with very little money? Explain.",
+        "es": "¿Conoces a alguien que abrió un negocio con muy poco dinero? Explica."
+      },
+      {
+        "en": "Would you set up a business with a relative? Why or why not?",
+        "es": "¿Abrirías un negocio con un familiar? ¿Por qué sí o por qué no?"
+      },
+      {
+        "en": "How could your class set up a system for sharing new vocabulary?",
+        "es": "¿Cómo podría tu clase organizar un sistema para compartir vocabulario nuevo?"
+      },
+      {
+        "en": "Imagine a conversation about starting a small business. Use “set up” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre abrir un pequeño negocio. Usa “set up” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with starting a small business. Use “set up” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con abrir un pequeño negocio. Usa “set up” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about starting a small business. Use “set up” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre abrir un pequeño negocio. Usa “set up” y explica tu razón."
+      },
+      {
+        "en": "Compare starting a small business in Venezuela and in the USA. Use “set up” in your answer.",
+        "es": "Compara abrir un pequeño negocio en Venezuela y en Estados Unidos. Usa “set up” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about starting a small business. Use the past form “set up” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre abrir un pequeño negocio. Usa la forma de pasado “set up” y explica el resultado."
+      }
+    ],
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 target sense: Establish a business or organize a system. Practise this meaning; other senses may have different CEFR levels."
+  },
+  {
+    "id": 11,
+    "film": {
+      "title": "Back to the Future Part III",
+      "year": 1990,
+      "url": "https://www.stockq.org/moviescript/B/back-to-the-future-part-iii.php"
+    },
+    "verb": "end up",
+    "past": "ended up",
+    "meaning": "Finally be in a place or situation, often unexpectedly.",
+    "spanish": "Terminar en un lugar o una situación, a menudo sin esperarlo.",
+    "scene": "Doc comments on unexpectedly becoming a blacksmith in the Old West.",
+    "sceneEs": "Doc comenta que terminó siendo herrero en el Viejo Oeste sin esperarlo.",
+    "example": "We missed the bus and ended up walking home.",
+    "exampleEs": "Perdimos el autobús y terminamos caminando a casa.",
+    "questions": [
+      {
+        "en": "Tell us about a trip when you ended up somewhere unexpected.",
+        "es": "Cuéntanos de un viaje en el que terminaste en un lugar inesperado."
+      },
+      {
+        "en": "Have you ever ended up buying something you did not plan to buy? Explain.",
+        "es": "¿Alguna vez terminaste comprando algo que no pensabas comprar? Explica."
+      },
+      {
+        "en": "How did you end up choosing your current job or course?",
+        "es": "¿Cómo terminaste eligiendo tu trabajo o curso actual?"
+      },
+      {
+        "en": "Where might you end up living in ten years? Why?",
+        "es": "¿Dónde podrías terminar viviendo dentro de diez años? ¿Por qué?"
+      },
+      {
+        "en": "When did a simple family visit end up becoming a big celebration?",
+        "es": "¿Cuándo terminó una visita familiar sencilla convirtiéndose en una gran celebración?"
+      },
+      {
+        "en": "Imagine a conversation about an unexpected result during a trip. Use “end up” and ask your partner a follow-up question.",
+        "es": "Imagina una conversación sobre un resultado inesperado durante un viaje. Usa “end up” y hazle otra pregunta a tu compañero."
+      },
+      {
+        "en": "Describe a problem connected with an unexpected result during a trip. Use “end up” to explain what happened or what you would do.",
+        "es": "Describe un problema relacionado con un resultado inesperado durante un viaje. Usa “end up” para explicar qué pasó o qué harías."
+      },
+      {
+        "en": "Give someone advice about an unexpected result during a trip. Use “end up” and explain your reason.",
+        "es": "Dale un consejo a alguien sobre un resultado inesperado durante un viaje. Usa “end up” y explica tu razón."
+      },
+      {
+        "en": "Compare an unexpected result during a trip in Venezuela and in the USA. Use “end up” in your answer.",
+        "es": "Compara un resultado inesperado durante un viaje en Venezuela y en Estados Unidos. Usa “end up” en tu respuesta."
+      },
+      {
+        "en": "Tell a short invented story about an unexpected result during a trip. Use the past form “ended up” and explain the result.",
+        "es": "Cuenta una historia corta inventada sobre un resultado inesperado durante un viaje. Usa la forma de pasado “ended up” y explica el resultado."
+      }
+    ],
+    "levelSource": "https://www.elbrufol.com/uploads/3/7/2/7/37273501/b1-phrasal-verb-list-for-pet-exam.pdf",
+    "note": "B1 sense: reach a final situation. Use end up + -ing, or end up in/at + place."
   }
 ];
 const byId = id => document.getElementById(id);
@@ -890,6 +790,11 @@ function refreshSelection() {
     link.target = '_blank';
     link.rel = 'noopener';
     item.append(makeText('h3', entry.verb), makeText('p', entry.meaning), makeText('p', entry.spanish, 'es'), makeText('p', entry.example), makeText('p', entry.exampleEs, 'es'), link);
+    const levelLink = makeText('a', 'B1 target meaning · level reference');
+    levelLink.href = entry.levelSource;
+    levelLink.target = '_blank';
+    levelLink.rel = 'noopener';
+    item.append(makeText('p', entry.note), levelLink);
     list.append(item);
   }
 }
@@ -916,7 +821,7 @@ function nextCard() {
   number++;
   const entry = current.entry;
   byId('movie').textContent = entry.film.title + ' (' + entry.film.year + ')';
-  byId('number').textContent = 'Question ' + number;
+  byId('number').textContent = 'B1 · Prompt ' + number;
   byId('verb').textContent = entry.verb;
   byId('question').textContent = current.question.en;
   byId('question-es').textContent = current.question.es;
@@ -928,12 +833,8 @@ function nextCard() {
   byId('scene').textContent = entry.scene;
   byId('scene-es').textContent = entry.sceneEs;
   byId('source').href = entry.film.url;
-  let note = 'Learn the meaning used in this card. The same expression can have other meanings.';
-  if (entry.verb === 'get back') note = 'Here, get back means move away. It can also mean return in other contexts.';
-  if (entry.verb === 'get out') note = 'A direct “Get out!” can sound rude. Use a polite request when inviting someone to leave.';
-  if (entry.verb === 'hook up') note = 'Here, hook up means connect equipment. It has other informal meanings in different contexts.';
-  if (entry.verb === 'split up') note = 'Here, split up means separate into groups. It can also describe the end of a relationship.';
-  byId('usage-note').textContent = note;
+  byId('usage-note').textContent = entry.note;
+  byId('level-source').href = entry.levelSource;
   byId('learning').hidden = true;
   byId('reveal').setAttribute('aria-expanded', 'false');
   byId('reveal').textContent = 'Reveal meaning & movie connection';
