@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Lines: Active &amp; Passive | Tulsa English Academy</title>
+<meta name="description" content="Change short Hollywood movie lines between active and passive voice. Includes Spanish translations and model answers.">
+<style>
+:root{color-scheme:dark;--background:#151120;--panel:#211a30;--edge:#4d3b62;--gold:#ffd485;--text:#f8f4fd;--muted:#c7bad8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#352242,var(--background) 70%);color:var(--text);font:1rem/1.55 system-ui,sans-serif;min-height:100vh}
+main{width:min(820px,calc(100% - 32px));margin:auto;padding:clamp(28px,6vw,62px) 0}
+.kicker,.label{font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2.4rem,7vw,4.3rem);letter-spacing:-.055em;line-height:1.05;margin:.24em 0}
+.lead{max-width:62ch;margin:12px 0 4px}
+.translation,.muted{color:var(--muted)}
+.translation{margin:4px 0 0}
+.pool-count{font-size:.9rem;margin:18px 0}
+.card{background:var(--panel);padding:clamp(20px,5vw,36px);border:1px solid var(--edge);border-radius:22px;box-shadow:0 18px 42px #0004}
+.tags,.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tag{padding:5px 12px;border-radius:30px;background:#392b4a;font-weight:750}
+.direction{color:var(--gold)}
+h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.28;margin:10px 0}
+.origin{margin:18px 0 0}
+.actions{margin-top:24px}
+button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-radius:12px;border:1px solid var(--edge);background:#392b4a;color:var(--text);cursor:pointer}
+.primary{background:var(--gold);color:#251937;border-color:var(--gold)}
+:focus-visible{outline:3px solid #ffe8b9;outline-offset:4px}
+.answer{margin-top:20px;border:1px solid var(--edge);border-left:4px solid var(--gold);border-radius:12px;padding:17px;background:#2c223c}
+.answer p{margin:6px 0}
+#model{font-size:1.25rem;font-weight:750}
+#source{color:var(--gold)}
+.tip{font-size:.9rem}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kicker">Tulsa English Academy · B1 English</div>
+<h1>Movie Lines: Active &amp; Passive</h1>
+<p class="lead">Read the line aloud. Change its voice and keep the same tense. Then check a model answer.</p>
+<p class="translation" lang="es">Lee la frase en voz alta. Cambia la voz y conserva el mismo tiempo verbal. Después, comprueba una respuesta modelo.</p>
+<p class="pool-count muted" id="pool-count"></p>
+</header>
+<article class="card" aria-label="Movie dialogue practice">
+<div class="tags">
+<span class="tag" id="movie"></span>
+<span class="tag direction" id="direction"></span>
+</div>
+<p id="origin" class="label origin"></p>
+<h2 id="line" tabindex="-1" aria-describedby="direction translation"></h2>
+<p class="translation" id="translation" lang="es"></p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Show answer</button>
+<button class="primary" id="next" type="button">Next random line →</button>
+</div>
+<section class="answer" id="answer" aria-label="Model answer" hidden>
+<div class="label">Model answer · Respuesta modelo</div>
+<p id="model"></p>
+<p class="translation" id="model-es" lang="es"></p>
+<p class="tip muted" id="tip" hidden></p>
+<a id="source" href="#" target="_blank" rel="noopener noreferrer">Movie dialogue reference</a>
+</section>
+<p class="tip muted" id="progress" aria-live="polite"></p>
+</article>
+</main>
+<script>
+const cards = [
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "voice": "active",
+    "line": "Your father left this in my possession before he died.",
+    "es": "Tu padre dejó esto en mi poder antes de morir.",
+    "model": "This was left in my possession by your father before he died.",
+    "modelEs": "Esto fue dejado en mi poder por tu padre antes de morir.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "voice": "passive",
+    "line": "The Stone has been destroyed.",
+    "es": "La Piedra ha sido destruida.",
+    "model": "Someone has destroyed the Stone.",
+    "modelEs": "Alguien ha destruido la Piedra.",
+    "tip": "Use someone when the line does not name who did it.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "voice": "active",
+    "line": "They were testing the fences for weaknesses systematically.",
+    "es": "Estaban probando las cercas sistemáticamente para detectar puntos débiles.",
+    "model": "The fences were being tested systematically for weaknesses by the raptors.",
+    "modelEs": "Las cercas estaban siendo probadas sistemáticamente por los velocirraptores para detectar puntos débiles.",
+    "tip": "In this scene, they refers to the raptors.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=jurassic-park"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "voice": "passive",
+    "line": "This park was not built to cater only for the super rich.",
+    "es": "Este parque no fue construido para atender solo a los más ricos.",
+    "model": "We did not build this park to cater only for the super rich.",
+    "modelEs": "No construimos este parque para atender solo a los más ricos.",
+    "tip": "We refers to Hammond and the people behind the park.",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "voice": "active",
+    "line": "You saved the day again, Woody.",
+    "es": "Salvaste el día otra vez, Woody.",
+    "model": "The day was saved again by Woody.",
+    "modelEs": "Woody volvió a salvar el día.",
+    "tip": "Here, you refers to Woody.",
+    "source": "https://www.stockq.org/moviescript/T/toy-story.php"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "voice": "passive",
+    "line": "I have been chosen!",
+    "es": "¡He sido elegido!",
+    "model": "The claw has chosen me!",
+    "modelEs": "¡La garra me ha elegido!",
+    "tip": "The alien is talking about the claw.",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "voice": "active",
+    "line": "You rescued me!",
+    "es": "¡Me rescataste!",
+    "model": "I was rescued by Shrek!",
+    "modelEs": "¡Fui rescatada por Shrek!",
+    "tip": "Fiona is speaking to Shrek.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "voice": "passive",
+    "line": "Princess, I was sent to rescue you by Lord Farquaad, okay?",
+    "es": "Princesa, fui enviado por Lord Farquaad para rescatarte, ¿de acuerdo?",
+    "model": "Princess, Lord Farquaad sent me to rescue you, okay?",
+    "modelEs": "Princesa, Lord Farquaad me envió para rescatarte, ¿de acuerdo?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "voice": "active",
+    "line": "I put the diamond in the coat.",
+    "es": "Puse el diamante en el abrigo.",
+    "model": "The diamond was put in the coat.",
+    "modelEs": "El diamante fue puesto en el abrigo.",
+    "tip": "Cal is speaking. You can add by Cal to name who did it.",
+    "source": "https://clip.cafe/titanic-1997/what-could-possibly-be-funny/"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "voice": "passive",
+    "line": "It was built in Ireland.",
+    "es": "Fue construido en Irlanda.",
+    "model": "Irish workers built it in Ireland.",
+    "modelEs": "Trabajadores irlandeses lo construyeron en Irlanda.",
+    "tip": "It refers to the ship. The speaker identifies the builders in the next line.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "voice": "active",
+    "line": "Miranda sacked the last two girls after only a few weeks.",
+    "es": "Miranda despidió a las dos últimas chicas después de solo unas semanas.",
+    "model": "The last two girls were sacked by Miranda after only a few weeks.",
+    "modelEs": "Las dos últimas chicas fueron despedidas por Miranda después de solo unas semanas.",
+    "tip": "Sack means fire or dismiss from a job.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "voice": "passive",
+    "line": "Her first assistant recently got promoted.",
+    "es": "Su primera asistente fue ascendida hace poco.",
+    "model": "The company recently promoted her first assistant.",
+    "modelEs": "La empresa ascendió hace poco a su primera asistente.",
+    "tip": "Got promoted is a passive form. The line leaves the agent open, so the company is one possible subject.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "voice": "active",
+    "line": "That man is playing Galaga.",
+    "es": "Ese hombre está jugando Galaga.",
+    "model": "Galaga is being played by that man.",
+    "modelEs": "Galaga está siendo jugado por ese hombre.",
+    "tip": "Keep the ongoing action with is being + past participle.",
+    "source": "https://clip.cafe/the-avengers-2012/that-man-is-playing-lt-i-gt-galaga-lt-i-gt-he-thought-we-wouldnt-notice-but-we-did/"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "voice": "passive",
+    "line": "It’s been taken.",
+    "es": "Se lo han llevado.",
+    "model": "Loki has taken it.",
+    "modelEs": "Loki se lo ha llevado.",
+    "tip": "It refers to the Tesseract. The scene identifies Loki.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "voice": "active",
+    "line": "The data just doesn’t justify this test.",
+    "es": "Los datos simplemente no justifican esta prueba.",
+    "model": "This test just isn’t justified by the data.",
+    "modelEs": "Esta prueba simplemente no está justificada por los datos.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "voice": "passive",
+    "line": "He’s been murdered, sir.",
+    "es": "Lo han asesinado, señor.",
+    "model": "Someone has murdered him, sir.",
+    "modelEs": "Alguien lo ha asesinado, señor.",
+    "tip": "He refers to Dr. Stromm. The line does not identify the person who did it.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "voice": "active",
+    "line": "I’ve seen a boat.",
+    "es": "He visto un bote.",
+    "model": "A boat has been seen by Dory.",
+    "modelEs": "Dory ha visto un bote.",
+    "tip": "Dory is speaking. Keep the present perfect with has been + past participle.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "voice": "passive",
+    "line": "He was taken by these divers.",
+    "es": "Estos buzos se lo llevaron.",
+    "model": "These divers took him.",
+    "modelEs": "Estos buzos se lo llevaron.",
+    "tip": "Marlin is talking about Nemo. The phrase by these divers tells you who did it.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "voice": "active",
+    "line": "I killed Mufasa.",
+    "es": "Yo maté a Mufasa.",
+    "model": "Mufasa was killed by Scar.",
+    "modelEs": "Mufasa fue asesinado por Scar.",
+    "tip": "Scar is speaking.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "voice": "passive",
+    "line": "You could have been killed.",
+    "es": "Te podrían haber matado.",
+    "model": "The hyenas could have killed you.",
+    "modelEs": "Las hienas podrían haberte matado.",
+    "tip": "Mufasa is talking to Simba after the encounter with the hyenas. Keep could have in the active version.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "voice": "active",
+    "line": "I made ornaments out of fish hooks.",
+    "es": "Hice adornos con anzuelos.",
+    "model": "Ornaments were made out of fish hooks by Kevin.",
+    "modelEs": "Los adornos fueron hechos con anzuelos por Kevin.",
+    "tip": "Kevin is speaking.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "voice": "passive",
+    "line": "Is this toothbrush approved by the American Dental Association?",
+    "es": "¿Está aprobado este cepillo de dientes por la Asociación Dental Estadounidense?",
+    "model": "Does the American Dental Association approve this toothbrush?",
+    "modelEs": "¿Aprueba la Asociación Dental Estadounidense este cepillo de dientes?",
+    "tip": "Keep the question form. Use does + the subject + the base verb.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "voice": "active",
+    "line": "I drew this.",
+    "es": "Yo dibujé esto.",
+    "model": "This was drawn by Doc.",
+    "modelEs": "Esto fue dibujado por Doc.",
+    "tip": "Doc is speaking. The past participle of draw is drawn.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "voice": "passive",
+    "line": "Maybe you were adopted.",
+    "es": "Tal vez fuiste adoptado.",
+    "model": "Maybe your parents adopted you.",
+    "modelEs": "Tal vez tus padres te adoptaron.",
+    "tip": "The line leaves the agent open. Your parents is one possible subject.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  }
+];
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Show answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) {
+    remaining = [...cards];
+  }
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  byId('movie').textContent = current.movie;
+  byId('direction').textContent = current.voice === 'active' ? 'Active → Passive' : 'Passive → Active';
+  byId('origin').textContent = 'Movie dialogue excerpt';
+  byId('line').textContent = current.line;
+  byId('translation').textContent = current.es;
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
+  byId('tip').textContent = current.tip || '';
+  byId('tip').hidden = !current.tip;
+  byId('source').href = current.source;
+  byId('progress').textContent = 'Card ' + (cards.length - remaining.length) + ' of ' + cards.length;
+  if (moveFocus) byId('line').focus();
+}
+
+const movieCount = new Set(cards.map(card => card.movie)).size;
+byId('pool-count').textContent = cards.length + ' cards · ' + movieCount + ' movies · Mixed practice';
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('next').addEventListener('click', () => drawCard(true));
+drawCard(false);
+</script>
+</body>
+</html>
