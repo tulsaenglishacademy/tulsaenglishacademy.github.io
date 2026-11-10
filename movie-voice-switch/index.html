@@ -31,6 +31,8 @@ button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-rad
 #model{font-size:1.25rem;font-weight:750}
 #source{color:var(--gold)}
 .tip{font-size:.9rem}
+.fallback-card{margin-top:14px}
+.fallback-card summary{cursor:pointer;font-weight:800;color:var(--gold)}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -43,7 +45,7 @@ button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-rad
 <p class="translation" lang="es">Lee la frase en voz alta. Cambia la voz y conserva el mismo tiempo verbal. Después, comprueba una respuesta modelo.</p>
 <p class="pool-count muted" id="pool-count"></p>
 </header>
-<article class="card" aria-label="Movie dialogue practice">
+<article class="card" id="random-game" aria-label="Movie dialogue practice" hidden>
 <div class="tags">
 <span class="tag" id="movie"></span>
 <span class="tag direction" id="direction"></span>
@@ -64,6 +66,249 @@ button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-rad
 </section>
 <p class="tip muted" id="progress" aria-live="polite"></p>
 </article>
+<section id="fallback" aria-label="Practice cards">
+  <p class="muted">Pick any of the 24 cards below. Open <strong>Show answer</strong> to check your work.</p>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>1. Your father left this in my possession before he died.</h3>
+    <p class="translation" lang="es">Tu padre dejó esto en mi poder antes de morir.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>This was left in my possession by your father before he died.</strong></p>
+      <p class="translation" lang="es">Esto fue dejado en mi poder por tu padre antes de morir.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>2. The Stone has been destroyed.</h3>
+    <p class="translation" lang="es">La Piedra ha sido destruida.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Someone has destroyed the Stone.</strong></p>
+      <p class="translation" lang="es">Alguien ha destruido la Piedra.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>3. They were testing the fences for weaknesses systematically.</h3>
+    <p class="translation" lang="es">Estaban probando las cercas sistemáticamente para detectar puntos débiles.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The fences were being tested systematically for weaknesses by the raptors.</strong></p>
+      <p class="translation" lang="es">Las cercas estaban siendo probadas sistemáticamente por los velocirraptores para detectar puntos débiles.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>4. This park was not built to cater only for the super rich.</h3>
+    <p class="translation" lang="es">Este parque no fue construido para atender solo a los más ricos.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>We did not build this park to cater only for the super rich.</strong></p>
+      <p class="translation" lang="es">No construimos este parque para atender solo a los más ricos.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>5. You saved the day again, Woody.</h3>
+    <p class="translation" lang="es">Salvaste el día otra vez, Woody.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The day was saved again by Woody.</strong></p>
+      <p class="translation" lang="es">Woody volvió a salvar el día.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>6. I have been chosen!</h3>
+    <p class="translation" lang="es">¡He sido elegido!</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The claw has chosen me!</strong></p>
+      <p class="translation" lang="es">¡La garra me ha elegido!</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>7. You rescued me!</h3>
+    <p class="translation" lang="es">¡Me rescataste!</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>I was rescued by Shrek!</strong></p>
+      <p class="translation" lang="es">¡Fui rescatada por Shrek!</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>8. Princess, I was sent to rescue you by Lord Farquaad, okay?</h3>
+    <p class="translation" lang="es">Princesa, fui enviado por Lord Farquaad para rescatarte, ¿de acuerdo?</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Princess, Lord Farquaad sent me to rescue you, okay?</strong></p>
+      <p class="translation" lang="es">Princesa, Lord Farquaad me envió para rescatarte, ¿de acuerdo?</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>9. I put the diamond in the coat.</h3>
+    <p class="translation" lang="es">Puse el diamante en el abrigo.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The diamond was put in the coat.</strong></p>
+      <p class="translation" lang="es">El diamante fue puesto en el abrigo.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>10. It was built in Ireland.</h3>
+    <p class="translation" lang="es">Fue construido en Irlanda.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Irish workers built it in Ireland.</strong></p>
+      <p class="translation" lang="es">Trabajadores irlandeses lo construyeron en Irlanda.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>11. Miranda sacked the last two girls after only a few weeks.</h3>
+    <p class="translation" lang="es">Miranda despidió a las dos últimas chicas después de solo unas semanas.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The last two girls were sacked by Miranda after only a few weeks.</strong></p>
+      <p class="translation" lang="es">Las dos últimas chicas fueron despedidas por Miranda después de solo unas semanas.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>12. Her first assistant recently got promoted.</h3>
+    <p class="translation" lang="es">Su primera asistente fue ascendida hace poco.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The company recently promoted her first assistant.</strong></p>
+      <p class="translation" lang="es">La empresa ascendió hace poco a su primera asistente.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>13. That man is playing Galaga.</h3>
+    <p class="translation" lang="es">Ese hombre está jugando Galaga.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Galaga is being played by that man.</strong></p>
+      <p class="translation" lang="es">Galaga está siendo jugado por ese hombre.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>14. It’s been taken.</h3>
+    <p class="translation" lang="es">Se lo han llevado.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Loki has taken it.</strong></p>
+      <p class="translation" lang="es">Loki se lo ha llevado.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>15. The data just doesn’t justify this test.</h3>
+    <p class="translation" lang="es">Los datos simplemente no justifican esta prueba.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>This test just isn’t justified by the data.</strong></p>
+      <p class="translation" lang="es">Esta prueba simplemente no está justificada por los datos.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>16. He’s been murdered, sir.</h3>
+    <p class="translation" lang="es">Lo han asesinado, señor.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Someone has murdered him, sir.</strong></p>
+      <p class="translation" lang="es">Alguien lo ha asesinado, señor.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>17. I’ve seen a boat.</h3>
+    <p class="translation" lang="es">He visto un bote.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>A boat has been seen by Dory.</strong></p>
+      <p class="translation" lang="es">Dory ha visto un bote.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>18. He was taken by these divers.</h3>
+    <p class="translation" lang="es">Estos buzos se lo llevaron.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>These divers took him.</strong></p>
+      <p class="translation" lang="es">Estos buzos se lo llevaron.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>19. I killed Mufasa.</h3>
+    <p class="translation" lang="es">Yo maté a Mufasa.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Mufasa was killed by Scar.</strong></p>
+      <p class="translation" lang="es">Mufasa fue asesinado por Scar.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>20. You could have been killed.</h3>
+    <p class="translation" lang="es">Te podrían haber matado.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>The hyenas could have killed you.</strong></p>
+      <p class="translation" lang="es">Las hienas podrían haberte matado.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>21. I made ornaments out of fish hooks.</h3>
+    <p class="translation" lang="es">Hice adornos con anzuelos.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Ornaments were made out of fish hooks by Kevin.</strong></p>
+      <p class="translation" lang="es">Los adornos fueron hechos con anzuelos por Kevin.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>22. Is this toothbrush approved by the American Dental Association?</h3>
+    <p class="translation" lang="es">¿Está aprobado este cepillo de dientes por la Asociación Dental Estadounidense?</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Does the American Dental Association approve this toothbrush?</strong></p>
+      <p class="translation" lang="es">¿Aprueba la Asociación Dental Estadounidense este cepillo de dientes?</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Active → Passive</span></div>
+    <h3>23. I drew this.</h3>
+    <p class="translation" lang="es">Yo dibujé esto.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>This was drawn by Doc.</strong></p>
+      <p class="translation" lang="es">Esto fue dibujado por Doc.</p>
+    </details>
+  </article>
+  <article class="card fallback-card">
+    <div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Passive → Active</span></div>
+    <h3>24. Maybe you were adopted.</h3>
+    <p class="translation" lang="es">Tal vez fuiste adoptado.</p>
+    <details class="answer">
+      <summary>Show answer</summary>
+      <p><strong>Maybe your parents adopted you.</strong></p>
+      <p class="translation" lang="es">Tal vez tus padres te adoptaron.</p>
+    </details>
+  </article>
+</section>
 </main>
 <script>
 const cards = [
@@ -346,6 +591,8 @@ byId('pool-count').textContent = cards.length + ' cards · ' + movieCount + ' mo
 reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
 byId('next').addEventListener('click', () => drawCard(true));
 drawCard(false);
+byId('random-game').hidden = false;
+byId('fallback').hidden = true;
 </script>
 </body>
 </html>
