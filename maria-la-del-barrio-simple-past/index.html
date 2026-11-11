@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>María la del Barrio: Simple Past Questions | Tulsa English Academy</title>
+<meta name="description" content="Practise making simple past questions with 24 random cards based on María la del Barrio, Spanish translations, and model answers.">
+<style>
+:root{color-scheme:dark;--background:#151120;--panel:#211a30;--edge:#4d3b62;--gold:#ffd485;--text:#f8f4fd;--muted:#c7bad8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#352242,var(--background) 70%);color:var(--text);font:1rem/1.55 system-ui,sans-serif;min-height:100vh}
+main{width:min(820px,calc(100% - 32px));margin:auto;padding:clamp(28px,6vw,62px) 0}
+.kicker,.label{font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2.4rem,7vw,4.3rem);letter-spacing:-.055em;line-height:1.05;margin:.24em 0}
+.lead{max-width:62ch;margin:12px 0 4px}
+.translation,.muted{color:var(--muted)}
+.translation{margin:4px 0 0}
+.pool-count{font-size:.9rem;margin:18px 0}
+.card{background:var(--panel);padding:clamp(20px,5vw,36px);border:1px solid var(--edge);border-radius:22px;box-shadow:0 18px 42px #0004}
+.tags,.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tag{padding:5px 12px;border-radius:30px;background:#392b4a;font-weight:750}
+.direction{color:var(--gold)}
+h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.28;margin:10px 0}
+.origin{margin:18px 0 0}
+.actions{margin-top:24px}
+button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-radius:12px;border:1px solid var(--edge);background:#392b4a;color:var(--text);cursor:pointer}
+.primary{background:var(--gold);color:#251937;border-color:var(--gold)}
+:focus-visible{outline:3px solid #ffe8b9;outline-offset:4px}
+.answer{margin-top:20px;border:1px solid var(--edge);border-left:4px solid var(--gold);border-radius:12px;padding:17px;background:#2c223c}
+.answer p{margin:6px 0}
+#model{font-size:1.25rem;font-weight:750}
+#source{color:var(--gold)}
+.tip{font-size:.9rem}
+.fallback-card{margin-top:14px}
+.fallback-card summary{cursor:pointer;font-weight:800;color:var(--gold)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kicker">Tulsa English Academy · A2 English</div>
+<h1>María la del Barrio: Simple Past Questions</h1>
+<p class="lead">Read the sentence. Say a simple past question aloud. Then check the answer.</p>
+<p class="translation" lang="es">Lee la oración. Forma una pregunta en pasado simple en voz alta. Después, comprueba la respuesta.</p>
+<p class="tip muted">Practice sentences based on the series.</p>
+<p class="translation tip" lang="es">Oraciones de práctica basadas en la telenovela.</p>
+<p class="pool-count muted" id="pool-count"></p>
+</header>
+<article class="card" id="random-game" aria-label="Simple past question practice" hidden>
+<div class="tags"><span class="tag" id="movie"></span><span class="tag direction" id="direction"></span></div>
+<p id="task"></p><p id="task-es" class="translation" lang="es"></p>
+<p class="label origin">Story sentence · Oración de la historia</p>
+<h2 id="line" tabindex="-1" aria-describedby="task translation"></h2>
+<p class="translation" id="translation" lang="es"></p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Show answer</button>
+<button class="primary" id="next" type="button">Next random card →</button>
+</div>
+<section class="answer" id="answer" aria-label="Model question" hidden>
+<div class="label">Model question · Pregunta modelo</div>
+<p id="model"></p><p class="translation" id="model-es" lang="es"></p>
+<p class="tip muted" id="tip"></p>
+<a id="source" href="#" target="_blank" rel="noopener noreferrer">Series reference</a>
+</section>
+<p class="tip muted" id="progress" aria-live="polite"></p>
+</article>
+<section id="fallback" aria-label="Practice cards">
+<p class="muted">Pick any card below and open <strong>Show answer</strong> to check your question.</p>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María worked for the De la Vega family.</h3><p class="translation" lang="es">María trabajó para la familia De la Vega.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did María work for the De la Vega family?</strong></p><p class="translation" lang="es">¿Trabajó María para la familia De la Vega?</p><p class="tip muted">Use did + subject + base verb. worked → work.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask who. <span class="translation" lang="es">Pregunta quién o a quién.</span></p>
+<h3>Don Fernando helped María.</h3><p class="translation" lang="es">Don Fernando ayudó a María.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Who did Don Fernando help?</strong></p><p class="translation" lang="es">¿A quién ayudó don Fernando?</p><p class="tip muted">Use did + subject + base verb. helped → help.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María met Luis Fernando at his family’s house.</h3><p class="translation" lang="es">María conoció a Luis Fernando en la casa de su familia.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did María meet Luis Fernando at his family’s house?</strong></p><p class="translation" lang="es">¿Conoció María a Luis Fernando en la casa de su familia?</p><p class="tip muted">Use did + subject + base verb. met → meet.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María was fifteen on her birthday.</h3><p class="translation" lang="es">María tenía quince años el día de su cumpleaños.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Was María fifteen on her birthday?</strong></p><p class="translation" lang="es">¿Tenía María quince años el día de su cumpleaños?</p><p class="tip muted">Move was or were before the subject.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María accidentally got Luis Fernando wet.</h3><p class="translation" lang="es">María mojó a Luis Fernando por accidente.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did María accidentally get Luis Fernando wet?</strong></p><p class="translation" lang="es">¿Mojó María a Luis Fernando por accidente?</p><p class="tip muted">Use did + subject + base verb. got → get.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>Luis Fernando took María to the opera.</h3><p class="translation" lang="es">Luis Fernando llevó a María a la ópera.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Where did Luis Fernando take María?</strong></p><p class="translation" lang="es">¿Adónde llevó Luis Fernando a María?</p><p class="tip muted">Use did + subject + base verb. took → take.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Soraya and Vladimir were at the opera.</h3><p class="translation" lang="es">Soraya y Vladimir estaban en la ópera.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Were Soraya and Vladimir at the opera?</strong></p><p class="translation" lang="es">¿Estaban Soraya y Vladimir en la ópera?</p><p class="tip muted">Move was or were before the subject.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Soraya insulted María at the opera.</h3><p class="translation" lang="es">Soraya insultó a María en la ópera.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did Soraya insult María at the opera?</strong></p><p class="translation" lang="es">¿Insultó Soraya a María en la ópera?</p><p class="tip muted">Use did + subject + base verb. insulted → insult.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>María met Nandito at the market.</h3><p class="translation" lang="es">María conoció a Nandito en el mercado.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Where did María meet Nandito?</strong></p><p class="translation" lang="es">¿Dónde conoció María a Nandito?</p><p class="tip muted">Use did + subject + base verb. met → meet.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>María gave Nandito gifts.</h3><p class="translation" lang="es">María le dio regalos a Nandito.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>What did María give Nandito?</strong></p><p class="translation" lang="es">¿Qué le dio María a Nandito?</p><p class="tip muted">Use did + subject + base verb. gave → give.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Nandito was María’s son.</h3><p class="translation" lang="es">Nandito era el hijo de María.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Was Nandito María’s son?</strong></p><p class="translation" lang="es">¿Era Nandito el hijo de María?</p><p class="tip muted">Move was or were before the subject.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María and Luis Fernando got married.</h3><p class="translation" lang="es">María y Luis Fernando se casaron.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did María and Luis Fernando get married?</strong></p><p class="translation" lang="es">¿Se casaron María y Luis Fernando?</p><p class="tip muted">Use did + subject + base verb. got → get.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Calixta was Soraya’s mother.</h3><p class="translation" lang="es">Calixta era la madre de Soraya.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Was Calixta Soraya’s mother?</strong></p><p class="translation" lang="es">¿Era Calixta la madre de Soraya?</p><p class="tip muted">Move was or were before the subject.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask who. <span class="translation" lang="es">Pregunta quién o a quién.</span></p>
+<h3>María rejected Luis Fernando.</h3><p class="translation" lang="es">María rechazó a Luis Fernando.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Who did María reject?</strong></p><p class="translation" lang="es">¿A quién rechazó María?</p><p class="tip muted">Use did + subject + base verb. rejected → reject.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>Soraya asked for money.</h3><p class="translation" lang="es">Soraya pidió dinero.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>What did Soraya ask for?</strong></p><p class="translation" lang="es">¿Qué pidió Soraya?</p><p class="tip muted">Use did + subject + base verb. asked → ask.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>María brought toys to Nandito’s neighborhood.</h3><p class="translation" lang="es">María llevó juguetes al barrio de Nandito.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>What did María bring to Nandito’s neighborhood?</strong></p><p class="translation" lang="es">¿Qué llevó María al barrio de Nandito?</p><p class="tip muted">Use did + subject + base verb. brought → bring.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Victoria made a plan.</h3><p class="translation" lang="es">Victoria hizo un plan.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did Victoria make a plan?</strong></p><p class="translation" lang="es">¿Hizo Victoria un plan?</p><p class="tip muted">Use did + subject + base verb. made → make.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask who. <span class="translation" lang="es">Pregunta quién o a quién.</span></p>
+<h3>Luis Fernando spoke to Nandito about Soraya.</h3><p class="translation" lang="es">Luis Fernando habló con Nandito sobre Soraya.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Who did Luis Fernando speak to about Soraya?</strong></p><p class="translation" lang="es">¿Con quién habló Luis Fernando sobre Soraya?</p><p class="tip muted">Use did + subject + base verb. spoke → speak.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>María asked Luis Fernando for help.</h3><p class="translation" lang="es">María le pidió ayuda a Luis Fernando.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did María ask Luis Fernando for help?</strong></p><p class="translation" lang="es">¿Le pidió María ayuda a Luis Fernando?</p><p class="tip muted">Use did + subject + base verb. asked → ask.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>Nandito went home.</h3><p class="translation" lang="es">Nandito se fue a casa.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Where did Nandito go?</strong></p><p class="translation" lang="es">¿Adónde se fue Nandito?</p><p class="tip muted">Use did + subject + base verb. went → go.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask who. <span class="translation" lang="es">Pregunta quién o a quién.</span></p>
+<h3>Tita met Nandito.</h3><p class="translation" lang="es">Tita conoció a Nandito.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Who did Tita meet?</strong></p><p class="translation" lang="es">¿A quién conoció Tita?</p><p class="tip muted">Use did + subject + base verb. met → meet.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Soraya got Alicia’s father’s attention.</h3><p class="translation" lang="es">Soraya llamó la atención del padre de Alicia.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did Soraya get Alicia’s father’s attention?</strong></p><p class="translation" lang="es">¿Llamó Soraya la atención del padre de Alicia?</p><p class="tip muted">Use did + subject + base verb. got → get.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Ask why. <span class="translation" lang="es">Pregunta por qué.</span></p>
+<h3>María confessed to protect Nandito.</h3><p class="translation" lang="es">María confesó para proteger a Nandito.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Why did María confess?</strong></p><p class="translation" lang="es">¿Por qué confesó María?</p><p class="tip muted">Use did + subject + base verb. confessed → confess.</p></details>
+</article>
+<article class="card fallback-card">
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>Luis Fernando tried to prove his son’s innocence.</h3><p class="translation" lang="es">Luis Fernando intentó demostrar la inocencia de su hijo.</p>
+<details class="answer"><summary>Show answer</summary><p><strong>Did Luis Fernando try to prove his son’s innocence?</strong></p><p class="translation" lang="es">¿Intentó Luis Fernando demostrar la inocencia de su hijo?</p><p class="tip muted">Use did + subject + base verb. tried → try.</p></details>
+</article>
+</section>
+</main>
+<script>
+const cards = [
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María worked for the De la Vega family.",
+    "es": "María trabajó para la familia De la Vega.",
+    "model": "Did María work for the De la Vega family?",
+    "modelEs": "¿Trabajó María para la familia De la Vega?",
+    "tip": "Use did + subject + base verb. worked → work.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Who",
+    "task": "Ask who.",
+    "taskEs": "Pregunta quién o a quién.",
+    "line": "Don Fernando helped María.",
+    "es": "Don Fernando ayudó a María.",
+    "model": "Who did Don Fernando help?",
+    "modelEs": "¿A quién ayudó don Fernando?",
+    "tip": "Use did + subject + base verb. helped → help.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María met Luis Fernando at his family’s house.",
+    "es": "María conoció a Luis Fernando en la casa de su familia.",
+    "model": "Did María meet Luis Fernando at his family’s house?",
+    "modelEs": "¿Conoció María a Luis Fernando en la casa de su familia?",
+    "tip": "Use did + subject + base verb. met → meet.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María was fifteen on her birthday.",
+    "es": "María tenía quince años el día de su cumpleaños.",
+    "model": "Was María fifteen on her birthday?",
+    "modelEs": "¿Tenía María quince años el día de su cumpleaños?",
+    "tip": "Move was or were before the subject.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María accidentally got Luis Fernando wet.",
+    "es": "María mojó a Luis Fernando por accidente.",
+    "model": "Did María accidentally get Luis Fernando wet?",
+    "modelEs": "¿Mojó María a Luis Fernando por accidente?",
+    "tip": "Use did + subject + base verb. got → get.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Where",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Luis Fernando took María to the opera.",
+    "es": "Luis Fernando llevó a María a la ópera.",
+    "model": "Where did Luis Fernando take María?",
+    "modelEs": "¿Adónde llevó Luis Fernando a María?",
+    "tip": "Use did + subject + base verb. took → take.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Soraya and Vladimir were at the opera.",
+    "es": "Soraya y Vladimir estaban en la ópera.",
+    "model": "Were Soraya and Vladimir at the opera?",
+    "modelEs": "¿Estaban Soraya y Vladimir en la ópera?",
+    "tip": "Move was or were before the subject.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Soraya insulted María at the opera.",
+    "es": "Soraya insultó a María en la ópera.",
+    "model": "Did Soraya insult María at the opera?",
+    "modelEs": "¿Insultó Soraya a María en la ópera?",
+    "tip": "Use did + subject + base verb. insulted → insult.",
+    "source": "https://vix.com/es-es/detail/series-574"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Where",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "María met Nandito at the market.",
+    "es": "María conoció a Nandito en el mercado.",
+    "model": "Where did María meet Nandito?",
+    "modelEs": "¿Dónde conoció María a Nandito?",
+    "tip": "Use did + subject + base verb. met → meet.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "What",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "María gave Nandito gifts.",
+    "es": "María le dio regalos a Nandito.",
+    "model": "What did María give Nandito?",
+    "modelEs": "¿Qué le dio María a Nandito?",
+    "tip": "Use did + subject + base verb. gave → give.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Nandito was María’s son.",
+    "es": "Nandito era el hijo de María.",
+    "model": "Was Nandito María’s son?",
+    "modelEs": "¿Era Nandito el hijo de María?",
+    "tip": "Move was or were before the subject.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María and Luis Fernando got married.",
+    "es": "María y Luis Fernando se casaron.",
+    "model": "Did María and Luis Fernando get married?",
+    "modelEs": "¿Se casaron María y Luis Fernando?",
+    "tip": "Use did + subject + base verb. got → get.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Calixta was Soraya’s mother.",
+    "es": "Calixta era la madre de Soraya.",
+    "model": "Was Calixta Soraya’s mother?",
+    "modelEs": "¿Era Calixta la madre de Soraya?",
+    "tip": "Move was or were before the subject.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Who",
+    "task": "Ask who.",
+    "taskEs": "Pregunta quién o a quién.",
+    "line": "María rejected Luis Fernando.",
+    "es": "María rechazó a Luis Fernando.",
+    "model": "Who did María reject?",
+    "modelEs": "¿A quién rechazó María?",
+    "tip": "Use did + subject + base verb. rejected → reject.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "What",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Soraya asked for money.",
+    "es": "Soraya pidió dinero.",
+    "model": "What did Soraya ask for?",
+    "modelEs": "¿Qué pidió Soraya?",
+    "tip": "Use did + subject + base verb. asked → ask.",
+    "source": "https://www.lasestrellas.tv/telenovelas/maria-la-del-barrio"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "What",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "María brought toys to Nandito’s neighborhood.",
+    "es": "María llevó juguetes al barrio de Nandito.",
+    "model": "What did María bring to Nandito’s neighborhood?",
+    "modelEs": "¿Qué llevó María al barrio de Nandito?",
+    "tip": "Use did + subject + base verb. brought → bring.",
+    "source": "https://vix.com/es-es/detail/video-2819241"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Victoria made a plan.",
+    "es": "Victoria hizo un plan.",
+    "model": "Did Victoria make a plan?",
+    "modelEs": "¿Hizo Victoria un plan?",
+    "tip": "Use did + subject + base verb. made → make.",
+    "source": "https://vix.com/es-es/detail/video-2819241"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Who",
+    "task": "Ask who.",
+    "taskEs": "Pregunta quién o a quién.",
+    "line": "Luis Fernando spoke to Nandito about Soraya.",
+    "es": "Luis Fernando habló con Nandito sobre Soraya.",
+    "model": "Who did Luis Fernando speak to about Soraya?",
+    "modelEs": "¿Con quién habló Luis Fernando sobre Soraya?",
+    "tip": "Use did + subject + base verb. spoke → speak.",
+    "source": "https://vix.com/es-es/detail/video-2820660"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "María asked Luis Fernando for help.",
+    "es": "María le pidió ayuda a Luis Fernando.",
+    "model": "Did María ask Luis Fernando for help?",
+    "modelEs": "¿Le pidió María ayuda a Luis Fernando?",
+    "tip": "Use did + subject + base verb. asked → ask.",
+    "source": "https://vix.com/es-es/detail/video-2822909"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Where",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Nandito went home.",
+    "es": "Nandito se fue a casa.",
+    "model": "Where did Nandito go?",
+    "modelEs": "¿Adónde se fue Nandito?",
+    "tip": "Use did + subject + base verb. went → go.",
+    "source": "https://vix.com/es-es/detail/video-2822909"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Who",
+    "task": "Ask who.",
+    "taskEs": "Pregunta quién o a quién.",
+    "line": "Tita met Nandito.",
+    "es": "Tita conoció a Nandito.",
+    "model": "Who did Tita meet?",
+    "modelEs": "¿A quién conoció Tita?",
+    "tip": "Use did + subject + base verb. met → meet.",
+    "source": "https://vix.com/es-es/detail/video-2814335"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Soraya got Alicia’s father’s attention.",
+    "es": "Soraya llamó la atención del padre de Alicia.",
+    "model": "Did Soraya get Alicia’s father’s attention?",
+    "modelEs": "¿Llamó Soraya la atención del padre de Alicia?",
+    "tip": "Use did + subject + base verb. got → get.",
+    "source": "https://vix.com/es-es/detail/video-2814335"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Why",
+    "task": "Ask why.",
+    "taskEs": "Pregunta por qué.",
+    "line": "María confessed to protect Nandito.",
+    "es": "María confesó para proteger a Nandito.",
+    "model": "Why did María confess?",
+    "modelEs": "¿Por qué confesó María?",
+    "tip": "Use did + subject + base verb. confessed → confess.",
+    "source": "https://web.prd.vix.tv/es-es/detail/video-2829860"
+  },
+  {
+    "movie": "María la del Barrio",
+    "kind": "Yes/no",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Luis Fernando tried to prove his son’s innocence.",
+    "es": "Luis Fernando intentó demostrar la inocencia de su hijo.",
+    "model": "Did Luis Fernando try to prove his son’s innocence?",
+    "modelEs": "¿Intentó Luis Fernando demostrar la inocencia de su hijo?",
+    "tip": "Use did + subject + base verb. tried → try.",
+    "source": "https://web.prd.vix.tv/es-es/detail/video-2829860"
+  }
+];
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Show answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) {
+    remaining = [...cards];
+  }
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  byId('movie').textContent = current.movie;
+  byId('direction').textContent = current.kind;
+  byId('task').textContent = current.task;
+  byId('task-es').textContent = current.taskEs;
+  byId('line').textContent = current.line;
+  byId('translation').textContent = current.es;
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
+  byId('tip').textContent = current.tip;
+  byId('source').href = current.source;
+  byId('progress').textContent = 'Card ' + (cards.length - remaining.length) + ' of ' + cards.length;
+  if (moveFocus) byId('line').focus();
+}
+
+byId('pool-count').textContent = cards.length + ' cards · Simple past questions';
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('next').addEventListener('click', () => drawCard(true));
+drawCard(false);
+byId('random-game').hidden = false;
+byId('fallback').hidden = true;
+</script>
+</body>
+</html>
