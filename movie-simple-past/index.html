@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Stories: Simple Past Questions | Tulsa English Academy</title>
+<meta name="description" content="Practise making simple past questions with 60 random movie story cards, Spanish translations, and model answers.">
+<style>
+:root{color-scheme:dark;--background:#151120;--panel:#211a30;--edge:#4d3b62;--gold:#ffd485;--text:#f8f4fd;--muted:#c7bad8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#352242,var(--background) 70%);color:var(--text);font:1rem/1.55 system-ui,sans-serif;min-height:100vh}
+main{width:min(820px,calc(100% - 32px));margin:auto;padding:clamp(28px,6vw,62px) 0}
+.kicker,.label{font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2.4rem,7vw,4.3rem);letter-spacing:-.055em;line-height:1.05;margin:.24em 0}
+.lead{max-width:62ch;margin:12px 0 4px}
+.translation,.muted{color:var(--muted)}
+.translation{margin:4px 0 0}
+.pool-count{font-size:.9rem;margin:18px 0}
+.card{background:var(--panel);padding:clamp(20px,5vw,36px);border:1px solid var(--edge);border-radius:22px;box-shadow:0 18px 42px #0004}
+.tags,.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tag{padding:5px 12px;border-radius:30px;background:#392b4a;font-weight:750}
+.direction{color:var(--gold)}
+h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.28;margin:10px 0}
+.origin{margin:18px 0 0}
+.actions{margin-top:24px}
+button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-radius:12px;border:1px solid var(--edge);background:#392b4a;color:var(--text);cursor:pointer}
+.primary{background:var(--gold);color:#251937;border-color:var(--gold)}
+:focus-visible{outline:3px solid #ffe8b9;outline-offset:4px}
+.answer{margin-top:20px;border:1px solid var(--edge);border-left:4px solid var(--gold);border-radius:12px;padding:17px;background:#2c223c}
+.answer p{margin:6px 0}
+#model{font-size:1.25rem;font-weight:750}
+#source{color:var(--gold)}
+.tip{font-size:.9rem}
+.fallback-card{margin-top:14px}
+.fallback-card summary{cursor:pointer;font-weight:800;color:var(--gold)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kicker">Tulsa English Academy · A2 English</div>
+<h1>Movie Stories: Simple Past Questions</h1>
+<p class="lead">Read the sentence. Say a simple past question aloud. Then check the answer.</p>
+<p class="translation" lang="es">Lee la oración. Forma una pregunta en pasado simple en voz alta. Después, comprueba la respuesta.</p>
+<p class="tip muted">Original practice sentences adapted from movie stories.</p>
+<p class="translation tip" lang="es">Oraciones originales de práctica adaptadas de las historias de las películas.</p>
+<p class="pool-count muted" id="pool-count"></p>
+</header>
+<article class="card" id="random-game" aria-label="Simple past question practice" hidden>
+<div class="tags"><span class="tag" id="movie"></span><span class="tag direction" id="direction"></span></div>
+<p id="task"></p><p id="task-es" class="translation" lang="es"></p>
+<p class="label origin">Story sentence · Oración de la historia</p>
+<h2 id="line" tabindex="-1" aria-describedby="task translation"></h2>
+<p class="translation" id="translation" lang="es"></p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Show answer</button>
+<button class="primary" id="next" type="button">Next random card →</button>
+</div>
+<section class="answer" id="answer" aria-label="Model question" hidden>
+<div class="label">Model question · Pregunta modelo</div>
+<p id="model"></p><p class="translation" id="model-es" lang="es"></p>
+<p class="tip muted" id="tip"></p>
+<a id="source" href="#" target="_blank" rel="noopener noreferrer">Movie story reference</a>
+</section>
+<p class="tip muted" id="progress" aria-live="polite"></p>
+</article>
+<section id="fallback" aria-label="Practice cards">
+<p class="muted">Pick any card below and open <strong>Show answer</strong> to check your question.</p>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>1. Harry lived with his aunt and uncle.</h3>
+<p class="translation" lang="es">Harry vivía con su tía y su tío.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Harry live with his aunt and uncle?</strong></p>
+<p class="translation" lang="es">¿Vivía Harry con su tía y su tío?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. lived → live.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>2. Hagrid visited Harry on his birthday.</h3>
+<p class="translation" lang="es">Hagrid visitó a Harry el día de su cumpleaños.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Hagrid visit Harry on his birthday?</strong></p>
+<p class="translation" lang="es">¿Visitó Hagrid a Harry el día de su cumpleaños?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. visited → visit.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>3. Harry went to Hogwarts.</h3>
+<p class="translation" lang="es">Harry fue a Hogwarts.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Harry go?</strong></p>
+<p class="translation" lang="es">¿Adónde fue Harry?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">How question</span></div>
+<p>Ask how. <span class="translation" lang="es">Pregunta cómo.</span></p>
+<h3>4. Harry traveled to school by train.</h3>
+<p class="translation" lang="es">Harry viajó a la escuela en tren.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>How did Harry travel to school?</strong></p>
+<p class="translation" lang="es">¿Cómo viajó Harry a la escuela?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. traveled → travel.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Harry Potter and the Sorcerer’s Stone (2001)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>5. Harry was a student at Hogwarts.</h3>
+<p class="translation" lang="es">Harry era estudiante en Hogwarts.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Was Harry a student at Hogwarts?</strong></p>
+<p class="translation" lang="es">¿Era Harry estudiante en Hogwarts?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>6. Hammond invited scientists to the park.</h3>
+<p class="translation" lang="es">Hammond invitó a unos científicos al parque.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Hammond invite scientists to the park?</strong></p>
+<p class="translation" lang="es">¿Invitó Hammond a unos científicos al parque?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. invited → invite.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>7. Grant saw dinosaurs on the island.</h3>
+<p class="translation" lang="es">Grant vio dinosaurios en la isla.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Grant see dinosaurs on the island?</strong></p>
+<p class="translation" lang="es">¿Vio Grant dinosaurios en la isla?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. saw → see.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>8. The children hid in the kitchen.</h3>
+<p class="translation" lang="es">Los niños se escondieron en la cocina.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did the children hide?</strong></p>
+<p class="translation" lang="es">¿Dónde se escondieron los niños?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. hid → hide.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>9. The workers built fences.</h3>
+<p class="translation" lang="es">Los trabajadores construyeron cercas.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did the workers build?</strong></p>
+<p class="translation" lang="es">¿Qué construyeron los trabajadores?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. built → build.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Jurassic Park (1993)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>10. The scientists were on an island.</h3>
+<p class="translation" lang="es">Los científicos estaban en una isla.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where were the scientists?</strong></p>
+<p class="translation" lang="es">¿Dónde estaban los científicos?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>11. Andy received a new toy for his birthday.</h3>
+<p class="translation" lang="es">Andy recibió un juguete nuevo por su cumpleaños.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Andy receive a new toy for his birthday?</strong></p>
+<p class="translation" lang="es">¿Recibió Andy un juguete nuevo por su cumpleaños?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. received → receive.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>12. The toys escaped from Sid’s house.</h3>
+<p class="translation" lang="es">Los juguetes escaparon de la casa de Sid.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did the toys escape from Sid’s house?</strong></p>
+<p class="translation" lang="es">¿Escaparon los juguetes de la casa de Sid?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. escaped → escape.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>13. Andy got a toy astronaut.</h3>
+<p class="translation" lang="es">Andy recibió un astronauta de juguete.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Andy get?</strong></p>
+<p class="translation" lang="es">¿Qué recibió Andy?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. got → get.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>14. Woody and Buzz went to a pizza restaurant.</h3>
+<p class="translation" lang="es">Woody y Buzz fueron a una pizzería.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Woody and Buzz go?</strong></p>
+<p class="translation" lang="es">¿Adónde fueron Woody y Buzz?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Toy Story (1995)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>15. Buzz was a new toy.</h3>
+<p class="translation" lang="es">Buzz era un juguete nuevo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Was Buzz a new toy?</strong></p>
+<p class="translation" lang="es">¿Era Buzz un juguete nuevo?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>16. Shrek lived in a swamp.</h3>
+<p class="translation" lang="es">Shrek vivía en un pantano.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Shrek live in a swamp?</strong></p>
+<p class="translation" lang="es">¿Vivía Shrek en un pantano?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. lived → live.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>17. Shrek rescued Fiona.</h3>
+<p class="translation" lang="es">Shrek rescató a Fiona.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Shrek rescue Fiona?</strong></p>
+<p class="translation" lang="es">¿Rescató Shrek a Fiona?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. rescued → rescue.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>18. Shrek and Donkey went to a castle.</h3>
+<p class="translation" lang="es">Shrek y Burro fueron a un castillo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Shrek and Donkey go?</strong></p>
+<p class="translation" lang="es">¿Adónde fueron Shrek y Burro?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>19. Donkey met a dragon.</h3>
+<p class="translation" lang="es">Burro conoció a una dragona.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Donkey meet?</strong></p>
+<p class="translation" lang="es">¿Qué conoció Burro?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. met → meet.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Shrek (2001)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>20. Fiona was in a tower.</h3>
+<p class="translation" lang="es">Fiona estaba en una torre.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where was Fiona?</strong></p>
+<p class="translation" lang="es">¿Dónde estaba Fiona?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>21. Rose traveled with her mother.</h3>
+<p class="translation" lang="es">Rose viajó con su madre.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Rose travel with her mother?</strong></p>
+<p class="translation" lang="es">¿Viajó Rose con su madre?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. traveled → travel.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>22. Jack won tickets in a card game.</h3>
+<p class="translation" lang="es">Jack ganó unos boletos en un juego de cartas.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Jack win tickets in a card game?</strong></p>
+<p class="translation" lang="es">¿Ganó Jack unos boletos en un juego de cartas?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. won → win.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>23. The ship hit an iceberg.</h3>
+<p class="translation" lang="es">El barco chocó con un iceberg.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did the ship hit?</strong></p>
+<p class="translation" lang="es">¿Con qué chocó el barco?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. hit → hit.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>24. Jack drew a picture of Rose.</h3>
+<p class="translation" lang="es">Jack hizo un dibujo de Rose.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Jack draw?</strong></p>
+<p class="translation" lang="es">¿Qué dibujó Jack?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. drew → draw.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Titanic (1997)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>25. Jack and Rose were on a ship.</h3>
+<p class="translation" lang="es">Jack y Rose estaban en un barco.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Were Jack and Rose on a ship?</strong></p>
+<p class="translation" lang="es">¿Estaban Jack y Rose en un barco?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>26. Andy applied for a job at Runway.</h3>
+<p class="translation" lang="es">Andy solicitó un trabajo en Runway.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Andy apply for a job at Runway?</strong></p>
+<p class="translation" lang="es">¿Solicitó Andy un trabajo en Runway?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. applied → apply.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>27. Andy worked for Miranda.</h3>
+<p class="translation" lang="es">Andy trabajó para Miranda.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Andy work for Miranda?</strong></p>
+<p class="translation" lang="es">¿Trabajó Andy para Miranda?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. worked → work.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>28. Andy went to Paris for work.</h3>
+<p class="translation" lang="es">Andy fue a París por trabajo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Andy go for work?</strong></p>
+<p class="translation" lang="es">¿Adónde fue Andy por trabajo?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>29. Andy changed her clothes for work.</h3>
+<p class="translation" lang="es">Andy cambió su ropa para el trabajo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Andy change for work?</strong></p>
+<p class="translation" lang="es">¿Qué cambió Andy para el trabajo?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. changed → change.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Devil Wears Prada (2006)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>30. Miranda was Andy’s boss.</h3>
+<p class="translation" lang="es">Miranda era la jefa de Andy.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Was Miranda Andy’s boss?</strong></p>
+<p class="translation" lang="es">¿Era Miranda la jefa de Andy?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>31. Fury brought the heroes together.</h3>
+<p class="translation" lang="es">Fury reunió a los héroes.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Fury bring the heroes together?</strong></p>
+<p class="translation" lang="es">¿Reunió Fury a los héroes?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. brought → bring.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>32. Loki took the Tesseract.</h3>
+<p class="translation" lang="es">Loki se llevó el Teseracto.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Loki take the Tesseract?</strong></p>
+<p class="translation" lang="es">¿Se llevó Loki el Teseracto?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. took → take.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>33. The heroes fought in New York.</h3>
+<p class="translation" lang="es">Los héroes lucharon en Nueva York.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did the heroes fight?</strong></p>
+<p class="translation" lang="es">¿Dónde lucharon los héroes?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. fought → fight.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>34. Tony carried a missile through the portal.</h3>
+<p class="translation" lang="es">Tony llevó un misil a través del portal.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Tony carry through the portal?</strong></p>
+<p class="translation" lang="es">¿Qué llevó Tony a través del portal?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. carried → carry.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Avengers (2012)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>35. The heroes were in New York.</h3>
+<p class="translation" lang="es">Los héroes estaban en Nueva York.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where were the heroes?</strong></p>
+<p class="translation" lang="es">¿Dónde estaban los héroes?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>36. A spider bit Peter.</h3>
+<p class="translation" lang="es">Una araña mordió a Peter.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did a spider bite Peter?</strong></p>
+<p class="translation" lang="es">¿Mordió una araña a Peter?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. bit → bite.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>37. Peter climbed walls.</h3>
+<p class="translation" lang="es">Peter trepó por las paredes.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Peter climb walls?</strong></p>
+<p class="translation" lang="es">¿Trepó Peter por las paredes?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. climbed → climb.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>38. Peter took photos of Spider-Man.</h3>
+<p class="translation" lang="es">Peter tomó fotos de Spider-Man.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Peter take photos of?</strong></p>
+<p class="translation" lang="es">¿De qué tomó fotos Peter?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. took → take.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>39. Peter made a special suit.</h3>
+<p class="translation" lang="es">Peter hizo un traje especial.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Peter make?</strong></p>
+<p class="translation" lang="es">¿Qué hizo Peter?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. made → make.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Spider-Man (2002)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>40. Peter was a student.</h3>
+<p class="translation" lang="es">Peter era estudiante.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Was Peter a student?</strong></p>
+<p class="translation" lang="es">¿Era Peter estudiante?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>41. A diver caught Nemo.</h3>
+<p class="translation" lang="es">Un buzo atrapó a Nemo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did a diver catch Nemo?</strong></p>
+<p class="translation" lang="es">¿Atrapó un buzo a Nemo?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. caught → catch.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>42. Dory helped Marlin.</h3>
+<p class="translation" lang="es">Dory ayudó a Marlin.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Dory help Marlin?</strong></p>
+<p class="translation" lang="es">¿Ayudó Dory a Marlin?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. helped → help.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>43. The diver took Nemo to Sydney.</h3>
+<p class="translation" lang="es">El buzo llevó a Nemo a Sídney.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did the diver take Nemo?</strong></p>
+<p class="translation" lang="es">¿Adónde llevó el buzo a Nemo?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. took → take.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>44. Dory read the address on a mask.</h3>
+<p class="translation" lang="es">Dory leyó la dirección en una máscara.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Dory read on a mask?</strong></p>
+<p class="translation" lang="es">¿Qué leyó Dory en una máscara?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. read → read (base form sounds like reed).</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Finding Nemo (2003)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>45. Nemo was in a fish tank.</h3>
+<p class="translation" lang="es">Nemo estaba en una pecera.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where was Nemo?</strong></p>
+<p class="translation" lang="es">¿Dónde estaba Nemo?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>46. Simba lived with Timon and Pumbaa.</h3>
+<p class="translation" lang="es">Simba vivió con Timón y Pumba.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Simba live with Timon and Pumbaa?</strong></p>
+<p class="translation" lang="es">¿Vivió Simba con Timón y Pumba?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. lived → live.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>47. Simba returned home.</h3>
+<p class="translation" lang="es">Simba regresó a casa.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Simba return home?</strong></p>
+<p class="translation" lang="es">¿Regresó Simba a casa?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. returned → return.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>48. Simba ate insects.</h3>
+<p class="translation" lang="es">Simba comió insectos.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Simba eat?</strong></p>
+<p class="translation" lang="es">¿Qué comió Simba?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. ate → eat.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>49. Simba went to an elephant graveyard.</h3>
+<p class="translation" lang="es">Simba fue a un cementerio de elefantes.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Simba go?</strong></p>
+<p class="translation" lang="es">¿Adónde fue Simba?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">The Lion King (1994)</span><span class="tag direction">Was / Were</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>50. Mufasa was Simba’s father.</h3>
+<p class="translation" lang="es">Mufasa era el padre de Simba.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Was Mufasa Simba’s father?</strong></p>
+<p class="translation" lang="es">¿Era Mufasa el padre de Simba?</p>
+<p class="tip muted">Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>51. Kevin watched a movie at home.</h3>
+<p class="translation" lang="es">Kevin vio una película en casa.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Kevin watch a movie at home?</strong></p>
+<p class="translation" lang="es">¿Vio Kevin una película en casa?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. watched → watch.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>52. Kevin made traps.</h3>
+<p class="translation" lang="es">Kevin hizo trampas.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Kevin make traps?</strong></p>
+<p class="translation" lang="es">¿Hizo Kevin trampas?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. made → make.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>53. Kevin’s family went to Paris.</h3>
+<p class="translation" lang="es">La familia de Kevin fue a París.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Kevin’s family go?</strong></p>
+<p class="translation" lang="es">¿Adónde fue la familia de Kevin?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>54. Kevin ordered a pizza.</h3>
+<p class="translation" lang="es">Kevin pidió una pizza.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Kevin order?</strong></p>
+<p class="translation" lang="es">¿Qué pidió Kevin?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. ordered → order.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Home Alone (1990)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>55. Kevin was at home.</h3>
+<p class="translation" lang="es">Kevin estaba en casa.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where was Kevin?</strong></p>
+<p class="translation" lang="es">¿Dónde estaba Kevin?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>56. Marty played the guitar.</h3>
+<p class="translation" lang="es">Marty tocó la guitarra.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Marty play the guitar?</strong></p>
+<p class="translation" lang="es">¿Tocó Marty la guitarra?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. played → play.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Yes/no question</span></div>
+<p>Make a yes/no question. <span class="translation" lang="es">Forma una pregunta de sí o no.</span></p>
+<h3>57. Doc built a time machine.</h3>
+<p class="translation" lang="es">Doc construyó una máquina del tiempo.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Did Doc build a time machine?</strong></p>
+<p class="translation" lang="es">¿Construyó Doc una máquina del tiempo?</p>
+<p class="tip muted">Did + subject + base verb? After did, use the base form. built → build.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Where question</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>58. Marty went to Hill Valley in 1955.</h3>
+<p class="translation" lang="es">Marty fue a Hill Valley en 1955.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where did Marty go in 1955?</strong></p>
+<p class="translation" lang="es">¿Adónde fue Marty en 1955?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. went → go.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">What question</span></div>
+<p>Ask what. <span class="translation" lang="es">Pregunta qué.</span></p>
+<h3>59. Marty drove a DeLorean.</h3>
+<p class="translation" lang="es">Marty condujo un DeLorean.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>What did Marty drive?</strong></p>
+<p class="translation" lang="es">¿Qué condujo Marty?</p>
+<p class="tip muted">Question word + did + subject + base verb? After did, use the base form. drove → drive.</p></details></article>
+<article class="card fallback-card">
+<div class="tags"><span class="tag">Back to the Future (1985)</span><span class="tag direction">Was / Were</span></div>
+<p>Ask where. <span class="translation" lang="es">Pregunta dónde o adónde.</span></p>
+<h3>60. Doc was at the clock tower.</h3>
+<p class="translation" lang="es">Doc estaba en la torre del reloj.</p>
+<details class="answer"><summary>Show answer</summary>
+<p><strong>Where was Doc?</strong></p>
+<p class="translation" lang="es">¿Dónde estaba Doc?</p>
+<p class="tip muted">Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?</p></details></article>
+</section>
+</main>
+<script>
+const cards = [
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Harry lived with his aunt and uncle.",
+    "es": "Harry vivía con su tía y su tío.",
+    "model": "Did Harry live with his aunt and uncle?",
+    "modelEs": "¿Vivía Harry con su tía y su tío?",
+    "tip": "Did + subject + base verb? After did, use the base form. lived → live.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Hagrid visited Harry on his birthday.",
+    "es": "Hagrid visitó a Harry el día de su cumpleaños.",
+    "model": "Did Hagrid visit Harry on his birthday?",
+    "modelEs": "¿Visitó Hagrid a Harry el día de su cumpleaños?",
+    "tip": "Did + subject + base verb? After did, use the base form. visited → visit.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Harry went to Hogwarts.",
+    "es": "Harry fue a Hogwarts.",
+    "model": "Where did Harry go?",
+    "modelEs": "¿Adónde fue Harry?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "type": "how",
+    "kind": "How question",
+    "task": "Ask how.",
+    "taskEs": "Pregunta cómo.",
+    "line": "Harry traveled to school by train.",
+    "es": "Harry viajó a la escuela en tren.",
+    "model": "How did Harry travel to school?",
+    "modelEs": "¿Cómo viajó Harry a la escuela?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. traveled → travel.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Harry Potter and the Sorcerer’s Stone (2001)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Harry was a student at Hogwarts.",
+    "es": "Harry era estudiante en Hogwarts.",
+    "model": "Was Harry a student at Hogwarts?",
+    "modelEs": "¿Era Harry estudiante en Hogwarts?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=harry-potter-and-the-sorcerers-stone"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Hammond invited scientists to the park.",
+    "es": "Hammond invitó a unos científicos al parque.",
+    "model": "Did Hammond invite scientists to the park?",
+    "modelEs": "¿Invitó Hammond a unos científicos al parque?",
+    "tip": "Did + subject + base verb? After did, use the base form. invited → invite.",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Grant saw dinosaurs on the island.",
+    "es": "Grant vio dinosaurios en la isla.",
+    "model": "Did Grant see dinosaurs on the island?",
+    "modelEs": "¿Vio Grant dinosaurios en la isla?",
+    "tip": "Did + subject + base verb? After did, use the base form. saw → see.",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "The children hid in the kitchen.",
+    "es": "Los niños se escondieron en la cocina.",
+    "model": "Where did the children hide?",
+    "modelEs": "¿Dónde se escondieron los niños?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. hid → hide.",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "The workers built fences.",
+    "es": "Los trabajadores construyeron cercas.",
+    "model": "What did the workers build?",
+    "modelEs": "¿Qué construyeron los trabajadores?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. built → build.",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Jurassic Park (1993)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "The scientists were on an island.",
+    "es": "Los científicos estaban en una isla.",
+    "model": "Where were the scientists?",
+    "modelEs": "¿Dónde estaban los científicos?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://transcripts.simpleremix.com/script.php/jurassic-park-1993-RuU"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Andy received a new toy for his birthday.",
+    "es": "Andy recibió un juguete nuevo por su cumpleaños.",
+    "model": "Did Andy receive a new toy for his birthday?",
+    "modelEs": "¿Recibió Andy un juguete nuevo por su cumpleaños?",
+    "tip": "Did + subject + base verb? After did, use the base form. received → receive.",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "The toys escaped from Sid’s house.",
+    "es": "Los juguetes escaparon de la casa de Sid.",
+    "model": "Did the toys escape from Sid’s house?",
+    "modelEs": "¿Escaparon los juguetes de la casa de Sid?",
+    "tip": "Did + subject + base verb? After did, use the base form. escaped → escape.",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Andy got a toy astronaut.",
+    "es": "Andy recibió un astronauta de juguete.",
+    "model": "What did Andy get?",
+    "modelEs": "¿Qué recibió Andy?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. got → get.",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Woody and Buzz went to a pizza restaurant.",
+    "es": "Woody y Buzz fueron a una pizzería.",
+    "model": "Where did Woody and Buzz go?",
+    "modelEs": "¿Adónde fueron Woody y Buzz?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Toy Story (1995)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Buzz was a new toy.",
+    "es": "Buzz era un juguete nuevo.",
+    "model": "Was Buzz a new toy?",
+    "modelEs": "¿Era Buzz un juguete nuevo?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://imsdb.com/scripts/Toy-Story.html"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Shrek lived in a swamp.",
+    "es": "Shrek vivía en un pantano.",
+    "model": "Did Shrek live in a swamp?",
+    "modelEs": "¿Vivía Shrek en un pantano?",
+    "tip": "Did + subject + base verb? After did, use the base form. lived → live.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Shrek rescued Fiona.",
+    "es": "Shrek rescató a Fiona.",
+    "model": "Did Shrek rescue Fiona?",
+    "modelEs": "¿Rescató Shrek a Fiona?",
+    "tip": "Did + subject + base verb? After did, use the base form. rescued → rescue.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Shrek and Donkey went to a castle.",
+    "es": "Shrek y Burro fueron a un castillo.",
+    "model": "Where did Shrek and Donkey go?",
+    "modelEs": "¿Adónde fueron Shrek y Burro?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Donkey met a dragon.",
+    "es": "Burro conoció a una dragona.",
+    "model": "What did Donkey meet?",
+    "modelEs": "¿Qué conoció Burro?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. met → meet.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Shrek (2001)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Fiona was in a tower.",
+    "es": "Fiona estaba en una torre.",
+    "model": "Where was Fiona?",
+    "modelEs": "¿Dónde estaba Fiona?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=shrek"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Rose traveled with her mother.",
+    "es": "Rose viajó con su madre.",
+    "model": "Did Rose travel with her mother?",
+    "modelEs": "¿Viajó Rose con su madre?",
+    "tip": "Did + subject + base verb? After did, use the base form. traveled → travel.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Jack won tickets in a card game.",
+    "es": "Jack ganó unos boletos en un juego de cartas.",
+    "model": "Did Jack win tickets in a card game?",
+    "modelEs": "¿Ganó Jack unos boletos en un juego de cartas?",
+    "tip": "Did + subject + base verb? After did, use the base form. won → win.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "The ship hit an iceberg.",
+    "es": "El barco chocó con un iceberg.",
+    "model": "What did the ship hit?",
+    "modelEs": "¿Con qué chocó el barco?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. hit → hit.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Jack drew a picture of Rose.",
+    "es": "Jack hizo un dibujo de Rose.",
+    "model": "What did Jack draw?",
+    "modelEs": "¿Qué dibujó Jack?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. drew → draw.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "Titanic (1997)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Jack and Rose were on a ship.",
+    "es": "Jack y Rose estaban en un barco.",
+    "model": "Were Jack and Rose on a ship?",
+    "modelEs": "¿Estaban Jack y Rose en un barco?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=titanic"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Andy applied for a job at Runway.",
+    "es": "Andy solicitó un trabajo en Runway.",
+    "model": "Did Andy apply for a job at Runway?",
+    "modelEs": "¿Solicitó Andy un trabajo en Runway?",
+    "tip": "Did + subject + base verb? After did, use the base form. applied → apply.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Andy worked for Miranda.",
+    "es": "Andy trabajó para Miranda.",
+    "model": "Did Andy work for Miranda?",
+    "modelEs": "¿Trabajó Andy para Miranda?",
+    "tip": "Did + subject + base verb? After did, use the base form. worked → work.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Andy went to Paris for work.",
+    "es": "Andy fue a París por trabajo.",
+    "model": "Where did Andy go for work?",
+    "modelEs": "¿Adónde fue Andy por trabajo?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Andy changed her clothes for work.",
+    "es": "Andy cambió su ropa para el trabajo.",
+    "model": "What did Andy change for work?",
+    "modelEs": "¿Qué cambió Andy para el trabajo?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. changed → change.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Devil Wears Prada (2006)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Miranda was Andy’s boss.",
+    "es": "Miranda era la jefa de Andy.",
+    "model": "Was Miranda Andy’s boss?",
+    "modelEs": "¿Era Miranda la jefa de Andy?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=devil-wears-prada-the"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Fury brought the heroes together.",
+    "es": "Fury reunió a los héroes.",
+    "model": "Did Fury bring the heroes together?",
+    "modelEs": "¿Reunió Fury a los héroes?",
+    "tip": "Did + subject + base verb? After did, use the base form. brought → bring.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Loki took the Tesseract.",
+    "es": "Loki se llevó el Teseracto.",
+    "model": "Did Loki take the Tesseract?",
+    "modelEs": "¿Se llevó Loki el Teseracto?",
+    "tip": "Did + subject + base verb? After did, use the base form. took → take.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "The heroes fought in New York.",
+    "es": "Los héroes lucharon en Nueva York.",
+    "model": "Where did the heroes fight?",
+    "modelEs": "¿Dónde lucharon los héroes?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. fought → fight.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Tony carried a missile through the portal.",
+    "es": "Tony llevó un misil a través del portal.",
+    "model": "What did Tony carry through the portal?",
+    "modelEs": "¿Qué llevó Tony a través del portal?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. carried → carry.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "The Avengers (2012)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "The heroes were in New York.",
+    "es": "Los héroes estaban en Nueva York.",
+    "model": "Where were the heroes?",
+    "modelEs": "¿Dónde estaban los héroes?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=avengers-the-2012"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "A spider bit Peter.",
+    "es": "Una araña mordió a Peter.",
+    "model": "Did a spider bite Peter?",
+    "modelEs": "¿Mordió una araña a Peter?",
+    "tip": "Did + subject + base verb? After did, use the base form. bit → bite.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Peter climbed walls.",
+    "es": "Peter trepó por las paredes.",
+    "model": "Did Peter climb walls?",
+    "modelEs": "¿Trepó Peter por las paredes?",
+    "tip": "Did + subject + base verb? After did, use the base form. climbed → climb.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Peter took photos of Spider-Man.",
+    "es": "Peter tomó fotos de Spider-Man.",
+    "model": "What did Peter take photos of?",
+    "modelEs": "¿De qué tomó fotos Peter?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. took → take.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Peter made a special suit.",
+    "es": "Peter hizo un traje especial.",
+    "model": "What did Peter make?",
+    "modelEs": "¿Qué hizo Peter?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. made → make.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Spider-Man (2002)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Peter was a student.",
+    "es": "Peter era estudiante.",
+    "model": "Was Peter a student?",
+    "modelEs": "¿Era Peter estudiante?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=spider-man"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "A diver caught Nemo.",
+    "es": "Un buzo atrapó a Nemo.",
+    "model": "Did a diver catch Nemo?",
+    "modelEs": "¿Atrapó un buzo a Nemo?",
+    "tip": "Did + subject + base verb? After did, use the base form. caught → catch.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Dory helped Marlin.",
+    "es": "Dory ayudó a Marlin.",
+    "model": "Did Dory help Marlin?",
+    "modelEs": "¿Ayudó Dory a Marlin?",
+    "tip": "Did + subject + base verb? After did, use the base form. helped → help.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "The diver took Nemo to Sydney.",
+    "es": "El buzo llevó a Nemo a Sídney.",
+    "model": "Where did the diver take Nemo?",
+    "modelEs": "¿Adónde llevó el buzo a Nemo?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. took → take.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Dory read the address on a mask.",
+    "es": "Dory leyó la dirección en una máscara.",
+    "model": "What did Dory read on a mask?",
+    "modelEs": "¿Qué leyó Dory en una máscara?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. read → read (base form sounds like reed).",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "Finding Nemo (2003)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Nemo was in a fish tank.",
+    "es": "Nemo estaba en una pecera.",
+    "model": "Where was Nemo?",
+    "modelEs": "¿Dónde estaba Nemo?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=finding-nemo"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Simba lived with Timon and Pumbaa.",
+    "es": "Simba vivió con Timón y Pumba.",
+    "model": "Did Simba live with Timon and Pumbaa?",
+    "modelEs": "¿Vivió Simba con Timón y Pumba?",
+    "tip": "Did + subject + base verb? After did, use the base form. lived → live.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Simba returned home.",
+    "es": "Simba regresó a casa.",
+    "model": "Did Simba return home?",
+    "modelEs": "¿Regresó Simba a casa?",
+    "tip": "Did + subject + base verb? After did, use the base form. returned → return.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Simba ate insects.",
+    "es": "Simba comió insectos.",
+    "model": "What did Simba eat?",
+    "modelEs": "¿Qué comió Simba?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. ate → eat.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Simba went to an elephant graveyard.",
+    "es": "Simba fue a un cementerio de elefantes.",
+    "model": "Where did Simba go?",
+    "modelEs": "¿Adónde fue Simba?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "The Lion King (1994)",
+    "type": "beYes",
+    "kind": "Was / Were",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Mufasa was Simba’s father.",
+    "es": "Mufasa era el padre de Simba.",
+    "model": "Was Mufasa Simba’s father?",
+    "modelEs": "¿Era Mufasa el padre de Simba?",
+    "tip": "Move was or were before the subject. Example pattern: Was/Were + subject + rest of the sentence?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=lion-king-the"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Kevin watched a movie at home.",
+    "es": "Kevin vio una película en casa.",
+    "model": "Did Kevin watch a movie at home?",
+    "modelEs": "¿Vio Kevin una película en casa?",
+    "tip": "Did + subject + base verb? After did, use the base form. watched → watch.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Kevin made traps.",
+    "es": "Kevin hizo trampas.",
+    "model": "Did Kevin make traps?",
+    "modelEs": "¿Hizo Kevin trampas?",
+    "tip": "Did + subject + base verb? After did, use the base form. made → make.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Kevin’s family went to Paris.",
+    "es": "La familia de Kevin fue a París.",
+    "model": "Where did Kevin’s family go?",
+    "modelEs": "¿Adónde fue la familia de Kevin?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Kevin ordered a pizza.",
+    "es": "Kevin pidió una pizza.",
+    "model": "What did Kevin order?",
+    "modelEs": "¿Qué pidió Kevin?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. ordered → order.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Home Alone (1990)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Kevin was at home.",
+    "es": "Kevin estaba en casa.",
+    "model": "Where was Kevin?",
+    "modelEs": "¿Dónde estaba Kevin?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=home-alone"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Marty played the guitar.",
+    "es": "Marty tocó la guitarra.",
+    "model": "Did Marty play the guitar?",
+    "modelEs": "¿Tocó Marty la guitarra?",
+    "tip": "Did + subject + base verb? After did, use the base form. played → play.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "type": "yes",
+    "kind": "Yes/no question",
+    "task": "Make a yes/no question.",
+    "taskEs": "Forma una pregunta de sí o no.",
+    "line": "Doc built a time machine.",
+    "es": "Doc construyó una máquina del tiempo.",
+    "model": "Did Doc build a time machine?",
+    "modelEs": "¿Construyó Doc una máquina del tiempo?",
+    "tip": "Did + subject + base verb? After did, use the base form. built → build.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "type": "where",
+    "kind": "Where question",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Marty went to Hill Valley in 1955.",
+    "es": "Marty fue a Hill Valley en 1955.",
+    "model": "Where did Marty go in 1955?",
+    "modelEs": "¿Adónde fue Marty en 1955?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. went → go.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "type": "what",
+    "kind": "What question",
+    "task": "Ask what.",
+    "taskEs": "Pregunta qué.",
+    "line": "Marty drove a DeLorean.",
+    "es": "Marty condujo un DeLorean.",
+    "model": "What did Marty drive?",
+    "modelEs": "¿Qué condujo Marty?",
+    "tip": "Question word + did + subject + base verb? After did, use the base form. drove → drive.",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  },
+  {
+    "movie": "Back to the Future (1985)",
+    "type": "beWhere",
+    "kind": "Was / Were",
+    "task": "Ask where.",
+    "taskEs": "Pregunta dónde o adónde.",
+    "line": "Doc was at the clock tower.",
+    "es": "Doc estaba en la torre del reloj.",
+    "model": "Where was Doc?",
+    "modelEs": "¿Dónde estaba Doc?",
+    "tip": "Move was or were before the subject. Start with where. Example pattern: Where + was/were + subject?",
+    "source": "https://www.springfieldspringfield.co.uk/movie_script.php?movie=back-to-the-future"
+  }
+];
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Show answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) {
+    remaining = [...cards];
+  }
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  byId('movie').textContent = current.movie;
+  byId('direction').textContent = current.kind;
+  byId('task').textContent = current.task;
+  byId('task-es').textContent = current.taskEs;
+  byId('line').textContent = current.line;
+  byId('translation').textContent = current.es;
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
+  byId('tip').textContent = current.tip;
+  byId('source').href = current.source;
+  byId('progress').textContent = 'Card ' + (cards.length - remaining.length) + ' of ' + cards.length;
+  if (moveFocus) byId('line').focus();
+}
+
+const movieCount = new Set(cards.map(card => card.movie)).size;
+byId('pool-count').textContent = cards.length + ' cards · ' + movieCount + ' movies · Simple past questions';
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('next').addEventListener('click', () => drawCard(true));
+drawCard(false);
+byId('random-game').hidden = false;
+byId('fallback').hidden = true;
+</script>
+</body>
+</html>
