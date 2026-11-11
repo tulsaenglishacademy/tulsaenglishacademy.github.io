@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Christmas Origins | Tulsa English Academy</title>
-<meta name="description" content="Draw one of 50 Christmas items, guess its origin, and reveal the story in English and Spanish.">
+<meta name="description" content="Guess the origins of 50 illustrated Christmas items and practice passive voice in English with Spanish support.">
 <style>
 :root {
   color-scheme: dark;
@@ -26,6 +26,14 @@ h2 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: .2em 0; ove
 .intro { max-width: 62ch; margin: 14px 0 4px; }
 .translation { color: var(--muted); margin: 4px 0 0; }
 .card { margin-top: 26px; padding: clamp(18px, 5vw, 34px); background: var(--card); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 18px 46px #0003; }
+.card-top { display: grid; grid-template-columns: minmax(120px, 185px) minmax(0, 1fr); gap: clamp(16px, 4vw, 30px); align-items: center; }
+.item-picture { width: 100%; aspect-ratio: 1 / 1; border: 1px solid var(--edge); border-radius: 12px; background: var(--page) var(--sheet) var(--x) var(--y) / 500% 200% no-repeat; }
+.grammar { margin: 18px 0 0; color: var(--muted); }
+.grammar strong { color: var(--gold); }
+@media (max-width: 520px) {
+  .card-top { grid-template-columns: 1fr; gap: 14px; }
+  .item-picture { width: min(100%, 140px); }
+}
 .question { margin: 20px 0 4px; font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 700; }
 .actions { margin-top: 23px; display: flex; flex-wrap: wrap; gap: 10px; }
 button { font: inherit; font-weight: 800; border: 1px solid #a75b53; border-radius: 10px; min-height: 48px; padding: 9px 15px; color: var(--text); background: var(--red); cursor: pointer; }
@@ -44,22 +52,30 @@ summary { cursor: pointer; font-weight: 750; color: var(--gold); }
 <header>
 <div class="school">Tulsa English Academy</div>
 <h1>Christmas Origins</h1>
-<p class="intro">Draw an item and read the question aloud. Let everyone guess. If the group gets stuck, reveal the answer and read it in your best storyteller voice.</p>
-<p class="translation" lang="es">Saca una tarjeta y lee la pregunta en voz alta. Deja que todos adivinen. Si nadie sabe la respuesta, muéstrala y léela con tu mejor voz de cuentacuentos.</p>
+<p class="intro">Read the question aloud. Everyone guesses in the passive voice. Then reveal the answer and read the origin story in your best storyteller voice.</p>
+<p class="translation" lang="es">Lee la pregunta en voz alta. Todos adivinan usando la voz pasiva. Después, muestra la respuesta y lee la historia con tu mejor voz de cuentacuentos.</p>
 </header>
 
 <article class="card" id="game" aria-label="Christmas origin card" hidden>
-<p class="label">Christmas item</p>
+<div class="card-top">
+<div id="picture" class="item-picture" role="img" aria-label="Illustration of Christmas tree" style="--sheet:url('images/christmas-1.webp');--x:0%;--y:0%"></div>
+<div>
 <h2 id="item" tabindex="-1" aria-describedby="question">Christmas item</h2>
 <p id="item-es" class="translation" lang="es"></p>
 <p id="question" class="question"></p>
 <p id="question-es" class="translation" lang="es"></p>
+</div></div>
+<p class="grammar">Guess in the passive voice. Try <strong>It was made…</strong> or <strong>They were given…</strong></p>
+<p class="translation" lang="es">Adivina usando la voz pasiva. Usa el verbo <strong>be</strong> y el participio pasado.</p>
 <div class="actions">
 <button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal answer</button>
 <button id="draw" class="primary" type="button">Draw another item</button>
 </div>
 <section id="answer" class="answer" aria-label="Origin story" aria-live="polite" hidden>
-<p class="label">Read it like a storyteller</p>
+<p class="label">Model passive answer</p>
+<p id="model" class="story"><strong></strong></p>
+<p id="model-es" class="translation" lang="es"></p>
+<p class="label">Read the origin story aloud</p>
 <p id="story" class="story"></p>
 <p id="story-es" class="translation" lang="es"></p>
 <p><a id="source" class="source" target="_blank" rel="noopener noreferrer"></a></p>
@@ -69,352 +85,702 @@ summary { cursor: pointer; font-weight: 750; color: var(--gold); }
 <section id="fallback" aria-label="Christmas cards">
 <p>Choose an item and open <strong>Reveal answer</strong> after the group guesses.</p>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas tree" style="--sheet:url('images/christmas-1.webp');--x:0%;--y:0%"></div>
+<div>
 <h2>Christmas tree</h2><p class="translation" lang="es">Árbol de Navidad</p>
-<p class="question">Where did the custom of decorating a Christmas tree become established?</p><p class="translation" lang="es">¿Dónde se estableció la costumbre de decorar un árbol de Navidad?</p>
+<p class="question">Where were Christmas trees decorated in the early 1600s?</p><p class="translation" lang="es">¿Dónde se decoraban árboles de Navidad a principios del siglo XVII?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Christmas trees were decorated in Germany by the early 1600s.</strong></p><p class="translation" lang="es">En Alemania ya se decoraban árboles de Navidad a principios del siglo XVII.</p>
+<p class="label">Origin story</p>
 <p class="story">In Germany, people were decorating evergreen trees for Christmas by the early 1600s. An 1848 picture of Queen Victoria’s family helped make the custom popular in Britain.</p><p class="translation" lang="es">En Alemania ya se decoraban árboles de hoja perenne para Navidad a principios del siglo XVII. Una ilustración de la familia de la reina Victoria en 1848 ayudó a popularizar la costumbre en Gran Bretaña.</p>
 <p><a class="source" href="https://www.rct.uk/collection/stories/a-royal-christmas" target="_blank" rel="noopener noreferrer">Royal Collection Trust</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Advent wreath" style="--sheet:url('images/christmas-1.webp');--x:25%;--y:0%"></div>
+<div>
 <h2>Advent wreath</h2><p class="translation" lang="es">Corona de Adviento</p>
-<p class="question">Who made an early Advent wreath, and what did its candles count?</p><p class="translation" lang="es">¿Quién hizo una de las primeras coronas de Adviento y qué contaban sus velas?</p>
+<p class="question">Who was an early Advent wreath made by?</p><p class="translation" lang="es">¿Quién hizo una de las primeras coronas de Adviento?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>An early Advent wreath was made by Johann Hinrich Wichern in 1839.</strong></p><p class="translation" lang="es">Johann Hinrich Wichern hizo una de las primeras coronas de Adviento en 1839.</p>
+<p class="label">Origin story</p>
 <p class="story">In Hamburg, Germany, Johann Hinrich Wichern made a wreath with candles in 1839. He used the candles to help children count the days until Christmas Eve.</p><p class="translation" lang="es">En Hamburgo, Alemania, Johann Hinrich Wichern hizo una corona con velas en 1839. Usó las velas para ayudar a los niños a contar los días hasta Nochebuena.</p>
 <p><a class="source" href="https://www.rauhes.de/cms/jahreskreis/advent/adventskranz/" target="_blank" rel="noopener noreferrer">Das Rauhe Haus</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Advent calendar" style="--sheet:url('images/christmas-1.webp');--x:50%;--y:0%"></div>
+<div>
 <h2>Advent calendar</h2><p class="translation" lang="es">Calendario de Adviento</p>
-<p class="question">How did some German families count the days to Christmas before Advent calendars were sold?</p><p class="translation" lang="es">¿Cómo contaban los días hasta Navidad algunas familias alemanas antes de que se vendieran los calendarios de Adviento?</p>
+<p class="question">Where were early printed Advent calendars sold?</p><p class="translation" lang="es">¿Dónde se vendieron los primeros calendarios de Adviento impresos?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Early printed Advent calendars were sold in Germany.</strong></p><p class="translation" lang="es">Los primeros calendarios de Adviento impresos se vendieron en Alemania.</p>
+<p class="label">Origin story</p>
 <p class="story">In the 1800s, some German families made chalk marks and erased one each day. Publishers in Germany began selling printed Advent calendars in the early 1900s.</p><p class="translation" lang="es">En el siglo XIX, algunas familias alemanas hacían marcas con tiza y borraban una cada día. A principios del siglo XX, las editoriales alemanas empezaron a vender calendarios de Adviento impresos.</p>
 <p><a class="source" href="https://www.kunstsammlungen-chemnitz.de/en/ausstellungen/advent-advent/" target="_blank" rel="noopener noreferrer">Kunstsammlungen Chemnitz</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Electric Christmas lights" style="--sheet:url('images/christmas-1.webp');--x:75%;--y:0%"></div>
+<div>
 <h2>Electric Christmas lights</h2><p class="translation" lang="es">Luces eléctricas de Navidad</p>
-<p class="question">Who first used electric lights on a Christmas tree, and when?</p><p class="translation" lang="es">¿Quién usó luces eléctricas por primera vez en un árbol de Navidad y cuándo?</p>
+<p class="question">Who was a Christmas tree lit with electric bulbs in 1882 by?</p><p class="translation" lang="es">¿Quién iluminó un árbol de Navidad con bombillos eléctricos en 1882?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>A Christmas tree was lit with electric bulbs by Edward Johnson in 1882.</strong></p><p class="translation" lang="es">Edward Johnson iluminó un árbol de Navidad con bombillos eléctricos en 1882.</p>
+<p class="label">Origin story</p>
 <p class="story">Edward Johnson lit his Christmas tree with electric bulbs in 1882. It is the earliest known example of a Christmas tree lit this way.</p><p class="translation" lang="es">Edward Johnson iluminó su árbol de Navidad con bombillos eléctricos en 1882. Es el primer ejemplo conocido de un árbol de Navidad iluminado de esta manera.</p>
 <p><a class="source" href="https://americanhistory.si.edu/explore/stories/illuminating-thoughts-holidays" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Glass baubles" style="--sheet:url('images/christmas-1.webp');--x:100%;--y:0%"></div>
+<div>
 <h2>Glass baubles</h2><p class="translation" lang="es">Bolas de vidrio</p>
-<p class="question">Where did glassmakers begin making glass balls for Christmas trees in the 1800s?</p><p class="translation" lang="es">¿Dónde empezaron a fabricar bolas de vidrio para los árboles de Navidad en el siglo XIX?</p>
+<p class="question">Where were early glass Christmas baubles made?</p><p class="translation" lang="es">¿Dónde se hicieron las primeras esferas navideñas de vidrio?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Early glass baubles were made in Lauscha, Germany.</strong></p><p class="translation" lang="es">Las primeras esferas de vidrio se hicieron en Lauscha, Alemania.</p>
+<p class="label">Origin story</p>
 <p class="story">Glassmakers in Lauscha, Germany, began making simple glass balls in the 1830s. They later made colorful glass ornaments that looked like fruits and nuts.</p><p class="translation" lang="es">Los artesanos del vidrio de Lauscha, Alemania, empezaron a fabricar bolas de vidrio sencillas en la década de 1830. Más adelante hicieron adornos de colores que parecían frutas y nueces.</p>
 <p><a class="source" href="https://glasmuseum-lauscha.de/christbaum.html" target="_blank" rel="noopener noreferrer">Glasmuseum Lauscha</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Tinsel" style="--sheet:url('images/christmas-1.webp');--x:0%;--y:100%"></div>
+<div>
 <h2>Tinsel</h2><p class="translation" lang="es">Espumillón</p>
-<p class="question">Where was an early example of shiny Christmas tinsel in the Smithsonian collection made?</p><p class="translation" lang="es">¿Dónde se fabricó un ejemplo antiguo de espumillón navideño brillante de la colección del Smithsonian?</p>
+<p class="question">Where was the Smithsonian’s early tinsel garland made?</p><p class="translation" lang="es">¿Dónde se hizo la antigua guirnalda brillante del Smithsonian?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The garland was made in Germany.</strong></p><p class="translation" lang="es">La guirnalda se hizo en Alemania.</p>
+<p class="label">Origin story</p>
 <p class="story">The Smithsonian has a silver-colored and red tinsel garland made in Germany around 1890–1920. It has a small glass ball at one end.</p><p class="translation" lang="es">El Smithsonian conserva una guirnalda de espumillón plateado y rojo hecha en Alemania entre 1890 y 1920 aproximadamente. Tiene una bolita de vidrio en un extremo.</p>
 <p><a class="source" href="https://americanhistory.si.edu/collections/object/nmah_1451457" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Star on top of the tree" style="--sheet:url('images/christmas-1.webp');--x:25%;--y:100%"></div>
+<div>
 <h2>Star on top of the tree</h2><p class="translation" lang="es">Estrella en la punta del árbol</p>
-<p class="question">What story does the star on top of a Christmas tree represent?</p><p class="translation" lang="es">¿Qué historia representa la estrella en la punta del árbol de Navidad?</p>
+<p class="question">What is represented by the star on a Christmas tree?</p><p class="translation" lang="es">¿Qué representa la estrella del árbol de Navidad?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The Star of Bethlehem is represented by the tree topper.</strong></p><p class="translation" lang="es">El adorno en la punta del árbol representa la estrella de Belén.</p>
+<p class="label">Origin story</p>
 <p class="story">It represents the Star of Bethlehem from the Gospel of Matthew. In that story, the star guides visitors to the place where Jesus is.</p><p class="translation" lang="es">Representa la estrella de Belén del Evangelio de Mateo. En ese relato, la estrella guía a los visitantes al lugar donde está Jesús.</p>
 <p><a class="source" href="https://americanhistory.si.edu/explore/stories/illuminating-thoughts-holidays" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas stockings" style="--sheet:url('images/christmas-1.webp');--x:50%;--y:100%"></div>
+<div>
 <h2>Christmas stockings</h2><p class="translation" lang="es">Medias navideñas</p>
-<p class="question">What legend connects Saint Nicholas with Christmas stockings?</p><p class="translation" lang="es">¿Qué leyenda relaciona a san Nicolás con las medias navideñas?</p>
+<p class="question">Where was Saint Nicholas’s gold said to have landed?</p><p class="translation" lang="es">¿Dónde se dice que cayó el oro de san Nicolás?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>In one version of the legend, gold was left in stockings by the fireplace.</strong></p><p class="translation" lang="es">Según una versión de la leyenda, el oro quedó en unas medias junto a la chimenea.</p>
+<p class="label">Origin story</p>
 <p class="story">In one version of the legend, Saint Nicholas secretly gave gold to a family in need. The gold landed in stockings that were hanging by the fireplace.</p><p class="translation" lang="es">En una versión de la leyenda, san Nicolás le regaló oro en secreto a una familia necesitada. El oro cayó en unas medias que estaban colgadas junto a la chimenea.</p>
 <p><a class="source" href="https://www.smithsonianmag.com/arts-culture/the-legend-of-the-christmas-stocking-160854441/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas cards" style="--sheet:url('images/christmas-1.webp');--x:75%;--y:100%"></div>
+<div>
 <h2>Christmas cards</h2><p class="translation" lang="es">Tarjetas navideñas</p>
-<p class="question">How did an early Christmas card come about in England?</p><p class="translation" lang="es">¿Cómo surgió una de las primeras tarjetas navideñas en Inglaterra?</p>
+<p class="question">Who was an early Christmas card commissioned in 1843 by?</p><p class="translation" lang="es">¿Quién encargó una de las primeras tarjetas navideñas en 1843?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>An early Christmas card was commissioned by Henry Cole in 1843.</strong></p><p class="translation" lang="es">Henry Cole encargó una de las primeras tarjetas navideñas en 1843.</p>
+<p class="label">Origin story</p>
 <p class="story">Henry Cole asked the artist John Callcott Horsley to design a Christmas card in 1843. Cole wanted a quicker way to send holiday greetings.</p><p class="translation" lang="es">Henry Cole le pidió al artista John Callcott Horsley que diseñara una tarjeta navideña en 1843. Cole quería una manera más rápida de enviar saludos de Navidad.</p>
 <p><a class="source" href="https://www.vam.ac.uk/articles/the-first-christmas-card" target="_blank" rel="noopener noreferrer">Victoria and Albert Museum</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas crackers" style="--sheet:url('images/christmas-1.webp');--x:100%;--y:100%"></div>
+<div>
 <h2>Christmas crackers</h2><p class="translation" lang="es">Tubos sorpresa de Navidad</p>
-<p class="question">What gave a London baker the idea for Christmas crackers?</p><p class="translation" lang="es">¿Qué le dio a un panadero londinense la idea de los tubos sorpresa de Navidad?</p>
+<p class="question">What were Christmas crackers inspired by?</p><p class="translation" lang="es">¿Qué inspiró los Christmas crackers?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Christmas crackers were inspired by French sweets wrapped in paper.</strong></p><p class="translation" lang="es">Los Christmas crackers se inspiraron en dulces franceses envueltos en papel.</p>
+<p class="label">Origin story</p>
 <p class="story">Tom Smith took inspiration from French sweets wrapped in twisted paper. He turned the idea into the Christmas cracker, a paper package that pops when two people pull its ends.</p><p class="translation" lang="es">Tom Smith se inspiró en dulces franceses envueltos en papel retorcido. A partir de esa idea creó el tubo sorpresa navideño, un paquete de papel que hace un pequeño estallido cuando dos personas tiran de los extremos.</p>
 <p><a class="source" href="https://www.vam.ac.uk/articles/the-christmas-cracker" target="_blank" rel="noopener noreferrer">Victoria and Albert Museum</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Nativity scene" style="--sheet:url('images/christmas-2.webp');--x:0%;--y:0%"></div>
+<div>
 <h2>Nativity scene</h2><p class="translation" lang="es">Pesebre navideño</p>
-<p class="question">Where did Saint Francis of Assisi set up a Nativity scene in 1223?</p><p class="translation" lang="es">¿Dónde preparó san Francisco de Asís un pesebre en 1223?</p>
+<p class="question">Where was Saint Francis’s Nativity scene set up in 1223?</p><p class="translation" lang="es">¿Dónde se montó el pesebre de san Francisco en 1223?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The Nativity scene was set up in Greccio, Italy.</strong></p><p class="translation" lang="es">El pesebre se montó en Greccio, Italia.</p>
+<p class="label">Origin story</p>
 <p class="story">Saint Francis set up a Nativity scene in Greccio, Italy, at Christmas in 1223. He used a manger with hay to help people imagine the birth of Jesus.</p><p class="translation" lang="es">San Francisco preparó un pesebre en Greccio, Italia, en la Navidad de 1223. Usó un pesebre con heno para ayudar a la gente a imaginar el nacimiento de Jesús.</p>
 <p><a class="source" href="https://www.vatican.va/content/francesco/en/apost_letters/documents/papa-francesco-lettera-ap_20191201_admirabile-signum.html" target="_blank" rel="noopener noreferrer">Vatican, Admirabile signum</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Poinsettia" style="--sheet:url('images/christmas-2.webp');--x:25%;--y:0%"></div>
+<div>
 <h2>Poinsettia</h2><p class="translation" lang="es">Flor de Navidad</p>
-<p class="question">Where does the poinsettia come from, and what is it called there?</p><p class="translation" lang="es">¿De dónde viene la flor de Navidad y cómo se llama allí?</p>
+<p class="question">What is the poinsettia called in Mexico?</p><p class="translation" lang="es">¿Cómo se llama la poinsettia en México?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>It is called flor de Nochebuena in Mexico.</strong></p><p class="translation" lang="es">En México se llama flor de Nochebuena.</p>
+<p class="label">Origin story</p>
 <p class="story">The poinsettia is native to Mexico, where it is called flor de Nochebuena. Its bright red parts are actually modified leaves.</p><p class="translation" lang="es">La flor de Navidad es originaria de México, donde se llama flor de Nochebuena. Sus partes de color rojo intenso son en realidad hojas modificadas.</p>
 <p><a class="source" href="https://gardens.si.edu/learn/blog/poinsettias-oh-so-beautiful/" target="_blank" rel="noopener noreferrer">Smithsonian Gardens</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Mistletoe" style="--sheet:url('images/christmas-2.webp');--x:50%;--y:0%"></div>
+<div>
 <h2>Mistletoe</h2><p class="translation" lang="es">Muérdago</p>
-<p class="question">What older English Christmas custom may have inspired kissing under mistletoe?</p><p class="translation" lang="es">¿Qué antigua costumbre navideña inglesa pudo inspirar los besos bajo el muérdago?</p>
+<p class="question">What was picked for each kiss in one mistletoe tradition?</p><p class="translation" lang="es">¿Qué se arrancaba por cada beso en una tradición del muérdago?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>A berry was picked for each kiss.</strong></p><p class="translation" lang="es">Se arrancaba una baya por cada beso.</p>
+<p class="label">Origin story</p>
 <p class="story">People in England decorated doorways with greenery called kissing boughs. One tradition says a berry was picked for each kiss, which may help explain the custom.</p><p class="translation" lang="es">En Inglaterra se decoraban las entradas con ramas verdes conocidas como ramas de los besos. Según una tradición, se quitaba una baya por cada beso, lo que podría explicar la costumbre.</p>
 <p><a class="source" href="https://www.english-heritage.org.uk/learn/histories/christmas-greenery-history/" target="_blank" rel="noopener noreferrer">English Heritage</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Santa Claus" style="--sheet:url('images/christmas-2.webp');--x:75%;--y:0%"></div>
+<div>
 <h2>Santa Claus</h2><p class="translation" lang="es">Papá Noel</p>
-<p class="question">Which real person helped inspire Santa Claus?</p><p class="translation" lang="es">¿Qué persona real ayudó a inspirar a Papá Noel?</p>
+<p class="question">Which real person was Santa Claus partly inspired by?</p><p class="translation" lang="es">¿En qué persona real se inspiró en parte la figura de Santa Claus?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Santa Claus was partly inspired by Saint Nicholas.</strong></p><p class="translation" lang="es">Santa Claus se inspiró en parte en san Nicolás.</p>
+<p class="label">Origin story</p>
 <p class="story">One inspiration was Saint Nicholas, a Christian saint from what is now Turkey. In Dutch, he became known as Sinterklaas.</p><p class="translation" lang="es">Una fuente de inspiración fue san Nicolás, un santo cristiano de lo que hoy es Turquía. En neerlandés, llegó a conocerse como Sinterklaas.</p>
 <p><a class="source" href="https://blogs.loc.gov/loc/2020/12/a-visit-from-santa-who-you-might-not-recognize/" target="_blank" rel="noopener noreferrer">Library of Congress</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Santa’s red suit" style="--sheet:url('images/christmas-2.webp');--x:100%;--y:0%"></div>
+<div>
 <h2>Santa’s red suit</h2><p class="translation" lang="es">El traje rojo de Papá Noel</p>
-<p class="question">Did Coca-Cola invent Santa’s red suit?</p><p class="translation" lang="es">¿Coca-Cola inventó el traje rojo de Papá Noel?</p>
+<p class="question">Was Santa’s red suit invented by Coca-Cola?</p><p class="translation" lang="es">¿Fue inventado por Coca-Cola el traje rojo de Santa Claus?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The red suit was already used in pictures of Santa before Coca-Cola’s 1931 ads.</strong></p><p class="translation" lang="es">El traje rojo ya se usaba en imágenes de Santa antes de los anuncios de Coca-Cola de 1931.</p>
+<p class="label">Origin story</p>
 <p class="story">Santa already appeared in red before 1931. Coca-Cola’s ads that year helped make Haddon Sundblom’s version of Santa famous.</p><p class="translation" lang="es">Papá Noel ya aparecía vestido de rojo antes de 1931. Los anuncios de Coca-Cola de ese año ayudaron a hacer famosa la versión de Haddon Sundblom.</p>
 <p><a class="source" href="https://www.coca-colacompany.com/about-us/history/haddon-sundblom-and-the-coca-cola-santas" target="_blank" rel="noopener noreferrer">The Coca-Cola Company archives</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Rudolph" style="--sheet:url('images/christmas-2.webp');--x:0%;--y:100%"></div>
+<div>
 <h2>Rudolph</h2><p class="translation" lang="es">Rodolfo, el reno de la nariz roja</p>
-<p class="question">Why did Robert L. May create Rudolph in 1939?</p><p class="translation" lang="es">¿Por qué creó Robert L. May a Rodolfo en 1939?</p>
+<p class="question">Why was Rudolph’s story written in 1939?</p><p class="translation" lang="es">¿Para qué se escribió la historia de Rodolfo en 1939?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Rudolph’s story was written for a U.S. department store to give to children.</strong></p><p class="translation" lang="es">La historia de Rodolfo se escribió para que una tienda de Estados Unidos se la regalara a los niños.</p>
+<p class="label">Origin story</p>
 <p class="story">May wrote the story for Montgomery Ward, a U.S. department store. The store gave the book to children during the Christmas season.</p><p class="translation" lang="es">May escribió el cuento para Montgomery Ward, una tienda por departamentos de Estados Unidos. La tienda regaló el libro a los niños durante la temporada navideña.</p>
 <p><a class="source" href="https://home.dartmouth.edu/news/2016/12/rudolphs-story-dear-many-year-after-year" target="_blank" rel="noopener noreferrer">Dartmouth, Rauner Special Collections Library</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Santa’s sleigh and reindeer" style="--sheet:url('images/christmas-2.webp');--x:25%;--y:100%"></div>
+<div>
 <h2>Santa’s sleigh and reindeer</h2><p class="translation" lang="es">El trineo y los renos de Papá Noel</p>
-<p class="question">How many reindeer pulled Santa’s sleigh in an illustrated book from 1821?</p><p class="translation" lang="es">¿Cuántos renos tiraban del trineo de Papá Noel en un libro ilustrado de 1821?</p>
+<p class="question">How many reindeer were shown pulling Santa’s sleigh in an 1821 book?</p><p class="translation" lang="es">¿Cuántos renos aparecían tirando del trineo de Santa en un libro de 1821?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>One flying reindeer was shown pulling the sleigh.</strong></p><p class="translation" lang="es">Se mostraba un reno volador tirando del trineo.</p>
+<p class="label">Origin story</p>
 <p class="story">The Children’s Friend showed Santa with a sleigh and one flying reindeer in 1821. An 1823 poem helped make the team of eight famous.</p><p class="translation" lang="es">En 1821, The Children’s Friend mostraba a Papá Noel con un trineo y un reno volador. Un poema de 1823 ayudó a hacer famoso el grupo de ocho renos.</p>
 <p><a class="source" href="https://www.stnicholascenter.org/who-is-st-nicholas/origin-of-santa" target="_blank" rel="noopener noreferrer">St. Nicholas Center collections</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The Elf on the Shelf" style="--sheet:url('images/christmas-2.webp');--x:50%;--y:100%"></div>
+<div>
 <h2>The Elf on the Shelf</h2><p class="translation" lang="es">El elfo en el estante</p>
-<p class="question">What inspired the book The Elf on the Shelf?</p><p class="translation" lang="es">¿Qué inspiró el libro The Elf on the Shelf?</p>
+<p class="question">What was The Elf on the Shelf based on?</p><p class="translation" lang="es">¿En qué se basó The Elf on the Shelf?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The book was based on a family’s Christmas elf tradition.</strong></p><p class="translation" lang="es">El libro se basó en la tradición navideña de una familia con un duende.</p>
+<p class="label">Origin story</p>
 <p class="story">Carol Aebersold and her daughter Chanda Bell turned their family’s Christmas elf tradition into a book. They published it in 2005.</p><p class="translation" lang="es">Carol Aebersold y su hija Chanda Bell convirtieron la tradición familiar del elfo navideño en un libro. Lo publicaron en 2005.</p>
 <p><a class="source" href="https://lumistella.com/en/our-story/" target="_blank" rel="noopener noreferrer">The Lumistella Company</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Frosty the Snowman" style="--sheet:url('images/christmas-2.webp');--x:75%;--y:100%"></div>
+<div>
 <h2>Frosty the Snowman</h2><p class="translation" lang="es">Frosty, el muñeco de nieve</p>
-<p class="question">How did Frosty the Snowman become a Christmas character?</p><p class="translation" lang="es">¿Cómo se convirtió Frosty en un personaje navideño?</p>
+<p class="question">Who was Frosty the Snowman sung on the radio in 1950 by?</p><p class="translation" lang="es">¿Quién cantó Frosty the Snowman en la radio en 1950?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Frosty the Snowman was sung by Gene Autry on his radio show.</strong></p><p class="translation" lang="es">Gene Autry cantó Frosty the Snowman en su programa de radio.</p>
+<p class="label">Origin story</p>
 <p class="story">Frosty became famous through a song that Gene Autry sang in 1950. He performed it on his Melody Ranch radio show that October.</p><p class="translation" lang="es">Frosty se hizo famoso gracias a una canción que Gene Autry cantó en 1950. La interpretó en su programa de radio Melody Ranch en octubre de ese año.</p>
 <p><a class="source" href="https://www.autry.com/geneautry/motionpictures/videos/frosty-the-snow-man.php" target="_blank" rel="noopener noreferrer">Gene Autry archive</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The Nutcracker" style="--sheet:url('images/christmas-2.webp');--x:100%;--y:100%"></div>
+<div>
 <h2>The Nutcracker</h2><p class="translation" lang="es">El cascanueces</p>
-<p class="question">Where and when was The Nutcracker ballet first performed?</p><p class="translation" lang="es">¿Dónde y cuándo se presentó por primera vez el ballet El cascanueces?</p>
+<p class="question">Where was The Nutcracker ballet first performed?</p><p class="translation" lang="es">¿Dónde se presentó por primera vez el ballet El cascanueces?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The ballet was first performed in St. Petersburg, Russia.</strong></p><p class="translation" lang="es">El ballet se presentó por primera vez en San Petersburgo, Rusia.</p>
+<p class="label">Origin story</p>
 <p class="story">It first appeared on stage in St. Petersburg, Russia, in 1892. Pyotr Tchaikovsky wrote the music.</p><p class="translation" lang="es">Se presentó por primera vez en San Petersburgo, Rusia, en 1892. Piotr Chaikovski compuso la música.</p>
 <p><a class="source" href="https://www.rohcollections.org.uk/Work.aspx?work=1180" target="_blank" rel="noopener noreferrer">Royal Ballet and Opera Collections</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of A Christmas Carol" style="--sheet:url('images/christmas-3.webp');--x:0%;--y:0%"></div>
+<div>
 <h2>A Christmas Carol</h2><p class="translation" lang="es">Cuento de Navidad</p>
-<p class="question">Who wrote A Christmas Carol, and when did it come out?</p><p class="translation" lang="es">¿Quién escribió Cuento de Navidad y cuándo se publicó?</p>
+<p class="question">Who was A Christmas Carol written by?</p><p class="translation" lang="es">¿Quién escribió Cuento de Navidad?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>A Christmas Carol was written by Charles Dickens.</strong></p><p class="translation" lang="es">Cuento de Navidad fue escrito por Charles Dickens.</p>
+<p class="label">Origin story</p>
 <p class="story">Charles Dickens wrote the story about Ebenezer Scrooge. It first came out in 1843.</p><p class="translation" lang="es">Charles Dickens escribió el cuento sobre Ebenezer Scrooge. Se publicó por primera vez en 1843.</p>
 <p><a class="source" href="https://dickensmuseum.com/en-de/blogs/explore/first-edition-of-a-christmas-carol" target="_blank" rel="noopener noreferrer">Charles Dickens Museum</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Silent Night" style="--sheet:url('images/christmas-3.webp');--x:25%;--y:0%"></div>
+<div>
 <h2>Silent Night</h2><p class="translation" lang="es">Noche de paz</p>
 <p class="question">Where was Silent Night first sung?</p><p class="translation" lang="es">¿Dónde se cantó por primera vez Noche de paz?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Silent Night was first sung in Oberndorf, Austria.</strong></p><p class="translation" lang="es">Noche de paz se cantó por primera vez en Oberndorf, Austria.</p>
+<p class="label">Origin story</p>
 <p class="story">Joseph Mohr and Franz Xaver Gruber first performed it in Oberndorf, Austria, on Christmas Eve in 1818. Mohr wrote the words and Gruber composed the music.</p><p class="translation" lang="es">Joseph Mohr y Franz Xaver Gruber la interpretaron por primera vez en Oberndorf, Austria, la Nochebuena de 1818. Mohr escribió la letra y Gruber compuso la música.</p>
 <p><a class="source" href="https://www.stillenacht.at/en/history-of-the-song" target="_blank" rel="noopener noreferrer">Silent Night Association</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Jingle Bells" style="--sheet:url('images/christmas-3.webp');--x:50%;--y:0%"></div>
+<div>
 <h2>Jingle Bells</h2><p class="translation" lang="es">Jingle Bells</p>
-<p class="question">What was the original published title of Jingle Bells?</p><p class="translation" lang="es">¿Cuál era el título con el que se publicó originalmente Jingle Bells?</p>
+<p class="question">Under what title was Jingle Bells first published?</p><p class="translation" lang="es">¿Con qué título se publicó por primera vez Jingle Bells?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>It was first published as The One Horse Open Sleigh.</strong></p><p class="translation" lang="es">Se publicó por primera vez con el título The One Horse Open Sleigh.</p>
+<p class="label">Origin story</p>
 <p class="story">James Pierpont’s song was published in Boston in 1857 as The One Horse Open Sleigh.</p><p class="translation" lang="es">La canción de James Pierpont se publicó en Boston en 1857 con el título The One Horse Open Sleigh, que significa «El trineo abierto de un caballo».</p>
 <p><a class="source" href="https://www.loc.gov/item/2023812429/" target="_blank" rel="noopener noreferrer">Library of Congress, 1857 sheet music</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of White Christmas" style="--sheet:url('images/christmas-3.webp');--x:75%;--y:0%"></div>
+<div>
 <h2>White Christmas</h2><p class="translation" lang="es">Blanca Navidad</p>
-<p class="question">Which 1942 movie featured Bing Crosby singing White Christmas?</p><p class="translation" lang="es">¿En qué película de 1942 cantó Bing Crosby Blanca Navidad?</p>
+<p class="question">In which 1942 movie was White Christmas sung by Bing Crosby?</p><p class="translation" lang="es">¿En qué película de 1942 cantó Bing Crosby White Christmas?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>White Christmas was sung by Bing Crosby in Holiday Inn.</strong></p><p class="translation" lang="es">Bing Crosby cantó White Christmas en Holiday Inn.</p>
+<p class="label">Origin story</p>
 <p class="story">Bing Crosby sang Irving Berlin’s song in Holiday Inn. He had already sung it on the radio on Christmas night in 1941.</p><p class="translation" lang="es">Bing Crosby cantó la canción de Irving Berlin en Holiday Inn. Ya la había cantado en la radio la noche de Navidad de 1941.</p>
 <p><a class="source" href="https://www.loc.gov/static/programs/national-recording-preservation-board/documents/WHITE%20CHRISTMAS.pdf" target="_blank" rel="noopener noreferrer">Library of Congress, National Recording Registry</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Carol of the Bells" style="--sheet:url('images/christmas-3.webp');--x:100%;--y:0%"></div>
+<div>
 <h2>Carol of the Bells</h2><p class="translation" lang="es">Villancico de las campanas</p>
-<p class="question">What Ukrainian song is Carol of the Bells based on?</p><p class="translation" lang="es">¿En qué canción ucraniana se basa Carol of the Bells?</p>
+<p class="question">Which Ukrainian song was Carol of the Bells based on?</p><p class="translation" lang="es">¿En qué canción ucraniana se basó Carol of the Bells?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Carol of the Bells was based on Shchedryk.</strong></p><p class="translation" lang="es">Carol of the Bells se basó en Shchedryk.</p>
+<p class="label">Origin story</p>
 <p class="story">It uses the music of Shchedryk, a Ukrainian song arranged by Mykola Leontovych. Peter Wilhousky later wrote the English words.</p><p class="translation" lang="es">Usa la música de Shchedryk, una canción ucraniana que arregló Mykola Leontovych. Más tarde, Peter Wilhousky escribió la letra en inglés.</p>
 <p><a class="source" href="https://www.ukrhec.org/online-exhibitions/story-behind-carol-bells/chorus-new-world" target="_blank" rel="noopener noreferrer">Ukrainian History and Education Center</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Nine Lessons and Carols" style="--sheet:url('images/christmas-3.webp');--x:0%;--y:100%"></div>
+<div>
 <h2>Nine Lessons and Carols</h2><p class="translation" lang="es">Nueve lecturas y villancicos</p>
-<p class="question">When did King’s College, Cambridge, first hold its Christmas service of readings and carols?</p><p class="translation" lang="es">¿Cuándo celebró King’s College, Cambridge, por primera vez su servicio navideño de lecturas y villancicos?</p>
+<p class="question">When was the first Nine Lessons and Carols service held at King’s College?</p><p class="translation" lang="es">¿Cuándo se celebró el primer servicio de Nine Lessons and Carols en King’s College?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The first service there was held on Christmas Eve in 1918.</strong></p><p class="translation" lang="es">El primer servicio allí se celebró en Nochebuena de 1918.</p>
+<p class="label">Origin story</p>
 <p class="story">King’s College first held it on Christmas Eve in 1918. The service was based on one held in Truro, England, in 1880.</p><p class="translation" lang="es">King’s College lo celebró por primera vez en la Nochebuena de 1918. Se basó en un servicio celebrado en Truro, Inglaterra, en 1880.</p>
 <p><a class="source" href="https://www.kings.cam.ac.uk/history-festival-nine-lessons-and-carols" target="_blank" rel="noopener noreferrer">King’s College, Cambridge</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Candy cane" style="--sheet:url('images/christmas-3.webp');--x:25%;--y:100%"></div>
+<div>
 <h2>Candy cane</h2><p class="translation" lang="es">Bastón de caramelo</p>
-<p class="question">Do we know who invented the candy cane?</p><p class="translation" lang="es">¿Sabemos quién inventó el bastón de caramelo?</p>
+<p class="question">Is it known who invented the candy cane?</p><p class="translation" lang="es">¿Se sabe quién inventó el bastón de caramelo?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The inventor has not been identified with certainty.</strong></p><p class="translation" lang="es">No se ha identificado con certeza a su inventor.</p>
+<p class="label">Origin story</p>
 <p class="story">No one knows for sure. Straight hard candy sticks were already known in the 1600s, and stories about who curved them are unproven.</p><p class="translation" lang="es">No se sabe con certeza. En el siglo XVII ya se conocían los palitos rectos de caramelo duro, y no se ha comprobado quién los curvó.</p>
 <p><a class="source" href="https://www.smithsonianmag.com/smart-news/we-dont-know-the-origins-of-the-candy-cane-but-they-almost-certainly-were-not-christian-157380385/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Gingerbread house" style="--sheet:url('images/christmas-3.webp');--x:50%;--y:100%"></div>
+<div>
 <h2>Gingerbread house</h2><p class="translation" lang="es">Casita de jengibre</p>
-<p class="question">Which fairy tale helped make gingerbread houses popular?</p><p class="translation" lang="es">¿Qué cuento ayudó a popularizar las casitas de jengibre?</p>
+<p class="question">Which fairy tale are gingerbread houses often linked to?</p><p class="translation" lang="es">¿Con qué cuento se suelen relacionar las casas de jengibre?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Gingerbread houses are often linked to Hansel and Gretel.</strong></p><p class="translation" lang="es">Las casas de jengibre se suelen relacionar con Hansel y Gretel.</p>
+<p class="label">Origin story</p>
 <p class="story">Hansel and Gretel helped make them famous. People were already making gingerbread houses before the Brothers Grimm published their version.</p><p class="translation" lang="es">Hansel y Gretel ayudó a hacerlas famosas. Ya se hacían casitas de jengibre antes de que los hermanos Grimm publicaran su versión.</p>
 <p><a class="source" href="https://www.smithsonianmag.com/smart-news/un-christmassy-origin-gingerbread-houses-180967461/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Panettone" style="--sheet:url('images/christmas-3.webp');--x:75%;--y:100%"></div>
+<div>
 <h2>Panettone</h2><p class="translation" lang="es">Panetón</p>
-<p class="question">Which Italian city is known for panettone?</p><p class="translation" lang="es">¿Qué ciudad italiana es conocida por el panetón?</p>
+<p class="question">Which Italian city is panettone associated with?</p><p class="translation" lang="es">¿Con qué ciudad italiana se asocia el panettone?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Panettone is associated with Milan.</strong></p><p class="translation" lang="es">El panettone se asocia con Milán.</p>
+<p class="label">Origin story</p>
 <p class="story">Panettone is a Christmas bread from Milan. A legend says a kitchen worker named Toni made it after a dessert burned.</p><p class="translation" lang="es">El panetón es un pan navideño de Milán. Una leyenda dice que un ayudante de cocina llamado Toni lo hizo después de que se quemara un postre.</p>
 <p><a class="source" href="https://studyandwork.yesmilano.it/en/articles/panettone" target="_blank" rel="noopener noreferrer">YesMilano</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Dresden stollen" style="--sheet:url('images/christmas-3.webp');--x:100%;--y:100%"></div>
+<div>
 <h2>Dresden stollen</h2><p class="translation" lang="es">Stollen de Dresde</p>
-<p class="question">Where does Dresden stollen come from?</p><p class="translation" lang="es">¿De dónde viene el stollen de Dresde?</p>
+<p class="question">Where was Dresden stollen developed?</p><p class="translation" lang="es">¿Dónde se desarrolló el stollen de Dresde?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Dresden stollen was developed in Dresden, Germany.</strong></p><p class="translation" lang="es">El stollen de Dresde se desarrolló en Dresde, Alemania.</p>
+<p class="label">Origin story</p>
 <p class="story">It comes from Dresden, Germany. This fruit bread has been linked to Christmas since medieval times in the region of Saxony.</p><p class="translation" lang="es">Viene de Dresde, Alemania. Este pan de frutas se asocia con la Navidad desde la Edad Media en la región de Sajonia.</p>
 <p><a class="source" href="https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-food-and-drink/dresdner-christsollen-pgi_en" target="_blank" rel="noopener noreferrer">European Commission</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Bûche de Noël" style="--sheet:url('images/christmas-4.webp');--x:0%;--y:0%"></div>
+<div>
 <h2>Bûche de Noël</h2><p class="translation" lang="es">Tronco de Navidad</p>
-<p class="question">What old custom inspired the shape of this French cake?</p><p class="translation" lang="es">¿Qué antigua costumbre inspiró la forma de este pastel francés?</p>
+<p class="question">What old custom was the shape of the bûche de Noël inspired by?</p><p class="translation" lang="es">¿En qué costumbre antigua se inspiró la forma del tronco de Navidad?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Its shape was inspired by the custom of burning a large log at Christmas.</strong></p><p class="translation" lang="es">Su forma se inspiró en la costumbre de quemar un tronco grande en Navidad.</p>
+<p class="label">Origin story</p>
 <p class="story">People used to burn a large log at Christmas. The French dessert looks like the log from that tradition.</p><p class="translation" lang="es">Antes se quemaba un tronco grande en Navidad. El postre francés tiene la forma del tronco de esa tradición.</p>
 <p><a class="source" href="https://agriculture.gouv.fr/dou-vient-la-tradition-de-la-buche-de-noel" target="_blank" rel="noopener noreferrer">French Ministry of Agriculture</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Mince pies" style="--sheet:url('images/christmas-4.webp');--x:25%;--y:0%"></div>
+<div>
 <h2>Mince pies</h2><p class="translation" lang="es">Pastelitos navideños de fruta</p>
-<p class="question">What did early English mince pies contain?</p><p class="translation" lang="es">¿Qué llevaban los primeros mince pies ingleses?</p>
+<p class="question">What were early English mince pies filled with?</p><p class="translation" lang="es">¿Con qué se rellenaban los primeros mince pies ingleses?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>They were often filled with meat, fruit, and spices.</strong></p><p class="translation" lang="es">A menudo se rellenaban con carne, fruta y especias.</p>
+<p class="label">Origin story</p>
 <p class="story">Older recipes often combined meat with fruit and spices. Today, mince pies usually have a sweet dried fruit filling.</p><p class="translation" lang="es">Las recetas antiguas solían combinar carne con frutas y especias. Hoy, estos pastelitos suelen llevar un relleno dulce de fruta deshidratada.</p>
 <p><a class="source" href="https://www.english-heritage.org.uk/visit/inspire-me/blog/blog-posts/recipe-for-real-mince-pies/" target="_blank" rel="noopener noreferrer">English Heritage</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas pudding" style="--sheet:url('images/christmas-4.webp');--x:50%;--y:0%"></div>
+<div>
 <h2>Christmas pudding</h2><p class="translation" lang="es">Pudín navideño</p>
-<p class="question">What was Christmas pudding like before it became a dessert?</p><p class="translation" lang="es">¿Cómo era el pudín navideño antes de convertirse en postre?</p>
+<p class="question">How was an early form of Christmas pudding prepared?</p><p class="translation" lang="es">¿Cómo se preparaba una versión antigua del pudín de Navidad?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>An early form was prepared as a thick soup with dried fruit and spices.</strong></p><p class="translation" lang="es">Una versión antigua se preparaba como una sopa espesa con frutas secas y especias.</p>
+<p class="label">Origin story</p>
 <p class="story">An early version was a thick soup with dried fruit and spices. In Victorian Britain, Christmas pudding became more important at the holiday table.</p><p class="translation" lang="es">Una versión antigua era una sopa espesa con fruta deshidratada y especias. En la Gran Bretaña victoriana, el pudín navideño ganó importancia en la mesa de Navidad.</p>
 <p><a class="source" href="https://www.english-heritage.org.uk/visit/inspire-me/history-of-the-christmas-pudding/" target="_blank" rel="noopener noreferrer">English Heritage</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Eggnog" style="--sheet:url('images/christmas-4.webp');--x:75%;--y:0%"></div>
+<div>
 <h2>Eggnog</h2><p class="translation" lang="es">Ponche de huevo</p>
 <p class="question">What older drink is eggnog linked to?</p><p class="translation" lang="es">¿Con qué bebida antigua se relaciona el ponche de huevo?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Eggnog is linked to a warm English drink called posset.</strong></p><p class="translation" lang="es">El ponche de huevo se relaciona con una bebida inglesa caliente llamada posset.</p>
+<p class="label">Origin story</p>
 <p class="story">Eggnog is linked to posset, a warm, creamy drink that was popular in medieval England. Posset recipes often used cream and wine or beer.</p><p class="translation" lang="es">El ponche de huevo se relaciona con el posset, una bebida caliente y cremosa popular en la Inglaterra medieval. Las recetas de posset solían llevar crema y vino o cerveza.</p>
 <p><a class="source" href="https://www.smithsonianmag.com/arts-culture/pass-the-posset-the-medieval-eggnog-25860188/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Hallacas" style="--sheet:url('images/christmas-4.webp');--x:100%;--y:0%"></div>
+<div>
 <h2>Hallacas</h2><p class="translation" lang="es">Hallacas</p>
-<p class="question">How did different food traditions shape the Venezuelan hallaca?</p><p class="translation" lang="es">¿Cómo influyeron distintas tradiciones culinarias en la hallaca venezolana?</p>
+<p class="question">Which American and European ingredients are used in Venezuelan hallacas?</p><p class="translation" lang="es">¿Qué ingredientes americanos y europeos se usan en las hallacas venezolanas?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Corn from the Americas and ingredients from Europe, such as olives and raisins, are used in hallacas.</strong></p><p class="translation" lang="es">En las hallacas se usan maíz de América e ingredientes de Europa, como aceitunas y pasas.</p>
+<p class="label">Origin story</p>
 <p class="story">Hallacas combine corn from the Americas with ingredients that came from Europe, such as olives and raisins. The dish took shape over time.</p><p class="translation" lang="es">Las hallacas combinan maíz de América con ingredientes que llegaron de Europa, como aceitunas y pasas. El plato tomó forma con el tiempo.</p>
 <p><a class="source" href="https://www.redalyc.org/pdf/1992/199216551003.pdf" target="_blank" rel="noopener noreferrer">Rafael Cartay, Universidad de los Andes</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Pan de jamón" style="--sheet:url('images/christmas-4.webp');--x:0%;--y:100%"></div>
+<div>
 <h2>Pan de jamón</h2><p class="translation" lang="es">Pan de jamón</p>
-<p class="question">Where was Venezuelan pan de jamón first made, according to food historians?</p><p class="translation" lang="es">Según los historiadores de la gastronomía, ¿dónde se hizo por primera vez el pan de jamón venezolano?</p>
+<p class="question">Where was pan de jamón first made, according to food historians?</p><p class="translation" lang="es">¿Dónde se hizo por primera vez el pan de jamón, según los historiadores de la gastronomía?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>According to food historians, it was first made in a bakery in Caracas in 1905.</strong></p><p class="translation" lang="es">Según los historiadores de la gastronomía, se hizo por primera vez en una panadería de Caracas en 1905.</p>
+<p class="label">Origin story</p>
 <p class="story">Food historians trace it to Gustavo Ramella's bakery in Caracas in 1905. The first version had only ham in the filling.</p><p class="translation" lang="es">Los historiadores de la gastronomía sitúan su origen en la panadería de Gustavo Ramella, en Caracas, en 1905. La primera versión solo llevaba jamón en el relleno.</p>
 <p><a class="source" href="https://www.redalyc.org/pdf/1992/199216551003.pdf" target="_blank" rel="noopener noreferrer">Rafael Cartay, Universidad de los Andes</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Rosca de Reyes" style="--sheet:url('images/christmas-4.webp');--x:25%;--y:100%"></div>
+<div>
 <h2>Rosca de Reyes</h2><p class="translation" lang="es">Rosca de Reyes</p>
-<p class="question">How did the tradition of sharing rosca de Reyes reach Mexico?</p><p class="translation" lang="es">¿Cómo llegó a México la tradición de compartir la rosca de Reyes?</p>
+<p class="question">From which country was the rosca de Reyes tradition brought to Mexico?</p><p class="translation" lang="es">¿De qué país llegó a México la tradición de la rosca de Reyes?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The tradition was brought to Mexico from Spain.</strong></p><p class="translation" lang="es">La tradición llegó a México desde España.</p>
+<p class="label">Origin story</p>
 <p class="story">The tradition came to Mexico from Spain during the colonial period. In Mexico, people share this sweet bread on January 6, Three Kings Day.</p><p class="translation" lang="es">La tradición llegó a México desde España en la época colonial. En México, este pan dulce se comparte el 6 de enero, Día de Reyes.</p>
 <p><a class="source" href="https://unamglobal.unam.mx/global_revista/rosca-de-reyes-origen-y-simbolos/" target="_blank" rel="noopener noreferrer">UNAM Global</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Swedish julbord" style="--sheet:url('images/christmas-4.webp');--x:50%;--y:100%"></div>
+<div>
 <h2>Swedish julbord</h2><p class="translation" lang="es">Bufé navideño sueco</p>
-<p class="question">What older Swedish tradition is the julbord based on?</p><p class="translation" lang="es">¿En qué tradición sueca más antigua se basa el julbord?</p>
+<p class="question">What older Swedish tradition is the julbord based on?</p><p class="translation" lang="es">¿En qué tradición sueca anterior se basa el julbord?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The julbord is based on a Swedish buffet called a smörgåsbord.</strong></p><p class="translation" lang="es">El julbord se basa en un bufé sueco llamado smörgåsbord.</p>
+<p class="label">Origin story</p>
 <p class="story">The julbord is the Christmas version of a Swedish buffet called a smörgåsbord. Sweden has had this type of buffet since the 1500s.</p><p class="translation" lang="es">El julbord es la versión navideña de un bufé sueco llamado smörgåsbord. En Suecia existe este tipo de bufé desde el siglo XVI.</p>
 <p><a class="source" href="https://www.levandekulturarv.se/forteckningen/element/smorgasbordet" target="_blank" rel="noopener noreferrer">Swedish Inventory of Living Heritage</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas KFC in Japan" style="--sheet:url('images/christmas-4.webp');--x:75%;--y:100%"></div>
+<div>
 <h2>Christmas KFC in Japan</h2><p class="translation" lang="es">KFC en Navidad en Japón</p>
-<p class="question">How did KFC become a Christmas tradition in Japan?</p><p class="translation" lang="es">¿Cómo se convirtió KFC en una tradición navideña en Japón?</p>
+<p class="question">When was KFC first promoted as a Christmas meal in Japan?</p><p class="translation" lang="es">¿Cuándo se promocionó por primera vez KFC como comida de Navidad en Japón?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>KFC was first promoted as a Christmas meal in Japan in 1974.</strong></p><p class="translation" lang="es">KFC se promocionó por primera vez como comida de Navidad en Japón en 1974.</p>
+<p class="label">Origin story</p>
 <p class="story">KFC Japan first promoted fried chicken for Christmas in 1974. The campaign caught on, and many customers began buying it for their celebrations.</p><p class="translation" lang="es">KFC Japón promocionó el pollo frito para Navidad por primera vez en 1974. La campaña tuvo éxito y muchos clientes empezaron a comprarlo para sus celebraciones.</p>
 <p><a class="source" href="https://global.kfc.com/stories/how-kentucky-for-christmas-began-in-japan" target="_blank" rel="noopener noreferrer">KFC</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Christmas on December 25" style="--sheet:url('images/christmas-4.webp');--x:100%;--y:100%"></div>
+<div>
 <h2>Christmas on December 25</h2><p class="translation" lang="es">La Navidad el 25 de diciembre</p>
-<p class="question">When did Christians start celebrating Christmas on December 25?</p><p class="translation" lang="es">¿Cuándo empezaron los cristianos a celebrar la Navidad el 25 de diciembre?</p>
+<p class="question">By what century was Christmas celebrated on December 25 in Rome?</p><p class="translation" lang="es">¿En qué siglo ya se celebraba la Navidad el 25 de diciembre en Roma?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Christmas was celebrated on December 25 in Rome by the fourth century.</strong></p><p class="translation" lang="es">En Roma ya se celebraba la Navidad el 25 de diciembre en el siglo IV.</p>
+<p class="label">Origin story</p>
 <p class="story">Christians in Rome observed Christmas on December 25 by the fourth century. Historians still debate why that date was chosen.</p><p class="translation" lang="es">Los cristianos de Roma ya celebraban la Navidad el 25 de diciembre en el siglo IV. Los historiadores todavía debaten por qué se escogió esa fecha.</p>
 <p><a class="source" href="https://www.ismreview.yale.edu/the-magi-and-the-manger-imaging-christmas-in-ancient-art-and-ritual" target="_blank" rel="noopener noreferrer">Yale Institute of Sacred Music</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The twelve days of Christmas" style="--sheet:url('images/christmas-5.webp');--x:0%;--y:0%"></div>
+<div>
 <h2>The twelve days of Christmas</h2><p class="translation" lang="es">Los doce días de Navidad</p>
-<p class="question">Where did the twelve days of Christmas come from?</p><p class="translation" lang="es">¿De dónde vienen los doce días de Navidad?</p>
+<p class="question">How many days are included in the Western Christmas season before Epiphany?</p><p class="translation" lang="es">¿Cuántos días se cuentan en la Navidad occidental antes de la Epifanía?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Twelve days are counted from Christmas Day to the day before Epiphany.</strong></p><p class="translation" lang="es">Se cuentan doce días desde el día de Navidad hasta el día anterior a la Epifanía.</p>
+<p class="label">Origin story</p>
 <p class="story">In the Western Christian calendar, Christmas Day begins a twelve-day celebration. The days lead up to Epiphany on January 6.</p><p class="translation" lang="es">En el calendario cristiano occidental, el día de Navidad inicia una celebración de doce días. Esos días dan paso a la Epifanía, el 6 de enero.</p>
 <p><a class="source" href="https://www.churchofengland.org/faith/advent-and-christmas/what-is-advent-and-christmas" target="_blank" rel="noopener noreferrer">Church of England</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Boxing Day" style="--sheet:url('images/christmas-5.webp');--x:25%;--y:0%"></div>
+<div>
 <h2>Boxing Day</h2><p class="translation" lang="es">El Boxing Day</p>
-<p class="question">How did Boxing Day get its name?</p><p class="translation" lang="es">¿De dónde salió el nombre Boxing Day?</p>
+<p class="question">What gifts were given in the tradition behind the name Boxing Day?</p><p class="translation" lang="es">¿Qué regalos se daban en la tradición que dio nombre al Boxing Day?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>Money or gifts were given to workers in Christmas boxes.</strong></p><p class="translation" lang="es">A los trabajadores se les daba dinero o regalos en cajas navideñas.</p>
+<p class="label">Origin story</p>
 <p class="story">The name comes from a British tradition of giving Christmas boxes. Employers and customers gave money or presents to workers and tradespeople.</p><p class="translation" lang="es">El nombre viene de una tradición británica de dar cajas de Navidad. Los empleadores y clientes daban dinero o regalos a trabajadores y comerciantes.</p>
 <p><a class="source" href="https://blog.oup.com/2011/12/boxing-day/" target="_blank" rel="noopener noreferrer">Oxford University Press</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The Yule log" style="--sheet:url('images/christmas-5.webp');--x:50%;--y:0%"></div>
+<div>
 <h2>The Yule log</h2><p class="translation" lang="es">El tronco de Navidad</p>
-<p class="question">What did people do with a Yule log, and why?</p><p class="translation" lang="es">¿Qué hacía la gente con el tronco de Navidad y por qué?</p>
+<p class="question">Where was the Yule log burned in an old British custom?</p><p class="translation" lang="es">¿Dónde se quemaba el tronco de Navidad en una antigua costumbre británica?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The Yule log was burned in the fireplace.</strong></p><p class="translation" lang="es">El tronco de Navidad se quemaba en la chimenea.</p>
+<p class="label">Origin story</p>
 <p class="story">In an old British custom, people burned a large log in the fireplace at Christmas. In some homes, a log that was still burning on Christmas Day was a sign of good luck for the year ahead.</p><p class="translation" lang="es">En una antigua costumbre británica, la gente quemaba un tronco grande en la chimenea en Navidad. En algunas casas, si el tronco seguía ardiendo el día de Navidad, era señal de buena suerte para el año siguiente.</p>
 <p><a class="source" href="https://www.nationaltrust.org.uk/discover/history/christmas-traditions-from-history" target="_blank" rel="noopener noreferrer">National Trust</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Las Posadas" style="--sheet:url('images/christmas-5.webp');--x:75%;--y:0%"></div>
+<div>
 <h2>Las Posadas</h2><p class="translation" lang="es">Las Posadas</p>
-<p class="question">How did Las Posadas begin in Mexico?</p><p class="translation" lang="es">¿Cómo empezaron las posadas en México?</p>
+<p class="question">What story was taught through early celebrations linked to Las Posadas?</p><p class="translation" lang="es">¿Qué historia se enseñaba en las primeras celebraciones relacionadas con las posadas?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The story of Mary and Joseph looking for shelter was taught through the celebrations.</strong></p><p class="translation" lang="es">En las celebraciones se enseñaba la historia de María y José buscando alojamiento.</p>
+<p class="label">Origin story</p>
 <p class="story">The tradition grew from religious celebrations in colonial Mexico. One account traces them to Acolman in 1587, where celebrations helped teach the story of Mary and Joseph looking for shelter.</p><p class="translation" lang="es">La tradición surgió de celebraciones religiosas en el México colonial. Una versión sitúa su origen en Acolman en 1587, donde las celebraciones ayudaban a enseñar la historia de María y José buscando alojamiento.</p>
 <p><a class="source" href="https://www.gob.mx/cultura/articulos/54852" target="_blank" rel="noopener noreferrer">Secretaría de Cultura de México</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Night of the Radishes" style="--sheet:url('images/christmas-5.webp');--x:100%;--y:0%"></div>
+<div>
 <h2>Night of the Radishes</h2><p class="translation" lang="es">Noche de Rábanos</p>
-<p class="question">How did radish carving become a Christmas tradition in Oaxaca?</p><p class="translation" lang="es">¿Cómo se convirtió el tallado de rábanos en una tradición navideña en Oaxaca?</p>
+<p class="question">When was the Oaxaca Christmas market contest held that helped start Night of the Radishes?</p><p class="translation" lang="es">¿Cuándo se celebró el concurso del mercado de Oaxaca que dio origen a la Noche de Rábanos?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The contest was held on December 23, 1897.</strong></p><p class="translation" lang="es">El concurso se celebró el 23 de diciembre de 1897.</p>
+<p class="label">Origin story</p>
 <p class="story">In Oaxaca, Mexico, a Christmas market contest took place on December 23, 1897. Today, people carve radishes into figures and scenes for the festival.</p><p class="translation" lang="es">En Oaxaca, México, hubo un concurso en el mercado navideño el 23 de diciembre de 1897. Hoy la gente talla figuras y escenas en rábanos para la fiesta.</p>
 <p><a class="source" href="https://sic.cultura.gob.mx/ficha.php?table=festividad&amp;table_id=118" target="_blank" rel="noopener noreferrer">Secretaría de Cultura de México</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Puerto Rican parrandas" style="--sheet:url('images/christmas-5.webp');--x:0%;--y:100%"></div>
+<div>
 <h2>Puerto Rican parrandas</h2><p class="translation" lang="es">Las parrandas puertorriqueñas</p>
-<p class="question">What does a traditional Christmas singing visit look like in Puerto Rico?</p><p class="translation" lang="es">¿Cómo es una visita tradicional de cantos navideños en Puerto Rico?</p>
+<p class="question">What kind of song is traditionally sung at the start of a Puerto Rican parranda?</p><p class="translation" lang="es">¿Qué tipo de canción se canta tradicionalmente al comenzar una parranda puertorriqueña?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>An aguinaldo is traditionally sung to honor the host.</strong></p><p class="translation" lang="es">Tradicionalmente se canta un aguinaldo en honor al anfitrión.</p>
+<p class="label">Origin story</p>
 <p class="story">Puerto Rico developed its own kind of Christmas caroling called a parranda. Friends surprise a host with a visit and traditionally start by singing an aguinaldo in the host’s honor.</p><p class="translation" lang="es">Puerto Rico desarrolló su propia tradición de cantos navideños, la parranda. Los amigos sorprenden a alguien con una visita y suelen empezar cantando un aguinaldo en su honor.</p>
 <p><a class="source" href="https://folkways-media.si.edu/docs/folkways/lessons/SFLN109_teacher_guide.pdf" target="_blank" rel="noopener noreferrer">Smithsonian Folkways</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The Philippine parol" style="--sheet:url('images/christmas-5.webp');--x:25%;--y:100%"></div>
+<div>
 <h2>The Philippine parol</h2><p class="translation" lang="es">El farol filipino o parol</p>
-<p class="question">Why did people in the Philippines carry Christmas lanterns?</p><p class="translation" lang="es">¿Por qué llevaba la gente faroles navideños en Filipinas?</p>
+<p class="question">Why were parol lanterns carried before dawn in the Philippines?</p><p class="translation" lang="es">¿Por qué se llevaban faroles parol antes del amanecer en Filipinas?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>They were carried to light the way to church.</strong></p><p class="translation" lang="es">Se llevaban para iluminar el camino a la iglesia.</p>
+<p class="label">Origin story</p>
 <p class="story">The star-shaped parol is linked to Simbang Gabi, a Filipino series of Christmas Masses. The lantern helped light the way to church before sunrise.</p><p class="translation" lang="es">El parol con forma de estrella se relaciona con Simbang Gabi, una serie de misas navideñas filipinas. El farol ayudaba a iluminar el camino a la iglesia antes del amanecer.</p>
 <p><a class="source" href="https://culturalcenter.gov.ph/press-release/a-beacon-of-faith-ccps-parol-inspired-facade-lights-the-way-to-simbang-gabi/" target="_blank" rel="noopener noreferrer">Cultural Center of the Philippines</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of Krampus" style="--sheet:url('images/christmas-5.webp');--x:50%;--y:100%"></div>
+<div>
 <h2>Krampus</h2><p class="translation" lang="es">Krampus</p>
-<p class="question">Where did the story of Krampus come from?</p><p class="translation" lang="es">¿De dónde viene la historia de Krampus?</p>
+<p class="question">Is the exact origin of Krampus known?</p><p class="translation" lang="es">¿Se conoce el origen exacto de Krampus?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>The exact origin of Krampus has not been established.</strong></p><p class="translation" lang="es">No se ha determinado el origen exacto de Krampus.</p>
+<p class="label">Origin story</p>
 <p class="story">Krampus appears in Alpine folklore as the frightening companion of Saint Nicholas. The exact origin of the horned character is uncertain.</p><p class="translation" lang="es">Krampus aparece en el folclore alpino como el compañero aterrador de san Nicolás. El origen exacto de este personaje con cuernos es incierto.</p>
 <p><a class="source" href="https://www.austria.info/en-us/inspiration/raucous-traditions/" target="_blank" rel="noopener noreferrer">Austria Tourism</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of The thirteen Yule Lads" style="--sheet:url('images/christmas-5.webp');--x:75%;--y:100%"></div>
+<div>
 <h2>The thirteen Yule Lads</h2><p class="translation" lang="es">Los trece duendes navideños de Islandia</p>
-<p class="question">How did Iceland’s thirteen Yule Lads become a familiar group?</p><p class="translation" lang="es">¿Cómo se hicieron conocidos los trece duendes navideños de Islandia?</p>
+<p class="question">How were Iceland’s thirteen Yule Lads made more familiar in 1932?</p><p class="translation" lang="es">¿Cómo se dieron a conocer los trece duendes navideños de Islandia en 1932?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>They were popularized by a poem published in 1932.</strong></p><p class="translation" lang="es">Un poema publicado en 1932 los popularizó.</p>
+<p class="label">Origin story</p>
 <p class="story">The Yule Lads came from older Icelandic folklore. In 1932, a poem by Jóhannes úr Kötlum helped establish the group of thirteen known today.</p><p class="translation" lang="es">Los duendes navideños vienen del antiguo folclore islandés. En 1932, un poema de Jóhannes úr Kötlum ayudó a establecer el grupo de trece que se conoce hoy.</p>
 <p><a class="source" href="https://landsbokasafn.is/en/jolin-koma-christmas-arrives-finished/" target="_blank" rel="noopener noreferrer">National and University Library of Iceland</a></p>
 </details></article>
 <article class="card">
+<div class="card-top">
+<div class="item-picture" role="img" aria-label="Illustration of London’s Trafalgar Square tree" style="--sheet:url('images/christmas-5.webp');--x:100%;--y:100%"></div>
+<div>
 <h2>London’s Trafalgar Square tree</h2><p class="translation" lang="es">El árbol de Trafalgar Square en Londres</p>
-<p class="question">Why did Norway start sending a Christmas tree to London?</p><p class="translation" lang="es">¿Por qué empezó Noruega a enviar un árbol de Navidad a Londres?</p>
+<p class="question">Why was a Christmas tree sent from Norway to London in 1947?</p><p class="translation" lang="es">¿Por qué se envió un árbol de Navidad de Noruega a Londres en 1947?</p>
+</div></div>
 <details class="answer"><summary>Reveal answer</summary>
+<p class="label">Model passive answer</p>
+<p class="story"><strong>It was sent to thank Britain for its support during World War II.</strong></p><p class="translation" lang="es">Se envió para agradecer a Gran Bretaña su apoyo durante la Segunda Guerra Mundial.</p>
+<p class="label">Origin story</p>
 <p class="story">Norway began sending a tree in 1947. It was a thank-you gift for Britain’s support during World War II.</p><p class="translation" lang="es">Noruega empezó a enviar un árbol en 1947. Fue un regalo para agradecer el apoyo británico durante la Segunda Guerra Mundial.</p>
 <p><a class="source" href="https://www.london.gov.uk/about-us/our-building-and-squares/christmas-trafalgar-square" target="_blank" rel="noopener noreferrer">London City Hall</a></p>
 </details></article>
@@ -425,212 +791,275 @@ const cards = [
   {
     "item": "Christmas tree",
     "itemEs": "Árbol de Navidad",
-    "question": "Where did the custom of decorating a Christmas tree become established?",
-    "questionEs": "¿Dónde se estableció la costumbre de decorar un árbol de Navidad?",
+    "question": "Where were Christmas trees decorated in the early 1600s?",
+    "questionEs": "¿Dónde se decoraban árboles de Navidad a principios del siglo XVII?",
     "answer": "In Germany, people were decorating evergreen trees for Christmas by the early 1600s. An 1848 picture of Queen Victoria’s family helped make the custom popular in Britain.",
     "answerEs": "En Alemania ya se decoraban árboles de hoja perenne para Navidad a principios del siglo XVII. Una ilustración de la familia de la reina Victoria en 1848 ayudó a popularizar la costumbre en Gran Bretaña.",
     "url": "https://www.rct.uk/collection/stories/a-royal-christmas",
-    "source": "Royal Collection Trust"
+    "source": "Royal Collection Trust",
+    "model": "Christmas trees were decorated in Germany by the early 1600s.",
+    "modelEs": "En Alemania ya se decoraban árboles de Navidad a principios del siglo XVII.",
+    "imageIndex": 0
   },
   {
     "item": "Advent wreath",
     "itemEs": "Corona de Adviento",
-    "question": "Who made an early Advent wreath, and what did its candles count?",
-    "questionEs": "¿Quién hizo una de las primeras coronas de Adviento y qué contaban sus velas?",
+    "question": "Who was an early Advent wreath made by?",
+    "questionEs": "¿Quién hizo una de las primeras coronas de Adviento?",
     "answer": "In Hamburg, Germany, Johann Hinrich Wichern made a wreath with candles in 1839. He used the candles to help children count the days until Christmas Eve.",
     "answerEs": "En Hamburgo, Alemania, Johann Hinrich Wichern hizo una corona con velas en 1839. Usó las velas para ayudar a los niños a contar los días hasta Nochebuena.",
     "url": "https://www.rauhes.de/cms/jahreskreis/advent/adventskranz/",
-    "source": "Das Rauhe Haus"
+    "source": "Das Rauhe Haus",
+    "model": "An early Advent wreath was made by Johann Hinrich Wichern in 1839.",
+    "modelEs": "Johann Hinrich Wichern hizo una de las primeras coronas de Adviento en 1839.",
+    "imageIndex": 1
   },
   {
     "item": "Advent calendar",
     "itemEs": "Calendario de Adviento",
-    "question": "How did some German families count the days to Christmas before Advent calendars were sold?",
-    "questionEs": "¿Cómo contaban los días hasta Navidad algunas familias alemanas antes de que se vendieran los calendarios de Adviento?",
+    "question": "Where were early printed Advent calendars sold?",
+    "questionEs": "¿Dónde se vendieron los primeros calendarios de Adviento impresos?",
     "answer": "In the 1800s, some German families made chalk marks and erased one each day. Publishers in Germany began selling printed Advent calendars in the early 1900s.",
     "answerEs": "En el siglo XIX, algunas familias alemanas hacían marcas con tiza y borraban una cada día. A principios del siglo XX, las editoriales alemanas empezaron a vender calendarios de Adviento impresos.",
     "url": "https://www.kunstsammlungen-chemnitz.de/en/ausstellungen/advent-advent/",
-    "source": "Kunstsammlungen Chemnitz"
+    "source": "Kunstsammlungen Chemnitz",
+    "model": "Early printed Advent calendars were sold in Germany.",
+    "modelEs": "Los primeros calendarios de Adviento impresos se vendieron en Alemania.",
+    "imageIndex": 2
   },
   {
     "item": "Electric Christmas lights",
     "itemEs": "Luces eléctricas de Navidad",
-    "question": "Who first used electric lights on a Christmas tree, and when?",
-    "questionEs": "¿Quién usó luces eléctricas por primera vez en un árbol de Navidad y cuándo?",
+    "question": "Who was a Christmas tree lit with electric bulbs in 1882 by?",
+    "questionEs": "¿Quién iluminó un árbol de Navidad con bombillos eléctricos en 1882?",
     "answer": "Edward Johnson lit his Christmas tree with electric bulbs in 1882. It is the earliest known example of a Christmas tree lit this way.",
     "answerEs": "Edward Johnson iluminó su árbol de Navidad con bombillos eléctricos en 1882. Es el primer ejemplo conocido de un árbol de Navidad iluminado de esta manera.",
     "url": "https://americanhistory.si.edu/explore/stories/illuminating-thoughts-holidays",
-    "source": "Smithsonian National Museum of American History"
+    "source": "Smithsonian National Museum of American History",
+    "model": "A Christmas tree was lit with electric bulbs by Edward Johnson in 1882.",
+    "modelEs": "Edward Johnson iluminó un árbol de Navidad con bombillos eléctricos en 1882.",
+    "imageIndex": 3
   },
   {
     "item": "Glass baubles",
     "itemEs": "Bolas de vidrio",
-    "question": "Where did glassmakers begin making glass balls for Christmas trees in the 1800s?",
-    "questionEs": "¿Dónde empezaron a fabricar bolas de vidrio para los árboles de Navidad en el siglo XIX?",
+    "question": "Where were early glass Christmas baubles made?",
+    "questionEs": "¿Dónde se hicieron las primeras esferas navideñas de vidrio?",
     "answer": "Glassmakers in Lauscha, Germany, began making simple glass balls in the 1830s. They later made colorful glass ornaments that looked like fruits and nuts.",
     "answerEs": "Los artesanos del vidrio de Lauscha, Alemania, empezaron a fabricar bolas de vidrio sencillas en la década de 1830. Más adelante hicieron adornos de colores que parecían frutas y nueces.",
     "url": "https://glasmuseum-lauscha.de/christbaum.html",
-    "source": "Glasmuseum Lauscha"
+    "source": "Glasmuseum Lauscha",
+    "model": "Early glass baubles were made in Lauscha, Germany.",
+    "modelEs": "Las primeras esferas de vidrio se hicieron en Lauscha, Alemania.",
+    "imageIndex": 4
   },
   {
     "item": "Tinsel",
     "itemEs": "Espumillón",
-    "question": "Where was an early example of shiny Christmas tinsel in the Smithsonian collection made?",
-    "questionEs": "¿Dónde se fabricó un ejemplo antiguo de espumillón navideño brillante de la colección del Smithsonian?",
+    "question": "Where was the Smithsonian’s early tinsel garland made?",
+    "questionEs": "¿Dónde se hizo la antigua guirnalda brillante del Smithsonian?",
     "answer": "The Smithsonian has a silver-colored and red tinsel garland made in Germany around 1890–1920. It has a small glass ball at one end.",
     "answerEs": "El Smithsonian conserva una guirnalda de espumillón plateado y rojo hecha en Alemania entre 1890 y 1920 aproximadamente. Tiene una bolita de vidrio en un extremo.",
     "url": "https://americanhistory.si.edu/collections/object/nmah_1451457",
-    "source": "Smithsonian National Museum of American History"
+    "source": "Smithsonian National Museum of American History",
+    "model": "The garland was made in Germany.",
+    "modelEs": "La guirnalda se hizo en Alemania.",
+    "imageIndex": 5
   },
   {
     "item": "Star on top of the tree",
     "itemEs": "Estrella en la punta del árbol",
-    "question": "What story does the star on top of a Christmas tree represent?",
-    "questionEs": "¿Qué historia representa la estrella en la punta del árbol de Navidad?",
+    "question": "What is represented by the star on a Christmas tree?",
+    "questionEs": "¿Qué representa la estrella del árbol de Navidad?",
     "answer": "It represents the Star of Bethlehem from the Gospel of Matthew. In that story, the star guides visitors to the place where Jesus is.",
     "answerEs": "Representa la estrella de Belén del Evangelio de Mateo. En ese relato, la estrella guía a los visitantes al lugar donde está Jesús.",
     "url": "https://americanhistory.si.edu/explore/stories/illuminating-thoughts-holidays",
-    "source": "Smithsonian National Museum of American History"
+    "source": "Smithsonian National Museum of American History",
+    "model": "The Star of Bethlehem is represented by the tree topper.",
+    "modelEs": "El adorno en la punta del árbol representa la estrella de Belén.",
+    "imageIndex": 6
   },
   {
     "item": "Christmas stockings",
     "itemEs": "Medias navideñas",
-    "question": "What legend connects Saint Nicholas with Christmas stockings?",
-    "questionEs": "¿Qué leyenda relaciona a san Nicolás con las medias navideñas?",
+    "question": "Where was Saint Nicholas’s gold said to have landed?",
+    "questionEs": "¿Dónde se dice que cayó el oro de san Nicolás?",
     "answer": "In one version of the legend, Saint Nicholas secretly gave gold to a family in need. The gold landed in stockings that were hanging by the fireplace.",
     "answerEs": "En una versión de la leyenda, san Nicolás le regaló oro en secreto a una familia necesitada. El oro cayó en unas medias que estaban colgadas junto a la chimenea.",
     "url": "https://www.smithsonianmag.com/arts-culture/the-legend-of-the-christmas-stocking-160854441/",
-    "source": "Smithsonian Magazine"
+    "source": "Smithsonian Magazine",
+    "model": "In one version of the legend, gold was left in stockings by the fireplace.",
+    "modelEs": "Según una versión de la leyenda, el oro quedó en unas medias junto a la chimenea.",
+    "imageIndex": 7
   },
   {
     "item": "Christmas cards",
     "itemEs": "Tarjetas navideñas",
-    "question": "How did an early Christmas card come about in England?",
-    "questionEs": "¿Cómo surgió una de las primeras tarjetas navideñas en Inglaterra?",
+    "question": "Who was an early Christmas card commissioned in 1843 by?",
+    "questionEs": "¿Quién encargó una de las primeras tarjetas navideñas en 1843?",
     "answer": "Henry Cole asked the artist John Callcott Horsley to design a Christmas card in 1843. Cole wanted a quicker way to send holiday greetings.",
     "answerEs": "Henry Cole le pidió al artista John Callcott Horsley que diseñara una tarjeta navideña en 1843. Cole quería una manera más rápida de enviar saludos de Navidad.",
     "url": "https://www.vam.ac.uk/articles/the-first-christmas-card",
-    "source": "Victoria and Albert Museum"
+    "source": "Victoria and Albert Museum",
+    "model": "An early Christmas card was commissioned by Henry Cole in 1843.",
+    "modelEs": "Henry Cole encargó una de las primeras tarjetas navideñas en 1843.",
+    "imageIndex": 8
   },
   {
     "item": "Christmas crackers",
     "itemEs": "Tubos sorpresa de Navidad",
-    "question": "What gave a London baker the idea for Christmas crackers?",
-    "questionEs": "¿Qué le dio a un panadero londinense la idea de los tubos sorpresa de Navidad?",
+    "question": "What were Christmas crackers inspired by?",
+    "questionEs": "¿Qué inspiró los Christmas crackers?",
     "answer": "Tom Smith took inspiration from French sweets wrapped in twisted paper. He turned the idea into the Christmas cracker, a paper package that pops when two people pull its ends.",
     "answerEs": "Tom Smith se inspiró en dulces franceses envueltos en papel retorcido. A partir de esa idea creó el tubo sorpresa navideño, un paquete de papel que hace un pequeño estallido cuando dos personas tiran de los extremos.",
     "url": "https://www.vam.ac.uk/articles/the-christmas-cracker",
-    "source": "Victoria and Albert Museum"
+    "source": "Victoria and Albert Museum",
+    "model": "Christmas crackers were inspired by French sweets wrapped in paper.",
+    "modelEs": "Los Christmas crackers se inspiraron en dulces franceses envueltos en papel.",
+    "imageIndex": 9
   },
   {
     "item": "Nativity scene",
     "itemEs": "Pesebre navideño",
-    "question": "Where did Saint Francis of Assisi set up a Nativity scene in 1223?",
-    "questionEs": "¿Dónde preparó san Francisco de Asís un pesebre en 1223?",
+    "question": "Where was Saint Francis’s Nativity scene set up in 1223?",
+    "questionEs": "¿Dónde se montó el pesebre de san Francisco en 1223?",
     "answer": "Saint Francis set up a Nativity scene in Greccio, Italy, at Christmas in 1223. He used a manger with hay to help people imagine the birth of Jesus.",
     "answerEs": "San Francisco preparó un pesebre en Greccio, Italia, en la Navidad de 1223. Usó un pesebre con heno para ayudar a la gente a imaginar el nacimiento de Jesús.",
     "url": "https://www.vatican.va/content/francesco/en/apost_letters/documents/papa-francesco-lettera-ap_20191201_admirabile-signum.html",
-    "source": "Vatican, Admirabile signum"
+    "source": "Vatican, Admirabile signum",
+    "model": "The Nativity scene was set up in Greccio, Italy.",
+    "modelEs": "El pesebre se montó en Greccio, Italia.",
+    "imageIndex": 10
   },
   {
     "item": "Poinsettia",
     "itemEs": "Flor de Navidad",
-    "question": "Where does the poinsettia come from, and what is it called there?",
-    "questionEs": "¿De dónde viene la flor de Navidad y cómo se llama allí?",
+    "question": "What is the poinsettia called in Mexico?",
+    "questionEs": "¿Cómo se llama la poinsettia en México?",
     "answer": "The poinsettia is native to Mexico, where it is called flor de Nochebuena. Its bright red parts are actually modified leaves.",
     "answerEs": "La flor de Navidad es originaria de México, donde se llama flor de Nochebuena. Sus partes de color rojo intenso son en realidad hojas modificadas.",
     "url": "https://gardens.si.edu/learn/blog/poinsettias-oh-so-beautiful/",
-    "source": "Smithsonian Gardens"
+    "source": "Smithsonian Gardens",
+    "model": "It is called flor de Nochebuena in Mexico.",
+    "modelEs": "En México se llama flor de Nochebuena.",
+    "imageIndex": 11
   },
   {
     "item": "Mistletoe",
     "itemEs": "Muérdago",
-    "question": "What older English Christmas custom may have inspired kissing under mistletoe?",
-    "questionEs": "¿Qué antigua costumbre navideña inglesa pudo inspirar los besos bajo el muérdago?",
+    "question": "What was picked for each kiss in one mistletoe tradition?",
+    "questionEs": "¿Qué se arrancaba por cada beso en una tradición del muérdago?",
     "answer": "People in England decorated doorways with greenery called kissing boughs. One tradition says a berry was picked for each kiss, which may help explain the custom.",
     "answerEs": "En Inglaterra se decoraban las entradas con ramas verdes conocidas como ramas de los besos. Según una tradición, se quitaba una baya por cada beso, lo que podría explicar la costumbre.",
     "url": "https://www.english-heritage.org.uk/learn/histories/christmas-greenery-history/",
-    "source": "English Heritage"
+    "source": "English Heritage",
+    "model": "A berry was picked for each kiss.",
+    "modelEs": "Se arrancaba una baya por cada beso.",
+    "imageIndex": 12
   },
   {
     "item": "Santa Claus",
     "itemEs": "Papá Noel",
-    "question": "Which real person helped inspire Santa Claus?",
-    "questionEs": "¿Qué persona real ayudó a inspirar a Papá Noel?",
+    "question": "Which real person was Santa Claus partly inspired by?",
+    "questionEs": "¿En qué persona real se inspiró en parte la figura de Santa Claus?",
     "answer": "One inspiration was Saint Nicholas, a Christian saint from what is now Turkey. In Dutch, he became known as Sinterklaas.",
     "answerEs": "Una fuente de inspiración fue san Nicolás, un santo cristiano de lo que hoy es Turquía. En neerlandés, llegó a conocerse como Sinterklaas.",
     "url": "https://blogs.loc.gov/loc/2020/12/a-visit-from-santa-who-you-might-not-recognize/",
-    "source": "Library of Congress"
+    "source": "Library of Congress",
+    "model": "Santa Claus was partly inspired by Saint Nicholas.",
+    "modelEs": "Santa Claus se inspiró en parte en san Nicolás.",
+    "imageIndex": 13
   },
   {
     "item": "Santa’s red suit",
     "itemEs": "El traje rojo de Papá Noel",
-    "question": "Did Coca-Cola invent Santa’s red suit?",
-    "questionEs": "¿Coca-Cola inventó el traje rojo de Papá Noel?",
+    "question": "Was Santa’s red suit invented by Coca-Cola?",
+    "questionEs": "¿Fue inventado por Coca-Cola el traje rojo de Santa Claus?",
     "answer": "Santa already appeared in red before 1931. Coca-Cola’s ads that year helped make Haddon Sundblom’s version of Santa famous.",
     "answerEs": "Papá Noel ya aparecía vestido de rojo antes de 1931. Los anuncios de Coca-Cola de ese año ayudaron a hacer famosa la versión de Haddon Sundblom.",
     "url": "https://www.coca-colacompany.com/about-us/history/haddon-sundblom-and-the-coca-cola-santas",
-    "source": "The Coca-Cola Company archives"
+    "source": "The Coca-Cola Company archives",
+    "model": "The red suit was already used in pictures of Santa before Coca-Cola’s 1931 ads.",
+    "modelEs": "El traje rojo ya se usaba en imágenes de Santa antes de los anuncios de Coca-Cola de 1931.",
+    "imageIndex": 14
   },
   {
     "item": "Rudolph",
     "itemEs": "Rodolfo, el reno de la nariz roja",
-    "question": "Why did Robert L. May create Rudolph in 1939?",
-    "questionEs": "¿Por qué creó Robert L. May a Rodolfo en 1939?",
+    "question": "Why was Rudolph’s story written in 1939?",
+    "questionEs": "¿Para qué se escribió la historia de Rodolfo en 1939?",
     "answer": "May wrote the story for Montgomery Ward, a U.S. department store. The store gave the book to children during the Christmas season.",
     "answerEs": "May escribió el cuento para Montgomery Ward, una tienda por departamentos de Estados Unidos. La tienda regaló el libro a los niños durante la temporada navideña.",
     "url": "https://home.dartmouth.edu/news/2016/12/rudolphs-story-dear-many-year-after-year",
-    "source": "Dartmouth, Rauner Special Collections Library"
+    "source": "Dartmouth, Rauner Special Collections Library",
+    "model": "Rudolph’s story was written for a U.S. department store to give to children.",
+    "modelEs": "La historia de Rodolfo se escribió para que una tienda de Estados Unidos se la regalara a los niños.",
+    "imageIndex": 15
   },
   {
     "item": "Santa’s sleigh and reindeer",
     "itemEs": "El trineo y los renos de Papá Noel",
-    "question": "How many reindeer pulled Santa’s sleigh in an illustrated book from 1821?",
-    "questionEs": "¿Cuántos renos tiraban del trineo de Papá Noel en un libro ilustrado de 1821?",
+    "question": "How many reindeer were shown pulling Santa’s sleigh in an 1821 book?",
+    "questionEs": "¿Cuántos renos aparecían tirando del trineo de Santa en un libro de 1821?",
     "answer": "The Children’s Friend showed Santa with a sleigh and one flying reindeer in 1821. An 1823 poem helped make the team of eight famous.",
     "answerEs": "En 1821, The Children’s Friend mostraba a Papá Noel con un trineo y un reno volador. Un poema de 1823 ayudó a hacer famoso el grupo de ocho renos.",
     "url": "https://www.stnicholascenter.org/who-is-st-nicholas/origin-of-santa",
-    "source": "St. Nicholas Center collections"
+    "source": "St. Nicholas Center collections",
+    "model": "One flying reindeer was shown pulling the sleigh.",
+    "modelEs": "Se mostraba un reno volador tirando del trineo.",
+    "imageIndex": 16
   },
   {
     "item": "The Elf on the Shelf",
     "itemEs": "El elfo en el estante",
-    "question": "What inspired the book The Elf on the Shelf?",
-    "questionEs": "¿Qué inspiró el libro The Elf on the Shelf?",
+    "question": "What was The Elf on the Shelf based on?",
+    "questionEs": "¿En qué se basó The Elf on the Shelf?",
     "answer": "Carol Aebersold and her daughter Chanda Bell turned their family’s Christmas elf tradition into a book. They published it in 2005.",
     "answerEs": "Carol Aebersold y su hija Chanda Bell convirtieron la tradición familiar del elfo navideño en un libro. Lo publicaron en 2005.",
     "url": "https://lumistella.com/en/our-story/",
-    "source": "The Lumistella Company"
+    "source": "The Lumistella Company",
+    "model": "The book was based on a family’s Christmas elf tradition.",
+    "modelEs": "El libro se basó en la tradición navideña de una familia con un duende.",
+    "imageIndex": 17
   },
   {
     "item": "Frosty the Snowman",
     "itemEs": "Frosty, el muñeco de nieve",
-    "question": "How did Frosty the Snowman become a Christmas character?",
-    "questionEs": "¿Cómo se convirtió Frosty en un personaje navideño?",
+    "question": "Who was Frosty the Snowman sung on the radio in 1950 by?",
+    "questionEs": "¿Quién cantó Frosty the Snowman en la radio en 1950?",
     "answer": "Frosty became famous through a song that Gene Autry sang in 1950. He performed it on his Melody Ranch radio show that October.",
     "answerEs": "Frosty se hizo famoso gracias a una canción que Gene Autry cantó en 1950. La interpretó en su programa de radio Melody Ranch en octubre de ese año.",
     "url": "https://www.autry.com/geneautry/motionpictures/videos/frosty-the-snow-man.php",
-    "source": "Gene Autry archive"
+    "source": "Gene Autry archive",
+    "model": "Frosty the Snowman was sung by Gene Autry on his radio show.",
+    "modelEs": "Gene Autry cantó Frosty the Snowman en su programa de radio.",
+    "imageIndex": 18
   },
   {
     "item": "The Nutcracker",
     "itemEs": "El cascanueces",
-    "question": "Where and when was The Nutcracker ballet first performed?",
-    "questionEs": "¿Dónde y cuándo se presentó por primera vez el ballet El cascanueces?",
+    "question": "Where was The Nutcracker ballet first performed?",
+    "questionEs": "¿Dónde se presentó por primera vez el ballet El cascanueces?",
     "answer": "It first appeared on stage in St. Petersburg, Russia, in 1892. Pyotr Tchaikovsky wrote the music.",
     "answerEs": "Se presentó por primera vez en San Petersburgo, Rusia, en 1892. Piotr Chaikovski compuso la música.",
     "url": "https://www.rohcollections.org.uk/Work.aspx?work=1180",
-    "source": "Royal Ballet and Opera Collections"
+    "source": "Royal Ballet and Opera Collections",
+    "model": "The ballet was first performed in St. Petersburg, Russia.",
+    "modelEs": "El ballet se presentó por primera vez en San Petersburgo, Rusia.",
+    "imageIndex": 19
   },
   {
     "item": "A Christmas Carol",
     "itemEs": "Cuento de Navidad",
-    "question": "Who wrote A Christmas Carol, and when did it come out?",
-    "questionEs": "¿Quién escribió Cuento de Navidad y cuándo se publicó?",
+    "question": "Who was A Christmas Carol written by?",
+    "questionEs": "¿Quién escribió Cuento de Navidad?",
     "answer": "Charles Dickens wrote the story about Ebenezer Scrooge. It first came out in 1843.",
     "answerEs": "Charles Dickens escribió el cuento sobre Ebenezer Scrooge. Se publicó por primera vez en 1843.",
     "url": "https://dickensmuseum.com/en-de/blogs/explore/first-edition-of-a-christmas-carol",
-    "source": "Charles Dickens Museum"
+    "source": "Charles Dickens Museum",
+    "model": "A Christmas Carol was written by Charles Dickens.",
+    "modelEs": "Cuento de Navidad fue escrito por Charles Dickens.",
+    "imageIndex": 20
   },
   {
     "item": "Silent Night",
@@ -640,117 +1069,153 @@ const cards = [
     "answer": "Joseph Mohr and Franz Xaver Gruber first performed it in Oberndorf, Austria, on Christmas Eve in 1818. Mohr wrote the words and Gruber composed the music.",
     "answerEs": "Joseph Mohr y Franz Xaver Gruber la interpretaron por primera vez en Oberndorf, Austria, la Nochebuena de 1818. Mohr escribió la letra y Gruber compuso la música.",
     "url": "https://www.stillenacht.at/en/history-of-the-song",
-    "source": "Silent Night Association"
+    "source": "Silent Night Association",
+    "model": "Silent Night was first sung in Oberndorf, Austria.",
+    "modelEs": "Noche de paz se cantó por primera vez en Oberndorf, Austria.",
+    "imageIndex": 21
   },
   {
     "item": "Jingle Bells",
     "itemEs": "Jingle Bells",
-    "question": "What was the original published title of Jingle Bells?",
-    "questionEs": "¿Cuál era el título con el que se publicó originalmente Jingle Bells?",
+    "question": "Under what title was Jingle Bells first published?",
+    "questionEs": "¿Con qué título se publicó por primera vez Jingle Bells?",
     "answer": "James Pierpont’s song was published in Boston in 1857 as The One Horse Open Sleigh.",
     "answerEs": "La canción de James Pierpont se publicó en Boston en 1857 con el título The One Horse Open Sleigh, que significa «El trineo abierto de un caballo».",
     "url": "https://www.loc.gov/item/2023812429/",
-    "source": "Library of Congress, 1857 sheet music"
+    "source": "Library of Congress, 1857 sheet music",
+    "model": "It was first published as The One Horse Open Sleigh.",
+    "modelEs": "Se publicó por primera vez con el título The One Horse Open Sleigh.",
+    "imageIndex": 22
   },
   {
     "item": "White Christmas",
     "itemEs": "Blanca Navidad",
-    "question": "Which 1942 movie featured Bing Crosby singing White Christmas?",
-    "questionEs": "¿En qué película de 1942 cantó Bing Crosby Blanca Navidad?",
+    "question": "In which 1942 movie was White Christmas sung by Bing Crosby?",
+    "questionEs": "¿En qué película de 1942 cantó Bing Crosby White Christmas?",
     "answer": "Bing Crosby sang Irving Berlin’s song in Holiday Inn. He had already sung it on the radio on Christmas night in 1941.",
     "answerEs": "Bing Crosby cantó la canción de Irving Berlin en Holiday Inn. Ya la había cantado en la radio la noche de Navidad de 1941.",
     "url": "https://www.loc.gov/static/programs/national-recording-preservation-board/documents/WHITE%20CHRISTMAS.pdf",
-    "source": "Library of Congress, National Recording Registry"
+    "source": "Library of Congress, National Recording Registry",
+    "model": "White Christmas was sung by Bing Crosby in Holiday Inn.",
+    "modelEs": "Bing Crosby cantó White Christmas en Holiday Inn.",
+    "imageIndex": 23
   },
   {
     "item": "Carol of the Bells",
     "itemEs": "Villancico de las campanas",
-    "question": "What Ukrainian song is Carol of the Bells based on?",
-    "questionEs": "¿En qué canción ucraniana se basa Carol of the Bells?",
+    "question": "Which Ukrainian song was Carol of the Bells based on?",
+    "questionEs": "¿En qué canción ucraniana se basó Carol of the Bells?",
     "answer": "It uses the music of Shchedryk, a Ukrainian song arranged by Mykola Leontovych. Peter Wilhousky later wrote the English words.",
     "answerEs": "Usa la música de Shchedryk, una canción ucraniana que arregló Mykola Leontovych. Más tarde, Peter Wilhousky escribió la letra en inglés.",
     "url": "https://www.ukrhec.org/online-exhibitions/story-behind-carol-bells/chorus-new-world",
-    "source": "Ukrainian History and Education Center"
+    "source": "Ukrainian History and Education Center",
+    "model": "Carol of the Bells was based on Shchedryk.",
+    "modelEs": "Carol of the Bells se basó en Shchedryk.",
+    "imageIndex": 24
   },
   {
     "item": "Nine Lessons and Carols",
     "itemEs": "Nueve lecturas y villancicos",
-    "question": "When did King’s College, Cambridge, first hold its Christmas service of readings and carols?",
-    "questionEs": "¿Cuándo celebró King’s College, Cambridge, por primera vez su servicio navideño de lecturas y villancicos?",
+    "question": "When was the first Nine Lessons and Carols service held at King’s College?",
+    "questionEs": "¿Cuándo se celebró el primer servicio de Nine Lessons and Carols en King’s College?",
     "answer": "King’s College first held it on Christmas Eve in 1918. The service was based on one held in Truro, England, in 1880.",
     "answerEs": "King’s College lo celebró por primera vez en la Nochebuena de 1918. Se basó en un servicio celebrado en Truro, Inglaterra, en 1880.",
     "url": "https://www.kings.cam.ac.uk/history-festival-nine-lessons-and-carols",
-    "source": "King’s College, Cambridge"
+    "source": "King’s College, Cambridge",
+    "model": "The first service there was held on Christmas Eve in 1918.",
+    "modelEs": "El primer servicio allí se celebró en Nochebuena de 1918.",
+    "imageIndex": 25
   },
   {
     "item": "Candy cane",
     "itemEs": "Bastón de caramelo",
-    "question": "Do we know who invented the candy cane?",
-    "questionEs": "¿Sabemos quién inventó el bastón de caramelo?",
+    "question": "Is it known who invented the candy cane?",
+    "questionEs": "¿Se sabe quién inventó el bastón de caramelo?",
     "answer": "No one knows for sure. Straight hard candy sticks were already known in the 1600s, and stories about who curved them are unproven.",
     "answerEs": "No se sabe con certeza. En el siglo XVII ya se conocían los palitos rectos de caramelo duro, y no se ha comprobado quién los curvó.",
     "url": "https://www.smithsonianmag.com/smart-news/we-dont-know-the-origins-of-the-candy-cane-but-they-almost-certainly-were-not-christian-157380385/",
-    "source": "Smithsonian Magazine"
+    "source": "Smithsonian Magazine",
+    "model": "The inventor has not been identified with certainty.",
+    "modelEs": "No se ha identificado con certeza a su inventor.",
+    "imageIndex": 26
   },
   {
     "item": "Gingerbread house",
     "itemEs": "Casita de jengibre",
-    "question": "Which fairy tale helped make gingerbread houses popular?",
-    "questionEs": "¿Qué cuento ayudó a popularizar las casitas de jengibre?",
+    "question": "Which fairy tale are gingerbread houses often linked to?",
+    "questionEs": "¿Con qué cuento se suelen relacionar las casas de jengibre?",
     "answer": "Hansel and Gretel helped make them famous. People were already making gingerbread houses before the Brothers Grimm published their version.",
     "answerEs": "Hansel y Gretel ayudó a hacerlas famosas. Ya se hacían casitas de jengibre antes de que los hermanos Grimm publicaran su versión.",
     "url": "https://www.smithsonianmag.com/smart-news/un-christmassy-origin-gingerbread-houses-180967461/",
-    "source": "Smithsonian Magazine"
+    "source": "Smithsonian Magazine",
+    "model": "Gingerbread houses are often linked to Hansel and Gretel.",
+    "modelEs": "Las casas de jengibre se suelen relacionar con Hansel y Gretel.",
+    "imageIndex": 27
   },
   {
     "item": "Panettone",
     "itemEs": "Panetón",
-    "question": "Which Italian city is known for panettone?",
-    "questionEs": "¿Qué ciudad italiana es conocida por el panetón?",
+    "question": "Which Italian city is panettone associated with?",
+    "questionEs": "¿Con qué ciudad italiana se asocia el panettone?",
     "answer": "Panettone is a Christmas bread from Milan. A legend says a kitchen worker named Toni made it after a dessert burned.",
     "answerEs": "El panetón es un pan navideño de Milán. Una leyenda dice que un ayudante de cocina llamado Toni lo hizo después de que se quemara un postre.",
     "url": "https://studyandwork.yesmilano.it/en/articles/panettone",
-    "source": "YesMilano"
+    "source": "YesMilano",
+    "model": "Panettone is associated with Milan.",
+    "modelEs": "El panettone se asocia con Milán.",
+    "imageIndex": 28
   },
   {
     "item": "Dresden stollen",
     "itemEs": "Stollen de Dresde",
-    "question": "Where does Dresden stollen come from?",
-    "questionEs": "¿De dónde viene el stollen de Dresde?",
+    "question": "Where was Dresden stollen developed?",
+    "questionEs": "¿Dónde se desarrolló el stollen de Dresde?",
     "answer": "It comes from Dresden, Germany. This fruit bread has been linked to Christmas since medieval times in the region of Saxony.",
     "answerEs": "Viene de Dresde, Alemania. Este pan de frutas se asocia con la Navidad desde la Edad Media en la región de Sajonia.",
     "url": "https://agriculture.ec.europa.eu/farming/geographical-indications-and-quality-schemes/geographical-indications-food-and-drink/dresdner-christsollen-pgi_en",
-    "source": "European Commission"
+    "source": "European Commission",
+    "model": "Dresden stollen was developed in Dresden, Germany.",
+    "modelEs": "El stollen de Dresde se desarrolló en Dresde, Alemania.",
+    "imageIndex": 29
   },
   {
     "item": "Bûche de Noël",
     "itemEs": "Tronco de Navidad",
-    "question": "What old custom inspired the shape of this French cake?",
-    "questionEs": "¿Qué antigua costumbre inspiró la forma de este pastel francés?",
+    "question": "What old custom was the shape of the bûche de Noël inspired by?",
+    "questionEs": "¿En qué costumbre antigua se inspiró la forma del tronco de Navidad?",
     "answer": "People used to burn a large log at Christmas. The French dessert looks like the log from that tradition.",
     "answerEs": "Antes se quemaba un tronco grande en Navidad. El postre francés tiene la forma del tronco de esa tradición.",
     "url": "https://agriculture.gouv.fr/dou-vient-la-tradition-de-la-buche-de-noel",
-    "source": "French Ministry of Agriculture"
+    "source": "French Ministry of Agriculture",
+    "model": "Its shape was inspired by the custom of burning a large log at Christmas.",
+    "modelEs": "Su forma se inspiró en la costumbre de quemar un tronco grande en Navidad.",
+    "imageIndex": 30
   },
   {
     "item": "Mince pies",
     "itemEs": "Pastelitos navideños de fruta",
-    "question": "What did early English mince pies contain?",
-    "questionEs": "¿Qué llevaban los primeros mince pies ingleses?",
+    "question": "What were early English mince pies filled with?",
+    "questionEs": "¿Con qué se rellenaban los primeros mince pies ingleses?",
     "answer": "Older recipes often combined meat with fruit and spices. Today, mince pies usually have a sweet dried fruit filling.",
     "answerEs": "Las recetas antiguas solían combinar carne con frutas y especias. Hoy, estos pastelitos suelen llevar un relleno dulce de fruta deshidratada.",
     "url": "https://www.english-heritage.org.uk/visit/inspire-me/blog/blog-posts/recipe-for-real-mince-pies/",
-    "source": "English Heritage"
+    "source": "English Heritage",
+    "model": "They were often filled with meat, fruit, and spices.",
+    "modelEs": "A menudo se rellenaban con carne, fruta y especias.",
+    "imageIndex": 31
   },
   {
     "item": "Christmas pudding",
     "itemEs": "Pudín navideño",
-    "question": "What was Christmas pudding like before it became a dessert?",
-    "questionEs": "¿Cómo era el pudín navideño antes de convertirse en postre?",
+    "question": "How was an early form of Christmas pudding prepared?",
+    "questionEs": "¿Cómo se preparaba una versión antigua del pudín de Navidad?",
     "answer": "An early version was a thick soup with dried fruit and spices. In Victorian Britain, Christmas pudding became more important at the holiday table.",
     "answerEs": "Una versión antigua era una sopa espesa con fruta deshidratada y especias. En la Gran Bretaña victoriana, el pudín navideño ganó importancia en la mesa de Navidad.",
     "url": "https://www.english-heritage.org.uk/visit/inspire-me/history-of-the-christmas-pudding/",
-    "source": "English Heritage"
+    "source": "English Heritage",
+    "model": "An early form was prepared as a thick soup with dried fruit and spices.",
+    "modelEs": "Una versión antigua se preparaba como una sopa espesa con frutas secas y especias.",
+    "imageIndex": 32
   },
   {
     "item": "Eggnog",
@@ -760,167 +1225,218 @@ const cards = [
     "answer": "Eggnog is linked to posset, a warm, creamy drink that was popular in medieval England. Posset recipes often used cream and wine or beer.",
     "answerEs": "El ponche de huevo se relaciona con el posset, una bebida caliente y cremosa popular en la Inglaterra medieval. Las recetas de posset solían llevar crema y vino o cerveza.",
     "url": "https://www.smithsonianmag.com/arts-culture/pass-the-posset-the-medieval-eggnog-25860188/",
-    "source": "Smithsonian Magazine"
+    "source": "Smithsonian Magazine",
+    "model": "Eggnog is linked to a warm English drink called posset.",
+    "modelEs": "El ponche de huevo se relaciona con una bebida inglesa caliente llamada posset.",
+    "imageIndex": 33
   },
   {
     "item": "Hallacas",
     "itemEs": "Hallacas",
-    "question": "How did different food traditions shape the Venezuelan hallaca?",
-    "questionEs": "¿Cómo influyeron distintas tradiciones culinarias en la hallaca venezolana?",
+    "question": "Which American and European ingredients are used in Venezuelan hallacas?",
+    "questionEs": "¿Qué ingredientes americanos y europeos se usan en las hallacas venezolanas?",
     "answer": "Hallacas combine corn from the Americas with ingredients that came from Europe, such as olives and raisins. The dish took shape over time.",
     "answerEs": "Las hallacas combinan maíz de América con ingredientes que llegaron de Europa, como aceitunas y pasas. El plato tomó forma con el tiempo.",
     "url": "https://www.redalyc.org/pdf/1992/199216551003.pdf",
-    "source": "Rafael Cartay, Universidad de los Andes"
+    "source": "Rafael Cartay, Universidad de los Andes",
+    "model": "Corn from the Americas and ingredients from Europe, such as olives and raisins, are used in hallacas.",
+    "modelEs": "En las hallacas se usan maíz de América e ingredientes de Europa, como aceitunas y pasas.",
+    "imageIndex": 34
   },
   {
     "item": "Pan de jamón",
     "itemEs": "Pan de jamón",
-    "question": "Where was Venezuelan pan de jamón first made, according to food historians?",
-    "questionEs": "Según los historiadores de la gastronomía, ¿dónde se hizo por primera vez el pan de jamón venezolano?",
+    "question": "Where was pan de jamón first made, according to food historians?",
+    "questionEs": "¿Dónde se hizo por primera vez el pan de jamón, según los historiadores de la gastronomía?",
     "answer": "Food historians trace it to Gustavo Ramella's bakery in Caracas in 1905. The first version had only ham in the filling.",
     "answerEs": "Los historiadores de la gastronomía sitúan su origen en la panadería de Gustavo Ramella, en Caracas, en 1905. La primera versión solo llevaba jamón en el relleno.",
     "url": "https://www.redalyc.org/pdf/1992/199216551003.pdf",
-    "source": "Rafael Cartay, Universidad de los Andes"
+    "source": "Rafael Cartay, Universidad de los Andes",
+    "model": "According to food historians, it was first made in a bakery in Caracas in 1905.",
+    "modelEs": "Según los historiadores de la gastronomía, se hizo por primera vez en una panadería de Caracas en 1905.",
+    "imageIndex": 35
   },
   {
     "item": "Rosca de Reyes",
     "itemEs": "Rosca de Reyes",
-    "question": "How did the tradition of sharing rosca de Reyes reach Mexico?",
-    "questionEs": "¿Cómo llegó a México la tradición de compartir la rosca de Reyes?",
+    "question": "From which country was the rosca de Reyes tradition brought to Mexico?",
+    "questionEs": "¿De qué país llegó a México la tradición de la rosca de Reyes?",
     "answer": "The tradition came to Mexico from Spain during the colonial period. In Mexico, people share this sweet bread on January 6, Three Kings Day.",
     "answerEs": "La tradición llegó a México desde España en la época colonial. En México, este pan dulce se comparte el 6 de enero, Día de Reyes.",
     "url": "https://unamglobal.unam.mx/global_revista/rosca-de-reyes-origen-y-simbolos/",
-    "source": "UNAM Global"
+    "source": "UNAM Global",
+    "model": "The tradition was brought to Mexico from Spain.",
+    "modelEs": "La tradición llegó a México desde España.",
+    "imageIndex": 36
   },
   {
     "item": "Swedish julbord",
     "itemEs": "Bufé navideño sueco",
     "question": "What older Swedish tradition is the julbord based on?",
-    "questionEs": "¿En qué tradición sueca más antigua se basa el julbord?",
+    "questionEs": "¿En qué tradición sueca anterior se basa el julbord?",
     "answer": "The julbord is the Christmas version of a Swedish buffet called a smörgåsbord. Sweden has had this type of buffet since the 1500s.",
     "answerEs": "El julbord es la versión navideña de un bufé sueco llamado smörgåsbord. En Suecia existe este tipo de bufé desde el siglo XVI.",
     "url": "https://www.levandekulturarv.se/forteckningen/element/smorgasbordet",
-    "source": "Swedish Inventory of Living Heritage"
+    "source": "Swedish Inventory of Living Heritage",
+    "model": "The julbord is based on a Swedish buffet called a smörgåsbord.",
+    "modelEs": "El julbord se basa en un bufé sueco llamado smörgåsbord.",
+    "imageIndex": 37
   },
   {
     "item": "Christmas KFC in Japan",
     "itemEs": "KFC en Navidad en Japón",
-    "question": "How did KFC become a Christmas tradition in Japan?",
-    "questionEs": "¿Cómo se convirtió KFC en una tradición navideña en Japón?",
+    "question": "When was KFC first promoted as a Christmas meal in Japan?",
+    "questionEs": "¿Cuándo se promocionó por primera vez KFC como comida de Navidad en Japón?",
     "answer": "KFC Japan first promoted fried chicken for Christmas in 1974. The campaign caught on, and many customers began buying it for their celebrations.",
     "answerEs": "KFC Japón promocionó el pollo frito para Navidad por primera vez en 1974. La campaña tuvo éxito y muchos clientes empezaron a comprarlo para sus celebraciones.",
     "url": "https://global.kfc.com/stories/how-kentucky-for-christmas-began-in-japan",
-    "source": "KFC"
+    "source": "KFC",
+    "model": "KFC was first promoted as a Christmas meal in Japan in 1974.",
+    "modelEs": "KFC se promocionó por primera vez como comida de Navidad en Japón en 1974.",
+    "imageIndex": 38
   },
   {
     "item": "Christmas on December 25",
     "itemEs": "La Navidad el 25 de diciembre",
-    "question": "When did Christians start celebrating Christmas on December 25?",
-    "questionEs": "¿Cuándo empezaron los cristianos a celebrar la Navidad el 25 de diciembre?",
+    "question": "By what century was Christmas celebrated on December 25 in Rome?",
+    "questionEs": "¿En qué siglo ya se celebraba la Navidad el 25 de diciembre en Roma?",
     "answer": "Christians in Rome observed Christmas on December 25 by the fourth century. Historians still debate why that date was chosen.",
     "answerEs": "Los cristianos de Roma ya celebraban la Navidad el 25 de diciembre en el siglo IV. Los historiadores todavía debaten por qué se escogió esa fecha.",
     "source": "Yale Institute of Sacred Music",
-    "url": "https://www.ismreview.yale.edu/the-magi-and-the-manger-imaging-christmas-in-ancient-art-and-ritual"
+    "url": "https://www.ismreview.yale.edu/the-magi-and-the-manger-imaging-christmas-in-ancient-art-and-ritual",
+    "model": "Christmas was celebrated on December 25 in Rome by the fourth century.",
+    "modelEs": "En Roma ya se celebraba la Navidad el 25 de diciembre en el siglo IV.",
+    "imageIndex": 39
   },
   {
     "item": "The twelve days of Christmas",
     "itemEs": "Los doce días de Navidad",
-    "question": "Where did the twelve days of Christmas come from?",
-    "questionEs": "¿De dónde vienen los doce días de Navidad?",
+    "question": "How many days are included in the Western Christmas season before Epiphany?",
+    "questionEs": "¿Cuántos días se cuentan en la Navidad occidental antes de la Epifanía?",
     "answer": "In the Western Christian calendar, Christmas Day begins a twelve-day celebration. The days lead up to Epiphany on January 6.",
     "answerEs": "En el calendario cristiano occidental, el día de Navidad inicia una celebración de doce días. Esos días dan paso a la Epifanía, el 6 de enero.",
     "source": "Church of England",
-    "url": "https://www.churchofengland.org/faith/advent-and-christmas/what-is-advent-and-christmas"
+    "url": "https://www.churchofengland.org/faith/advent-and-christmas/what-is-advent-and-christmas",
+    "model": "Twelve days are counted from Christmas Day to the day before Epiphany.",
+    "modelEs": "Se cuentan doce días desde el día de Navidad hasta el día anterior a la Epifanía.",
+    "imageIndex": 40
   },
   {
     "item": "Boxing Day",
     "itemEs": "El Boxing Day",
-    "question": "How did Boxing Day get its name?",
-    "questionEs": "¿De dónde salió el nombre Boxing Day?",
+    "question": "What gifts were given in the tradition behind the name Boxing Day?",
+    "questionEs": "¿Qué regalos se daban en la tradición que dio nombre al Boxing Day?",
     "answer": "The name comes from a British tradition of giving Christmas boxes. Employers and customers gave money or presents to workers and tradespeople.",
     "answerEs": "El nombre viene de una tradición británica de dar cajas de Navidad. Los empleadores y clientes daban dinero o regalos a trabajadores y comerciantes.",
     "source": "Oxford University Press",
-    "url": "https://blog.oup.com/2011/12/boxing-day/"
+    "url": "https://blog.oup.com/2011/12/boxing-day/",
+    "model": "Money or gifts were given to workers in Christmas boxes.",
+    "modelEs": "A los trabajadores se les daba dinero o regalos en cajas navideñas.",
+    "imageIndex": 41
   },
   {
     "item": "The Yule log",
     "itemEs": "El tronco de Navidad",
-    "question": "What did people do with a Yule log, and why?",
-    "questionEs": "¿Qué hacía la gente con el tronco de Navidad y por qué?",
+    "question": "Where was the Yule log burned in an old British custom?",
+    "questionEs": "¿Dónde se quemaba el tronco de Navidad en una antigua costumbre británica?",
     "answer": "In an old British custom, people burned a large log in the fireplace at Christmas. In some homes, a log that was still burning on Christmas Day was a sign of good luck for the year ahead.",
     "answerEs": "En una antigua costumbre británica, la gente quemaba un tronco grande en la chimenea en Navidad. En algunas casas, si el tronco seguía ardiendo el día de Navidad, era señal de buena suerte para el año siguiente.",
     "source": "National Trust",
-    "url": "https://www.nationaltrust.org.uk/discover/history/christmas-traditions-from-history"
+    "url": "https://www.nationaltrust.org.uk/discover/history/christmas-traditions-from-history",
+    "model": "The Yule log was burned in the fireplace.",
+    "modelEs": "El tronco de Navidad se quemaba en la chimenea.",
+    "imageIndex": 42
   },
   {
     "item": "Las Posadas",
     "itemEs": "Las Posadas",
-    "question": "How did Las Posadas begin in Mexico?",
-    "questionEs": "¿Cómo empezaron las posadas en México?",
+    "question": "What story was taught through early celebrations linked to Las Posadas?",
+    "questionEs": "¿Qué historia se enseñaba en las primeras celebraciones relacionadas con las posadas?",
     "answer": "The tradition grew from religious celebrations in colonial Mexico. One account traces them to Acolman in 1587, where celebrations helped teach the story of Mary and Joseph looking for shelter.",
     "answerEs": "La tradición surgió de celebraciones religiosas en el México colonial. Una versión sitúa su origen en Acolman en 1587, donde las celebraciones ayudaban a enseñar la historia de María y José buscando alojamiento.",
     "source": "Secretaría de Cultura de México",
-    "url": "https://www.gob.mx/cultura/articulos/54852"
+    "url": "https://www.gob.mx/cultura/articulos/54852",
+    "model": "The story of Mary and Joseph looking for shelter was taught through the celebrations.",
+    "modelEs": "En las celebraciones se enseñaba la historia de María y José buscando alojamiento.",
+    "imageIndex": 43
   },
   {
     "item": "Night of the Radishes",
     "itemEs": "Noche de Rábanos",
-    "question": "How did radish carving become a Christmas tradition in Oaxaca?",
-    "questionEs": "¿Cómo se convirtió el tallado de rábanos en una tradición navideña en Oaxaca?",
+    "question": "When was the Oaxaca Christmas market contest held that helped start Night of the Radishes?",
+    "questionEs": "¿Cuándo se celebró el concurso del mercado de Oaxaca que dio origen a la Noche de Rábanos?",
     "answer": "In Oaxaca, Mexico, a Christmas market contest took place on December 23, 1897. Today, people carve radishes into figures and scenes for the festival.",
     "answerEs": "En Oaxaca, México, hubo un concurso en el mercado navideño el 23 de diciembre de 1897. Hoy la gente talla figuras y escenas en rábanos para la fiesta.",
     "source": "Secretaría de Cultura de México",
-    "url": "https://sic.cultura.gob.mx/ficha.php?table=festividad&table_id=118"
+    "url": "https://sic.cultura.gob.mx/ficha.php?table=festividad&table_id=118",
+    "model": "The contest was held on December 23, 1897.",
+    "modelEs": "El concurso se celebró el 23 de diciembre de 1897.",
+    "imageIndex": 44
   },
   {
     "item": "Puerto Rican parrandas",
     "itemEs": "Las parrandas puertorriqueñas",
-    "question": "What does a traditional Christmas singing visit look like in Puerto Rico?",
-    "questionEs": "¿Cómo es una visita tradicional de cantos navideños en Puerto Rico?",
+    "question": "What kind of song is traditionally sung at the start of a Puerto Rican parranda?",
+    "questionEs": "¿Qué tipo de canción se canta tradicionalmente al comenzar una parranda puertorriqueña?",
     "answer": "Puerto Rico developed its own kind of Christmas caroling called a parranda. Friends surprise a host with a visit and traditionally start by singing an aguinaldo in the host’s honor.",
     "answerEs": "Puerto Rico desarrolló su propia tradición de cantos navideños, la parranda. Los amigos sorprenden a alguien con una visita y suelen empezar cantando un aguinaldo en su honor.",
     "source": "Smithsonian Folkways",
-    "url": "https://folkways-media.si.edu/docs/folkways/lessons/SFLN109_teacher_guide.pdf"
+    "url": "https://folkways-media.si.edu/docs/folkways/lessons/SFLN109_teacher_guide.pdf",
+    "model": "An aguinaldo is traditionally sung to honor the host.",
+    "modelEs": "Tradicionalmente se canta un aguinaldo en honor al anfitrión.",
+    "imageIndex": 45
   },
   {
     "item": "The Philippine parol",
     "itemEs": "El farol filipino o parol",
-    "question": "Why did people in the Philippines carry Christmas lanterns?",
-    "questionEs": "¿Por qué llevaba la gente faroles navideños en Filipinas?",
+    "question": "Why were parol lanterns carried before dawn in the Philippines?",
+    "questionEs": "¿Por qué se llevaban faroles parol antes del amanecer en Filipinas?",
     "answer": "The star-shaped parol is linked to Simbang Gabi, a Filipino series of Christmas Masses. The lantern helped light the way to church before sunrise.",
     "answerEs": "El parol con forma de estrella se relaciona con Simbang Gabi, una serie de misas navideñas filipinas. El farol ayudaba a iluminar el camino a la iglesia antes del amanecer.",
     "source": "Cultural Center of the Philippines",
-    "url": "https://culturalcenter.gov.ph/press-release/a-beacon-of-faith-ccps-parol-inspired-facade-lights-the-way-to-simbang-gabi/"
+    "url": "https://culturalcenter.gov.ph/press-release/a-beacon-of-faith-ccps-parol-inspired-facade-lights-the-way-to-simbang-gabi/",
+    "model": "They were carried to light the way to church.",
+    "modelEs": "Se llevaban para iluminar el camino a la iglesia.",
+    "imageIndex": 46
   },
   {
     "item": "Krampus",
     "itemEs": "Krampus",
-    "question": "Where did the story of Krampus come from?",
-    "questionEs": "¿De dónde viene la historia de Krampus?",
+    "question": "Is the exact origin of Krampus known?",
+    "questionEs": "¿Se conoce el origen exacto de Krampus?",
     "answer": "Krampus appears in Alpine folklore as the frightening companion of Saint Nicholas. The exact origin of the horned character is uncertain.",
     "answerEs": "Krampus aparece en el folclore alpino como el compañero aterrador de san Nicolás. El origen exacto de este personaje con cuernos es incierto.",
     "source": "Austria Tourism",
-    "url": "https://www.austria.info/en-us/inspiration/raucous-traditions/"
+    "url": "https://www.austria.info/en-us/inspiration/raucous-traditions/",
+    "model": "The exact origin of Krampus has not been established.",
+    "modelEs": "No se ha determinado el origen exacto de Krampus.",
+    "imageIndex": 47
   },
   {
     "item": "The thirteen Yule Lads",
     "itemEs": "Los trece duendes navideños de Islandia",
-    "question": "How did Iceland’s thirteen Yule Lads become a familiar group?",
-    "questionEs": "¿Cómo se hicieron conocidos los trece duendes navideños de Islandia?",
+    "question": "How were Iceland’s thirteen Yule Lads made more familiar in 1932?",
+    "questionEs": "¿Cómo se dieron a conocer los trece duendes navideños de Islandia en 1932?",
     "answer": "The Yule Lads came from older Icelandic folklore. In 1932, a poem by Jóhannes úr Kötlum helped establish the group of thirteen known today.",
     "answerEs": "Los duendes navideños vienen del antiguo folclore islandés. En 1932, un poema de Jóhannes úr Kötlum ayudó a establecer el grupo de trece que se conoce hoy.",
     "source": "National and University Library of Iceland",
-    "url": "https://landsbokasafn.is/en/jolin-koma-christmas-arrives-finished/"
+    "url": "https://landsbokasafn.is/en/jolin-koma-christmas-arrives-finished/",
+    "model": "They were popularized by a poem published in 1932.",
+    "modelEs": "Un poema publicado en 1932 los popularizó.",
+    "imageIndex": 48
   },
   {
     "item": "London’s Trafalgar Square tree",
     "itemEs": "El árbol de Trafalgar Square en Londres",
-    "question": "Why did Norway start sending a Christmas tree to London?",
-    "questionEs": "¿Por qué empezó Noruega a enviar un árbol de Navidad a Londres?",
+    "question": "Why was a Christmas tree sent from Norway to London in 1947?",
+    "questionEs": "¿Por qué se envió un árbol de Navidad de Noruega a Londres en 1947?",
     "answer": "Norway began sending a tree in 1947. It was a thank-you gift for Britain’s support during World War II.",
     "answerEs": "Noruega empezó a enviar un árbol en 1947. Fue un regalo para agradecer el apoyo británico durante la Segunda Guerra Mundial.",
     "source": "London City Hall",
-    "url": "https://www.london.gov.uk/about-us/our-building-and-squares/christmas-trafalgar-square"
+    "url": "https://www.london.gov.uk/about-us/our-building-and-squares/christmas-trafalgar-square",
+    "model": "It was sent to thank Britain for its support during World War II.",
+    "modelEs": "Se envió para agradecer a Gran Bretaña su apoyo durante la Segunda Guerra Mundial.",
+    "imageIndex": 49
   }
 ];
 const byId = id => document.getElementById(id);
@@ -947,6 +1463,15 @@ function drawCard(moveFocus) {
   byId('item-es').textContent = current.itemEs;
   byId('question').textContent = current.question;
   byId('question-es').textContent = current.questionEs;
+  const picture = byId('picture');
+  const indexOnSheet = current.imageIndex % 10;
+  const sheet = Math.floor(current.imageIndex / 10) + 1;
+  picture.style.setProperty('--sheet', "url('images/christmas-" + sheet + ".webp')");
+  picture.style.setProperty('--x', (indexOnSheet % 5) * 25 + '%');
+  picture.style.setProperty('--y', Math.floor(indexOnSheet / 5) * 100 + '%');
+  picture.setAttribute('aria-label', 'Illustration of ' + current.item);
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
   byId('story').textContent = current.answer;
   byId('story-es').textContent = current.answerEs;
   const source = byId('source');
