@@ -1,0 +1,1339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Based on a True Story? | Tulsa English Academy</title>
+<meta name="description" content="Guess which movies, songs, and books were based on true stories. Fifty illustrated, bilingual cards for passive voice practice.">
+<style>
+:root {
+  color-scheme: dark;
+  --page: #1e182b;
+  --card: #30213d;
+  --edge: #65516f;
+  --text: #fff9ec;
+  --muted: #e0cfe6;
+  --gold: #ffdc9c;
+  --red: #73476d;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at top, #472b55, var(--page) 72%); color: var(--text); font: 1rem/1.55 system-ui, sans-serif; min-height: 100vh; }
+main { width: min(780px, calc(100% - 32px)); margin: auto; padding: clamp(26px, 6vw, 64px) 0; }
+.school, .label { color: var(--gold); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; }
+h1, h2 { font-family: Georgia, serif; font-weight: 700; }
+h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.03; margin: .18em 0; }
+h2 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: .2em 0; overflow-wrap: anywhere; }
+.intro { max-width: 62ch; margin: 14px 0 4px; }
+.translation { color: var(--muted); margin: 4px 0 0; }
+.card { margin-top: 26px; padding: clamp(18px, 5vw, 34px); background: var(--card); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 18px 46px #0003; }
+.card-top { display: grid; grid-template-columns: minmax(120px, 185px) minmax(0, 1fr); gap: clamp(16px, 4vw, 30px); align-items: center; }
+.item-picture { width: 100%; aspect-ratio: 1 / 1; border: 1px solid var(--edge); border-radius: 12px; background: var(--page) var(--sheet) var(--x) var(--y) / 500% 200% no-repeat; }
+.grammar { margin: 18px 0 0; color: var(--muted); }
+.grammar strong { color: var(--gold); }
+@media (max-width: 520px) {
+  .card-top { grid-template-columns: 1fr; gap: 14px; }
+  .item-picture { width: min(100%, 140px); }
+}
+.question { margin: 20px 0 4px; font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 700; }
+.actions { margin-top: 23px; display: flex; flex-wrap: wrap; gap: 10px; }
+button { font: inherit; font-weight: 800; border: 1px solid #94688e; border-radius: 10px; min-height: 48px; padding: 9px 15px; color: var(--text); background: var(--red); cursor: pointer; }
+button.primary { background: var(--gold); border-color: var(--gold); color: #203127; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.answer { margin-top: 20px; padding: 16px; border: 1px solid var(--edge); border-left: 4px solid var(--gold); border-radius: 12px; background: #261a31; }
+.answer p { margin: 8px 0; }
+.story { font-size: 1.13rem; }
+.source { color: var(--gold); overflow-wrap: anywhere; }
+summary { cursor: pointer; font-weight: 750; color: var(--gold); }
+[hidden] { display: none !important; }
+.card-kind { margin: 0 0 5px; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="school">Tulsa English Academy</div>
+<h1>Based on a True Story?</h1>
+<p class="intro">Draw a movie, song, or book and read the question aloud. Let everyone guess in the passive voice. Then reveal the answer and read the backstory like a storyteller.</p>
+<p class="translation" lang="es">Saca una tarjeta de película, canción o libro y lee la pregunta en voz alta. Todos adivinan usando la voz pasiva. Después, muestra la respuesta y cuenta la historia con tu mejor voz de cuentacuentos.</p>
+</header>
+<article class="card" id="game" aria-label="True story card" hidden>
+<div class="card-top">
+<div id="picture" class="item-picture" role="img" aria-label="Illustrated clue for Titanic (1997)" style="--sheet:url('images/stories-1.webp');--x:0%;--y:0%"></div>
+<div>
+<p id="kind" class="label card-kind"></p>
+<h2 id="item" tabindex="-1" aria-describedby="question"></h2>
+<p id="item-es" class="translation" lang="es" hidden></p>
+<p id="question" class="question"></p>
+<p id="question-es" class="translation" lang="es"></p>
+</div></div>
+<p class="grammar">Try <strong>I think it was based on a true story</strong> or <strong>I think it was made up</strong>.</p>
+<p class="translation" lang="es">Intenta responder con <strong>was</strong> y un participio como <strong>based</strong> o <strong>made up</strong>.</p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal answer</button>
+<button id="draw" class="primary" type="button">Draw another card</button>
+</div>
+<section id="answer" class="answer" aria-label="Verdict and backstory" aria-live="polite" hidden>
+<p class="label"><span id="verdict"></span> · <span id="verdict-es" lang="es"></span></p>
+<p class="story"><strong id="model"></strong></p>
+<p id="model-es" class="translation" lang="es"></p>
+<p class="label">Read the backstory aloud</p>
+<p id="story" class="story"></p>
+<p id="story-es" class="translation" lang="es"></p>
+<p><a id="source" class="source" target="_blank" rel="noopener noreferrer"></a></p>
+</section>
+</article>
+<section id="fallback" aria-label="True story cards">
+<p>Pick a card, let the group guess, and open <strong>Reveal answer</strong>.</p>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Titanic (1997)" style="--sheet:url('images/stories-1.webp');--x:0%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Titanic (1997)</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The film was set during the real sinking of the Titanic in 1912. Jack and Rose were created for the film.</p><p class="translation" lang="es">La película se ambientó en el hundimiento real del Titanic en 1912. Jack y Rose fueron creados para la película.</p>
+<p><a class="source" href="https://www.titanicbelfast.com/news/titanic-movie-fact-or-fiction/" target="_blank" rel="noopener noreferrer">Titanic Belfast</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Hidden Figures" style="--sheet:url('images/stories-1.webp');--x:25%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Hidden Figures</h2>
+<p class="translation" lang="es">Talentos ocultos</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was based on the work of Katherine Johnson, Dorothy Vaughan, and Mary Jackson at NASA. Their lives were adapted for the screen.</p><p class="translation" lang="es">La película se basó en el trabajo de Katherine Johnson, Dorothy Vaughan y Mary Jackson en la NASA. Sus vidas fueron adaptadas al cine.</p>
+<p><a class="source" href="https://www.nasa.gov/from-hidden-to-modern-figures/" target="_blank" rel="noopener noreferrer">NASA</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Apollo 13" style="--sheet:url('images/stories-1.webp');--x:50%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Apollo 13</h2>
+<p class="translation" lang="es">Apolo 13</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The real Apollo 13 mission was dramatized in the film. The 1970 Moon landing was canceled after an oxygen tank exploded, and the crew returned safely.</p><p class="translation" lang="es">La misión real del Apolo 13 se dramatizó en la película. El alunizaje de 1970 se canceló después de que explotara un tanque de oxígeno, y la tripulación regresó a salvo.</p>
+<p><a class="source" href="https://www.nasa.gov/news-release/apollo-13-astronaut-fred-haise-to-tell-of-his-memorable-space-experiences-at-talks/" target="_blank" rel="noopener noreferrer">NASA</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Pursuit of Happyness" style="--sheet:url('images/stories-1.webp');--x:75%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>The Pursuit of Happyness</h2>
+<p class="translation" lang="es">En busca de la felicidad</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was inspired by the real story of Chris Gardner. It follows his struggle to support his young son while starting a new career.</p><p class="translation" lang="es">La película se inspiró en la historia real de Chris Gardner. Cuenta cómo luchó por mantener a su hijo pequeño mientras empezaba una nueva carrera.</p>
+<p><a class="source" href="https://www.sonypictures.com/movies/thepursuitofhappyness" target="_blank" rel="noopener noreferrer">Sony Pictures</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Social Network" style="--sheet:url('images/stories-1.webp');--x:100%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>The Social Network</h2>
+<p class="translation" lang="es">La red social</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was based on a book about the founding of Facebook. The founding and the disputes were real, and the scenes were written for a drama.</p><p class="translation" lang="es">La película se basó en un libro sobre la creación de Facebook. La creación de la empresa y las disputas fueron reales, y las escenas se escribieron para una película dramática.</p>
+<p><a class="source" href="https://www.sonypictures.com/corp/press_releases/2011/01_11/010511_tsn.html" target="_blank" rel="noopener noreferrer">Sony Pictures</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Martian" style="--sheet:url('images/stories-1.webp');--x:0%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>The Martian</h2>
+<p class="translation" lang="es">Misión rescate</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">The film was adapted from a science fiction novel by Andy Weir. The astronaut Mark Watney and his mission to Mars were invented for the story.</p><p class="translation" lang="es">La película se adaptó de una novela de ciencia ficción de Andy Weir. El astronauta Mark Watney y su misión a Marte fueron inventados para la historia.</p>
+<p><a class="source" href="https://assets.penguinrandomhouse.com/book-resumes/WeirAndy_Martian_20240718.pdf" target="_blank" rel="noopener noreferrer">Penguin Random House</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Jurassic Park" style="--sheet:url('images/stories-1.webp');--x:25%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Jurassic Park</h2>
+<p class="translation" lang="es">Parque Jurásico</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">The film was adapted from a novel by Michael Crichton. Dinosaurs were real, but the park and its cloned dinosaurs were invented for the story.</p><p class="translation" lang="es">La película se adaptó de una novela de Michael Crichton. Los dinosaurios existieron, pero el parque y los dinosaurios clonados fueron inventados para la historia.</p>
+<p><a class="source" href="https://michaelcrichton.com/works/jurassic-park/" target="_blank" rel="noopener noreferrer">Michael Crichton official website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Toy Story" style="--sheet:url('images/stories-1.webp');--x:50%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Toy Story</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Woody and Buzz were created as characters in an animated story. They are toys that come to life when people are away.</p><p class="translation" lang="es">Woody y Buzz fueron creados como personajes de una historia animada. Son juguetes que cobran vida cuando no hay personas cerca.</p>
+<p><a class="source" href="https://www.pixar.com/toy-story" target="_blank" rel="noopener noreferrer">Pixar Animation Studios</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Finding Nemo" style="--sheet:url('images/stories-1.webp');--x:75%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Finding Nemo</h2>
+<p class="translation" lang="es">Buscando a Nemo</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Nemo and Marlin were created for a fictional story. Clownfish and the Great Barrier Reef are real, but the rescue adventure is imagined.</p><p class="translation" lang="es">Nemo y Marlin fueron creados para una historia de ficción. Los peces payaso y la Gran Barrera de Coral existen, pero la aventura del rescate es imaginaria.</p>
+<p><a class="source" href="https://www.pixar.com/finding-nemo" target="_blank" rel="noopener noreferrer">Pixar Animation Studios</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Coco" style="--sheet:url('images/stories-1.webp');--x:100%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Coco</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The film was inspired by Mexico’s Día de Muertos and by the families the filmmakers met in Mexico. Miguel’s adventure was invented for the film.</p><p class="translation" lang="es">La película se inspiró en el Día de Muertos de México y en las familias que los cineastas conocieron allí. La aventura de Miguel fue inventada para la película.</p>
+<p><a class="source" href="https://www.pixar.com/coco" target="_blank" rel="noopener noreferrer">Pixar Animation Studios</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Wreck of the Edmund Fitzgerald" style="--sheet:url('images/stories-2.webp');--x:0%;--y:0%"></div><div>
+<p class="label">Song · Canción</p><h2>The Wreck of the Edmund Fitzgerald</h2>
+<p class="translation" lang="es">El naufragio del Edmund Fitzgerald</p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">Gordon Lightfoot’s song was based on a real shipwreck. The Edmund Fitzgerald sank in Lake Superior during a storm in 1975, and all 29 crew members died.</p><p class="translation" lang="es">La canción de Gordon Lightfoot se basó en un naufragio real. El Edmund Fitzgerald se hundió en el lago Superior durante una tormenta en 1975 y murieron los 29 tripulantes.</p>
+<p><a class="source" href="https://shipwreckmuseum.com/edmund-fitzgerald/" target="_blank" rel="noopener noreferrer">Great Lakes Shipwreck Historical Society</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for American Pie" style="--sheet:url('images/stories-2.webp');--x:25%;--y:0%"></div><div>
+<p class="label">Song · Canción</p><h2>American Pie</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">Don McLean’s song was inspired in part by the death of musician Buddy Holly in a 1959 plane crash. It also reflects on changes in American music and culture.</p><p class="translation" lang="es">La canción de Don McLean se inspiró en parte en la muerte del músico Buddy Holly en un accidente aéreo en 1959. También reflexiona sobre los cambios en la música y la cultura de Estados Unidos.</p>
+<p><a class="source" href="https://donmclean.com/about-american-pie/" target="_blank" rel="noopener noreferrer">Don McLean, official website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Candle in the Wind (1973)" style="--sheet:url('images/stories-2.webp');--x:50%;--y:0%"></div><div>
+<p class="label">Song · Canción</p><h2>Candle in the Wind (1973)</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The original song was written about actress Marilyn Monroe by Elton John and Bernie Taupin. Its 1997 version was adapted to honor Princess Diana.</p><p class="translation" lang="es">La canción original fue escrita por Elton John y Bernie Taupin sobre la actriz Marilyn Monroe. Su versión de 1997 se adaptó para homenajear a la princesa Diana.</p>
+<p><a class="source" href="https://www.eltonjohn.com/stories/diamond-moments-candle-in-the-wind" target="_blank" rel="noopener noreferrer">Elton John, official website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Hurricane (Bob Dylan)" style="--sheet:url('images/stories-2.webp');--x:75%;--y:0%"></div><div>
+<p class="label">Song · Canción</p><h2>Hurricane (Bob Dylan)</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The song was based on the case of boxer Rubin “Hurricane” Carter, who was convicted of murder. Dylan and Jacques Levy challenged the conviction in the song, and a federal judge overturned it in 1985.</p><p class="translation" lang="es">La canción se basó en el caso del boxeador Rubin «Hurricane» Carter, quien fue condenado por asesinato. Dylan y Jacques Levy cuestionaron la condena en la canción, y un juez federal la anuló en 1985.</p>
+<p><a class="source" href="https://exonerationregistry.org/cases/4694" target="_blank" rel="noopener noreferrer">National Registry of Exonerations</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Sunday Bloody Sunday (U2)" style="--sheet:url('images/stories-2.webp');--x:100%;--y:0%"></div><div>
+<p class="label">Song · Canción</p><h2>Sunday Bloody Sunday (U2)</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The song was inspired by Bloody Sunday in Derry, Northern Ireland, where British soldiers shot civil rights protesters in 1972. It speaks more broadly about the pain caused by violence.</p><p class="translation" lang="es">La canción se inspiró en el Domingo Sangriento en Derry, Irlanda del Norte, donde soldados británicos dispararon contra manifestantes por los derechos civiles en 1972. También habla del dolor causado por la violencia en general.</p>
+<p><a class="source" href="https://www.u2.com/blogs/news/with-love-bono-and-edge" target="_blank" rel="noopener noreferrer">U2, official website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Tears in Heaven" style="--sheet:url('images/stories-2.webp');--x:0%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Tears in Heaven</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The song was written in response to the loss of Eric Clapton’s young son, Conor, who died in 1991. Clapton completed it for the film Rush.</p><p class="translation" lang="es">La canción fue escrita tras la muerte de Conor, el hijo pequeño de Eric Clapton, en 1991. Clapton la terminó para la película Rush.</p>
+<p><a class="source" href="https://www.guitarworld.com/artists/eric-clapton-amazing-grace" target="_blank" rel="noopener noreferrer">Eric Clapton interview, Guitar World</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Bohemian Rhapsody" style="--sheet:url('images/stories-2.webp');--x:25%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Bohemian Rhapsody</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Unconfirmed · <span lang="es">Sin confirmar</span></p>
+<p class="story"><strong>A true-story basis has not been confirmed.</strong></p><p class="translation" lang="es">No se ha confirmado que se base en una historia real.</p>
+<p class="story">No specific real event has been confirmed as the basis of Freddie Mercury’s song. Listeners have offered many interpretations since its release in 1975.</p><p class="translation" lang="es">No se ha confirmado que un hecho real específico sea la base de la canción de Freddie Mercury. Los oyentes han propuesto muchas interpretaciones desde su lanzamiento en 1975.</p>
+<p><a class="source" href="https://queenonline.com/features/bohemian-rhapsody-at-40-a-little-silhouetto-of-bohemian-rhapsody-fan-feature-by-patrick-lemieux" target="_blank" rel="noopener noreferrer">QueenOnline, official Queen website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Hotel California" style="--sheet:url('images/stories-2.webp');--x:50%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Hotel California</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">The hotel was used as a symbol in the Eagles’ song. Co-writer Don Henley described the song as a journey from innocence to experience and a look at American life.</p><p class="translation" lang="es">El hotel se usó como símbolo en la canción de Eagles. El coautor Don Henley describió la canción como un paso de la inocencia a la experiencia y una mirada a la vida en Estados Unidos.</p>
+<p><a class="source" href="https://www.cbsnews.com/news/don-henley-the-eagles-glenn-frey-kennedy-center-honor-hotel-california/" target="_blank" rel="noopener noreferrer">Don Henley interview, CBS News</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Space Oddity" style="--sheet:url('images/stories-2.webp');--x:75%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Space Oddity</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">David Bowie’s song was inspired by the science fiction film 2001: A Space Odyssey. The astronaut Major Tom is a fictional character.</p><p class="translation" lang="es">La canción de David Bowie se inspiró en la película de ciencia ficción 2001: Odisea del espacio. El astronauta Major Tom es un personaje ficticio.</p>
+<p><a class="source" href="https://www.davidbowie.com/blog/2018/5/10/2001-a-space-odyssey-is-fifty" target="_blank" rel="noopener noreferrer">David Bowie, official website</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Night the Lights Went Out in Georgia" style="--sheet:url('images/stories-2.webp');--x:100%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>The Night the Lights Went Out in Georgia</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">The murder story was invented by songwriter Bobby Russell. Vicki Lawrence recorded the song, which tells how a man is wrongly blamed for a crime.</p><p class="translation" lang="es">La historia del asesinato fue inventada por el compositor Bobby Russell. Vicki Lawrence grabó la canción, que cuenta cómo un hombre es acusado injustamente de un delito.</p>
+<p><a class="source" href="https://www.countryliving.com/life/entertainment/a68100464/lights-went-out-in-georgia-real-story/" target="_blank" rel="noopener noreferrer">Country Living</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Diary of a Young Girl" style="--sheet:url('images/stories-3.webp');--x:0%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>The Diary of a Young Girl</h2>
+<p class="translation" lang="es">El diario de Ana Frank</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The book was taken from Anne Frank’s real diary. Anne wrote about her life in hiding during World War II.</p><p class="translation" lang="es">El libro se publicó a partir del diario real de Ana Frank. Ana escribió sobre su vida en el escondite durante la Segunda Guerra Mundial.</p>
+<p><a class="source" href="https://www.annefrank.org/en/museum/inside-museum/" target="_blank" rel="noopener noreferrer">Anne Frank House</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for I Am Malala" style="--sheet:url('images/stories-3.webp');--x:25%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>I Am Malala</h2>
+<p class="translation" lang="es">Yo soy Malala</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The book was written by Malala Yousafzai with Christina Lamb. It tells how Malala spoke up for girls’ education in Pakistan.</p><p class="translation" lang="es">El libro fue escrito por Malala Yousafzai con Christina Lamb. Cuenta cómo Malala defendió el derecho de las niñas a estudiar en Pakistán.</p>
+<p><a class="source" href="https://www.hachettebookgroup.com/titles/malala-yousafzai/i-am-%20malala/9780316322409/" target="_blank" rel="noopener noreferrer">Hachette Book Group</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Long Walk to Freedom" style="--sheet:url('images/stories-3.webp');--x:50%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>Long Walk to Freedom</h2>
+<p class="translation" lang="es">El largo camino hacia la libertad</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">This autobiography was written by Nelson Mandela. He tells the story of his life, including his years in prison and his fight against apartheid in South Africa.</p><p class="translation" lang="es">Esta autobiografía fue escrita por Nelson Mandela. Cuenta la historia de su vida, incluidos sus años en prisión y su lucha contra el apartheid en Sudáfrica.</p>
+<p><a class="source" href="https://www.hachettebookgroup.com/titles/nelson-mandela/long-walk-to-freedom/9780316548182/" target="_blank" rel="noopener noreferrer">Hachette Book Group</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Boy Who Harnessed the Wind" style="--sheet:url('images/stories-3.webp');--x:75%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>The Boy Who Harnessed the Wind</h2>
+<p class="translation" lang="es">El niño que domó el viento</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The book was based on William Kamkwamba’s life in Malawi. As a teenager, he built a windmill to make electricity for his home.</p><p class="translation" lang="es">El libro se basó en la vida de William Kamkwamba en Malaui. De adolescente, construyó un molino de viento para generar electricidad para su casa.</p>
+<p><a class="source" href="https://www.williamkamkwamba.org/" target="_blank" rel="noopener noreferrer">William Kamkwamba</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Glass Castle" style="--sheet:url('images/stories-3.webp');--x:100%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>The Glass Castle</h2>
+<p class="translation" lang="es">El castillo de cristal</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">This memoir was written by Jeannette Walls. She describes growing up with her family and moving from place to place.</p><p class="translation" lang="es">Estas memorias fueron escritas por Jeannette Walls. Ella cuenta cómo creció con su familia y se mudó de un lugar a otro.</p>
+<p><a class="source" href="https://www.simonandschuster.com/books/The-Glass-Castle/Jeannette-Walls/9781439156964" target="_blank" rel="noopener noreferrer">Simon &amp; Schuster</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Little Women" style="--sheet:url('images/stories-3.webp');--x:0%;--y:100%"></div><div>
+<p class="label">Book · Libro</p><h2>Little Women</h2>
+<p class="translation" lang="es">Mujercitas</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The novel was inspired by Louisa May Alcott’s childhood with her sisters. The March sisters are fictional characters.</p><p class="translation" lang="es">La novela se inspiró en la infancia de Louisa May Alcott con sus hermanas. Las hermanas March son personajes ficticios.</p>
+<p><a class="source" href="https://louisamayalcott.org/louisa-may-alcott" target="_blank" rel="noopener noreferrer">Louisa May Alcott’s Orchard House</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Robinson Crusoe" style="--sheet:url('images/stories-3.webp');--x:25%;--y:100%"></div><div>
+<p class="label">Book · Libro</p><h2>Robinson Crusoe</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The novel is often linked to Alexander Selkirk, a real sailor who lived alone on an island for over four years. Robinson Crusoe is a fictional character.</p><p class="translation" lang="es">La novela se suele relacionar con Alexander Selkirk, un marinero real que vivió solo en una isla durante más de cuatro años. Robinson Crusoe es un personaje ficticio.</p>
+<p><a class="source" href="https://www.loc.gov/resource/gdc.a22000997/?st=pdf" target="_blank" rel="noopener noreferrer">Library of Congress</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Moby-Dick" style="--sheet:url('images/stories-3.webp');--x:50%;--y:100%"></div><div>
+<p class="label">Book · Libro</p><h2>Moby-Dick</h2>
+<p class="translation" lang="es">Moby Dick</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The novel was inspired in part by the story of the Essex, a real ship that was sunk by a whale. Captain Ahab’s hunt is fictional.</p><p class="translation" lang="es">La novela se inspiró en parte en la historia del Essex, un barco real que fue hundido por una ballena. La cacería del capitán Ahab es ficticia.</p>
+<p><a class="source" href="https://oceanservice.noaa.gov/facts/mobydick.html" target="_blank" rel="noopener noreferrer">NOAA National Ocean Service</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Hunger Games" style="--sheet:url('images/stories-3.webp');--x:75%;--y:100%"></div><div>
+<p class="label">Book · Libro</p><h2>The Hunger Games</h2>
+<p class="translation" lang="es">Los juegos del hambre</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Katniss and the competition were invented for the novel. Suzanne Collins got the idea while switching between reality TV and news footage of the Iraq War.</p><p class="translation" lang="es">Katniss y la competencia fueron inventadas para la novela. A Suzanne Collins se le ocurrió la idea al cambiar entre programas de telerrealidad e imágenes de la guerra de Irak.</p>
+<p><a class="source" href="https://www.suzannecollinsbooks.com/hunger_games_10th_anniversary_scholastic_interview.htm" target="_blank" rel="noopener noreferrer">Suzanne Collins and Scholastic</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Hobbit" style="--sheet:url('images/stories-3.webp');--x:100%;--y:100%"></div><div>
+<p class="label">Book · Libro</p><h2>The Hobbit</h2>
+<p class="translation" lang="es">El hobbit</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Bilbo and his journey were created by J. R. R. Tolkien. His adventures take place in Middle-earth, a fantasy world.</p><p class="translation" lang="es">Bilbo y su viaje fueron creados por J. R. R. Tolkien. Sus aventuras ocurren en la Tierra Media, un mundo de fantasía.</p>
+<p><a class="source" href="https://www.tolkienestate.com/writing/john-d-rateliff-the-hobbit/" target="_blank" rel="noopener noreferrer">The Tolkien Estate</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The King’s Speech" style="--sheet:url('images/stories-4.webp');--x:0%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>The King’s Speech</h2>
+<p class="translation" lang="es">El discurso del rey</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was based on King George VI’s work with speech therapist Lionel Logue. Logue helped the king manage his stammer so he could speak in public.</p><p class="translation" lang="es">La película se basó en el trabajo del rey Jorge VI con el terapeuta del habla Lionel Logue. Logue ayudó al rey a controlar su tartamudez para que pudiera hablar en público.</p>
+<p><a class="source" href="https://filmsandfestivals.britishcouncil.org/projects/the-kings-speech" target="_blank" rel="noopener noreferrer">British Council Film</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Sound of Music" style="--sheet:url('images/stories-4.webp');--x:25%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>The Sound of Music</h2>
+<p class="translation" lang="es">La novicia rebelde</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was based on Maria von Trapp’s book about her real singing family. The movie changed details about her marriage and how the family left Austria.</p><p class="translation" lang="es">La película se basó en el libro de Maria von Trapp sobre su familia de cantantes. La película cambió detalles de su matrimonio y de cómo salió la familia de Austria.</p>
+<p><a class="source" href="https://www.archives.gov/publications/prologue/2005/winter/von-trapps-html" target="_blank" rel="noopener noreferrer">U.S. National Archives</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Catch Me If You Can" style="--sheet:url('images/stories-4.webp');--x:50%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Catch Me If You Can</h2>
+<p class="translation" lang="es">Atrápame si puedes</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The film was adapted from Frank Abagnale Jr.’s account of his life. Later research into public records has cast doubt on many of the adventures he claimed.</p><p class="translation" lang="es">La película se adaptó del relato de Frank Abagnale Jr. sobre su propia vida. Investigaciones posteriores de registros públicos han puesto en duda muchas de las aventuras que afirmó haber vivido.</p>
+<p><a class="source" href="https://whyy.org/segments/the-greatest-hoax-on-earth/" target="_blank" rel="noopener noreferrer">WHYY interview with researcher Alan Logan</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Erin Brockovich" style="--sheet:url('images/stories-4.webp');--x:75%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Erin Brockovich</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The film was based on Erin Brockovich’s work on a real water pollution case in Hinkley, California. She started investigating the case in 1991.</p><p class="translation" lang="es">La película se basó en el trabajo de Erin Brockovich en un caso real de contaminación del agua en Hinkley, California. Ella empezó a investigar el caso en 1991.</p>
+<p><a class="source" href="https://www.brockovich.com/the-movie/" target="_blank" rel="noopener noreferrer">Erin Brockovich’s firsthand account</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Cool Runnings" style="--sheet:url('images/stories-4.webp');--x:100%;--y:0%"></div><div>
+<p class="label">Movie · Película</p><h2>Cool Runnings</h2>
+<p class="translation" lang="es">Jamaica bajo cero</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The film was inspired by Jamaica’s real bobsled team at the 1988 Winter Olympics. The characters were created for the movie and do not directly portray the actual athletes or coaches.</p><p class="translation" lang="es">La película se inspiró en el equipo real de bobsleigh de Jamaica en los Juegos Olímpicos de Invierno de 1988. Los personajes se crearon para la película y no representan directamente a los deportistas ni a los entrenadores reales.</p>
+<p><a class="source" href="https://jamaicanbobsleigh.com/our-story/" target="_blank" rel="noopener noreferrer">Jamaica Bobsleigh team history</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Jaws" style="--sheet:url('images/stories-4.webp');--x:0%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Jaws</h2>
+<p class="translation" lang="es">Tiburón</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The novel behind the movie was partly inspired by a real shark caught near Long Island in 1964. Peter Benchley invented the story of a shark terrorizing a beach town.</p><p class="translation" lang="es">La novela en la que se basa la película se inspiró en parte en un tiburón real que fue capturado cerca de Long Island en 1964. Peter Benchley inventó la historia de un tiburón que aterroriza a un pueblo costero.</p>
+<p><a class="source" href="https://www.peterbenchley.com/about-peter-benchley" target="_blank" rel="noopener noreferrer">Peter Benchley’s firsthand account</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Lion King (1994)" style="--sheet:url('images/stories-4.webp');--x:25%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>The Lion King (1994)</h2>
+<p class="translation" lang="es">El rey león (1994)</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Simba’s story was created for the animated film. The filmmakers drew on African landscapes to design the setting.</p><p class="translation" lang="es">La historia de Simba se creó para la película animada. Los realizadores se inspiraron en paisajes africanos para diseñar el escenario.</p>
+<p><a class="source" href="https://digital.lionking.org/multimedia/media_file/film-notes/" target="_blank" rel="noopener noreferrer">Walt Disney Pictures production notes</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Ratatouille" style="--sheet:url('images/stories-4.webp');--x:50%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Ratatouille</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Remy’s story was made up for the film. It follows a rat who dreams of becoming a chef in Paris.</p><p class="translation" lang="es">La historia de Remy se inventó para la película. Trata de una rata que sueña con convertirse en chef en París.</p>
+<p><a class="source" href="https://www.pixar.com/ratatouille" target="_blank" rel="noopener noreferrer">Pixar Animation Studios</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for E.T. the Extra-Terrestrial" style="--sheet:url('images/stories-4.webp');--x:75%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>E.T. the Extra-Terrestrial</h2>
+<p class="translation" lang="es">E.T., el extraterrestre</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The family story was partly inspired by director Steven Spielberg’s parents’ divorce. The alien and his adventures were invented.</p><p class="translation" lang="es">La historia familiar se inspiró en parte en el divorcio de los padres del director Steven Spielberg. El extraterrestre y sus aventuras se inventaron.</p>
+<p><a class="source" href="https://www.cbsnews.com/news/spielberg-a-directors-life-reflected-in-film/" target="_blank" rel="noopener noreferrer">Steven Spielberg interview, CBS News</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Back to the Future" style="--sheet:url('images/stories-4.webp');--x:100%;--y:100%"></div><div>
+<p class="label">Movie · Película</p><h2>Back to the Future</h2>
+<p class="translation" lang="es">Volver al futuro</p>
+<p class="question">Was this movie based on a true story?</p><p class="translation" lang="es">¿Esta película se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">The time-travel adventure was invented. Co-writer Bob Gale has explained that his father’s old school yearbook helped give him the idea.</p><p class="translation" lang="es">La aventura de viajes en el tiempo se inventó. El coguionista Bob Gale ha explicado que un antiguo anuario escolar de su padre le dio parte de la idea.</p>
+<p><a class="source" href="https://www.backtothefuture.com/movies/production-notes-1985" target="_blank" rel="noopener noreferrer">Official Back to the Future production notes</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for A Christmas Carol" style="--sheet:url('images/stories-5.webp');--x:0%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>A Christmas Carol</h2>
+<p class="translation" lang="es">Cuento de Navidad</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The book was inspired by the poverty Dickens saw in Victorian Britain. Scrooge and the ghosts were invented.</p><p class="translation" lang="es">El libro se inspiró en la pobreza que Dickens vio en la Gran Bretaña victoriana. Scrooge y los fantasmas fueron inventados.</p>
+<p><a class="source" href="https://dickensmuseum.com/blogs/explore/a-christmas-carol-synopsis" target="_blank" rel="noopener noreferrer">Charles Dickens Museum</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Charlotte’s Web" style="--sheet:url('images/stories-5.webp');--x:25%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>Charlotte’s Web</h2>
+<p class="translation" lang="es">La telaraña de Carlota</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">Charlotte was inspired in part by a real spider E. B. White watched. The friendship between the talking spider and Wilbur the pig was made up.</p><p class="translation" lang="es">Charlotte se inspiró en parte en una araña real que observó E. B. White. La amistad entre la araña parlante y el cerdo Wilbur fue inventada.</p>
+<p><a class="source" href="https://www.theguardian.com/books/2011/jul/07/biographer-spider-charlottes-web" target="_blank" rel="noopener noreferrer">E. B. White’s letter, discussed by his biographer</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Harry Potter and the Philosopher’s Stone" style="--sheet:url('images/stories-5.webp');--x:50%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>Harry Potter and the Philosopher’s Stone</h2>
+<p class="translation" lang="es">Harry Potter y la piedra filosofal</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Harry’s first year at Hogwarts was imagined by J. K. Rowling. The book tells a fantasy story about a boy who discovers he is a wizard.</p><p class="translation" lang="es">El primer año de Harry en Hogwarts fue imaginado por J. K. Rowling. El libro cuenta una historia fantástica sobre un niño que descubre que es mago.</p>
+<p><a class="source" href="https://www.jkrowling.com/book/harry-potter-philosophers-stone/" target="_blank" rel="noopener noreferrer">J. K. Rowling</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Outsiders" style="--sheet:url('images/stories-5.webp');--x:75%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>The Outsiders</h2>
+<p class="translation" lang="es">Rebeldes</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The opening scene was inspired by an attack on one of S. E. Hinton’s friends in Tulsa. She turned that experience into a fictional story.</p><p class="translation" lang="es">La escena inicial se inspiró en una agresión contra un amigo de S. E. Hinton en Tulsa. Ella convirtió esa experiencia en una historia de ficción.</p>
+<p><a class="source" href="https://www.aol.com/articles/e-hinton-talks-she-understands-100150000.html" target="_blank" rel="noopener noreferrer">Interview with S. E. Hinton</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Jungle Book" style="--sheet:url('images/stories-5.webp');--x:100%;--y:0%"></div><div>
+<p class="label">Book · Libro</p><h2>The Jungle Book</h2>
+<p class="translation" lang="es">El libro de la selva</p>
+<p class="question">Was this book based on a true story?</p><p class="translation" lang="es">¿Este libro se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">No · Fictional · <span lang="es">No · De ficción</span></p>
+<p class="story"><strong>It wasn’t based on a true story.</strong></p><p class="translation" lang="es">No se basó en una historia real.</p>
+<p class="story">Mowgli and his adventures were invented by Rudyard Kipling. The stories use a real setting in India and imagined characters such as talking animals.</p><p class="translation" lang="es">Mowgli y sus aventuras fueron inventados por Rudyard Kipling. Los relatos se sitúan en la India y tienen personajes imaginarios, como animales que hablan.</p>
+<p><a class="source" href="https://www.loc.gov/item/50042653/" target="_blank" rel="noopener noreferrer">Library of Congress, digitized edition</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Fire and Rain" style="--sheet:url('images/stories-5.webp');--x:0%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Fire and Rain</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The song was based on events in James Taylor’s life. Its first verse grew out of news of a friend’s death, and later verses were written while he was in treatment.</p><p class="translation" lang="es">La canción se basó en hechos de la vida de James Taylor. La primera estrofa surgió tras enterarse de la muerte de una amiga, y las siguientes se escribieron mientras estaba en tratamiento.</p>
+<p><a class="source" href="https://www.jamestaylor.com/about/live-qa" target="_blank" rel="noopener noreferrer">James Taylor’s official Q&amp;A</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Hey Jude" style="--sheet:url('images/stories-5.webp');--x:25%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Hey Jude</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The song was inspired by a real family situation. Paul McCartney wrote an early version to comfort Julian Lennon during his parents’ divorce.</p><p class="translation" lang="es">La canción se inspiró en una situación familiar real. Paul McCartney escribió una primera versión para consolar a Julian Lennon durante el divorcio de sus padres.</p>
+<p><a class="source" href="https://www.thebeatles.com/hey-jude" target="_blank" rel="noopener noreferrer">The Beatles</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for The Ballad of John and Yoko" style="--sheet:url('images/stories-5.webp');--x:50%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>The Ballad of John and Yoko</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Yes · Based on real events · <span lang="es">Sí · Basada en hechos reales</span></p>
+<p class="story"><strong>It was based on real events.</strong></p><p class="translation" lang="es">Se basó en hechos reales.</p>
+<p class="story">The song was based on John Lennon and Yoko Ono’s real marriage and the events around it. John and Paul recorded the track in one day.</p><p class="translation" lang="es">La canción se basó en el matrimonio real de John Lennon y Yoko Ono y en lo que ocurrió alrededor de la boda. John y Paul grabaron la canción en un solo día.</p>
+<p><a class="source" href="https://www.thebeatles.com/ballad-john-and-yoko-0" target="_blank" rel="noopener noreferrer">The Beatles</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Fast Car" style="--sheet:url('images/stories-5.webp');--x:75%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Fast Car</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Inspired by real life · <span lang="es">Inspirada en la vida real</span></p>
+<p class="story"><strong>It was inspired by real life.</strong></p><p class="translation" lang="es">Se inspiró en la vida real.</p>
+<p class="story">The song was shaped by the kinds of economic struggles Tracy Chapman saw growing up. Her interview describes that background without identifying the narrator as a particular real person.</p><p class="translation" lang="es">La canción se nutrió de las dificultades económicas que Tracy Chapman vio mientras crecía. En la entrevista explica ese contexto sin identificar a la narradora con una persona real en particular.</p>
+<p><a class="source" href="https://www.about-tracy-chapman.net/tracy-chapman-on-the-vinyl-re-release-of-her-bestselling-debut-album-front-row-bbc-radio-4/" target="_blank" rel="noopener noreferrer">Tracy Chapman interview, BBC Radio 4 transcript</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustrated clue for Goodbye Yellow Brick Road" style="--sheet:url('images/stories-5.webp');--x:100%;--y:100%"></div><div>
+<p class="label">Song · Canción</p><h2>Goodbye Yellow Brick Road</h2>
+<p class="translation" lang="es"></p>
+<p class="question">Was this song based on a true story?</p><p class="translation" lang="es">¿Esta canción se basó en una historia real?</p>
+</div></div>
+<details class="answer"><summary>Reveal answer</summary>
+<p class="label">Unconfirmed · <span lang="es">Sin confirmar</span></p>
+<p class="story"><strong>A true-story basis has not been confirmed.</strong></p><p class="translation" lang="es">No se ha confirmado que se base en una historia real.</p>
+<p class="story">A specific true event has not been confirmed as the basis of the song. It uses the yellow brick road as a metaphor, and the album credits the song to Elton John and Bernie Taupin.</p><p class="translation" lang="es">No se ha confirmado que la canción se base en un hecho real específico. Usa el camino de baldosas amarillas como metáfora, y el álbum atribuye la canción a Elton John y Bernie Taupin.</p>
+<p><a class="source" href="https://www.grammy.com/news/elton-john-goodbye-yellow-brick-road-50-anniversary-songs/" target="_blank" rel="noopener noreferrer">Recording Academy, track-by-track history</a></p>
+</details></article>
+</section>
+</main>
+<script>
+const cards = [
+  {
+    "item": "Titanic (1997)",
+    "itemEs": "Titanic (1997)",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The film was set during the real sinking of the Titanic in 1912. Jack and Rose were created for the film.",
+    "answerEs": "La película se ambientó en el hundimiento real del Titanic en 1912. Jack y Rose fueron creados para la película.",
+    "source": "Titanic Belfast",
+    "url": "https://www.titanicbelfast.com/news/titanic-movie-fact-or-fiction/",
+    "imageIndex": 0
+  },
+  {
+    "item": "Hidden Figures",
+    "itemEs": "Talentos ocultos",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was based on the work of Katherine Johnson, Dorothy Vaughan, and Mary Jackson at NASA. Their lives were adapted for the screen.",
+    "answerEs": "La película se basó en el trabajo de Katherine Johnson, Dorothy Vaughan y Mary Jackson en la NASA. Sus vidas fueron adaptadas al cine.",
+    "source": "NASA",
+    "url": "https://www.nasa.gov/from-hidden-to-modern-figures/",
+    "imageIndex": 1
+  },
+  {
+    "item": "Apollo 13",
+    "itemEs": "Apolo 13",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The real Apollo 13 mission was dramatized in the film. The 1970 Moon landing was canceled after an oxygen tank exploded, and the crew returned safely.",
+    "answerEs": "La misión real del Apolo 13 se dramatizó en la película. El alunizaje de 1970 se canceló después de que explotara un tanque de oxígeno, y la tripulación regresó a salvo.",
+    "source": "NASA",
+    "url": "https://www.nasa.gov/news-release/apollo-13-astronaut-fred-haise-to-tell-of-his-memorable-space-experiences-at-talks/",
+    "imageIndex": 2
+  },
+  {
+    "item": "The Pursuit of Happyness",
+    "itemEs": "En busca de la felicidad",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was inspired by the real story of Chris Gardner. It follows his struggle to support his young son while starting a new career.",
+    "answerEs": "La película se inspiró en la historia real de Chris Gardner. Cuenta cómo luchó por mantener a su hijo pequeño mientras empezaba una nueva carrera.",
+    "source": "Sony Pictures",
+    "url": "https://www.sonypictures.com/movies/thepursuitofhappyness",
+    "imageIndex": 3
+  },
+  {
+    "item": "The Social Network",
+    "itemEs": "La red social",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was based on a book about the founding of Facebook. The founding and the disputes were real, and the scenes were written for a drama.",
+    "answerEs": "La película se basó en un libro sobre la creación de Facebook. La creación de la empresa y las disputas fueron reales, y las escenas se escribieron para una película dramática.",
+    "source": "Sony Pictures",
+    "url": "https://www.sonypictures.com/corp/press_releases/2011/01_11/010511_tsn.html",
+    "imageIndex": 4
+  },
+  {
+    "item": "The Martian",
+    "itemEs": "Misión rescate",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "The film was adapted from a science fiction novel by Andy Weir. The astronaut Mark Watney and his mission to Mars were invented for the story.",
+    "answerEs": "La película se adaptó de una novela de ciencia ficción de Andy Weir. El astronauta Mark Watney y su misión a Marte fueron inventados para la historia.",
+    "source": "Penguin Random House",
+    "url": "https://assets.penguinrandomhouse.com/book-resumes/WeirAndy_Martian_20240718.pdf",
+    "imageIndex": 5
+  },
+  {
+    "item": "Jurassic Park",
+    "itemEs": "Parque Jurásico",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "The film was adapted from a novel by Michael Crichton. Dinosaurs were real, but the park and its cloned dinosaurs were invented for the story.",
+    "answerEs": "La película se adaptó de una novela de Michael Crichton. Los dinosaurios existieron, pero el parque y los dinosaurios clonados fueron inventados para la historia.",
+    "source": "Michael Crichton official website",
+    "url": "https://michaelcrichton.com/works/jurassic-park/",
+    "imageIndex": 6
+  },
+  {
+    "item": "Toy Story",
+    "itemEs": "Toy Story",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "Woody and Buzz were created as characters in an animated story. They are toys that come to life when people are away.",
+    "answerEs": "Woody y Buzz fueron creados como personajes de una historia animada. Son juguetes que cobran vida cuando no hay personas cerca.",
+    "source": "Pixar Animation Studios",
+    "url": "https://www.pixar.com/toy-story",
+    "imageIndex": 7
+  },
+  {
+    "item": "Finding Nemo",
+    "itemEs": "Buscando a Nemo",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "Nemo and Marlin were created for a fictional story. Clownfish and the Great Barrier Reef are real, but the rescue adventure is imagined.",
+    "answerEs": "Nemo y Marlin fueron creados para una historia de ficción. Los peces payaso y la Gran Barrera de Coral existen, pero la aventura del rescate es imaginaria.",
+    "source": "Pixar Animation Studios",
+    "url": "https://www.pixar.com/finding-nemo",
+    "imageIndex": 8
+  },
+  {
+    "item": "Coco",
+    "itemEs": "Coco",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The film was inspired by Mexico’s Día de Muertos and by the families the filmmakers met in Mexico. Miguel’s adventure was invented for the film.",
+    "answerEs": "La película se inspiró en el Día de Muertos de México y en las familias que los cineastas conocieron allí. La aventura de Miguel fue inventada para la película.",
+    "source": "Pixar Animation Studios",
+    "url": "https://www.pixar.com/coco",
+    "imageIndex": 9
+  },
+  {
+    "item": "The Wreck of the Edmund Fitzgerald",
+    "itemEs": "El naufragio del Edmund Fitzgerald",
+    "category": "Song",
+    "verdict": "Yes",
+    "answer": "Gordon Lightfoot’s song was based on a real shipwreck. The Edmund Fitzgerald sank in Lake Superior during a storm in 1975, and all 29 crew members died.",
+    "answerEs": "La canción de Gordon Lightfoot se basó en un naufragio real. El Edmund Fitzgerald se hundió en el lago Superior durante una tormenta en 1975 y murieron los 29 tripulantes.",
+    "source": "Great Lakes Shipwreck Historical Society",
+    "url": "https://shipwreckmuseum.com/edmund-fitzgerald/",
+    "imageIndex": 10
+  },
+  {
+    "item": "American Pie",
+    "itemEs": "American Pie",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "Don McLean’s song was inspired in part by the death of musician Buddy Holly in a 1959 plane crash. It also reflects on changes in American music and culture.",
+    "answerEs": "La canción de Don McLean se inspiró en parte en la muerte del músico Buddy Holly en un accidente aéreo en 1959. También reflexiona sobre los cambios en la música y la cultura de Estados Unidos.",
+    "source": "Don McLean, official website",
+    "url": "https://donmclean.com/about-american-pie/",
+    "imageIndex": 11
+  },
+  {
+    "item": "Candle in the Wind (1973)",
+    "itemEs": "Candle in the Wind (1973)",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "The original song was written about actress Marilyn Monroe by Elton John and Bernie Taupin. Its 1997 version was adapted to honor Princess Diana.",
+    "answerEs": "La canción original fue escrita por Elton John y Bernie Taupin sobre la actriz Marilyn Monroe. Su versión de 1997 se adaptó para homenajear a la princesa Diana.",
+    "source": "Elton John, official website",
+    "url": "https://www.eltonjohn.com/stories/diamond-moments-candle-in-the-wind",
+    "imageIndex": 12
+  },
+  {
+    "item": "Hurricane (Bob Dylan)",
+    "itemEs": "Hurricane (Bob Dylan)",
+    "category": "Song",
+    "verdict": "Yes",
+    "answer": "The song was based on the case of boxer Rubin “Hurricane” Carter, who was convicted of murder. Dylan and Jacques Levy challenged the conviction in the song, and a federal judge overturned it in 1985.",
+    "answerEs": "La canción se basó en el caso del boxeador Rubin «Hurricane» Carter, quien fue condenado por asesinato. Dylan y Jacques Levy cuestionaron la condena en la canción, y un juez federal la anuló en 1985.",
+    "source": "National Registry of Exonerations",
+    "url": "https://exonerationregistry.org/cases/4694",
+    "imageIndex": 13
+  },
+  {
+    "item": "Sunday Bloody Sunday (U2)",
+    "itemEs": "Sunday Bloody Sunday (U2)",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "The song was inspired by Bloody Sunday in Derry, Northern Ireland, where British soldiers shot civil rights protesters in 1972. It speaks more broadly about the pain caused by violence.",
+    "answerEs": "La canción se inspiró en el Domingo Sangriento en Derry, Irlanda del Norte, donde soldados británicos dispararon contra manifestantes por los derechos civiles en 1972. También habla del dolor causado por la violencia en general.",
+    "source": "U2, official website",
+    "url": "https://www.u2.com/blogs/news/with-love-bono-and-edge",
+    "imageIndex": 14
+  },
+  {
+    "item": "Tears in Heaven",
+    "itemEs": "Tears in Heaven",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "The song was written in response to the loss of Eric Clapton’s young son, Conor, who died in 1991. Clapton completed it for the film Rush.",
+    "answerEs": "La canción fue escrita tras la muerte de Conor, el hijo pequeño de Eric Clapton, en 1991. Clapton la terminó para la película Rush.",
+    "source": "Eric Clapton interview, Guitar World",
+    "url": "https://www.guitarworld.com/artists/eric-clapton-amazing-grace",
+    "imageIndex": 15
+  },
+  {
+    "item": "Bohemian Rhapsody",
+    "itemEs": "Bohemian Rhapsody",
+    "category": "Song",
+    "verdict": "Unconfirmed",
+    "answer": "No specific real event has been confirmed as the basis of Freddie Mercury’s song. Listeners have offered many interpretations since its release in 1975.",
+    "answerEs": "No se ha confirmado que un hecho real específico sea la base de la canción de Freddie Mercury. Los oyentes han propuesto muchas interpretaciones desde su lanzamiento en 1975.",
+    "source": "QueenOnline, official Queen website",
+    "url": "https://queenonline.com/features/bohemian-rhapsody-at-40-a-little-silhouetto-of-bohemian-rhapsody-fan-feature-by-patrick-lemieux",
+    "imageIndex": 16
+  },
+  {
+    "item": "Hotel California",
+    "itemEs": "Hotel California",
+    "category": "Song",
+    "verdict": "No",
+    "answer": "The hotel was used as a symbol in the Eagles’ song. Co-writer Don Henley described the song as a journey from innocence to experience and a look at American life.",
+    "answerEs": "El hotel se usó como símbolo en la canción de Eagles. El coautor Don Henley describió la canción como un paso de la inocencia a la experiencia y una mirada a la vida en Estados Unidos.",
+    "source": "Don Henley interview, CBS News",
+    "url": "https://www.cbsnews.com/news/don-henley-the-eagles-glenn-frey-kennedy-center-honor-hotel-california/",
+    "imageIndex": 17
+  },
+  {
+    "item": "Space Oddity",
+    "itemEs": "Space Oddity",
+    "category": "Song",
+    "verdict": "No",
+    "answer": "David Bowie’s song was inspired by the science fiction film 2001: A Space Odyssey. The astronaut Major Tom is a fictional character.",
+    "answerEs": "La canción de David Bowie se inspiró en la película de ciencia ficción 2001: Odisea del espacio. El astronauta Major Tom es un personaje ficticio.",
+    "source": "David Bowie, official website",
+    "url": "https://www.davidbowie.com/blog/2018/5/10/2001-a-space-odyssey-is-fifty",
+    "imageIndex": 18
+  },
+  {
+    "item": "The Night the Lights Went Out in Georgia",
+    "itemEs": "The Night the Lights Went Out in Georgia",
+    "category": "Song",
+    "verdict": "No",
+    "answer": "The murder story was invented by songwriter Bobby Russell. Vicki Lawrence recorded the song, which tells how a man is wrongly blamed for a crime.",
+    "answerEs": "La historia del asesinato fue inventada por el compositor Bobby Russell. Vicki Lawrence grabó la canción, que cuenta cómo un hombre es acusado injustamente de un delito.",
+    "source": "Country Living",
+    "url": "https://www.countryliving.com/life/entertainment/a68100464/lights-went-out-in-georgia-real-story/",
+    "imageIndex": 19
+  },
+  {
+    "item": "The Diary of a Young Girl",
+    "itemEs": "El diario de Ana Frank",
+    "verdict": "Yes",
+    "answer": "The book was taken from Anne Frank’s real diary. Anne wrote about her life in hiding during World War II.",
+    "answerEs": "El libro se publicó a partir del diario real de Ana Frank. Ana escribió sobre su vida en el escondite durante la Segunda Guerra Mundial.",
+    "source": "Anne Frank House",
+    "url": "https://www.annefrank.org/en/museum/inside-museum/",
+    "category": "Book",
+    "imageIndex": 20
+  },
+  {
+    "item": "I Am Malala",
+    "itemEs": "Yo soy Malala",
+    "verdict": "Yes",
+    "answer": "The book was written by Malala Yousafzai with Christina Lamb. It tells how Malala spoke up for girls’ education in Pakistan.",
+    "answerEs": "El libro fue escrito por Malala Yousafzai con Christina Lamb. Cuenta cómo Malala defendió el derecho de las niñas a estudiar en Pakistán.",
+    "source": "Hachette Book Group",
+    "url": "https://www.hachettebookgroup.com/titles/malala-yousafzai/i-am-%20malala/9780316322409/",
+    "category": "Book",
+    "imageIndex": 21
+  },
+  {
+    "item": "Long Walk to Freedom",
+    "itemEs": "El largo camino hacia la libertad",
+    "verdict": "Yes",
+    "answer": "This autobiography was written by Nelson Mandela. He tells the story of his life, including his years in prison and his fight against apartheid in South Africa.",
+    "answerEs": "Esta autobiografía fue escrita por Nelson Mandela. Cuenta la historia de su vida, incluidos sus años en prisión y su lucha contra el apartheid en Sudáfrica.",
+    "source": "Hachette Book Group",
+    "url": "https://www.hachettebookgroup.com/titles/nelson-mandela/long-walk-to-freedom/9780316548182/",
+    "category": "Book",
+    "imageIndex": 22
+  },
+  {
+    "item": "The Boy Who Harnessed the Wind",
+    "itemEs": "El niño que domó el viento",
+    "verdict": "Yes",
+    "answer": "The book was based on William Kamkwamba’s life in Malawi. As a teenager, he built a windmill to make electricity for his home.",
+    "answerEs": "El libro se basó en la vida de William Kamkwamba en Malaui. De adolescente, construyó un molino de viento para generar electricidad para su casa.",
+    "source": "William Kamkwamba",
+    "url": "https://www.williamkamkwamba.org/",
+    "category": "Book",
+    "imageIndex": 23
+  },
+  {
+    "item": "The Glass Castle",
+    "itemEs": "El castillo de cristal",
+    "verdict": "Yes",
+    "answer": "This memoir was written by Jeannette Walls. She describes growing up with her family and moving from place to place.",
+    "answerEs": "Estas memorias fueron escritas por Jeannette Walls. Ella cuenta cómo creció con su familia y se mudó de un lugar a otro.",
+    "source": "Simon & Schuster",
+    "url": "https://www.simonandschuster.com/books/The-Glass-Castle/Jeannette-Walls/9781439156964",
+    "category": "Book",
+    "imageIndex": 24
+  },
+  {
+    "item": "Little Women",
+    "itemEs": "Mujercitas",
+    "verdict": "Inspired by real life",
+    "answer": "The novel was inspired by Louisa May Alcott’s childhood with her sisters. The March sisters are fictional characters.",
+    "answerEs": "La novela se inspiró en la infancia de Louisa May Alcott con sus hermanas. Las hermanas March son personajes ficticios.",
+    "source": "Louisa May Alcott’s Orchard House",
+    "url": "https://louisamayalcott.org/louisa-may-alcott",
+    "category": "Book",
+    "imageIndex": 25
+  },
+  {
+    "item": "Robinson Crusoe",
+    "itemEs": "Robinson Crusoe",
+    "verdict": "Inspired by real life",
+    "answer": "The novel is often linked to Alexander Selkirk, a real sailor who lived alone on an island for over four years. Robinson Crusoe is a fictional character.",
+    "answerEs": "La novela se suele relacionar con Alexander Selkirk, un marinero real que vivió solo en una isla durante más de cuatro años. Robinson Crusoe es un personaje ficticio.",
+    "source": "Library of Congress",
+    "url": "https://www.loc.gov/resource/gdc.a22000997/?st=pdf",
+    "category": "Book",
+    "imageIndex": 26
+  },
+  {
+    "item": "Moby-Dick",
+    "itemEs": "Moby Dick",
+    "verdict": "Inspired by real life",
+    "answer": "The novel was inspired in part by the story of the Essex, a real ship that was sunk by a whale. Captain Ahab’s hunt is fictional.",
+    "answerEs": "La novela se inspiró en parte en la historia del Essex, un barco real que fue hundido por una ballena. La cacería del capitán Ahab es ficticia.",
+    "source": "NOAA National Ocean Service",
+    "url": "https://oceanservice.noaa.gov/facts/mobydick.html",
+    "category": "Book",
+    "imageIndex": 27
+  },
+  {
+    "item": "The Hunger Games",
+    "itemEs": "Los juegos del hambre",
+    "verdict": "No",
+    "answer": "Katniss and the competition were invented for the novel. Suzanne Collins got the idea while switching between reality TV and news footage of the Iraq War.",
+    "answerEs": "Katniss y la competencia fueron inventadas para la novela. A Suzanne Collins se le ocurrió la idea al cambiar entre programas de telerrealidad e imágenes de la guerra de Irak.",
+    "source": "Suzanne Collins and Scholastic",
+    "url": "https://www.suzannecollinsbooks.com/hunger_games_10th_anniversary_scholastic_interview.htm",
+    "category": "Book",
+    "imageIndex": 28
+  },
+  {
+    "item": "The Hobbit",
+    "itemEs": "El hobbit",
+    "verdict": "No",
+    "answer": "Bilbo and his journey were created by J. R. R. Tolkien. His adventures take place in Middle-earth, a fantasy world.",
+    "answerEs": "Bilbo y su viaje fueron creados por J. R. R. Tolkien. Sus aventuras ocurren en la Tierra Media, un mundo de fantasía.",
+    "source": "The Tolkien Estate",
+    "url": "https://www.tolkienestate.com/writing/john-d-rateliff-the-hobbit/",
+    "category": "Book",
+    "imageIndex": 29
+  },
+  {
+    "item": "The King’s Speech",
+    "itemEs": "El discurso del rey",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was based on King George VI’s work with speech therapist Lionel Logue. Logue helped the king manage his stammer so he could speak in public.",
+    "answerEs": "La película se basó en el trabajo del rey Jorge VI con el terapeuta del habla Lionel Logue. Logue ayudó al rey a controlar su tartamudez para que pudiera hablar en público.",
+    "source": "British Council Film",
+    "url": "https://filmsandfestivals.britishcouncil.org/projects/the-kings-speech",
+    "imageIndex": 30
+  },
+  {
+    "item": "The Sound of Music",
+    "itemEs": "La novicia rebelde",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was based on Maria von Trapp’s book about her real singing family. The movie changed details about her marriage and how the family left Austria.",
+    "answerEs": "La película se basó en el libro de Maria von Trapp sobre su familia de cantantes. La película cambió detalles de su matrimonio y de cómo salió la familia de Austria.",
+    "source": "U.S. National Archives",
+    "url": "https://www.archives.gov/publications/prologue/2005/winter/von-trapps-html",
+    "imageIndex": 31
+  },
+  {
+    "item": "Catch Me If You Can",
+    "itemEs": "Atrápame si puedes",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The film was adapted from Frank Abagnale Jr.’s account of his life. Later research into public records has cast doubt on many of the adventures he claimed.",
+    "answerEs": "La película se adaptó del relato de Frank Abagnale Jr. sobre su propia vida. Investigaciones posteriores de registros públicos han puesto en duda muchas de las aventuras que afirmó haber vivido.",
+    "source": "WHYY interview with researcher Alan Logan",
+    "url": "https://whyy.org/segments/the-greatest-hoax-on-earth/",
+    "imageIndex": 32
+  },
+  {
+    "item": "Erin Brockovich",
+    "itemEs": "Erin Brockovich",
+    "category": "Movie",
+    "verdict": "Yes",
+    "answer": "The film was based on Erin Brockovich’s work on a real water pollution case in Hinkley, California. She started investigating the case in 1991.",
+    "answerEs": "La película se basó en el trabajo de Erin Brockovich en un caso real de contaminación del agua en Hinkley, California. Ella empezó a investigar el caso en 1991.",
+    "source": "Erin Brockovich’s firsthand account",
+    "url": "https://www.brockovich.com/the-movie/",
+    "imageIndex": 33
+  },
+  {
+    "item": "Cool Runnings",
+    "itemEs": "Jamaica bajo cero",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The film was inspired by Jamaica’s real bobsled team at the 1988 Winter Olympics. The characters were created for the movie and do not directly portray the actual athletes or coaches.",
+    "answerEs": "La película se inspiró en el equipo real de bobsleigh de Jamaica en los Juegos Olímpicos de Invierno de 1988. Los personajes se crearon para la película y no representan directamente a los deportistas ni a los entrenadores reales.",
+    "source": "Jamaica Bobsleigh team history",
+    "url": "https://jamaicanbobsleigh.com/our-story/",
+    "imageIndex": 34
+  },
+  {
+    "item": "Jaws",
+    "itemEs": "Tiburón",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The novel behind the movie was partly inspired by a real shark caught near Long Island in 1964. Peter Benchley invented the story of a shark terrorizing a beach town.",
+    "answerEs": "La novela en la que se basa la película se inspiró en parte en un tiburón real que fue capturado cerca de Long Island en 1964. Peter Benchley inventó la historia de un tiburón que aterroriza a un pueblo costero.",
+    "source": "Peter Benchley’s firsthand account",
+    "url": "https://www.peterbenchley.com/about-peter-benchley",
+    "imageIndex": 35
+  },
+  {
+    "item": "The Lion King (1994)",
+    "itemEs": "El rey león (1994)",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "Simba’s story was created for the animated film. The filmmakers drew on African landscapes to design the setting.",
+    "answerEs": "La historia de Simba se creó para la película animada. Los realizadores se inspiraron en paisajes africanos para diseñar el escenario.",
+    "source": "Walt Disney Pictures production notes",
+    "url": "https://digital.lionking.org/multimedia/media_file/film-notes/",
+    "imageIndex": 36
+  },
+  {
+    "item": "Ratatouille",
+    "itemEs": "Ratatouille",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "Remy’s story was made up for the film. It follows a rat who dreams of becoming a chef in Paris.",
+    "answerEs": "La historia de Remy se inventó para la película. Trata de una rata que sueña con convertirse en chef en París.",
+    "source": "Pixar Animation Studios",
+    "url": "https://www.pixar.com/ratatouille",
+    "imageIndex": 37
+  },
+  {
+    "item": "E.T. the Extra-Terrestrial",
+    "itemEs": "E.T., el extraterrestre",
+    "category": "Movie",
+    "verdict": "Inspired by real life",
+    "answer": "The family story was partly inspired by director Steven Spielberg’s parents’ divorce. The alien and his adventures were invented.",
+    "answerEs": "La historia familiar se inspiró en parte en el divorcio de los padres del director Steven Spielberg. El extraterrestre y sus aventuras se inventaron.",
+    "source": "Steven Spielberg interview, CBS News",
+    "url": "https://www.cbsnews.com/news/spielberg-a-directors-life-reflected-in-film/",
+    "imageIndex": 38
+  },
+  {
+    "item": "Back to the Future",
+    "itemEs": "Volver al futuro",
+    "category": "Movie",
+    "verdict": "No",
+    "answer": "The time-travel adventure was invented. Co-writer Bob Gale has explained that his father’s old school yearbook helped give him the idea.",
+    "answerEs": "La aventura de viajes en el tiempo se inventó. El coguionista Bob Gale ha explicado que un antiguo anuario escolar de su padre le dio parte de la idea.",
+    "source": "Official Back to the Future production notes",
+    "url": "https://www.backtothefuture.com/movies/production-notes-1985",
+    "imageIndex": 39
+  },
+  {
+    "item": "A Christmas Carol",
+    "itemEs": "Cuento de Navidad",
+    "category": "Book",
+    "verdict": "Inspired by real life",
+    "answer": "The book was inspired by the poverty Dickens saw in Victorian Britain. Scrooge and the ghosts were invented.",
+    "answerEs": "El libro se inspiró en la pobreza que Dickens vio en la Gran Bretaña victoriana. Scrooge y los fantasmas fueron inventados.",
+    "source": "Charles Dickens Museum",
+    "url": "https://dickensmuseum.com/blogs/explore/a-christmas-carol-synopsis",
+    "imageIndex": 40
+  },
+  {
+    "item": "Charlotte’s Web",
+    "itemEs": "La telaraña de Carlota",
+    "category": "Book",
+    "verdict": "Inspired by real life",
+    "answer": "Charlotte was inspired in part by a real spider E. B. White watched. The friendship between the talking spider and Wilbur the pig was made up.",
+    "answerEs": "Charlotte se inspiró en parte en una araña real que observó E. B. White. La amistad entre la araña parlante y el cerdo Wilbur fue inventada.",
+    "source": "E. B. White’s letter, discussed by his biographer",
+    "url": "https://www.theguardian.com/books/2011/jul/07/biographer-spider-charlottes-web",
+    "imageIndex": 41
+  },
+  {
+    "item": "Harry Potter and the Philosopher’s Stone",
+    "itemEs": "Harry Potter y la piedra filosofal",
+    "category": "Book",
+    "verdict": "No",
+    "answer": "Harry’s first year at Hogwarts was imagined by J. K. Rowling. The book tells a fantasy story about a boy who discovers he is a wizard.",
+    "answerEs": "El primer año de Harry en Hogwarts fue imaginado por J. K. Rowling. El libro cuenta una historia fantástica sobre un niño que descubre que es mago.",
+    "source": "J. K. Rowling",
+    "url": "https://www.jkrowling.com/book/harry-potter-philosophers-stone/",
+    "imageIndex": 42
+  },
+  {
+    "item": "The Outsiders",
+    "itemEs": "Rebeldes",
+    "category": "Book",
+    "verdict": "Inspired by real life",
+    "answer": "The opening scene was inspired by an attack on one of S. E. Hinton’s friends in Tulsa. She turned that experience into a fictional story.",
+    "answerEs": "La escena inicial se inspiró en una agresión contra un amigo de S. E. Hinton en Tulsa. Ella convirtió esa experiencia en una historia de ficción.",
+    "source": "Interview with S. E. Hinton",
+    "url": "https://www.aol.com/articles/e-hinton-talks-she-understands-100150000.html",
+    "imageIndex": 43
+  },
+  {
+    "item": "The Jungle Book",
+    "itemEs": "El libro de la selva",
+    "category": "Book",
+    "verdict": "No",
+    "answer": "Mowgli and his adventures were invented by Rudyard Kipling. The stories use a real setting in India and imagined characters such as talking animals.",
+    "answerEs": "Mowgli y sus aventuras fueron inventados por Rudyard Kipling. Los relatos se sitúan en la India y tienen personajes imaginarios, como animales que hablan.",
+    "source": "Library of Congress, digitized edition",
+    "url": "https://www.loc.gov/item/50042653/",
+    "imageIndex": 44
+  },
+  {
+    "item": "Fire and Rain",
+    "itemEs": "Fire and Rain",
+    "category": "Song",
+    "verdict": "Yes",
+    "answer": "The song was based on events in James Taylor’s life. Its first verse grew out of news of a friend’s death, and later verses were written while he was in treatment.",
+    "answerEs": "La canción se basó en hechos de la vida de James Taylor. La primera estrofa surgió tras enterarse de la muerte de una amiga, y las siguientes se escribieron mientras estaba en tratamiento.",
+    "source": "James Taylor’s official Q&A",
+    "url": "https://www.jamestaylor.com/about/live-qa",
+    "imageIndex": 45
+  },
+  {
+    "item": "Hey Jude",
+    "itemEs": "Hey Jude",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "The song was inspired by a real family situation. Paul McCartney wrote an early version to comfort Julian Lennon during his parents’ divorce.",
+    "answerEs": "La canción se inspiró en una situación familiar real. Paul McCartney escribió una primera versión para consolar a Julian Lennon durante el divorcio de sus padres.",
+    "source": "The Beatles",
+    "url": "https://www.thebeatles.com/hey-jude",
+    "imageIndex": 46
+  },
+  {
+    "item": "The Ballad of John and Yoko",
+    "itemEs": "The Ballad of John and Yoko",
+    "category": "Song",
+    "verdict": "Yes",
+    "answer": "The song was based on John Lennon and Yoko Ono’s real marriage and the events around it. John and Paul recorded the track in one day.",
+    "answerEs": "La canción se basó en el matrimonio real de John Lennon y Yoko Ono y en lo que ocurrió alrededor de la boda. John y Paul grabaron la canción en un solo día.",
+    "source": "The Beatles",
+    "url": "https://www.thebeatles.com/ballad-john-and-yoko-0",
+    "imageIndex": 47
+  },
+  {
+    "item": "Fast Car",
+    "itemEs": "Fast Car",
+    "category": "Song",
+    "verdict": "Inspired by real life",
+    "answer": "The song was shaped by the kinds of economic struggles Tracy Chapman saw growing up. Her interview describes that background without identifying the narrator as a particular real person.",
+    "answerEs": "La canción se nutrió de las dificultades económicas que Tracy Chapman vio mientras crecía. En la entrevista explica ese contexto sin identificar a la narradora con una persona real en particular.",
+    "source": "Tracy Chapman interview, BBC Radio 4 transcript",
+    "url": "https://www.about-tracy-chapman.net/tracy-chapman-on-the-vinyl-re-release-of-her-bestselling-debut-album-front-row-bbc-radio-4/",
+    "imageIndex": 48
+  },
+  {
+    "item": "Goodbye Yellow Brick Road",
+    "itemEs": "Goodbye Yellow Brick Road",
+    "category": "Song",
+    "verdict": "Unconfirmed",
+    "answer": "A specific true event has not been confirmed as the basis of the song. It uses the yellow brick road as a metaphor, and the album credits the song to Elton John and Bernie Taupin.",
+    "answerEs": "No se ha confirmado que la canción se base en un hecho real específico. Usa el camino de baldosas amarillas como metáfora, y el álbum atribuye la canción a Elton John y Bernie Taupin.",
+    "source": "Recording Academy, track-by-track history",
+    "url": "https://www.grammy.com/news/elton-john-goodbye-yellow-brick-road-50-anniversary-songs/",
+    "imageIndex": 49
+  }
+];
+const kinds = {
+  "Movie": [
+    "Movie · Película",
+    "Was this movie based on a true story?",
+    "¿Esta película se basó en una historia real?"
+  ],
+  "Song": [
+    "Song · Canción",
+    "Was this song based on a true story?",
+    "¿Esta canción se basó en una historia real?"
+  ],
+  "Book": [
+    "Book · Libro",
+    "Was this book based on a true story?",
+    "¿Este libro se basó en una historia real?"
+  ]
+};
+const verdicts = {
+  "Yes": [
+    "Yes · Based on real events",
+    "Sí · Basada en hechos reales",
+    "It was based on real events.",
+    "Se basó en hechos reales."
+  ],
+  "Inspired by real life": [
+    "Inspired by real life",
+    "Inspirada en la vida real",
+    "It was inspired by real life.",
+    "Se inspiró en la vida real."
+  ],
+  "No": [
+    "No · Fictional",
+    "No · De ficción",
+    "It wasn’t based on a true story.",
+    "No se basó en una historia real."
+  ],
+  "Unconfirmed": [
+    "Unconfirmed",
+    "Sin confirmar",
+    "A true-story basis has not been confirmed.",
+    "No se ha confirmado que se base en una historia real."
+  ]
+};
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Reveal answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) remaining = [...cards];
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  const [kind, question, questionEs] = kinds[current.category];
+  const [verdict, verdictEs, model, modelEs] = verdicts[current.verdict];
+  byId('kind').textContent = kind;
+  byId('item').textContent = current.item;
+  byId('item-es').textContent = current.itemEs;
+  byId('item-es').hidden = current.itemEs === current.item;
+  byId('question').textContent = question;
+  byId('question-es').textContent = questionEs;
+  byId('verdict').textContent = verdict;
+  byId('verdict-es').textContent = verdictEs;
+  byId('model').textContent = model;
+  byId('model-es').textContent = modelEs;
+  byId('story').textContent = current.answer;
+  byId('story-es').textContent = current.answerEs;
+
+  const picture = byId('picture');
+  const tile = current.imageIndex % 10;
+  const sheet = Math.floor(current.imageIndex / 10) + 1;
+  picture.style.setProperty('--sheet', "url('images/stories-" + sheet + ".webp')");
+  picture.style.setProperty('--x', (tile % 5) * 25 + '%');
+  picture.style.setProperty('--y', Math.floor(tile / 5) * 100 + '%');
+  picture.setAttribute('aria-label', 'Illustrated clue for ' + current.item);
+  byId('source').textContent = current.source;
+  byId('source').href = current.url;
+  if (moveFocus) byId('item').focus();
+}
+
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('draw').addEventListener('click', () => drawCard(true));
+drawCard(false);
+byId('game').hidden = false;
+byId('fallback').hidden = true;
+</script>
+</body>
+</html>
