@@ -1,0 +1,1190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Popular Food Inventions | Tulsa English Academy</title>
+<meta name="description" content="Guess the stories behind 50 popular foods and drinks. Practice English passive voice with Spanish translations.">
+<style>
+:root {
+  color-scheme: dark;
+  --page: #211815;
+  --card: #382721;
+  --edge: #725344;
+  --text: #fff9ec;
+  --muted: #e6cfc3;
+  --gold: #ffdc9c;
+  --red: #855044;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at top, #573a30, var(--page) 72%); color: var(--text); font: 1rem/1.55 system-ui, sans-serif; min-height: 100vh; }
+main { width: min(780px, calc(100% - 32px)); margin: auto; padding: clamp(26px, 6vw, 64px) 0; }
+.school, .label { color: var(--gold); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; }
+h1, h2 { font-family: Georgia, serif; font-weight: 700; }
+h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.03; margin: .18em 0; }
+h2 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: .2em 0; overflow-wrap: anywhere; }
+.intro { max-width: 62ch; margin: 14px 0 4px; }
+.translation { color: var(--muted); margin: 4px 0 0; }
+.card { margin-top: 26px; padding: clamp(18px, 5vw, 34px); background: var(--card); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 18px 46px #0003; }
+.card-top { display: grid; grid-template-columns: minmax(120px, 185px) minmax(0, 1fr); gap: clamp(16px, 4vw, 30px); align-items: center; }
+.item-picture { width: 100%; aspect-ratio: 1 / 1; border: 1px solid var(--edge); border-radius: 12px; background: var(--page) var(--sheet) var(--x) var(--y) / 500% 200% no-repeat; }
+.grammar { margin: 18px 0 0; color: var(--muted); }
+.grammar strong { color: var(--gold); }
+@media (max-width: 520px) {
+  .card-top { grid-template-columns: 1fr; gap: 14px; }
+  .item-picture { width: min(100%, 140px); }
+}
+.question { margin: 20px 0 4px; font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 700; }
+.actions { margin-top: 23px; display: flex; flex-wrap: wrap; gap: 10px; }
+button { font: inherit; font-weight: 800; border: 1px solid #ad7465; border-radius: 10px; min-height: 48px; padding: 9px 15px; color: var(--text); background: var(--red); cursor: pointer; }
+button.primary { background: var(--gold); border-color: var(--gold); color: #203127; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.answer { margin-top: 20px; padding: 16px; border: 1px solid var(--edge); border-left: 4px solid var(--gold); border-radius: 12px; background: #2d201c; }
+.answer p { margin: 8px 0; }
+.story { font-size: 1.13rem; }
+.source { color: var(--gold); overflow-wrap: anywhere; }
+summary { cursor: pointer; font-weight: 750; color: var(--gold); }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="school">Tulsa English Academy</div>
+<h1>Popular Food Inventions</h1>
+<p class="intro">Read the question aloud. Everyone guesses in the passive voice. Then reveal the answer and read the origin story in your best storyteller voice.</p>
+<p class="translation" lang="es">Lee la pregunta en voz alta. Todos adivinan usando la voz pasiva. Después, muestra la respuesta y lee la historia con tu mejor voz de cuentacuentos.</p>
+</header>
+
+<article class="card" id="game" aria-label="Food invention card" hidden>
+<div class="card-top">
+<div id="picture" class="item-picture" role="img" aria-label="Illustration of Chocolate chip cookie" style="--sheet:url('images/food-1.webp');--x:0%;--y:0%"></div>
+<div>
+<h2 id="item" tabindex="-1" aria-describedby="question">Featured food</h2>
+<p id="item-es" class="translation" lang="es"></p>
+<p id="question" class="question"></p>
+<p id="question-es" class="translation" lang="es"></p>
+</div></div>
+<p class="grammar">Guess using <strong>be + past participle</strong>. For example, <strong>It was made…</strong> or <strong>They were given…</strong></p>
+<p class="translation" lang="es">Adivina usando la voz pasiva. Usa el verbo <strong>be</strong> y el participio pasado.</p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal answer</button>
+<button id="draw" class="primary" type="button">Draw another card</button>
+</div>
+<section id="answer" class="answer" aria-label="Origin story" aria-live="polite" hidden>
+<p class="label">Model passive answer</p>
+<p id="model" class="story"><strong></strong></p>
+<p id="model-es" class="translation" lang="es"></p>
+<p class="label">Read the origin story aloud</p>
+<p id="story" class="story"></p>
+<p id="story-es" class="translation" lang="es"></p>
+<p><a id="source" class="source" target="_blank" rel="noopener noreferrer"></a></p>
+</section>
+</article>
+
+<section id="fallback" aria-label="Popular Food Inventions cards">
+<p>Choose a card and open <strong>Reveal answer</strong> after the group guesses.</p>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Chocolate chip cookie" style="--sheet:url('images/food-1.webp');--x:0%;--y:0%"></div><div><h2>Chocolate chip cookie</h2><p class="translation" lang="es">Galleta con chispas de chocolate</p>
+<p class="question">Where was the Toll House chocolate chip cookie developed?</p><p class="translation" lang="es">¿Dónde se creó la galleta Toll House con chispas de chocolate?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The Toll House chocolate chip cookie was developed at an inn in Massachusetts.</strong></p><p class="translation" lang="es">La galleta Toll House con chispas de chocolate se creó en una posada de Massachusetts.</p>
+<p class="label">Read the story aloud</p><p class="story">In the 1930s, Ruth Wakefield mixed pieces of chocolate into cookie dough at the Toll House Inn. The pieces softened in the oven but kept their shape.</p><p class="translation" lang="es">En la década de 1930, Ruth Wakefield mezcló trozos de chocolate con la masa de galletas en la posada Toll House. Los trozos se ablandaron en el horno, pero conservaron su forma.</p>
+<p><a class="source" href="https://www.verybestbaking.com/toll-house/about-us/" target="_blank" rel="noopener noreferrer">Nestlé Toll House</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Brownie" style="--sheet:url('images/food-1.webp');--x:25%;--y:0%"></div><div><h2>Brownie</h2><p class="translation" lang="es">Brownie de chocolate</p>
+<p class="question">According to the Palmer House hotel, where was its brownie created?</p><p class="translation" lang="es">Según el hotel Palmer House, ¿dónde se creó su brownie?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The brownie was created in the Palmer House kitchen in Chicago.</strong></p><p class="translation" lang="es">El brownie se creó en la cocina del hotel Palmer House en Chicago.</p>
+<p class="label">Read the story aloud</p><p class="story">The hotel credits Bertha Palmer with requesting a dessert for the 1893 Chicago World’s Fair. The hotel still serves its version with walnuts and an apricot glaze.</p><p class="translation" lang="es">El hotel dice que Bertha Palmer pidió un postre para la Feria Mundial de Chicago de 1893. El hotel todavía sirve su versión con nueces y un glaseado de albaricoque.</p>
+<p><a class="source" href="https://www.palmerhousehiltonhotel.com/about-our-hotel/thebrownie/" target="_blank" rel="noopener noreferrer">Palmer House Hilton</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Ice cream cone" style="--sheet:url('images/food-1.webp');--x:50%;--y:0%"></div><div><h2>Ice cream cone</h2><p class="translation" lang="es">Barquilla de helado</p>
+<p class="question">At which fair was the ice cream cone popularized in the United States?</p><p class="translation" lang="es">¿En qué feria se popularizó la barquilla de helado en Estados Unidos?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The ice cream cone was popularized at the 1904 St. Louis World’s Fair.</strong></p><p class="translation" lang="es">La barquilla de helado se popularizó en la Feria Mundial de San Luis de 1904.</p>
+<p class="label">Read the story aloud</p><p class="story">Several vendors have been credited with inventing it, so there is no clear single inventor. At the fair, rolled waffles were used as edible cones.</p><p class="translation" lang="es">Se les ha atribuido el invento a varios vendedores, así que no se sabe con certeza quién lo inventó. En la feria se usaban waffles enrollados como conos comestibles.</p>
+<p><a class="source" href="https://www.loc.gov/item/today-in-history/july-23/" target="_blank" rel="noopener noreferrer">Library of Congress</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Popsicle" style="--sheet:url('images/food-1.webp');--x:75%;--y:0%"></div><div><h2>Popsicle</h2><p class="translation" lang="es">Helado de palito</p>
+<p class="question">In what year was Frank Epperson’s ice pop patented?</p><p class="translation" lang="es">¿En qué año se patentó el helado de palito de Frank Epperson?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Frank Epperson’s ice pop was patented in 1924.</strong></p><p class="translation" lang="es">El helado de palito de Frank Epperson se patentó en 1924.</p>
+<p class="label">Read the story aloud</p><p class="story">Epperson sold his frozen treat at Neptune Beach in California. He called it the Epsicle before it became known as the Popsicle.</p><p class="translation" lang="es">Epperson vendía su helado en Neptune Beach, California. Lo llamó Epsicle antes de que se conociera como Popsicle.</p>
+<p><a class="source" href="https://www.popsicle.com/us/en/our-story.html" target="_blank" rel="noopener noreferrer">Popsicle</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Cotton candy machine" style="--sheet:url('images/food-1.webp');--x:100%;--y:0%"></div><div><h2>Cotton candy machine</h2><p class="translation" lang="es">Máquina de algodón de azúcar</p>
+<p class="question">When was Morrison and Wharton’s cotton candy machine patented?</p><p class="translation" lang="es">¿Cuándo se patentó la máquina de algodón de azúcar de Morrison y Wharton?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Morrison and Wharton’s cotton candy machine was patented in 1899.</strong></p><p class="translation" lang="es">La máquina de algodón de azúcar de Morrison y Wharton se patentó en 1899.</p>
+<p class="label">Read the story aloud</p><p class="story">William Morrison and John Wharton designed a machine that spun melted sugar into thin strands. The patent called it a candy machine.</p><p class="translation" lang="es">William Morrison y John Wharton diseñaron una máquina que giraba para convertir el azúcar derretida en hilos finos. La patente la llamaba máquina de dulces.</p>
+<p><a class="source" href="https://patents.google.com/patent/US618428A/en" target="_blank" rel="noopener noreferrer">U.S. Patent No. 618,428</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Fortune cookie" style="--sheet:url('images/food-1.webp');--x:0%;--y:100%"></div><div><h2>Fortune cookie</h2><p class="translation" lang="es">Galleta de la fortuna</p>
+<p class="question">Which country’s cookie tradition was the American fortune cookie inspired by?</p><p class="translation" lang="es">¿En la tradición de galletas de qué país se inspiró la galleta de la fortuna estadounidense?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The American fortune cookie was inspired by a Japanese cookie tradition.</strong></p><p class="translation" lang="es">La galleta de la fortuna estadounidense se inspiró en una tradición japonesa.</p>
+<p class="label">Read the story aloud</p><p class="story">Japan had crackers with paper messages inside. The American version became familiar in Chinese restaurants in the United States.</p><p class="translation" lang="es">En Japón había galletas con mensajes de papel adentro. La versión estadounidense se hizo conocida en los restaurantes chinos de Estados Unidos.</p>
+<p><a class="source" href="https://americanhistory.si.edu/explore/stories/origins-fortune-cookie" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Potato chips" style="--sheet:url('images/food-1.webp');--x:25%;--y:100%"></div><div><h2>Potato chips</h2><p class="translation" lang="es">Papas fritas de bolsa</p>
+<p class="question">When was an early recipe for thin fried potato slices published in England?</p><p class="translation" lang="es">¿Cuándo se publicó en Inglaterra una de las primeras recetas de rodajas finas de papa frita?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>An early recipe for thin fried potato slices was published in 1817.</strong></p><p class="translation" lang="es">Una de las primeras recetas de rodajas finas de papa frita se publicó en 1817.</p>
+<p class="label">Read the story aloud</p><p class="story">William Kitchiner included the recipe in his cookbook. A later legend gives credit to George Crum in New York, but earlier recipes are documented.</p><p class="translation" lang="es">William Kitchiner incluyó la receta en su libro de cocina. Una leyenda posterior le atribuye el invento a George Crum en Nueva York, pero hay recetas anteriores documentadas.</p>
+<p><a class="source" href="https://www.smithsonianmag.com/arts-culture/curious-history-potato-chip-180979232/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Corn flakes" style="--sheet:url('images/food-1.webp');--x:50%;--y:100%"></div><div><h2>Corn flakes</h2><p class="translation" lang="es">Hojuelas de maíz</p>
+<p class="question">When was the company behind Kellogg’s Corn Flakes founded?</p><p class="translation" lang="es">¿Cuándo se fundó la empresa que lanzó las hojuelas de maíz Kellogg’s?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The company behind Kellogg’s Corn Flakes was founded in 1906.</strong></p><p class="translation" lang="es">La empresa que lanzó las hojuelas de maíz Kellogg’s se fundó en 1906.</p>
+<p class="label">Read the story aloud</p><p class="story">W. K. Kellogg founded the company to sell toasted cereal flakes. His corn flakes became a breakfast cereal sold around the world.</p><p class="translation" lang="es">W. K. Kellogg fundó la empresa para vender hojuelas de cereal tostadas. Sus hojuelas de maíz se convirtieron en un cereal de desayuno que se vende en todo el mundo.</p>
+<p><a class="source" href="https://www.wkkellogg.ca/en/who-we-are/our-story" target="_blank" rel="noopener noreferrer">WK Kellogg Co</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Graham cracker" style="--sheet:url('images/food-1.webp');--x:75%;--y:100%"></div><div><h2>Graham cracker</h2><p class="translation" lang="es">Galleta Graham</p>
+<p class="question">Who was the graham cracker named after?</p><p class="translation" lang="es">¿En honor a quién se le dio nombre a la galleta Graham?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The graham cracker was named after Sylvester Graham.</strong></p><p class="translation" lang="es">La galleta Graham recibió su nombre en honor a Sylvester Graham.</p>
+<p class="label">Read the story aloud</p><p class="story">Graham promoted bread made with whole-wheat flour in the 1800s. The cracker that carries his name is different from the bread he recommended.</p><p class="translation" lang="es">Graham promovía el pan hecho con harina de trigo integral en el siglo XIX. La galleta que lleva su nombre es diferente del pan que recomendaba.</p>
+<p><a class="source" href="https://www.historic-northampton.org/highlights/graham.html" target="_blank" rel="noopener noreferrer">Historic Northampton Museum and Education Center</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Peanut butter" style="--sheet:url('images/food-1.webp');--x:100%;--y:100%"></div><div><h2>Peanut butter</h2><p class="translation" lang="es">Mantequilla de maní</p>
+<p class="question">When was Marcellus Edson’s process for making peanut paste patented?</p><p class="translation" lang="es">¿Cuándo se patentó el proceso de Marcellus Edson para hacer pasta de maní?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Edson’s process for making peanut paste was patented in 1884.</strong></p><p class="translation" lang="es">El proceso de Edson para hacer pasta de maní se patentó en 1884.</p>
+<p class="label">Read the story aloud</p><p class="story">Edson described grinding roasted peanuts into a paste for candy. His patent was an early step in the history of modern peanut butter.</p><p class="translation" lang="es">Edson describió cómo moler maní tostado para hacer una pasta para dulces. Su patente fue uno de los primeros pasos en la historia de la mantequilla de maní moderna.</p>
+<p><a class="source" href="https://patents.google.com/patent/US306727A/en" target="_blank" rel="noopener noreferrer">U.S. Patent No. 306,727</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Margherita pizza" style="--sheet:url('images/food-2.webp');--x:0%;--y:0%"></div><div><h2>Margherita pizza</h2><p class="translation" lang="es">Pizza margarita</p>
+<p class="question">Who is often credited with making a Margherita pizza for Queen Margherita?</p><p class="translation" lang="es">¿A quién se le suele atribuir la preparación de una pizza margarita para la reina Margarita?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Raffaele Esposito is often credited with making it for Queen Margherita.</strong></p><p class="translation" lang="es">A Raffaele Esposito se le suele atribuir la preparación de esa pizza para la reina Margarita.</p>
+<p class="label">Read the story aloud</p><p class="story">A famous story says Esposito served the queen a pizza with tomato, mozzarella, and basil in Naples in 1889. Historians dispute whether the pizza was invented on that occasion.</p><p class="translation" lang="es">Una historia conocida dice que Esposito sirvió a la reina una pizza con tomate, mozzarella y albahaca en Nápoles en 1889. Los historiadores discuten si la pizza se inventó en esa ocasión.</p>
+<p><a class="source" href="https://www.tandfonline.com/doi/abs/10.2752/175174414X13828682779249" target="_blank" rel="noopener noreferrer">Zachary Nowak, food history research</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Hamburger" style="--sheet:url('images/food-2.webp');--x:25%;--y:0%"></div><div><h2>Hamburger</h2><p class="translation" lang="es">Hamburguesa</p>
+<p class="question">Who is credited with serving an early hamburger at Louis’ Lunch?</p><p class="translation" lang="es">¿A quién se le atribuye haber servido una de las primeras hamburguesas en Louis’ Lunch?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Louis Lassen is credited with serving an early hamburger at Louis’ Lunch.</strong></p><p class="translation" lang="es">A Louis Lassen se le atribuye haber servido una de las primeras hamburguesas en Louis’ Lunch.</p>
+<p class="label">Read the story aloud</p><p class="story">According to a New Haven story, Lassen put cooked ground beef between slices of toast in 1900. Other towns claim the hamburger was invented there.</p><p class="translation" lang="es">Según una historia de New Haven, Lassen puso carne molida cocida entre dos rebanadas de pan tostado en 1900. Otras ciudades afirman que la hamburguesa se inventó allí.</p>
+<p><a class="source" href="https://connecticuthistory.org/louis-lunch-and-the-birth-of-the-hamburger/" target="_blank" rel="noopener noreferrer">Connecticut Humanities</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Hot dog" style="--sheet:url('images/food-2.webp');--x:50%;--y:0%"></div><div><h2>Hot dog</h2><p class="translation" lang="es">Perro caliente</p>
+<p class="question">What kind of sausage was the American hot dog developed from?</p><p class="translation" lang="es">¿A partir de qué tipo de salchicha se desarrolló el perro caliente estadounidense?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The American hot dog was developed from European sausages such as the frankfurter.</strong></p><p class="translation" lang="es">El perro caliente estadounidense se desarrolló a partir de salchichas europeas como la de Fráncfort.</p>
+<p class="label">Read the story aloud</p><p class="story">German immigrants helped bring this kind of sausage to the United States. Several stories explain how it was first served in a bun, and the exact origin is unclear.</p><p class="translation" lang="es">Los inmigrantes alemanes ayudaron a llevar este tipo de salchicha a Estados Unidos. Hay varias historias sobre cómo se sirvió por primera vez en un pan y su origen exacto no está claro.</p>
+<p><a class="source" href="https://www.hot-dog.org/culture/hot-dog-history" target="_blank" rel="noopener noreferrer">National Hot Dog and Sausage Council</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Sandwich" style="--sheet:url('images/food-2.webp');--x:75%;--y:0%"></div><div><h2>Sandwich</h2><p class="translation" lang="es">Sándwich</p>
+<p class="question">Who was the sandwich named after?</p><p class="translation" lang="es">¿En honor a quién se le dio nombre al sándwich?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The sandwich was named after John Montagu, the fourth Earl of Sandwich.</strong></p><p class="translation" lang="es">El sándwich recibió su nombre por John Montagu, el cuarto conde de Sandwich.</p>
+<p class="label">Read the story aloud</p><p class="story">The English name is linked to Montagu in the 1700s. A popular story says he asked for meat between slices of bread so he could keep playing cards.</p><p class="translation" lang="es">El nombre en inglés se relaciona con Montagu en el siglo XVIII. Una historia popular dice que pidió carne entre rebanadas de pan para poder seguir jugando a las cartas.</p>
+<p><a class="source" href="https://blog.oup.com/2006/09/monthly_gleanin6/" target="_blank" rel="noopener noreferrer">Oxford University Press, Oxford English Dictionary</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Club sandwich" style="--sheet:url('images/food-2.webp');--x:100%;--y:0%"></div><div><h2>Club sandwich</h2><p class="translation" lang="es">Sándwich club</p>
+<p class="question">Where was an early club sandwich reported in 1889?</p><p class="translation" lang="es">¿Dónde se documentó una versión temprana del sándwich club en 1889?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>An early club sandwich was reported at the Union Club in New York City.</strong></p><p class="translation" lang="es">Una versión temprana del sándwich club se documentó en el Union Club de Nueva York.</p>
+<p class="label">Read the story aloud</p><p class="story">New York newspapers described the Union Club sandwich in 1889. It had toasted bread and meat, but the exact inventor is uncertain.</p><p class="translation" lang="es">Los periódicos de Nueva York describieron el sándwich del Union Club en 1889. Llevaba pan tostado y carne, pero no se sabe con certeza quién lo inventó.</p>
+<p><a class="source" href="https://barrypopik.com/blog/club_sandwich" target="_blank" rel="noopener noreferrer">The Sun, 1889 newspaper account transcribed by Barry Popik</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Caesar salad" style="--sheet:url('images/food-2.webp');--x:0%;--y:100%"></div><div><h2>Caesar salad</h2><p class="translation" lang="es">Ensalada César</p>
+<p class="question">Where is Caesar salad generally believed to have been created?</p><p class="translation" lang="es">¿Dónde se cree que se creó la ensalada César?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Caesar salad is generally believed to have been created in Tijuana, Mexico.</strong></p><p class="translation" lang="es">Generalmente se cree que la ensalada César se creó en Tijuana, México.</p>
+<p class="label">Read the story aloud</p><p class="story">The most familiar story credits Caesar Cardini, an Italian restaurateur in Tijuana, in the 1920s. Other accounts give credit to different cooks.</p><p class="translation" lang="es">La historia más conocida atribuye la ensalada a Caesar Cardini, un restaurantero italiano en Tijuana, en la década de 1920. Otros relatos se la atribuyen a distintos cocineros.</p>
+<p><a class="source" href="https://www.smithsonianmag.com/arts-culture/hail-caesarthe-birthplace-of-the-famous-salad-closes-69245867/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Nachos" style="--sheet:url('images/food-2.webp');--x:25%;--y:100%"></div><div><h2>Nachos</h2><p class="translation" lang="es">Nachos</p>
+<p class="question">Who is usually credited with inventing nachos?</p><p class="translation" lang="es">¿A quién se le suele atribuir la invención de los nachos?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Ignacio “Nacho” Anaya is usually credited with inventing nachos.</strong></p><p class="translation" lang="es">A Ignacio «Nacho» Anaya se le suele atribuir la invención de los nachos.</p>
+<p class="label">Read the story aloud</p><p class="story">According to the popular account, Anaya made the snack in Piedras Negras, Mexico, around 1940. He used tortilla chips, cheese, and jalapeños.</p><p class="translation" lang="es">Según el relato popular, Anaya preparó el aperitivo en Piedras Negras, México, alrededor de 1940. Usó totopos, queso y jalapeños.</p>
+<p><a class="source" href="https://patijinich.com/es/the-new-york-times-the-original-nachos-were-crunchy-cheesy-and-truly-mexican/" target="_blank" rel="noopener noreferrer">Pati Jinich</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Buffalo wings" style="--sheet:url('images/food-2.webp');--x:50%;--y:100%"></div><div><h2>Buffalo wings</h2><p class="translation" lang="es">Alitas de pollo estilo Buffalo</p>
+<p class="question">Who is often credited with making the Anchor Bar’s Buffalo wings?</p><p class="translation" lang="es">¿A quién se le suele atribuir la creación de las alitas estilo Buffalo del Anchor Bar?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Teressa Bellissimo is often credited with making the Anchor Bar’s Buffalo wings.</strong></p><p class="translation" lang="es">A Teressa Bellissimo se le suele atribuir la creación de las alitas estilo Buffalo del Anchor Bar.</p>
+<p class="label">Read the story aloud</p><p class="story">The best-known story places Bellissimo’s hot-sauce wings in Buffalo, New York, in 1964. John Young also served a different style of wings in Buffalo in the 1960s.</p><p class="translation" lang="es">El relato más conocido sitúa las alitas con salsa picante de Bellissimo en Buffalo, Nueva York, en 1964. John Young también servía otro estilo de alitas en Buffalo en la década de 1960.</p>
+<p><a class="source" href="https://buffalohistory.org/who-served-buffalos-first-wings/" target="_blank" rel="noopener noreferrer">The Buffalo History Museum</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of French fries" style="--sheet:url('images/food-2.webp');--x:75%;--y:100%"></div><div><h2>French fries</h2><p class="translation" lang="es">Papas fritas</p>
+<p class="question">Which two countries are often named in stories about the origin of French fries?</p><p class="translation" lang="es">¿Qué dos países se suelen mencionar en las historias sobre el origen de las papas fritas?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>France and Belgium are often named in stories about the origin of French fries.</strong></p><p class="translation" lang="es">Francia y Bélgica suelen mencionarse en las historias sobre el origen de las papas fritas.</p>
+<p class="label">Read the story aloud</p><p class="story">The origin is disputed. Food historian Pierre Leclercq points to early records of fried potatoes sold in Paris.</p><p class="translation" lang="es">El origen es discutido. El historiador de la alimentación Pierre Leclercq señala registros antiguos de papas fritas vendidas en París.</p>
+<p><a class="source" href="https://www.campus.uliege.be/cms/c_10630394/en/les-grands-mythes-de-la-gastronomie-l-histoire-vraie-de-la-pomme-de-terre-frite" target="_blank" rel="noopener noreferrer">University of Liège, interview with Pierre Leclercq</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Chicken nuggets" style="--sheet:url('images/food-2.webp');--x:100%;--y:100%"></div><div><h2>Chicken nuggets</h2><p class="translation" lang="es">Nuggets de pollo</p>
+<p class="question">Who was an early version of chicken nuggets developed by?</p><p class="translation" lang="es">¿Quién desarrolló una versión temprana de los nuggets de pollo?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>An early version of chicken nuggets was developed by Cornell researcher Robert C. Baker and his team.</strong></p><p class="translation" lang="es">Una versión temprana de los nuggets de pollo fue desarrollada por Robert C. Baker, investigador de Cornell, y su equipo.</p>
+<p class="label">Read the story aloud</p><p class="story">At Cornell University, Baker’s team tested breaded pieces of chicken that could be frozen and cooked later. Their work came before McDonald’s Chicken McNuggets.</p><p class="translation" lang="es">En la Universidad Cornell, el equipo de Baker probó trozos de pollo empanizados que se podían congelar y cocinar más tarde. Su trabajo fue anterior a los Chicken McNuggets de McDonald’s.</p>
+<p><a class="source" href="https://news.cornell.edu/stories/2006/03/food-and-poultry-scientist-robert-c-baker-dies-age-84" target="_blank" rel="noopener noreferrer">Cornell Chronicle</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Instant ramen" style="--sheet:url('images/food-3.webp');--x:0%;--y:0%"></div><div><h2>Instant ramen</h2><p class="translation" lang="es">Ramen instantáneo</p>
+<p class="question">Who was Chicken Ramen developed by?</p><p class="translation" lang="es">¿Quién desarrolló Chicken Ramen?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Chicken Ramen was developed by Momofuku Ando.</strong></p><p class="translation" lang="es">Chicken Ramen fue desarrollado por Momofuku Ando.</p>
+<p class="label">Read the story aloud</p><p class="story">Nissin launched it in Japan in 1958. Hot water was enough to prepare the noodles.</p><p class="translation" lang="es">Nissin lo lanzó en Japón en 1958. Bastaba con agua caliente para preparar los fideos.</p>
+<p><a class="source" href="https://www.nissin.com/en_jp/about/history/" target="_blank" rel="noopener noreferrer">Nissin Foods</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Cup Noodles" style="--sheet:url('images/food-3.webp');--x:25%;--y:0%"></div><div><h2>Cup Noodles</h2><p class="translation" lang="es">Fideos instantáneos en vaso</p>
+<p class="question">When were Cup Noodles first sold in Japan?</p><p class="translation" lang="es">¿Cuándo se vendieron por primera vez los Cup Noodles en Japón?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Cup Noodles were first sold in Japan in 1971.</strong></p><p class="translation" lang="es">Los Cup Noodles se vendieron por primera vez en Japón en 1971.</p>
+<p class="label">Read the story aloud</p><p class="story">Momofuku Ando got the idea after seeing people in the United States put instant noodles in paper cups.</p><p class="translation" lang="es">A Momofuku Ando se le ocurrió la idea después de ver a personas en Estados Unidos poner fideos instantáneos en vasos de papel.</p>
+<p><a class="source" href="https://www.nissin.com/en_jp/about/founder/" target="_blank" rel="noopener noreferrer">Nissin Foods</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of California roll" style="--sheet:url('images/food-3.webp');--x:50%;--y:0%"></div><div><h2>California roll</h2><p class="translation" lang="es">Rollo California</p>
+<p class="question">Has the inventor of the California roll been confirmed?</p><p class="translation" lang="es">¿Se ha confirmado quién inventó el rollo California?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The California roll is often traced to Los Angeles, but its inventor has not been confirmed.</strong></p><p class="translation" lang="es">El origen del rollo California se suele situar en Los Ángeles, pero no se ha confirmado quién lo inventó.</p>
+<p class="label">Read the story aloud</p><p class="story">Researchers disagree about when it appeared. A newspaper mentioned it by 1979.</p><p class="translation" lang="es">Los investigadores no se ponen de acuerdo sobre cuándo apareció. Ya se mencionaba en un periódico en 1979.</p>
+<p><a class="source" href="https://jayna.usfca.edu/asia-pacific-perspectives/pdfs/asia-pacific_perspectives_v16n2_final.pdf" target="_blank" rel="noopener noreferrer">University of San Francisco, Asia Pacific Perspectives</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Bubble tea" style="--sheet:url('images/food-3.webp');--x:75%;--y:0%"></div><div><h2>Bubble tea</h2><p class="translation" lang="es">Té de burbujas</p>
+<p class="question">Where was bubble tea invented?</p><p class="translation" lang="es">¿Dónde se inventó el té de burbujas?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Bubble tea was invented in Taiwan in the 1980s.</strong></p><p class="translation" lang="es">El té de burbujas se inventó en Taiwán en la década de 1980.</p>
+<p class="label">Read the story aloud</p><p class="story">Two tea shops, Hanlin Tea Room and Chun Shui Tang, say they invented it. The exact inventor is disputed.</p><p class="translation" lang="es">Dos casas de té, Hanlin Tea Room y Chun Shui Tang, afirman haberlo inventado. No hay acuerdo sobre quién lo inventó.</p>
+<p><a class="source" href="https://news.immigration.gov.tw/NewsSection/Detail/8dcaf253-faf4-42c8-87ef-e27eeb7ccee8?lang=EN" target="_blank" rel="noopener noreferrer">Taiwan Immigrants’ Global News Network</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Tiramisu" style="--sheet:url('images/food-3.webp');--x:100%;--y:0%"></div><div><h2>Tiramisu</h2><p class="translation" lang="es">Tiramisú</p>
+<p class="question">Which Italian areas are linked to the invention of tiramisu?</p><p class="translation" lang="es">¿Qué lugares de Italia se relacionan con la invención del tiramisú?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The invention of tiramisu is linked to both Treviso and Friuli.</strong></p><p class="translation" lang="es">La invención del tiramisú se relaciona tanto con Treviso como con Friuli.</p>
+<p class="label">Read the story aloud</p><p class="story">The Le Beccherie restaurant is part of the Treviso story. Another account points to an earlier recipe in Tolmezzo, Friuli.</p><p class="translation" lang="es">El restaurante Le Beccherie forma parte de la historia de Treviso. Otra versión señala una receta anterior en Tolmezzo, Friuli.</p>
+<p><a class="source" href="https://www.tiramisuacademy.org/ricette/?lang=en" target="_blank" rel="noopener noreferrer">Tiramisù Academy</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Croissant" style="--sheet:url('images/food-3.webp');--x:0%;--y:100%"></div><div><h2>Croissant</h2><p class="translation" lang="es">Cruasán</p>
+<p class="question">What older pastry was the croissant inspired by?</p><p class="translation" lang="es">¿En qué pastel más antiguo se inspiró el cruasán?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The croissant was inspired by the Austrian kipfel.</strong></p><p class="translation" lang="es">El cruasán se inspiró en el kipfel austríaco.</p>
+<p class="label">Read the story aloud</p><p class="story">The kipfel had a curved shape. The flaky croissant we know today developed in France.</p><p class="translation" lang="es">El kipfel tenía una forma curva. El cruasán de hojaldre que conocemos hoy se desarrolló en Francia.</p>
+<p><a class="source" href="https://www.smithsonianmag.com/arts-culture/croissant-really-french-180955130/" target="_blank" rel="noopener noreferrer">Smithsonian Magazine</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Nutella" style="--sheet:url('images/food-3.webp');--x:25%;--y:100%"></div><div><h2>Nutella</h2><p class="translation" lang="es">Nutella</p>
+<p class="question">When was the first jar of Nutella made?</p><p class="translation" lang="es">¿Cuándo se hizo el primer frasco de Nutella?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The first jar of Nutella was made in 1964.</strong></p><p class="translation" lang="es">El primer frasco de Nutella se hizo en 1964.</p>
+<p class="label">Read the story aloud</p><p class="story">Pietro Ferrero had created an earlier hazelnut and cocoa paste in Italy in 1946.</p><p class="translation" lang="es">Pietro Ferrero había creado una pasta de avellanas y cacao en Italia en 1946.</p>
+<p><a class="source" href="https://www.nutella.com/us/en/inside-nutella/our-heritage" target="_blank" rel="noopener noreferrer">Nutella / Ferrero</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Milk chocolate" style="--sheet:url('images/food-3.webp');--x:50%;--y:100%"></div><div><h2>Milk chocolate</h2><p class="translation" lang="es">Chocolate con leche</p>
+<p class="question">Who was a successful Swiss version of milk chocolate developed by?</p><p class="translation" lang="es">¿Quién desarrolló una versión exitosa del chocolate con leche en Suiza?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>A successful Swiss version of milk chocolate was developed by Daniel Peter.</strong></p><p class="translation" lang="es">Una versión exitosa del chocolate con leche fue desarrollada por Daniel Peter.</p>
+<p class="label">Read the story aloud</p><p class="story">Nestlé’s history dates Peter’s work with its condensed milk to 1875. He worked in Vevey, Switzerland.</p><p class="translation" lang="es">La historia de Nestlé sitúa en 1875 el trabajo de Peter con su leche condensada. Él trabajó en Vevey, Suiza.</p>
+<p><a class="source" href="https://www.nestle.com/about/history/nestle-company-history" target="_blank" rel="noopener noreferrer">Nestlé Historical Archives</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Margarine" style="--sheet:url('images/food-3.webp');--x:75%;--y:100%"></div><div><h2>Margarine</h2><p class="translation" lang="es">Margarina</p>
+<p class="question">Who was an early margarine process patented by in the United States?</p><p class="translation" lang="es">¿Quién patentó un método temprano para fabricar margarina en Estados Unidos?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>An early margarine process was patented by Hippolyte Mège-Mouriès.</strong></p><p class="translation" lang="es">Un método temprano para fabricar margarina fue patentado por Hippolyte Mège-Mouriès.</p>
+<p class="label">Read the story aloud</p><p class="story">The U.S. patent was issued in 1873. His process used animal fat to make a product similar to butter.</p><p class="translation" lang="es">La patente estadounidense se concedió en 1873. Su método usaba grasa animal para hacer un producto parecido a la mantequilla.</p>
+<p><a class="source" href="https://patentimages.storage.googleapis.com/8e/00/25/3e606b15878681/USRE8424.pdf" target="_blank" rel="noopener noreferrer">United States Patent Office</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Instant coffee" style="--sheet:url('images/food-3.webp');--x:100%;--y:100%"></div><div><h2>Instant coffee</h2><p class="translation" lang="es">Café instantáneo</p>
+<p class="question">Where was David Strang’s soluble coffee powder patented?</p><p class="translation" lang="es">¿Dónde se patentó el café soluble en polvo de David Strang?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>David Strang’s soluble coffee powder was patented in New Zealand.</strong></p><p class="translation" lang="es">El café soluble en polvo de David Strang se patentó en Nueva Zelanda.</p>
+<p class="label">Read the story aloud</p><p class="story">Strang got his patent in 1890. His method used hot air to dry liquid coffee.</p><p class="translation" lang="es">Strang obtuvo su patente en 1890. Su método usaba aire caliente para secar el café líquido.</p>
+<p><a class="source" href="https://teara.govt.nz/en/inventions-patents-and-trademarks/print" target="_blank" rel="noopener noreferrer">Te Ara Encyclopedia of New Zealand</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Coca-Cola" style="--sheet:url('images/food-4.webp');--x:0%;--y:0%"></div><div><h2>Coca-Cola</h2><p class="translation" lang="es">Coca-Cola</p>
+<p class="question">Where was Coca-Cola first served?</p><p class="translation" lang="es">¿Dónde se sirvió Coca-Cola por primera vez?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Coca-Cola was first served at Jacobs’ Pharmacy in Atlanta, Georgia.</strong></p><p class="translation" lang="es">Coca-Cola se sirvió por primera vez en la farmacia Jacobs, en Atlanta, Georgia.</p>
+<p class="label">Read the story aloud</p><p class="story">Pharmacist John Pemberton brought his syrup to the pharmacy in 1886. There, it was sold as a soda-fountain drink.</p><p class="translation" lang="es">El farmacéutico John Pemberton llevó su jarabe a la farmacia en 1886. Allí se vendió como refresco de fuente de soda.</p>
+<p><a class="source" href="https://www.coca-colacompany.com/about-us/history" target="_blank" rel="noopener noreferrer">The Coca-Cola Company</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Pepsi" style="--sheet:url('images/food-4.webp');--x:25%;--y:0%"></div><div><h2>Pepsi</h2><p class="translation" lang="es">Pepsi</p>
+<p class="question">What was Pepsi called before it got its current name?</p><p class="translation" lang="es">¿Cómo se llamaba Pepsi antes de recibir su nombre actual?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was first called Brad’s Drink.</strong></p><p class="translation" lang="es">Al principio se llamaba Brad’s Drink.</p>
+<p class="label">Read the story aloud</p><p class="story">Pharmacist Caleb Bradham created the drink in New Bern, North Carolina, in 1893. It was renamed Pepsi-Cola in 1898.</p><p class="translation" lang="es">El farmacéutico Caleb Bradham creó la bebida en New Bern, Carolina del Norte, en 1893. En 1898 recibió el nombre de Pepsi-Cola.</p>
+<p><a class="source" href="https://www.pepsico.com/newsroom/stories/2026/pepsi-history-brads-drink-iconic-american-brand" target="_blank" rel="noopener noreferrer">PepsiCo</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Dr Pepper" style="--sheet:url('images/food-4.webp');--x:50%;--y:0%"></div><div><h2>Dr Pepper</h2><p class="translation" lang="es">Dr Pepper</p>
+<p class="question">In which Texas city was Dr Pepper created?</p><p class="translation" lang="es">¿En qué ciudad de Texas se creó Dr Pepper?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Dr Pepper was created in Waco, Texas.</strong></p><p class="translation" lang="es">Dr Pepper se creó en Waco, Texas.</p>
+<p class="label">Read the story aloud</p><p class="story">Charles Alderton created the drink in 1885. He worked at a pharmacy called the Old Corner Drug Store.</p><p class="translation" lang="es">Charles Alderton creó la bebida en 1885. Trabajaba en una farmacia llamada Old Corner Drug Store.</p>
+<p><a class="source" href="https://drpeppermuseum.com/about/" target="_blank" rel="noopener noreferrer">Dr Pepper Museum</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Hires Root Beer" style="--sheet:url('images/food-4.webp');--x:75%;--y:0%"></div><div><h2>Hires Root Beer</h2><p class="translation" lang="es">Refresco de raíz Hires</p>
+<p class="question">At which event was Hires Root Beer presented in 1876?</p><p class="translation" lang="es">¿En qué evento se presentó el refresco de raíz Hires en 1876?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was presented at the 1876 Centennial Exhibition in Philadelphia.</strong></p><p class="translation" lang="es">Se presentó en la Exposición del Centenario de 1876 en Filadelfia.</p>
+<p class="label">Read the story aloud</p><p class="story">Root beer already existed before Charles Hires sold his version. The Philadelphia pharmacist helped make it popular as a commercial drink.</p><p class="translation" lang="es">El refresco de raíz ya existía antes de que Charles Hires vendiera su versión. El farmacéutico de Filadelfia ayudó a popularizarlo como bebida comercial.</p>
+<p><a class="source" href="https://philadelphiaencyclopedia.org/essays/root-beer/" target="_blank" rel="noopener noreferrer">The Encyclopedia of Greater Philadelphia</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Gatorade" style="--sheet:url('images/food-4.webp');--x:100%;--y:0%"></div><div><h2>Gatorade</h2><p class="translation" lang="es">Gatorade</p>
+<p class="question">Which sports team was Gatorade developed for?</p><p class="translation" lang="es">¿Para qué equipo deportivo se desarrolló Gatorade?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Gatorade was developed for the University of Florida football team.</strong></p><p class="translation" lang="es">Gatorade se desarrolló para el equipo de fútbol americano de la Universidad de Florida.</p>
+<p class="label">Read the story aloud</p><p class="story">In 1965, Dr. Robert Cade and other researchers studied what football players lost through sweat. Their team developed a drink with water, salts, and sugar.</p><p class="translation" lang="es">En 1965, el doctor Robert Cade y otros investigadores estudiaron qué perdían los jugadores de fútbol americano al sudar. El equipo desarrolló una bebida con agua, sales y azúcar.</p>
+<p><a class="source" href="https://history.med.ufl.edu/profiles-in-history/dr-robert-cade/" target="_blank" rel="noopener noreferrer">University of Florida College of Medicine</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Fanta" style="--sheet:url('images/food-4.webp');--x:0%;--y:100%"></div><div><h2>Fanta</h2><p class="translation" lang="es">Fanta</p>
+<p class="question">In which country was the original Fanta made during World War II?</p><p class="translation" lang="es">¿En qué país se elaboró la Fanta original durante la Segunda Guerra Mundial?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The original Fanta was made in Germany.</strong></p><p class="translation" lang="es">La Fanta original se elaboró en Alemania.</p>
+<p class="label">Read the story aloud</p><p class="story">The wartime drink was created in 1940 with ingredients that were still available, including whey and apple pulp. The modern orange drink was developed in 1955 using the same name.</p><p class="translation" lang="es">La bebida de la época de la guerra se creó en 1940 con ingredientes que aún se conseguían, como suero de leche y pulpa de manzana. La bebida moderna de naranja se desarrolló en 1955 con el mismo nombre.</p>
+<p><a class="source" href="https://www.coca-cola.com/ch/de/about-us/die-geschichte-von-fanta" target="_blank" rel="noopener noreferrer">The Coca-Cola Company’s Fanta history</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Oreo" style="--sheet:url('images/food-4.webp');--x:25%;--y:100%"></div><div><h2>Oreo</h2><p class="translation" lang="es">Galletas Oreo</p>
+<p class="question">Where were the first Oreo cookies made?</p><p class="translation" lang="es">¿Dónde se hicieron las primeras galletas Oreo?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The first Oreo cookies were made in Manhattan, New York.</strong></p><p class="translation" lang="es">Las primeras galletas Oreo se hicieron en Manhattan, Nueva York.</p>
+<p class="label">Read the story aloud</p><p class="story">The bakery in the building now called Chelsea Market produced its first Oreos in 1912. The cookies were sold in large tins.</p><p class="translation" lang="es">La fábrica del edificio que hoy se llama Chelsea Market produjo sus primeras Oreo en 1912. Las galletas se vendían en latas grandes.</p>
+<p><a class="source" href="https://www.mondelezinternational.com/our-brands/oreo/index.html" target="_blank" rel="noopener noreferrer">Mondelēz International</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Ritz crackers" style="--sheet:url('images/food-4.webp');--x:50%;--y:100%"></div><div><h2>Ritz crackers</h2><p class="translation" lang="es">Galletas saladas Ritz</p>
+<p class="question">When were Ritz crackers introduced?</p><p class="translation" lang="es">¿Cuándo se lanzaron las galletas saladas Ritz?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>Ritz crackers were introduced in 1934.</strong></p><p class="translation" lang="es">Las galletas saladas Ritz se lanzaron en 1934.</p>
+<p class="label">Read the story aloud</p><p class="story">Nabisco launched the round, buttery crackers during the Great Depression. They were advertised as an affordable snack.</p><p class="translation" lang="es">Nabisco lanzó estas galletas redondas con sabor a mantequilla durante la Gran Depresión. Se anunciaban como un refrigerio económico.</p>
+<p><a class="source" href="https://www.mondelezinternational.com/our-brands/ritz/" target="_blank" rel="noopener noreferrer">Mondelēz International</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Pringles" style="--sheet:url('images/food-4.webp');--x:75%;--y:100%"></div><div><h2>Pringles</h2><p class="translation" lang="es">Papas Pringles</p>
+<p class="question">Who was the curved shape of Pringles designed by?</p><p class="translation" lang="es">¿Quién diseñó la forma curva de las papas Pringles?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The curved shape was designed by Fredric Baur.</strong></p><p class="translation" lang="es">La forma curva fue diseñada por Fredric Baur.</p>
+<p class="label">Read the story aloud</p><p class="story">Baur also designed the tube that holds the crisps. Alexander Liepa worked on the flavor, and Gene Wolfe helped develop the machine that made them.</p><p class="translation" lang="es">Baur también diseñó el envase tubular que contiene las papas. Alexander Liepa trabajó en el sabor y Gene Wolfe ayudó a desarrollar la máquina que las fabricaba.</p>
+<p><a class="source" href="https://www.pringles.com/en-us/faq.html" target="_blank" rel="noopener noreferrer">Pringles official FAQ</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of SPAM" style="--sheet:url('images/food-4.webp');--x:100%;--y:100%"></div><div><h2>SPAM</h2><p class="translation" lang="es">Carne enlatada SPAM</p>
+<p class="question">How was the name SPAM chosen?</p><p class="translation" lang="es">¿Cómo se eligió el nombre SPAM?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>The name was chosen through a contest.</strong></p><p class="translation" lang="es">El nombre se eligió mediante un concurso.</p>
+<p class="label">Read the story aloud</p><p class="story">Hormel introduced this canned meat in 1937. Ken Daigneau won $100 for suggesting the name.</p><p class="translation" lang="es">Hormel lanzó esta carne enlatada en 1937. Ken Daigneau ganó 100 dólares por sugerir el nombre.</p>
+<p><a class="source" href="https://www.spam.com/what-is-spam-brand" target="_blank" rel="noopener noreferrer">Hormel Foods’ SPAM brand history</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Sliced sandwich bread" style="--sheet:url('images/food-5.webp');--x:0%;--y:0%"></div><div><h2>Sliced sandwich bread</h2><p class="translation" lang="es">Pan de molde rebanado</p>
+<p class="question">Where was an early automatic bread slicer used in 1928?</p><p class="translation" lang="es">¿Dónde se usó una de las primeras máquinas automáticas para rebanar pan en 1928?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was used at a bakery in Chillicothe, Missouri.</strong></p><p class="translation" lang="es">Se usó en una panadería de Chillicothe, Misuri.</p>
+<p class="label">Read the story aloud</p><p class="story">Otto Rohwedder designed a machine to slice a whole loaf into even pieces. In 1928, bakeries in Missouri and Iowa used his machines.</p><p class="translation" lang="es">Otto Rohwedder diseñó una máquina para cortar un pan entero en rebanadas parejas. En 1928, panaderías de Misuri y de Iowa usaron sus máquinas.</p>
+<p><a class="source" href="https://www.si.edu/object/nmah_1317263" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Frozen TV dinner" style="--sheet:url('images/food-5.webp');--x:25%;--y:0%"></div><div><h2>Frozen TV dinner</h2><p class="translation" lang="es">Comida congelada para comer frente al televisor</p>
+<p class="question">When was Swanson’s frozen TV dinner introduced?</p><p class="translation" lang="es">¿Cuándo se lanzó la comida congelada TV Dinner de Swanson?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was introduced in 1954.</strong></p><p class="translation" lang="es">Se lanzó en 1954.</p>
+<p class="label">Read the story aloud</p><p class="story">Swanson packed a meal in a divided aluminum tray that could go straight from the freezer to the oven. The company marketed it as an easy meal to eat while watching TV.</p><p class="translation" lang="es">Swanson puso una comida en una bandeja de aluminio con divisiones que podía pasar del congelador al horno. La empresa la vendió como una comida fácil para comer viendo televisión.</p>
+<p><a class="source" href="https://americanhistory.si.edu/explore/exhibitions/food/online/new-and-improved/help-home-cook/no-work-no-dishes" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Frozen fish sticks" style="--sheet:url('images/food-5.webp');--x:50%;--y:0%"></div><div><h2>Frozen fish sticks</h2><p class="translation" lang="es">Palitos de pescado congelados</p>
+<p class="question">When were fish fingers launched in Britain?</p><p class="translation" lang="es">¿Cuándo se lanzaron los palitos de pescado en Gran Bretaña?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>They were launched in 1955.</strong></p><p class="translation" lang="es">Se lanzaron en 1955.</p>
+<p class="label">Read the story aloud</p><p class="story">Frozen fish fingers offered a quick meal as home freezers became more common. In the United States, they are usually called fish sticks.</p><p class="translation" lang="es">Los palitos de pescado congelados ofrecían una comida rápida cuando los congeladores empezaron a ser más comunes en casa. En Estados Unidos se suelen llamar fish sticks.</p>
+<p><a class="source" href="https://www.sciencemuseum.org.uk/sites/default/files/2025-07/BOOK_ONE_Large_Print%20Book_Future_of_Food_0.pdf" target="_blank" rel="noopener noreferrer">Science Museum, Future of Food exhibition</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Sweetened condensed milk" style="--sheet:url('images/food-5.webp');--x:75%;--y:0%"></div><div><h2>Sweetened condensed milk</h2><p class="translation" lang="es">Leche condensada azucarada</p>
+<p class="question">Why was Gail Borden’s condensed milk developed?</p><p class="translation" lang="es">¿Para qué se desarrolló la leche condensada de Gail Borden?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was developed to keep milk from spoiling quickly.</strong></p><p class="translation" lang="es">Se desarrolló para evitar que la leche se echara a perder rápidamente.</p>
+<p class="label">Read the story aloud</p><p class="story">Gail Borden introduced Eagle Brand in 1856. Condensed milk was useful when refrigeration was hard to find.</p><p class="translation" lang="es">Gail Borden lanzó Eagle Brand en 1856. La leche condensada era útil cuando era difícil conseguir refrigeración.</p>
+<p><a class="source" href="https://www.eaglebrand.com/eagle-brand-history/" target="_blank" rel="noopener noreferrer">Eagle Brand history</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Microwave popcorn" style="--sheet:url('images/food-5.webp');--x:100%;--y:0%"></div><div><h2>Microwave popcorn</h2><p class="translation" lang="es">Cotufas para microondas</p>
+<p class="question">When was microwave popcorn first sold in U.S. supermarkets?</p><p class="translation" lang="es">¿Cuándo se vendieron por primera vez las cotufas para microondas en supermercados de Estados Unidos?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was first sold in 1981.</strong></p><p class="translation" lang="es">Se vendieron por primera vez en 1981.</p>
+<p class="label">Read the story aloud</p><p class="story">Early packages had to be kept cold. Bags that could be stored at room temperature reached stores in 1984.</p><p class="translation" lang="es">Los primeros paquetes debían mantenerse fríos. Las bolsas que podían guardarse a temperatura ambiente llegaron a las tiendas en 1984.</p>
+<p><a class="source" href="https://americanhistory.si.edu/explore/exhibitions/object-project/online/household-hits/microwave" target="_blank" rel="noopener noreferrer">Smithsonian National Museum of American History</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Twinkies" style="--sheet:url('images/food-5.webp');--x:0%;--y:100%"></div><div><h2>Twinkies</h2><p class="translation" lang="es">Pastelitos Twinkies</p>
+<p class="question">What were the first Twinkies filled with?</p><p class="translation" lang="es">¿Con qué se rellenaron los primeros Twinkies?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>They were filled with banana-flavored cream.</strong></p><p class="translation" lang="es">Se rellenaron con crema sabor a banana.</p>
+<p class="label">Read the story aloud</p><p class="story">James Dewar created the sponge cakes in 1930. Vanilla cream later became the better-known filling.</p><p class="translation" lang="es">James Dewar creó los bizcochitos en 1930. La crema de vainilla se convirtió después en el relleno más conocido.</p>
+<p><a class="source" href="https://www.hostesscakes.com/our-story" target="_blank" rel="noopener noreferrer">Hostess</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Rice Krispies Treats" style="--sheet:url('images/food-5.webp');--x:25%;--y:100%"></div><div><h2>Rice Krispies Treats</h2><p class="translation" lang="es">Barritas de arroz inflado con malvaviscos</p>
+<p class="question">When was an early ad for Rice Krispies Treats published?</p><p class="translation" lang="es">¿Cuándo se publicó uno de los primeros anuncios de las barritas de Rice Krispies?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>An early ad was published in 1941.</strong></p><p class="translation" lang="es">Uno de los primeros anuncios se publicó en 1941.</p>
+<p class="label">Read the story aloud</p><p class="story">A Kellogg’s magazine ad promoted the cereal and marshmallow snack as an easy Halloween treat. The ad included instructions for making it at home.</p><p class="translation" lang="es">Un anuncio de Kellogg’s en una revista promocionó el dulce de cereal y malvaviscos como un postre fácil para Halloween. El anuncio incluía instrucciones para prepararlo en casa.</p>
+<p><a class="source" href="https://digitalcommons.risd.edu/picturecollection_vintageadvertisements/124/" target="_blank" rel="noopener noreferrer">RISD Fleet Library, original 1941 advertisement</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Reese’s Peanut Butter Cups" style="--sheet:url('images/food-5.webp');--x:50%;--y:100%"></div><div><h2>Reese’s Peanut Butter Cups</h2><p class="translation" lang="es">Copitas de chocolate con mantequilla de maní Reese’s</p>
+<p class="question">Who were Reese’s Peanut Butter Cups created by?</p><p class="translation" lang="es">¿Quién creó las copitas Reese’s de chocolate con mantequilla de maní?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>They were created by Harry Burnett Reese in 1928.</strong></p><p class="translation" lang="es">Fueron creadas por Harry Burnett Reese en 1928.</p>
+<p class="label">Read the story aloud</p><p class="story">Reese had worked for the Hershey Chocolate Company. He made his peanut butter and chocolate candy in Hershey, Pennsylvania.</p><p class="translation" lang="es">Reese había trabajado para la compañía de chocolate Hershey. Creó su dulce de chocolate y mantequilla de maní en Hershey, Pensilvania.</p>
+<p><a class="source" href="https://www.hersheys.com/reeses.html" target="_blank" rel="noopener noreferrer">Hershey</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Doritos" style="--sheet:url('images/food-5.webp');--x:75%;--y:100%"></div><div><h2>Doritos</h2><p class="translation" lang="es">Doritos</p>
+<p class="question">When were Doritos first sold?</p><p class="translation" lang="es">¿Cuándo se vendieron por primera vez los Doritos?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>They were first sold in 1966.</strong></p><p class="translation" lang="es">Se vendieron por primera vez en 1966.</p>
+<p class="label">Read the story aloud</p><p class="story">Frito-Lay introduced the tortilla chips in the United States. The original product came before the familiar Nacho Cheese flavor.</p><p class="translation" lang="es">Frito-Lay lanzó los chips de tortilla en Estados Unidos. El producto original salió antes del conocido sabor Nacho Cheese.</p>
+<p><a class="source" href="https://www.doritos.com/faqs" target="_blank" rel="noopener noreferrer">Doritos official FAQ</a></p>
+</details></article>
+<article class="card">
+<div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Chocolate chip cookie dough ice cream" style="--sheet:url('images/food-5.webp');--x:100%;--y:100%"></div><div><h2>Chocolate chip cookie dough ice cream</h2><p class="translation" lang="es">Helado de masa de galleta con chispas de chocolate</p>
+<p class="question">Where was Ben &amp; Jerry’s cookie dough ice cream first made?</p><p class="translation" lang="es">¿Dónde se hizo por primera vez el helado de masa de galleta de Ben &amp; Jerry’s?</p></div></div>
+<details class="answer"><summary>Reveal answer</summary><p class="label">Model passive answer</p>
+<p class="story"><strong>It was first made at a shop in Burlington, Vermont.</strong></p><p class="translation" lang="es">Se hizo por primera vez en una heladería de Burlington, Vermont.</p>
+<p class="label">Read the story aloud</p><p class="story">A customer suggested adding cookie dough to vanilla ice cream in 1984. The company began selling the flavor in pints in 1991.</p><p class="translation" lang="es">Un cliente sugirió agregar masa de galleta al helado de vainilla en 1984. La empresa empezó a vender el sabor en envases de una pinta en 1991.</p>
+<p><a class="source" href="https://www.benjerry.com/whats-new/archive/2018/cookie-dough-history" target="_blank" rel="noopener noreferrer">Ben &amp; Jerry’s</a></p>
+</details></article>
+</section>
+</main>
+<script>
+const cards = [
+  {
+    "item": "Chocolate chip cookie",
+    "itemEs": "Galleta con chispas de chocolate",
+    "question": "Where was the Toll House chocolate chip cookie developed?",
+    "questionEs": "¿Dónde se creó la galleta Toll House con chispas de chocolate?",
+    "model": "The Toll House chocolate chip cookie was developed at an inn in Massachusetts.",
+    "modelEs": "La galleta Toll House con chispas de chocolate se creó en una posada de Massachusetts.",
+    "answer": "In the 1930s, Ruth Wakefield mixed pieces of chocolate into cookie dough at the Toll House Inn. The pieces softened in the oven but kept their shape.",
+    "answerEs": "En la década de 1930, Ruth Wakefield mezcló trozos de chocolate con la masa de galletas en la posada Toll House. Los trozos se ablandaron en el horno, pero conservaron su forma.",
+    "source": "Nestlé Toll House",
+    "url": "https://www.verybestbaking.com/toll-house/about-us/",
+    "imageIndex": 0
+  },
+  {
+    "item": "Brownie",
+    "itemEs": "Brownie de chocolate",
+    "question": "According to the Palmer House hotel, where was its brownie created?",
+    "questionEs": "Según el hotel Palmer House, ¿dónde se creó su brownie?",
+    "model": "The brownie was created in the Palmer House kitchen in Chicago.",
+    "modelEs": "El brownie se creó en la cocina del hotel Palmer House en Chicago.",
+    "answer": "The hotel credits Bertha Palmer with requesting a dessert for the 1893 Chicago World’s Fair. The hotel still serves its version with walnuts and an apricot glaze.",
+    "answerEs": "El hotel dice que Bertha Palmer pidió un postre para la Feria Mundial de Chicago de 1893. El hotel todavía sirve su versión con nueces y un glaseado de albaricoque.",
+    "source": "Palmer House Hilton",
+    "url": "https://www.palmerhousehiltonhotel.com/about-our-hotel/thebrownie/",
+    "imageIndex": 1
+  },
+  {
+    "item": "Ice cream cone",
+    "itemEs": "Barquilla de helado",
+    "question": "At which fair was the ice cream cone popularized in the United States?",
+    "questionEs": "¿En qué feria se popularizó la barquilla de helado en Estados Unidos?",
+    "model": "The ice cream cone was popularized at the 1904 St. Louis World’s Fair.",
+    "modelEs": "La barquilla de helado se popularizó en la Feria Mundial de San Luis de 1904.",
+    "answer": "Several vendors have been credited with inventing it, so there is no clear single inventor. At the fair, rolled waffles were used as edible cones.",
+    "answerEs": "Se les ha atribuido el invento a varios vendedores, así que no se sabe con certeza quién lo inventó. En la feria se usaban waffles enrollados como conos comestibles.",
+    "source": "Library of Congress",
+    "url": "https://www.loc.gov/item/today-in-history/july-23/",
+    "imageIndex": 2
+  },
+  {
+    "item": "Popsicle",
+    "itemEs": "Helado de palito",
+    "question": "In what year was Frank Epperson’s ice pop patented?",
+    "questionEs": "¿En qué año se patentó el helado de palito de Frank Epperson?",
+    "model": "Frank Epperson’s ice pop was patented in 1924.",
+    "modelEs": "El helado de palito de Frank Epperson se patentó en 1924.",
+    "answer": "Epperson sold his frozen treat at Neptune Beach in California. He called it the Epsicle before it became known as the Popsicle.",
+    "answerEs": "Epperson vendía su helado en Neptune Beach, California. Lo llamó Epsicle antes de que se conociera como Popsicle.",
+    "source": "Popsicle",
+    "url": "https://www.popsicle.com/us/en/our-story.html",
+    "imageIndex": 3
+  },
+  {
+    "item": "Cotton candy machine",
+    "itemEs": "Máquina de algodón de azúcar",
+    "question": "When was Morrison and Wharton’s cotton candy machine patented?",
+    "questionEs": "¿Cuándo se patentó la máquina de algodón de azúcar de Morrison y Wharton?",
+    "model": "Morrison and Wharton’s cotton candy machine was patented in 1899.",
+    "modelEs": "La máquina de algodón de azúcar de Morrison y Wharton se patentó en 1899.",
+    "answer": "William Morrison and John Wharton designed a machine that spun melted sugar into thin strands. The patent called it a candy machine.",
+    "answerEs": "William Morrison y John Wharton diseñaron una máquina que giraba para convertir el azúcar derretida en hilos finos. La patente la llamaba máquina de dulces.",
+    "source": "U.S. Patent No. 618,428",
+    "url": "https://patents.google.com/patent/US618428A/en",
+    "imageIndex": 4
+  },
+  {
+    "item": "Fortune cookie",
+    "itemEs": "Galleta de la fortuna",
+    "question": "Which country’s cookie tradition was the American fortune cookie inspired by?",
+    "questionEs": "¿En la tradición de galletas de qué país se inspiró la galleta de la fortuna estadounidense?",
+    "model": "The American fortune cookie was inspired by a Japanese cookie tradition.",
+    "modelEs": "La galleta de la fortuna estadounidense se inspiró en una tradición japonesa.",
+    "answer": "Japan had crackers with paper messages inside. The American version became familiar in Chinese restaurants in the United States.",
+    "answerEs": "En Japón había galletas con mensajes de papel adentro. La versión estadounidense se hizo conocida en los restaurantes chinos de Estados Unidos.",
+    "source": "Smithsonian National Museum of American History",
+    "url": "https://americanhistory.si.edu/explore/stories/origins-fortune-cookie",
+    "imageIndex": 5
+  },
+  {
+    "item": "Potato chips",
+    "itemEs": "Papas fritas de bolsa",
+    "question": "When was an early recipe for thin fried potato slices published in England?",
+    "questionEs": "¿Cuándo se publicó en Inglaterra una de las primeras recetas de rodajas finas de papa frita?",
+    "model": "An early recipe for thin fried potato slices was published in 1817.",
+    "modelEs": "Una de las primeras recetas de rodajas finas de papa frita se publicó en 1817.",
+    "answer": "William Kitchiner included the recipe in his cookbook. A later legend gives credit to George Crum in New York, but earlier recipes are documented.",
+    "answerEs": "William Kitchiner incluyó la receta en su libro de cocina. Una leyenda posterior le atribuye el invento a George Crum en Nueva York, pero hay recetas anteriores documentadas.",
+    "source": "Smithsonian Magazine",
+    "url": "https://www.smithsonianmag.com/arts-culture/curious-history-potato-chip-180979232/",
+    "imageIndex": 6
+  },
+  {
+    "item": "Corn flakes",
+    "itemEs": "Hojuelas de maíz",
+    "question": "When was the company behind Kellogg’s Corn Flakes founded?",
+    "questionEs": "¿Cuándo se fundó la empresa que lanzó las hojuelas de maíz Kellogg’s?",
+    "model": "The company behind Kellogg’s Corn Flakes was founded in 1906.",
+    "modelEs": "La empresa que lanzó las hojuelas de maíz Kellogg’s se fundó en 1906.",
+    "answer": "W. K. Kellogg founded the company to sell toasted cereal flakes. His corn flakes became a breakfast cereal sold around the world.",
+    "answerEs": "W. K. Kellogg fundó la empresa para vender hojuelas de cereal tostadas. Sus hojuelas de maíz se convirtieron en un cereal de desayuno que se vende en todo el mundo.",
+    "source": "WK Kellogg Co",
+    "url": "https://www.wkkellogg.ca/en/who-we-are/our-story",
+    "imageIndex": 7
+  },
+  {
+    "item": "Graham cracker",
+    "itemEs": "Galleta Graham",
+    "question": "Who was the graham cracker named after?",
+    "questionEs": "¿En honor a quién se le dio nombre a la galleta Graham?",
+    "model": "The graham cracker was named after Sylvester Graham.",
+    "modelEs": "La galleta Graham recibió su nombre en honor a Sylvester Graham.",
+    "answer": "Graham promoted bread made with whole-wheat flour in the 1800s. The cracker that carries his name is different from the bread he recommended.",
+    "answerEs": "Graham promovía el pan hecho con harina de trigo integral en el siglo XIX. La galleta que lleva su nombre es diferente del pan que recomendaba.",
+    "source": "Historic Northampton Museum and Education Center",
+    "url": "https://www.historic-northampton.org/highlights/graham.html",
+    "imageIndex": 8
+  },
+  {
+    "item": "Peanut butter",
+    "itemEs": "Mantequilla de maní",
+    "question": "When was Marcellus Edson’s process for making peanut paste patented?",
+    "questionEs": "¿Cuándo se patentó el proceso de Marcellus Edson para hacer pasta de maní?",
+    "model": "Edson’s process for making peanut paste was patented in 1884.",
+    "modelEs": "El proceso de Edson para hacer pasta de maní se patentó en 1884.",
+    "answer": "Edson described grinding roasted peanuts into a paste for candy. His patent was an early step in the history of modern peanut butter.",
+    "answerEs": "Edson describió cómo moler maní tostado para hacer una pasta para dulces. Su patente fue uno de los primeros pasos en la historia de la mantequilla de maní moderna.",
+    "source": "U.S. Patent No. 306,727",
+    "url": "https://patents.google.com/patent/US306727A/en",
+    "imageIndex": 9
+  },
+  {
+    "item": "Margherita pizza",
+    "itemEs": "Pizza margarita",
+    "question": "Who is often credited with making a Margherita pizza for Queen Margherita?",
+    "questionEs": "¿A quién se le suele atribuir la preparación de una pizza margarita para la reina Margarita?",
+    "model": "Raffaele Esposito is often credited with making it for Queen Margherita.",
+    "modelEs": "A Raffaele Esposito se le suele atribuir la preparación de esa pizza para la reina Margarita.",
+    "answer": "A famous story says Esposito served the queen a pizza with tomato, mozzarella, and basil in Naples in 1889. Historians dispute whether the pizza was invented on that occasion.",
+    "answerEs": "Una historia conocida dice que Esposito sirvió a la reina una pizza con tomate, mozzarella y albahaca en Nápoles en 1889. Los historiadores discuten si la pizza se inventó en esa ocasión.",
+    "source": "Zachary Nowak, food history research",
+    "url": "https://www.tandfonline.com/doi/abs/10.2752/175174414X13828682779249",
+    "imageIndex": 10
+  },
+  {
+    "item": "Hamburger",
+    "itemEs": "Hamburguesa",
+    "question": "Who is credited with serving an early hamburger at Louis’ Lunch?",
+    "questionEs": "¿A quién se le atribuye haber servido una de las primeras hamburguesas en Louis’ Lunch?",
+    "model": "Louis Lassen is credited with serving an early hamburger at Louis’ Lunch.",
+    "modelEs": "A Louis Lassen se le atribuye haber servido una de las primeras hamburguesas en Louis’ Lunch.",
+    "answer": "According to a New Haven story, Lassen put cooked ground beef between slices of toast in 1900. Other towns claim the hamburger was invented there.",
+    "answerEs": "Según una historia de New Haven, Lassen puso carne molida cocida entre dos rebanadas de pan tostado en 1900. Otras ciudades afirman que la hamburguesa se inventó allí.",
+    "source": "Connecticut Humanities",
+    "url": "https://connecticuthistory.org/louis-lunch-and-the-birth-of-the-hamburger/",
+    "imageIndex": 11
+  },
+  {
+    "item": "Hot dog",
+    "itemEs": "Perro caliente",
+    "question": "What kind of sausage was the American hot dog developed from?",
+    "questionEs": "¿A partir de qué tipo de salchicha se desarrolló el perro caliente estadounidense?",
+    "model": "The American hot dog was developed from European sausages such as the frankfurter.",
+    "modelEs": "El perro caliente estadounidense se desarrolló a partir de salchichas europeas como la de Fráncfort.",
+    "answer": "German immigrants helped bring this kind of sausage to the United States. Several stories explain how it was first served in a bun, and the exact origin is unclear.",
+    "answerEs": "Los inmigrantes alemanes ayudaron a llevar este tipo de salchicha a Estados Unidos. Hay varias historias sobre cómo se sirvió por primera vez en un pan y su origen exacto no está claro.",
+    "source": "National Hot Dog and Sausage Council",
+    "url": "https://www.hot-dog.org/culture/hot-dog-history",
+    "imageIndex": 12
+  },
+  {
+    "item": "Sandwich",
+    "itemEs": "Sándwich",
+    "question": "Who was the sandwich named after?",
+    "questionEs": "¿En honor a quién se le dio nombre al sándwich?",
+    "model": "The sandwich was named after John Montagu, the fourth Earl of Sandwich.",
+    "modelEs": "El sándwich recibió su nombre por John Montagu, el cuarto conde de Sandwich.",
+    "answer": "The English name is linked to Montagu in the 1700s. A popular story says he asked for meat between slices of bread so he could keep playing cards.",
+    "answerEs": "El nombre en inglés se relaciona con Montagu en el siglo XVIII. Una historia popular dice que pidió carne entre rebanadas de pan para poder seguir jugando a las cartas.",
+    "source": "Oxford University Press, Oxford English Dictionary",
+    "url": "https://blog.oup.com/2006/09/monthly_gleanin6/",
+    "imageIndex": 13
+  },
+  {
+    "item": "Club sandwich",
+    "itemEs": "Sándwich club",
+    "question": "Where was an early club sandwich reported in 1889?",
+    "questionEs": "¿Dónde se documentó una versión temprana del sándwich club en 1889?",
+    "model": "An early club sandwich was reported at the Union Club in New York City.",
+    "modelEs": "Una versión temprana del sándwich club se documentó en el Union Club de Nueva York.",
+    "answer": "New York newspapers described the Union Club sandwich in 1889. It had toasted bread and meat, but the exact inventor is uncertain.",
+    "answerEs": "Los periódicos de Nueva York describieron el sándwich del Union Club en 1889. Llevaba pan tostado y carne, pero no se sabe con certeza quién lo inventó.",
+    "source": "The Sun, 1889 newspaper account transcribed by Barry Popik",
+    "url": "https://barrypopik.com/blog/club_sandwich",
+    "imageIndex": 14
+  },
+  {
+    "item": "Caesar salad",
+    "itemEs": "Ensalada César",
+    "question": "Where is Caesar salad generally believed to have been created?",
+    "questionEs": "¿Dónde se cree que se creó la ensalada César?",
+    "model": "Caesar salad is generally believed to have been created in Tijuana, Mexico.",
+    "modelEs": "Generalmente se cree que la ensalada César se creó en Tijuana, México.",
+    "answer": "The most familiar story credits Caesar Cardini, an Italian restaurateur in Tijuana, in the 1920s. Other accounts give credit to different cooks.",
+    "answerEs": "La historia más conocida atribuye la ensalada a Caesar Cardini, un restaurantero italiano en Tijuana, en la década de 1920. Otros relatos se la atribuyen a distintos cocineros.",
+    "source": "Smithsonian Magazine",
+    "url": "https://www.smithsonianmag.com/arts-culture/hail-caesarthe-birthplace-of-the-famous-salad-closes-69245867/",
+    "imageIndex": 15
+  },
+  {
+    "item": "Nachos",
+    "itemEs": "Nachos",
+    "question": "Who is usually credited with inventing nachos?",
+    "questionEs": "¿A quién se le suele atribuir la invención de los nachos?",
+    "model": "Ignacio “Nacho” Anaya is usually credited with inventing nachos.",
+    "modelEs": "A Ignacio «Nacho» Anaya se le suele atribuir la invención de los nachos.",
+    "answer": "According to the popular account, Anaya made the snack in Piedras Negras, Mexico, around 1940. He used tortilla chips, cheese, and jalapeños.",
+    "answerEs": "Según el relato popular, Anaya preparó el aperitivo en Piedras Negras, México, alrededor de 1940. Usó totopos, queso y jalapeños.",
+    "source": "Pati Jinich",
+    "url": "https://patijinich.com/es/the-new-york-times-the-original-nachos-were-crunchy-cheesy-and-truly-mexican/",
+    "imageIndex": 16
+  },
+  {
+    "item": "Buffalo wings",
+    "itemEs": "Alitas de pollo estilo Buffalo",
+    "question": "Who is often credited with making the Anchor Bar’s Buffalo wings?",
+    "questionEs": "¿A quién se le suele atribuir la creación de las alitas estilo Buffalo del Anchor Bar?",
+    "model": "Teressa Bellissimo is often credited with making the Anchor Bar’s Buffalo wings.",
+    "modelEs": "A Teressa Bellissimo se le suele atribuir la creación de las alitas estilo Buffalo del Anchor Bar.",
+    "answer": "The best-known story places Bellissimo’s hot-sauce wings in Buffalo, New York, in 1964. John Young also served a different style of wings in Buffalo in the 1960s.",
+    "answerEs": "El relato más conocido sitúa las alitas con salsa picante de Bellissimo en Buffalo, Nueva York, en 1964. John Young también servía otro estilo de alitas en Buffalo en la década de 1960.",
+    "source": "The Buffalo History Museum",
+    "url": "https://buffalohistory.org/who-served-buffalos-first-wings/",
+    "imageIndex": 17
+  },
+  {
+    "item": "French fries",
+    "itemEs": "Papas fritas",
+    "question": "Which two countries are often named in stories about the origin of French fries?",
+    "questionEs": "¿Qué dos países se suelen mencionar en las historias sobre el origen de las papas fritas?",
+    "model": "France and Belgium are often named in stories about the origin of French fries.",
+    "modelEs": "Francia y Bélgica suelen mencionarse en las historias sobre el origen de las papas fritas.",
+    "answer": "The origin is disputed. Food historian Pierre Leclercq points to early records of fried potatoes sold in Paris.",
+    "answerEs": "El origen es discutido. El historiador de la alimentación Pierre Leclercq señala registros antiguos de papas fritas vendidas en París.",
+    "source": "University of Liège, interview with Pierre Leclercq",
+    "url": "https://www.campus.uliege.be/cms/c_10630394/en/les-grands-mythes-de-la-gastronomie-l-histoire-vraie-de-la-pomme-de-terre-frite",
+    "imageIndex": 18
+  },
+  {
+    "item": "Chicken nuggets",
+    "itemEs": "Nuggets de pollo",
+    "question": "Who was an early version of chicken nuggets developed by?",
+    "questionEs": "¿Quién desarrolló una versión temprana de los nuggets de pollo?",
+    "model": "An early version of chicken nuggets was developed by Cornell researcher Robert C. Baker and his team.",
+    "modelEs": "Una versión temprana de los nuggets de pollo fue desarrollada por Robert C. Baker, investigador de Cornell, y su equipo.",
+    "answer": "At Cornell University, Baker’s team tested breaded pieces of chicken that could be frozen and cooked later. Their work came before McDonald’s Chicken McNuggets.",
+    "answerEs": "En la Universidad Cornell, el equipo de Baker probó trozos de pollo empanizados que se podían congelar y cocinar más tarde. Su trabajo fue anterior a los Chicken McNuggets de McDonald’s.",
+    "source": "Cornell Chronicle",
+    "url": "https://news.cornell.edu/stories/2006/03/food-and-poultry-scientist-robert-c-baker-dies-age-84",
+    "imageIndex": 19
+  },
+  {
+    "item": "Instant ramen",
+    "itemEs": "Ramen instantáneo",
+    "question": "Who was Chicken Ramen developed by?",
+    "questionEs": "¿Quién desarrolló Chicken Ramen?",
+    "model": "Chicken Ramen was developed by Momofuku Ando.",
+    "modelEs": "Chicken Ramen fue desarrollado por Momofuku Ando.",
+    "answer": "Nissin launched it in Japan in 1958. Hot water was enough to prepare the noodles.",
+    "answerEs": "Nissin lo lanzó en Japón en 1958. Bastaba con agua caliente para preparar los fideos.",
+    "source": "Nissin Foods",
+    "url": "https://www.nissin.com/en_jp/about/history/",
+    "imageIndex": 20
+  },
+  {
+    "item": "Cup Noodles",
+    "itemEs": "Fideos instantáneos en vaso",
+    "question": "When were Cup Noodles first sold in Japan?",
+    "questionEs": "¿Cuándo se vendieron por primera vez los Cup Noodles en Japón?",
+    "model": "Cup Noodles were first sold in Japan in 1971.",
+    "modelEs": "Los Cup Noodles se vendieron por primera vez en Japón en 1971.",
+    "answer": "Momofuku Ando got the idea after seeing people in the United States put instant noodles in paper cups.",
+    "answerEs": "A Momofuku Ando se le ocurrió la idea después de ver a personas en Estados Unidos poner fideos instantáneos en vasos de papel.",
+    "source": "Nissin Foods",
+    "url": "https://www.nissin.com/en_jp/about/founder/",
+    "imageIndex": 21
+  },
+  {
+    "item": "California roll",
+    "itemEs": "Rollo California",
+    "question": "Has the inventor of the California roll been confirmed?",
+    "questionEs": "¿Se ha confirmado quién inventó el rollo California?",
+    "model": "The California roll is often traced to Los Angeles, but its inventor has not been confirmed.",
+    "modelEs": "El origen del rollo California se suele situar en Los Ángeles, pero no se ha confirmado quién lo inventó.",
+    "answer": "Researchers disagree about when it appeared. A newspaper mentioned it by 1979.",
+    "answerEs": "Los investigadores no se ponen de acuerdo sobre cuándo apareció. Ya se mencionaba en un periódico en 1979.",
+    "source": "University of San Francisco, Asia Pacific Perspectives",
+    "url": "https://jayna.usfca.edu/asia-pacific-perspectives/pdfs/asia-pacific_perspectives_v16n2_final.pdf",
+    "imageIndex": 22
+  },
+  {
+    "item": "Bubble tea",
+    "itemEs": "Té de burbujas",
+    "question": "Where was bubble tea invented?",
+    "questionEs": "¿Dónde se inventó el té de burbujas?",
+    "model": "Bubble tea was invented in Taiwan in the 1980s.",
+    "modelEs": "El té de burbujas se inventó en Taiwán en la década de 1980.",
+    "answer": "Two tea shops, Hanlin Tea Room and Chun Shui Tang, say they invented it. The exact inventor is disputed.",
+    "answerEs": "Dos casas de té, Hanlin Tea Room y Chun Shui Tang, afirman haberlo inventado. No hay acuerdo sobre quién lo inventó.",
+    "source": "Taiwan Immigrants’ Global News Network",
+    "url": "https://news.immigration.gov.tw/NewsSection/Detail/8dcaf253-faf4-42c8-87ef-e27eeb7ccee8?lang=EN",
+    "imageIndex": 23
+  },
+  {
+    "item": "Tiramisu",
+    "itemEs": "Tiramisú",
+    "question": "Which Italian areas are linked to the invention of tiramisu?",
+    "questionEs": "¿Qué lugares de Italia se relacionan con la invención del tiramisú?",
+    "model": "The invention of tiramisu is linked to both Treviso and Friuli.",
+    "modelEs": "La invención del tiramisú se relaciona tanto con Treviso como con Friuli.",
+    "answer": "The Le Beccherie restaurant is part of the Treviso story. Another account points to an earlier recipe in Tolmezzo, Friuli.",
+    "answerEs": "El restaurante Le Beccherie forma parte de la historia de Treviso. Otra versión señala una receta anterior en Tolmezzo, Friuli.",
+    "source": "Tiramisù Academy",
+    "url": "https://www.tiramisuacademy.org/ricette/?lang=en",
+    "imageIndex": 24
+  },
+  {
+    "item": "Croissant",
+    "itemEs": "Cruasán",
+    "question": "What older pastry was the croissant inspired by?",
+    "questionEs": "¿En qué pastel más antiguo se inspiró el cruasán?",
+    "model": "The croissant was inspired by the Austrian kipfel.",
+    "modelEs": "El cruasán se inspiró en el kipfel austríaco.",
+    "answer": "The kipfel had a curved shape. The flaky croissant we know today developed in France.",
+    "answerEs": "El kipfel tenía una forma curva. El cruasán de hojaldre que conocemos hoy se desarrolló en Francia.",
+    "source": "Smithsonian Magazine",
+    "url": "https://www.smithsonianmag.com/arts-culture/croissant-really-french-180955130/",
+    "imageIndex": 25
+  },
+  {
+    "item": "Nutella",
+    "itemEs": "Nutella",
+    "question": "When was the first jar of Nutella made?",
+    "questionEs": "¿Cuándo se hizo el primer frasco de Nutella?",
+    "model": "The first jar of Nutella was made in 1964.",
+    "modelEs": "El primer frasco de Nutella se hizo en 1964.",
+    "answer": "Pietro Ferrero had created an earlier hazelnut and cocoa paste in Italy in 1946.",
+    "answerEs": "Pietro Ferrero había creado una pasta de avellanas y cacao en Italia en 1946.",
+    "source": "Nutella / Ferrero",
+    "url": "https://www.nutella.com/us/en/inside-nutella/our-heritage",
+    "imageIndex": 26
+  },
+  {
+    "item": "Milk chocolate",
+    "itemEs": "Chocolate con leche",
+    "question": "Who was a successful Swiss version of milk chocolate developed by?",
+    "questionEs": "¿Quién desarrolló una versión exitosa del chocolate con leche en Suiza?",
+    "model": "A successful Swiss version of milk chocolate was developed by Daniel Peter.",
+    "modelEs": "Una versión exitosa del chocolate con leche fue desarrollada por Daniel Peter.",
+    "answer": "Nestlé’s history dates Peter’s work with its condensed milk to 1875. He worked in Vevey, Switzerland.",
+    "answerEs": "La historia de Nestlé sitúa en 1875 el trabajo de Peter con su leche condensada. Él trabajó en Vevey, Suiza.",
+    "source": "Nestlé Historical Archives",
+    "url": "https://www.nestle.com/about/history/nestle-company-history",
+    "imageIndex": 27
+  },
+  {
+    "item": "Margarine",
+    "itemEs": "Margarina",
+    "question": "Who was an early margarine process patented by in the United States?",
+    "questionEs": "¿Quién patentó un método temprano para fabricar margarina en Estados Unidos?",
+    "model": "An early margarine process was patented by Hippolyte Mège-Mouriès.",
+    "modelEs": "Un método temprano para fabricar margarina fue patentado por Hippolyte Mège-Mouriès.",
+    "answer": "The U.S. patent was issued in 1873. His process used animal fat to make a product similar to butter.",
+    "answerEs": "La patente estadounidense se concedió en 1873. Su método usaba grasa animal para hacer un producto parecido a la mantequilla.",
+    "source": "United States Patent Office",
+    "url": "https://patentimages.storage.googleapis.com/8e/00/25/3e606b15878681/USRE8424.pdf",
+    "imageIndex": 28
+  },
+  {
+    "item": "Instant coffee",
+    "itemEs": "Café instantáneo",
+    "question": "Where was David Strang’s soluble coffee powder patented?",
+    "questionEs": "¿Dónde se patentó el café soluble en polvo de David Strang?",
+    "model": "David Strang’s soluble coffee powder was patented in New Zealand.",
+    "modelEs": "El café soluble en polvo de David Strang se patentó en Nueva Zelanda.",
+    "answer": "Strang got his patent in 1890. His method used hot air to dry liquid coffee.",
+    "answerEs": "Strang obtuvo su patente en 1890. Su método usaba aire caliente para secar el café líquido.",
+    "source": "Te Ara Encyclopedia of New Zealand",
+    "url": "https://teara.govt.nz/en/inventions-patents-and-trademarks/print",
+    "imageIndex": 29
+  },
+  {
+    "item": "Coca-Cola",
+    "itemEs": "Coca-Cola",
+    "question": "Where was Coca-Cola first served?",
+    "questionEs": "¿Dónde se sirvió Coca-Cola por primera vez?",
+    "model": "Coca-Cola was first served at Jacobs’ Pharmacy in Atlanta, Georgia.",
+    "modelEs": "Coca-Cola se sirvió por primera vez en la farmacia Jacobs, en Atlanta, Georgia.",
+    "answer": "Pharmacist John Pemberton brought his syrup to the pharmacy in 1886. There, it was sold as a soda-fountain drink.",
+    "answerEs": "El farmacéutico John Pemberton llevó su jarabe a la farmacia en 1886. Allí se vendió como refresco de fuente de soda.",
+    "source": "The Coca-Cola Company",
+    "url": "https://www.coca-colacompany.com/about-us/history",
+    "imageIndex": 30
+  },
+  {
+    "item": "Pepsi",
+    "itemEs": "Pepsi",
+    "question": "What was Pepsi called before it got its current name?",
+    "questionEs": "¿Cómo se llamaba Pepsi antes de recibir su nombre actual?",
+    "model": "It was first called Brad’s Drink.",
+    "modelEs": "Al principio se llamaba Brad’s Drink.",
+    "answer": "Pharmacist Caleb Bradham created the drink in New Bern, North Carolina, in 1893. It was renamed Pepsi-Cola in 1898.",
+    "answerEs": "El farmacéutico Caleb Bradham creó la bebida en New Bern, Carolina del Norte, en 1893. En 1898 recibió el nombre de Pepsi-Cola.",
+    "source": "PepsiCo",
+    "url": "https://www.pepsico.com/newsroom/stories/2026/pepsi-history-brads-drink-iconic-american-brand",
+    "imageIndex": 31
+  },
+  {
+    "item": "Dr Pepper",
+    "itemEs": "Dr Pepper",
+    "question": "In which Texas city was Dr Pepper created?",
+    "questionEs": "¿En qué ciudad de Texas se creó Dr Pepper?",
+    "model": "Dr Pepper was created in Waco, Texas.",
+    "modelEs": "Dr Pepper se creó en Waco, Texas.",
+    "answer": "Charles Alderton created the drink in 1885. He worked at a pharmacy called the Old Corner Drug Store.",
+    "answerEs": "Charles Alderton creó la bebida en 1885. Trabajaba en una farmacia llamada Old Corner Drug Store.",
+    "source": "Dr Pepper Museum",
+    "url": "https://drpeppermuseum.com/about/",
+    "imageIndex": 32
+  },
+  {
+    "item": "Hires Root Beer",
+    "itemEs": "Refresco de raíz Hires",
+    "question": "At which event was Hires Root Beer presented in 1876?",
+    "questionEs": "¿En qué evento se presentó el refresco de raíz Hires en 1876?",
+    "model": "It was presented at the 1876 Centennial Exhibition in Philadelphia.",
+    "modelEs": "Se presentó en la Exposición del Centenario de 1876 en Filadelfia.",
+    "answer": "Root beer already existed before Charles Hires sold his version. The Philadelphia pharmacist helped make it popular as a commercial drink.",
+    "answerEs": "El refresco de raíz ya existía antes de que Charles Hires vendiera su versión. El farmacéutico de Filadelfia ayudó a popularizarlo como bebida comercial.",
+    "source": "The Encyclopedia of Greater Philadelphia",
+    "url": "https://philadelphiaencyclopedia.org/essays/root-beer/",
+    "imageIndex": 33
+  },
+  {
+    "item": "Gatorade",
+    "itemEs": "Gatorade",
+    "question": "Which sports team was Gatorade developed for?",
+    "questionEs": "¿Para qué equipo deportivo se desarrolló Gatorade?",
+    "model": "Gatorade was developed for the University of Florida football team.",
+    "modelEs": "Gatorade se desarrolló para el equipo de fútbol americano de la Universidad de Florida.",
+    "answer": "In 1965, Dr. Robert Cade and other researchers studied what football players lost through sweat. Their team developed a drink with water, salts, and sugar.",
+    "answerEs": "En 1965, el doctor Robert Cade y otros investigadores estudiaron qué perdían los jugadores de fútbol americano al sudar. El equipo desarrolló una bebida con agua, sales y azúcar.",
+    "source": "University of Florida College of Medicine",
+    "url": "https://history.med.ufl.edu/profiles-in-history/dr-robert-cade/",
+    "imageIndex": 34
+  },
+  {
+    "item": "Fanta",
+    "itemEs": "Fanta",
+    "question": "In which country was the original Fanta made during World War II?",
+    "questionEs": "¿En qué país se elaboró la Fanta original durante la Segunda Guerra Mundial?",
+    "model": "The original Fanta was made in Germany.",
+    "modelEs": "La Fanta original se elaboró en Alemania.",
+    "answer": "The wartime drink was created in 1940 with ingredients that were still available, including whey and apple pulp. The modern orange drink was developed in 1955 using the same name.",
+    "answerEs": "La bebida de la época de la guerra se creó en 1940 con ingredientes que aún se conseguían, como suero de leche y pulpa de manzana. La bebida moderna de naranja se desarrolló en 1955 con el mismo nombre.",
+    "source": "The Coca-Cola Company’s Fanta history",
+    "url": "https://www.coca-cola.com/ch/de/about-us/die-geschichte-von-fanta",
+    "imageIndex": 35
+  },
+  {
+    "item": "Oreo",
+    "itemEs": "Galletas Oreo",
+    "question": "Where were the first Oreo cookies made?",
+    "questionEs": "¿Dónde se hicieron las primeras galletas Oreo?",
+    "model": "The first Oreo cookies were made in Manhattan, New York.",
+    "modelEs": "Las primeras galletas Oreo se hicieron en Manhattan, Nueva York.",
+    "answer": "The bakery in the building now called Chelsea Market produced its first Oreos in 1912. The cookies were sold in large tins.",
+    "answerEs": "La fábrica del edificio que hoy se llama Chelsea Market produjo sus primeras Oreo en 1912. Las galletas se vendían en latas grandes.",
+    "source": "Mondelēz International",
+    "url": "https://www.mondelezinternational.com/our-brands/oreo/index.html",
+    "imageIndex": 36
+  },
+  {
+    "item": "Ritz crackers",
+    "itemEs": "Galletas saladas Ritz",
+    "question": "When were Ritz crackers introduced?",
+    "questionEs": "¿Cuándo se lanzaron las galletas saladas Ritz?",
+    "model": "Ritz crackers were introduced in 1934.",
+    "modelEs": "Las galletas saladas Ritz se lanzaron en 1934.",
+    "answer": "Nabisco launched the round, buttery crackers during the Great Depression. They were advertised as an affordable snack.",
+    "answerEs": "Nabisco lanzó estas galletas redondas con sabor a mantequilla durante la Gran Depresión. Se anunciaban como un refrigerio económico.",
+    "source": "Mondelēz International",
+    "url": "https://www.mondelezinternational.com/our-brands/ritz/",
+    "imageIndex": 37
+  },
+  {
+    "item": "Pringles",
+    "itemEs": "Papas Pringles",
+    "question": "Who was the curved shape of Pringles designed by?",
+    "questionEs": "¿Quién diseñó la forma curva de las papas Pringles?",
+    "model": "The curved shape was designed by Fredric Baur.",
+    "modelEs": "La forma curva fue diseñada por Fredric Baur.",
+    "answer": "Baur also designed the tube that holds the crisps. Alexander Liepa worked on the flavor, and Gene Wolfe helped develop the machine that made them.",
+    "answerEs": "Baur también diseñó el envase tubular que contiene las papas. Alexander Liepa trabajó en el sabor y Gene Wolfe ayudó a desarrollar la máquina que las fabricaba.",
+    "source": "Pringles official FAQ",
+    "url": "https://www.pringles.com/en-us/faq.html",
+    "imageIndex": 38
+  },
+  {
+    "item": "SPAM",
+    "itemEs": "Carne enlatada SPAM",
+    "question": "How was the name SPAM chosen?",
+    "questionEs": "¿Cómo se eligió el nombre SPAM?",
+    "model": "The name was chosen through a contest.",
+    "modelEs": "El nombre se eligió mediante un concurso.",
+    "answer": "Hormel introduced this canned meat in 1937. Ken Daigneau won $100 for suggesting the name.",
+    "answerEs": "Hormel lanzó esta carne enlatada en 1937. Ken Daigneau ganó 100 dólares por sugerir el nombre.",
+    "source": "Hormel Foods’ SPAM brand history",
+    "url": "https://www.spam.com/what-is-spam-brand",
+    "imageIndex": 39
+  },
+  {
+    "item": "Sliced sandwich bread",
+    "itemEs": "Pan de molde rebanado",
+    "question": "Where was an early automatic bread slicer used in 1928?",
+    "questionEs": "¿Dónde se usó una de las primeras máquinas automáticas para rebanar pan en 1928?",
+    "model": "It was used at a bakery in Chillicothe, Missouri.",
+    "modelEs": "Se usó en una panadería de Chillicothe, Misuri.",
+    "answer": "Otto Rohwedder designed a machine to slice a whole loaf into even pieces. In 1928, bakeries in Missouri and Iowa used his machines.",
+    "answerEs": "Otto Rohwedder diseñó una máquina para cortar un pan entero en rebanadas parejas. En 1928, panaderías de Misuri y de Iowa usaron sus máquinas.",
+    "source": "Smithsonian National Museum of American History",
+    "url": "https://www.si.edu/object/nmah_1317263",
+    "imageIndex": 40
+  },
+  {
+    "item": "Frozen TV dinner",
+    "itemEs": "Comida congelada para comer frente al televisor",
+    "question": "When was Swanson’s frozen TV dinner introduced?",
+    "questionEs": "¿Cuándo se lanzó la comida congelada TV Dinner de Swanson?",
+    "model": "It was introduced in 1954.",
+    "modelEs": "Se lanzó en 1954.",
+    "answer": "Swanson packed a meal in a divided aluminum tray that could go straight from the freezer to the oven. The company marketed it as an easy meal to eat while watching TV.",
+    "answerEs": "Swanson puso una comida en una bandeja de aluminio con divisiones que podía pasar del congelador al horno. La empresa la vendió como una comida fácil para comer viendo televisión.",
+    "source": "Smithsonian National Museum of American History",
+    "url": "https://americanhistory.si.edu/explore/exhibitions/food/online/new-and-improved/help-home-cook/no-work-no-dishes",
+    "imageIndex": 41
+  },
+  {
+    "item": "Frozen fish sticks",
+    "itemEs": "Palitos de pescado congelados",
+    "question": "When were fish fingers launched in Britain?",
+    "questionEs": "¿Cuándo se lanzaron los palitos de pescado en Gran Bretaña?",
+    "model": "They were launched in 1955.",
+    "modelEs": "Se lanzaron en 1955.",
+    "answer": "Frozen fish fingers offered a quick meal as home freezers became more common. In the United States, they are usually called fish sticks.",
+    "answerEs": "Los palitos de pescado congelados ofrecían una comida rápida cuando los congeladores empezaron a ser más comunes en casa. En Estados Unidos se suelen llamar fish sticks.",
+    "source": "Science Museum, Future of Food exhibition",
+    "url": "https://www.sciencemuseum.org.uk/sites/default/files/2025-07/BOOK_ONE_Large_Print%20Book_Future_of_Food_0.pdf",
+    "imageIndex": 42
+  },
+  {
+    "item": "Sweetened condensed milk",
+    "itemEs": "Leche condensada azucarada",
+    "question": "Why was Gail Borden’s condensed milk developed?",
+    "questionEs": "¿Para qué se desarrolló la leche condensada de Gail Borden?",
+    "model": "It was developed to keep milk from spoiling quickly.",
+    "modelEs": "Se desarrolló para evitar que la leche se echara a perder rápidamente.",
+    "answer": "Gail Borden introduced Eagle Brand in 1856. Condensed milk was useful when refrigeration was hard to find.",
+    "answerEs": "Gail Borden lanzó Eagle Brand en 1856. La leche condensada era útil cuando era difícil conseguir refrigeración.",
+    "source": "Eagle Brand history",
+    "url": "https://www.eaglebrand.com/eagle-brand-history/",
+    "imageIndex": 43
+  },
+  {
+    "item": "Microwave popcorn",
+    "itemEs": "Cotufas para microondas",
+    "question": "When was microwave popcorn first sold in U.S. supermarkets?",
+    "questionEs": "¿Cuándo se vendieron por primera vez las cotufas para microondas en supermercados de Estados Unidos?",
+    "model": "It was first sold in 1981.",
+    "modelEs": "Se vendieron por primera vez en 1981.",
+    "answer": "Early packages had to be kept cold. Bags that could be stored at room temperature reached stores in 1984.",
+    "answerEs": "Los primeros paquetes debían mantenerse fríos. Las bolsas que podían guardarse a temperatura ambiente llegaron a las tiendas en 1984.",
+    "source": "Smithsonian National Museum of American History",
+    "url": "https://americanhistory.si.edu/explore/exhibitions/object-project/online/household-hits/microwave",
+    "imageIndex": 44
+  },
+  {
+    "item": "Twinkies",
+    "itemEs": "Pastelitos Twinkies",
+    "question": "What were the first Twinkies filled with?",
+    "questionEs": "¿Con qué se rellenaron los primeros Twinkies?",
+    "model": "They were filled with banana-flavored cream.",
+    "modelEs": "Se rellenaron con crema sabor a banana.",
+    "answer": "James Dewar created the sponge cakes in 1930. Vanilla cream later became the better-known filling.",
+    "answerEs": "James Dewar creó los bizcochitos en 1930. La crema de vainilla se convirtió después en el relleno más conocido.",
+    "source": "Hostess",
+    "url": "https://www.hostesscakes.com/our-story",
+    "imageIndex": 45
+  },
+  {
+    "item": "Rice Krispies Treats",
+    "itemEs": "Barritas de arroz inflado con malvaviscos",
+    "question": "When was an early ad for Rice Krispies Treats published?",
+    "questionEs": "¿Cuándo se publicó uno de los primeros anuncios de las barritas de Rice Krispies?",
+    "model": "An early ad was published in 1941.",
+    "modelEs": "Uno de los primeros anuncios se publicó en 1941.",
+    "answer": "A Kellogg’s magazine ad promoted the cereal and marshmallow snack as an easy Halloween treat. The ad included instructions for making it at home.",
+    "answerEs": "Un anuncio de Kellogg’s en una revista promocionó el dulce de cereal y malvaviscos como un postre fácil para Halloween. El anuncio incluía instrucciones para prepararlo en casa.",
+    "source": "RISD Fleet Library, original 1941 advertisement",
+    "url": "https://digitalcommons.risd.edu/picturecollection_vintageadvertisements/124/",
+    "imageIndex": 46
+  },
+  {
+    "item": "Reese’s Peanut Butter Cups",
+    "itemEs": "Copitas de chocolate con mantequilla de maní Reese’s",
+    "question": "Who were Reese’s Peanut Butter Cups created by?",
+    "questionEs": "¿Quién creó las copitas Reese’s de chocolate con mantequilla de maní?",
+    "model": "They were created by Harry Burnett Reese in 1928.",
+    "modelEs": "Fueron creadas por Harry Burnett Reese en 1928.",
+    "answer": "Reese had worked for the Hershey Chocolate Company. He made his peanut butter and chocolate candy in Hershey, Pennsylvania.",
+    "answerEs": "Reese había trabajado para la compañía de chocolate Hershey. Creó su dulce de chocolate y mantequilla de maní en Hershey, Pensilvania.",
+    "source": "Hershey",
+    "url": "https://www.hersheys.com/reeses.html",
+    "imageIndex": 47
+  },
+  {
+    "item": "Doritos",
+    "itemEs": "Doritos",
+    "question": "When were Doritos first sold?",
+    "questionEs": "¿Cuándo se vendieron por primera vez los Doritos?",
+    "model": "They were first sold in 1966.",
+    "modelEs": "Se vendieron por primera vez en 1966.",
+    "answer": "Frito-Lay introduced the tortilla chips in the United States. The original product came before the familiar Nacho Cheese flavor.",
+    "answerEs": "Frito-Lay lanzó los chips de tortilla en Estados Unidos. El producto original salió antes del conocido sabor Nacho Cheese.",
+    "source": "Doritos official FAQ",
+    "url": "https://www.doritos.com/faqs",
+    "imageIndex": 48
+  },
+  {
+    "item": "Chocolate chip cookie dough ice cream",
+    "itemEs": "Helado de masa de galleta con chispas de chocolate",
+    "question": "Where was Ben & Jerry’s cookie dough ice cream first made?",
+    "questionEs": "¿Dónde se hizo por primera vez el helado de masa de galleta de Ben & Jerry’s?",
+    "model": "It was first made at a shop in Burlington, Vermont.",
+    "modelEs": "Se hizo por primera vez en una heladería de Burlington, Vermont.",
+    "answer": "A customer suggested adding cookie dough to vanilla ice cream in 1984. The company began selling the flavor in pints in 1991.",
+    "answerEs": "Un cliente sugirió agregar masa de galleta al helado de vainilla en 1984. La empresa empezó a vender el sabor en envases de una pinta en 1991.",
+    "source": "Ben & Jerry’s",
+    "url": "https://www.benjerry.com/whats-new/archive/2018/cookie-dough-history",
+    "imageIndex": 49
+  }
+];
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Reveal answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) remaining = [...cards];
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  byId('item').textContent = current.item;
+  byId('item-es').textContent = current.itemEs;
+  byId('question').textContent = current.question;
+  byId('question-es').textContent = current.questionEs;
+  const picture = byId('picture');
+  const indexOnSheet = current.imageIndex % 10;
+  const sheet = Math.floor(current.imageIndex / 10) + 1;
+  picture.style.setProperty('--sheet', "url('images/food-" + sheet + ".webp')");
+  picture.style.setProperty('--x', (indexOnSheet % 5) * 25 + '%');
+  picture.style.setProperty('--y', Math.floor(indexOnSheet / 5) * 100 + '%');
+  picture.setAttribute('aria-label', 'Illustration of ' + current.item);
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
+  byId('story').textContent = current.answer;
+  byId('story-es').textContent = current.answerEs;
+  const source = byId('source');
+  source.textContent = current.source;
+  source.href = current.url;
+  if (moveFocus) byId('item').focus();
+}
+
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('draw').addEventListener('click', () => drawCard(true));
+drawCard(false);
+byId('game').hidden = false;
+byId('fallback').hidden = true;
+</script>
+</body>
+</html>
