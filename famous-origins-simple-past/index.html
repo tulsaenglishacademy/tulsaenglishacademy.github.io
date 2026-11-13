@@ -52,8 +52,8 @@ summary { cursor: pointer; font-weight: 750; color: var(--gold); }
 <header>
 <div class="school">Tulsa English Academy</div>
 <h1>Famous Origins · A2 Simple Past</h1>
-<p class="intro">Draw a card and ask the question aloud. Everyone guesses in the simple past. Reveal the answer and read it aloud.</p>
-<p class="translation" lang="es">Saca una tarjeta y lee la pregunta en voz alta. Todos adivinan usando el pasado simple. Luego muestra la respuesta y léela en voz alta.</p>
+<p class="intro">Draw a card and ask the question aloud. Choose A, B, or C. Say your guess in a full simple past sentence. Reveal the answer and read it aloud.</p>
+<p class="translation" lang="es">Saca una tarjeta y lee la pregunta en voz alta. Elige A, B o C y responde con una oración completa en pasado simple. Luego muestra la respuesta y léela en voz alta.</p>
 </header>
 
 <article class="card" id="game" aria-label="Famous origin card" hidden>
@@ -65,14 +65,14 @@ summary { cursor: pointer; font-weight: 750; color: var(--gold); }
 <p id="question" class="question"></p>
 <p id="question-es" class="translation" lang="es"></p>
 </div></div>
-<p class="grammar">Answer with a full sentence in the simple past. <strong>France gave the statue to the United States.</strong></p><p class="translation" lang="es">Responde con una oración completa en pasado simple.</p>
+<p class="grammar">Say your guess in a full sentence in the simple past.</p><ol id="choices" type="A" aria-label="Answer choices"></ol><p class="translation" lang="es">Responde con una oración completa en pasado simple.</p>
 <div class="actions">
 <button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal answer</button>
 <button id="draw" class="primary" type="button">Draw another card</button>
 </div>
 <section id="answer" class="answer" aria-label="Origin story" aria-live="polite" hidden>
 <p class="label">Model simple past answer</p>
-<p id="model" class="story"><strong></strong></p>
+<p id="correct-choice" class="label"></p><p id="model" class="story"><strong></strong></p>
 <p id="model-es" class="translation" lang="es"></p>
 
 <p><a id="source" class="source" target="_blank" rel="noopener noreferrer"></a></p>
@@ -81,56 +81,56 @@ summary { cursor: pointer; font-weight: 750; color: var(--gold); }
 
 <section id="fallback" aria-label="Famous Origins · A2 Simple Past cards">
 <p>Choose a card and open <strong>Reveal answer</strong> after the group guesses.</p>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of LEGO brick" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:0%;--y:0%"></div><div><h2>LEGO brick</h2><p lang="es" class="translation">Bloque LEGO</p><p class="question">When did LEGO apply for a patent for its modern brick?</p><p lang="es" class="translation">¿Cuándo solicitó LEGO una patente para su bloque moderno?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>LEGO applied for the patent in 1958.</p><p lang="es" class="translation">LEGO solicitó la patente en 1958.</p><a class="source" href="https://www.lego.com/en-nz/history/articles/d-the-stud-and-tube-principle">LEGO History</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Rubik’s Cube" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:25%;--y:0%"></div><div><h2>Rubik’s Cube</h2><p lang="es" class="translation">Cubo de Rubik</p><p class="question">Who invented the Rubik’s Cube?</p><p lang="es" class="translation">¿Quién inventó el cubo de Rubik?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Ernő Rubik invented it in 1974.</p><p lang="es" class="translation">Ernő Rubik lo inventó en 1974.</p><a class="source" href="https://rubiks.com/history">Rubik’s</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Post-it Notes" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:50%;--y:0%"></div><div><h2>Post-it Notes</h2><p lang="es" class="translation">Notas adhesivas Post-it</p><p class="question">What did Art Fry use to make his bookmarks?</p><p lang="es" class="translation">¿Qué usó Art Fry para hacer sus marcadores de libros?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He used a weak glue that Spencer Silver made.</p><p lang="es" class="translation">Usó un pegamento suave que hizo Spencer Silver.</p><a class="source" href="https://www.post-it.com/3M/en_US/post-it/contact-us/about-us/">Post-it Brand, 3M</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Barbie doll" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:75%;--y:0%"></div><div><h2>Barbie doll</h2><p lang="es" class="translation">Muñeca Barbie</p><p class="question">When did Barbie first appear?</p><p lang="es" class="translation">¿Cuándo apareció Barbie por primera vez?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Barbie first appeared in 1959.</p><p lang="es" class="translation">Barbie apareció por primera vez en 1959.</p><a class="source" href="https://www.museumofplay.org/toys/barbie/">The Strong National Museum of Play</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Slinky" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:100%;--y:0%"></div><div><h2>Slinky</h2><p lang="es" class="translation">Resorte Slinky</p><p class="question">What gave Richard James the idea for the Slinky?</p><p lang="es" class="translation">¿Qué le dio a Richard James la idea para el Slinky?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He saw a spring fall and move like it walked.</p><p lang="es" class="translation">Vio caer un resorte y moverse como si caminara.</p><a class="source" href="https://www.museumofplay.org/toys/slinky/">The Strong National Museum of Play</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Etch A Sketch" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:0%;--y:100%"></div><div><h2>Etch A Sketch</h2><p lang="es" class="translation">Pizarra mágica Etch A Sketch</p><p class="question">What did people first call the Etch A Sketch?</p><p lang="es" class="translation">¿Cómo llamaron al Etch A Sketch al principio?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>They called it L’Écran Magique.</p><p lang="es" class="translation">Lo llamaron L’Écran Magique.</p><a class="source" href="https://www.museumofplay.org/toys/etch-a-sketch/">The Strong National Museum of Play</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Yo-yo" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:25%;--y:100%"></div><div><h2>Yo-yo</h2><p lang="es" class="translation">Yoyó</p><p class="question">Who made the yo-yo popular in the United States in the 1920s?</p><p lang="es" class="translation">¿Quién popularizó el yoyó en Estados Unidos en los años veinte?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Pedro Flores made it popular.</p><p lang="es" class="translation">Pedro Flores lo popularizó.</p><a class="source" href="https://www.museumofplay.org/toys/duncan-yo-yo/">The Strong National Museum of Play</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Monopoly" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:50%;--y:100%"></div><div><h2>Monopoly</h2><p lang="es" class="translation">Monopoly</p><p class="question">Which earlier game gave people the idea for Monopoly?</p><p lang="es" class="translation">¿Qué juego anterior dio la idea para Monopoly?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Lizzie Magie’s The Landlord’s Game gave people the idea.</p><p lang="es" class="translation">El juego The Landlord’s Game de Lizzie Magie dio la idea.</p><a class="source" href="https://invention.si.edu/invention-stories/woman-inventor-behind-monopoly">Smithsonian Lemelson Center</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Play-Doh" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:75%;--y:100%"></div><div><h2>Play-Doh</h2><p lang="es" class="translation">Masa moldeable Play-Doh</p><p class="question">What did people first use Play-Doh for?</p><p lang="es" class="translation">¿Para qué usaba la gente la plastilina Play-Doh al principio?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>People used it to clean wallpaper.</p><p lang="es" class="translation">La gente la usaba para limpiar el papel tapiz.</p><a class="source" href="https://www.museumofplay.org/toys/play-doh/">The Strong National Museum of Play</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Teddy bear" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:100%;--y:100%"></div><div><h2>Teddy bear</h2><p lang="es" class="translation">Osito de peluche</p><p class="question">Which president gave the teddy bear its name?</p><p lang="es" class="translation">¿Qué presidente le dio su nombre al osito de peluche?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>The teddy bear got its name from Theodore Roosevelt.</p><p lang="es" class="translation">El osito de peluche recibió su nombre de Theodore Roosevelt.</p><a class="source" href="https://americanhistory.si.edu/collections/object/nmah_491375">Smithsonian National Museum of American History</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A strip of film frames" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:0%;--y:0%"></div><div><h2>Mickey Mouse</h2><p lang="es" class="translation">Mickey Mouse</p><p class="question">Who created Mickey Mouse?</p><p lang="es" class="translation">¿Quién creó a Mickey Mouse?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Walt Disney and Ub Iwerks created him.</p><p lang="es" class="translation">Walt Disney y Ub Iwerks lo crearon.</p><a class="source" href="https://americanhistory.si.edu/explore/stories/mickey-mouse-turns-90">Smithsonian National Museum of American History</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="An arcade joystick" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:25%;--y:0%"></div><div><h2>Super Mario</h2><p lang="es" class="translation">Super Mario</p><p class="question">In which game did Mario first appear?</p><p lang="es" class="translation">¿En qué juego apareció Mario por primera vez?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Mario first appeared in Donkey Kong in 1981.</p><p lang="es" class="translation">Mario apareció por primera vez en Donkey Kong en 1981.</p><a class="source" href="https://www.nintendo.com/en-ca/whatsnew/wahoo-see-the-platforming-history-of-super-mario-and-even-get-a-few-fun-facts/">Nintendo</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A yellow lightning bolt" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:50%;--y:0%"></div><div><h2>Pikachu</h2><p lang="es" class="translation">Pikachu</p><p class="question">Who first designed Pikachu?</p><p lang="es" class="translation">¿Quién diseñó a Pikachu originalmente?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Atsuko Nishida designed the first version of Pikachu.</p><p lang="es" class="translation">Atsuko Nishida diseñó la primera versión de Pikachu.</p><a class="source" href="https://www.pokemon.com/us/pokemon-news/creator-profile-the-creators-of-pikachu">The Pokémon Company, interviews with the creators</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A red ribbon bow" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:75%;--y:0%"></div><div><h2>Hello Kitty</h2><p lang="es" class="translation">Hello Kitty</p><p class="question">When did Yuko Shimizu design Hello Kitty?</p><p lang="es" class="translation">¿Cuándo diseñó Yuko Shimizu a Hello Kitty?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>She designed the character in 1974.</p><p lang="es" class="translation">Diseñó el personaje en 1974.</p><a class="source" href="https://www.bbc.co.uk/programmes/w3ct5ydn">BBC Witness History, interview with Yuko Shimizu</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A dog" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:100%;--y:0%"></div><div><h2>Snoopy</h2><p lang="es" class="translation">Snoopy</p><p class="question">When did Snoopy first appear in Peanuts?</p><p lang="es" class="translation">¿Cuándo apareció Snoopy por primera vez en Peanuts?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Snoopy first appeared on October 4, 1950.</p><p lang="es" class="translation">Snoopy apareció por primera vez el 4 de octubre de 1950.</p><a class="source" href="https://www.peanuts.com/about/snoopy">Peanuts Worldwide</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A sponge" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:0%;--y:100%"></div><div><h2>SpongeBob SquarePants</h2><p lang="es" class="translation">Bob Esponja</p><p class="question">Who created SpongeBob SquarePants?</p><p lang="es" class="translation">¿Quién creó a Bob Esponja?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Stephen Hillenburg created SpongeBob.</p><p lang="es" class="translation">Stephen Hillenburg creó a Bob Esponja.</p><a class="source" href="https://www.televisionacademy.com/bios/stephen-hillenburg">Television Academy</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A ringed planet" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:25%;--y:100%"></div><div><h2>Darth Vader</h2><p lang="es" class="translation">Darth Vader</p><p class="question">Who wore the Darth Vader costume in the first Star Wars movie?</p><p lang="es" class="translation">¿Quién usó el traje de Darth Vader en la primera película de Star Wars?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>David Prowse wore the costume. James Earl Jones gave Vader his voice.</p><p lang="es" class="translation">David Prowse usó el traje. James Earl Jones le dio su voz a Vader.</p><a class="source" href="https://www.starwars.com/news/david-prowse">Lucasfilm, StarWars.com</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A bat" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:50%;--y:100%"></div><div><h2>Batman</h2><p lang="es" class="translation">Batman</p><p class="question">Who created Batman?</p><p lang="es" class="translation">¿Quién creó a Batman?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Bob Kane and Bill Finger created Batman.</p><p lang="es" class="translation">Bob Kane y Bill Finger crearon a Batman.</p><a class="source" href="https://www.dc.com/blog/2019/03/19/batman-a-history-of-heroics-the-beginning">DC</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A caped superhero" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:75%;--y:100%"></div><div><h2>Superman</h2><p lang="es" class="translation">Superman</p><p class="question">Who created Superman?</p><p lang="es" class="translation">¿Quién creó a Superman?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Jerry Siegel and Joe Shuster created Superman.</p><p lang="es" class="translation">Jerry Siegel y Joe Shuster crearon a Superman.</p><a class="source" href="https://www.dc.com/blog/2018/03/16/celebrating-action-comics-1000-and-80-years-of-superman">DC</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A pixelated arcade alien" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:100%;--y:100%"></div><div><h2>Pac-Man</h2><p lang="es" class="translation">Pac-Man</p><p class="question">Where did Pac-Man first appear in 1980?</p><p lang="es" class="translation">¿Dónde apareció Pac-Man por primera vez en 1980?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Pac-Man first appeared in Japan.</p><p lang="es" class="translation">Pac-Man apareció por primera vez en Japón.</p><a class="source" href="https://pacman.com/en/history/">Bandai Namco, official Pac-Man history</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Frida Kahlo" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:0%;--y:0%"></div><div><h2>Frida Kahlo</h2><p lang="es" class="translation">Frida Kahlo</p><p class="question">Where did Frida Kahlo show her paintings at her first solo exhibition?</p><p lang="es" class="translation">¿Dónde mostró Frida Kahlo sus pinturas en su primera exposición individual?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>She showed them in New York City.</p><p lang="es" class="translation">Las mostró en la ciudad de Nueva York.</p><a class="source" href="https://www.museofridakahlo.org.mx/frida/?lang=en">Museo Frida Kahlo</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Selena Quintanilla" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:25%;--y:0%"></div><div><h2>Selena Quintanilla</h2><p lang="es" class="translation">Selena Quintanilla</p><p class="question">Which album earned Selena a Grammy in 1994?</p><p lang="es" class="translation">¿Con qué álbum ganó Selena un Grammy en 1994?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Selena won a Grammy for Live.</p><p lang="es" class="translation">Selena ganó un Grammy por Live.</p><a class="source" href="https://www.grammy.com/artists/selena/10071/">Recording Academy</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Shakira" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:50%;--y:0%"></div><div><h2>Shakira</h2><p lang="es" class="translation">Shakira</p><p class="question">When did Shakira win her first Grammy?</p><p lang="es" class="translation">¿Cuándo ganó Shakira su primer Grammy?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Shakira won her first Grammy in 2001.</p><p lang="es" class="translation">Shakira ganó su primer Grammy en 2001.</p><a class="source" href="https://www.grammy.com/news/grammy-rewind-shakira-wins-her-first-grammy-best-latin-pop-album-2001/">Recording Academy</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Lionel Messi" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:75%;--y:0%"></div><div><h2>Lionel Messi</h2><p lang="es" class="translation">Lionel Messi</p><p class="question">What award did Messi win as the best player at the 2022 World Cup?</p><p lang="es" class="translation">¿Qué premio ganó Messi como mejor jugador del Mundial de 2022?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Messi won the Golden Ball.</p><p lang="es" class="translation">Messi ganó el Balón de Oro.</p><a class="source" href="https://www.fifa.com/en/watch/14Q9we1dyweTi2XNhL9tGY">FIFA</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Pelé" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:100%;--y:0%"></div><div><h2>Pelé</h2><p lang="es" class="translation">Pelé</p><p class="question">How many World Cups did Pelé win?</p><p lang="es" class="translation">¿Cuántos Mundiales ganó Pelé?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Pelé won three World Cups with Brazil.</p><p lang="es" class="translation">Pelé ganó tres Mundiales con Brasil.</p><a class="source" href="https://www.fifa.com/en/tournaments/mens/worldcup/articles/pele-three-world-cup-titles-only-player">FIFA</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Muhammad Ali" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:0%;--y:100%"></div><div><h2>Muhammad Ali</h2><p lang="es" class="translation">Muhammad Ali</p><p class="question">What medal did Muhammad Ali win at the 1960 Olympics?</p><p lang="es" class="translation">¿Qué medalla ganó Muhammad Ali en los Juegos Olímpicos de 1960?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He won a gold medal in boxing.</p><p lang="es" class="translation">Ganó una medalla de oro en boxeo.</p><a class="source" href="https://usopm.org/muhammad-ali/">U.S. Olympic &amp; Paralympic Museum</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Serena Williams" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:25%;--y:100%"></div><div><h2>Serena Williams</h2><p lang="es" class="translation">Serena Williams</p><p class="question">Where did Serena Williams win her first Grand Slam singles title?</p><p lang="es" class="translation">¿Dónde ganó Serena Williams su primer título individual de Grand Slam?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>She won it at the US Open.</p><p lang="es" class="translation">Lo ganó en el Abierto de Estados Unidos.</p><a class="source" href="https://www.usopen.org/en_US/content/50_champions.html">US Open</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Albert Einstein" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:50%;--y:100%"></div><div><h2>Albert Einstein</h2><p lang="es" class="translation">Albert Einstein</p><p class="question">What discovery helped Einstein win the Nobel Prize?</p><p lang="es" class="translation">¿Qué descubrimiento ayudó a Einstein a ganar el Premio Nobel?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>His work on the photoelectric effect helped him win the prize.</p><p lang="es" class="translation">Su trabajo sobre el efecto fotoeléctrico lo ayudó a ganar el premio.</p><a class="source" href="https://www.nobelprize.org/prizes/physics/1921/summary/">Nobel Prize</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Marie Curie" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:75%;--y:100%"></div><div><h2>Marie Curie</h2><p lang="es" class="translation">Marie Curie</p><p class="question">When did Marie Curie win her first Nobel Prize?</p><p lang="es" class="translation">¿Cuándo ganó Marie Curie su primer Premio Nobel?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Marie Curie won her first Nobel Prize in 1903.</p><p lang="es" class="translation">Marie Curie ganó su primer Premio Nobel en 1903.</p><a class="source" href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/questions-and-answers/">Nobel Prize</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Amelia Earhart" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:100%;--y:100%"></div><div><h2>Amelia Earhart</h2><p lang="es" class="translation">Amelia Earhart</p><p class="question">What award did Amelia Earhart receive after she flew across the Atlantic alone?</p><p lang="es" class="translation">¿Qué premio recibió Amelia Earhart después de cruzar el Atlántico sola?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>She received the Distinguished Flying Cross.</p><p lang="es" class="translation">Recibió la Cruz de Vuelo Distinguido.</p><a class="source" href="https://postalmuseum.si.edu/exhibition/fad-to-fundamental-airmail-in-america-airmail-pilot-stories-mail-by-female/amelia-earhart">Smithsonian National Postal Museum</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Eiffel Tower" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:0%;--y:0%"></div><div><h2>Eiffel Tower</h2><p lang="es" class="translation">Torre Eiffel</p><p class="question">Why did Paris build the Eiffel Tower?</p><p lang="es" class="translation">¿Por qué construyó París la Torre Eiffel?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Paris built it for the 1889 World’s Fair.</p><p lang="es" class="translation">París la construyó para la Exposición Universal de 1889.</p><a class="source" href="https://www.toureiffel.paris/en/the-monument/history">Official Eiffel Tower website</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Statue of Liberty" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:25%;--y:0%"></div><div><h2>Statue of Liberty</h2><p lang="es" class="translation">Estatua de la Libertad</p><p class="question">Which country gave the Statue of Liberty to the United States?</p><p lang="es" class="translation">¿Qué país le regaló la Estatua de la Libertad a Estados Unidos?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>France gave the statue to the United States.</p><p lang="es" class="translation">Francia le regaló la estatua a Estados Unidos.</p><a class="source" href="https://home.nps.gov/stli/index.htm">U.S. National Park Service</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Taj Mahal" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:50%;--y:0%"></div><div><h2>Taj Mahal</h2><p lang="es" class="translation">Taj Mahal</p><p class="question">Who did Shah Jahan honor with the Taj Mahal?</p><p lang="es" class="translation">¿A quién honró Shah Jahan con el Taj Mahal?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He honored his wife, Mumtaz Mahal.</p><p lang="es" class="translation">Honró a su esposa, Mumtaz Mahal.</p><a class="source" href="https://whc.unesco.org/en/list/252/">UNESCO World Heritage Centre</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Great Wall of China" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:75%;--y:0%"></div><div><h2>Great Wall of China</h2><p lang="es" class="translation">Gran Muralla China</p><p class="question">Why did Qin Shi Huang join parts of older walls?</p><p lang="es" class="translation">¿Por qué unió Qin Shi Huang partes de murallas antiguas?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He joined them to protect China from attacks from the north.</p><p lang="es" class="translation">Las unió para proteger a China de ataques desde el norte.</p><a class="source" href="https://whc.unesco.org/en/list/438/">UNESCO World Heritage Centre</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Machu Picchu" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:100%;--y:0%"></div><div><h2>Machu Picchu</h2><p lang="es" class="translation">Machu Picchu</p><p class="question">When did the Incas build Machu Picchu?</p><p lang="es" class="translation">¿Cuándo construyeron los incas Machu Picchu?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>The Incas built it in the 15th century.</p><p lang="es" class="translation">Los incas lo construyeron en el siglo XV.</p><a class="source" href="https://whc.unesco.org/en/list/274/">UNESCO World Heritage Centre</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Colosseum" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:0%;--y:100%"></div><div><h2>Colosseum</h2><p lang="es" class="translation">Coliseo de Roma</p><p class="question">What shows did people watch at the Colosseum?</p><p lang="es" class="translation">¿Qué espectáculos veía la gente en el Coliseo?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>People watched gladiator fights and animal hunts.</p><p lang="es" class="translation">La gente veía combates de gladiadores y cacerías de animales.</p><a class="source" href="https://colosseo.it/en/area/colosseo/">Colosseum Archaeological Park</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Sydney Opera House" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:25%;--y:100%"></div><div><h2>Sydney Opera House</h2><p lang="es" class="translation">Ópera de Sídney</p><p class="question">Who designed the Sydney Opera House?</p><p lang="es" class="translation">¿Quién diseñó la Ópera de Sídney?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Jørn Utzon designed it.</p><p lang="es" class="translation">Jørn Utzon la diseñó.</p><a class="source" href="https://www.sydneyoperahouse.com/our-story">Sydney Opera House</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Golden Gate Bridge" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:50%;--y:100%"></div><div><h2>Golden Gate Bridge</h2><p lang="es" class="translation">Puente Golden Gate</p><p class="question">When did the Golden Gate Bridge open to cars?</p><p lang="es" class="translation">¿Cuándo abrió el puente Golden Gate al tráfico de carros?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>It opened to cars on May 28, 1937.</p><p lang="es" class="translation">Abrió al tráfico de carros el 28 de mayo de 1937.</p><a class="source" href="https://www.goldengate.org/bridge/history-research/statistics-data/faqs/">Golden Gate Bridge, Highway and Transportation District</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Christ the Redeemer" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:75%;--y:100%"></div><div><h2>Christ the Redeemer</h2><p lang="es" class="translation">Cristo Redentor</p><p class="question">Where did workers build Christ the Redeemer?</p><p lang="es" class="translation">¿Dónde construyeron los trabajadores el Cristo Redentor?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>They built it on Corcovado Mountain.</p><p lang="es" class="translation">Lo construyeron en el cerro del Corcovado.</p><a class="source" href="https://www.tremdocorcovado.rio/en/news/cristo-redentor-brasil">Corcovado Train</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Angel Falls" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:100%;--y:100%"></div><div><h2>Angel Falls</h2><p lang="es" class="translation">Salto Ángel</p><p class="question">Whose name did Angel Falls get in English?</p><p lang="es" class="translation">¿De quién tomó su nombre en inglés el Salto Ángel?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Angel Falls got its English name from the pilot Jimmie Angel.</p><p lang="es" class="translation">El Salto Ángel tomó su nombre en inglés del piloto Jimmie Angel.</p><a class="source" href="https://www.guinnessworldrecords.com/world-records/highest-waterfall">Guinness World Records</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Telephone" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:0%;--y:0%"></div><div><h2>Telephone</h2><p lang="es" class="translation">Teléfono</p><p class="question">Who received a telephone patent in 1876?</p><p lang="es" class="translation">¿Quién recibió una patente de teléfono en 1876?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Alexander Graham Bell received a telephone patent in 1876.</p><p lang="es" class="translation">Alexander Graham Bell recibió una patente de teléfono en 1876.</p><a class="source" href="https://www.loc.gov/everyday-mysteries/categories/technology/item/who-is-credited-with-inventing-the-telephone/">Library of Congress</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Electric light bulb" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:25%;--y:0%"></div><div><h2>Electric light bulb</h2><p lang="es" class="translation">Bombillo eléctrico</p><p class="question">Where did Edison’s team develop a practical light bulb?</p><p lang="es" class="translation">¿Dónde desarrolló el equipo de Edison un bombillo práctico?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>They developed it in Menlo Park, New Jersey.</p><p lang="es" class="translation">Lo desarrollaron en Menlo Park, Nueva Jersey.</p><a class="source" href="https://www.nps.gov/edis/learn/kidsyouth/the-electric-light-system-phonograph-motion-pictures.htm">U.S. National Park Service</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of World Wide Web" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:50%;--y:0%"></div><div><h2>World Wide Web</h2><p lang="es" class="translation">La Web</p><p class="question">Why did Tim Berners-Lee create the Web?</p><p lang="es" class="translation">¿Por qué creó Tim Berners-Lee la Web?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He created it to help scientists share information.</p><p lang="es" class="translation">La creó para ayudar a los científicos a compartir información.</p><a class="source" href="https://home.cern/science/computing/the-birth-of-the-web">CERN</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Velcro" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:75%;--y:0%"></div><div><h2>Velcro</h2><p lang="es" class="translation">Velcro</p><p class="question">What gave George de Mestral the idea for Velcro?</p><p lang="es" class="translation">¿Qué le dio a George de Mestral la idea para el velcro?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He noticed small seeds that stuck to clothes and dog fur.</p><p lang="es" class="translation">Notó pequeñas semillas que se pegaban a la ropa y al pelo de su perro.</p><a class="source" href="https://www.velcro.com/original-thinking/our-story/">Velcro Companies</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Microwave oven" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:100%;--y:0%"></div><div><h2>Microwave oven</h2><p lang="es" class="translation">Horno microondas</p><p class="question">What melted in Percy Spencer’s pocket during his work with radar?</p><p lang="es" class="translation">¿Qué se derritió en el bolsillo de Percy Spencer mientras trabajaba con radar?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>A chocolate bar melted in his pocket.</p><p lang="es" class="translation">Una barra de chocolate se derritió en su bolsillo.</p><a class="source" href="https://invention.si.edu/invention-stories/recognize-unusual">Smithsonian Lemelson Center</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Polaroid instant camera" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:0%;--y:100%"></div><div><h2>Polaroid instant camera</h2><p lang="es" class="translation">Cámara instantánea Polaroid</p><p class="question">When did Polaroid make the first Model 95 camera?</p><p lang="es" class="translation">¿Cuándo fabricó Polaroid la primera cámara modelo 95?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Polaroid made it in 1948.</p><p lang="es" class="translation">Polaroid la fabricó en 1948.</p><a class="source" href="https://www.si.edu/object/nmah_1154069">Smithsonian National Museum of American History</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Ballpoint pen" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:25%;--y:100%"></div><div><h2>Ballpoint pen</h2><p lang="es" class="translation">Bolígrafo</p><p class="question">When did John Loud get a patent for his early ballpoint pen?</p><p lang="es" class="translation">¿Cuándo obtuvo John Loud una patente para su primer bolígrafo?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>He got the patent in 1888.</p><p lang="es" class="translation">Obtuvo la patente en 1888.</p><a class="source" href="https://americanhistory.si.edu/collections/object/nmah_855485">Smithsonian National Museum of American History</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Safety bicycle" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:50%;--y:100%"></div><div><h2>Safety bicycle</h2><p lang="es" class="translation">Bicicleta de seguridad</p><p class="question">Where did the Rover Company make its 1885 safety bicycle?</p><p lang="es" class="translation">¿Dónde fabricó la empresa Rover su bicicleta de seguridad de 1885?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>The company made it in Coventry, England.</p><p lang="es" class="translation">La empresa la fabricó en Coventry, Inglaterra.</p><a class="source" href="https://collection.sciencemuseumgroup.org.uk/objects/co25833/rover-safety-bicycle-1885-">Science Museum Group</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Coca-Cola" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:75%;--y:100%"></div><div><h2>Coca-Cola</h2><p lang="es" class="translation">Coca-Cola</p><p class="question">Where did people first buy Coca-Cola?</p><p lang="es" class="translation">¿Dónde compró la gente Coca-Cola por primera vez?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>People first bought it at Jacobs’ Pharmacy in Atlanta.</p><p lang="es" class="translation">La gente la compró por primera vez en la farmacia Jacobs de Atlanta.</p><a class="source" href="https://www.coca-colacompany.com/about-us/history/the-birth-of-a-refreshing-idea">The Coca-Cola Company</a></details></article>
-<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of iPhone" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:100%;--y:100%"></div><div><h2>iPhone</h2><p lang="es" class="translation">iPhone</p><p class="question">When did Apple introduce the first iPhone?</p><p lang="es" class="translation">¿Cuándo presentó Apple el primer iPhone?</p></div></div><details class="answer"><summary>Reveal answer</summary><p>Apple introduced it in January 2007.</p><p lang="es" class="translation">Apple lo presentó en enero de 2007.</p><a class="source" href="https://www.apple.com/uk/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/">Apple’s original press release</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of LEGO brick" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:0%;--y:0%"></div><div><h2>LEGO brick</h2><p lang="es" class="translation">Bloque LEGO</p><p class="question">When did LEGO apply for a patent for its modern brick?</p><p lang="es" class="translation">¿Cuándo solicitó LEGO una patente para su bloque moderno?</p></div></div><ol type="A"><li>1955</li><li>1958</li><li>1961</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>LEGO applied for the patent in 1958.</p><p lang="es" class="translation">LEGO solicitó la patente en 1958.</p><a class="source" href="https://www.lego.com/en-nz/history/articles/d-the-stud-and-tube-principle">LEGO History</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Rubik’s Cube" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:25%;--y:0%"></div><div><h2>Rubik’s Cube</h2><p lang="es" class="translation">Cubo de Rubik</p><p class="question">Who invented the Rubik’s Cube?</p><p lang="es" class="translation">¿Quién inventó el cubo de Rubik?</p></div></div><ol type="A"><li>Piet Hein</li><li>John Spinello</li><li>Ernő Rubik</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>Ernő Rubik invented it in 1974.</p><p lang="es" class="translation">Ernő Rubik lo inventó en 1974.</p><a class="source" href="https://rubiks.com/history">Rubik’s</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Post-it Notes" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:50%;--y:0%"></div><div><h2>Post-it Notes</h2><p lang="es" class="translation">Notas adhesivas Post-it</p><p class="question">What did Art Fry use to make his bookmarks?</p><p lang="es" class="translation">¿Qué usó Art Fry para hacer sus marcadores de libros?</p></div></div><ol type="A"><li>A thick paste</li><li>A weak glue</li><li>A strong glue</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>He used a weak glue that Spencer Silver made.</p><p lang="es" class="translation">Usó un pegamento suave que hizo Spencer Silver.</p><a class="source" href="https://www.post-it.com/3M/en_US/post-it/contact-us/about-us/">Post-it Brand, 3M</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Barbie doll" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:75%;--y:0%"></div><div><h2>Barbie doll</h2><p lang="es" class="translation">Muñeca Barbie</p><p class="question">When did Barbie first appear?</p><p lang="es" class="translation">¿Cuándo apareció Barbie por primera vez?</p></div></div><ol type="A"><li>1957</li><li>1959</li><li>1961</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Barbie first appeared in 1959.</p><p lang="es" class="translation">Barbie apareció por primera vez en 1959.</p><a class="source" href="https://www.museumofplay.org/toys/barbie/">The Strong National Museum of Play</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Slinky" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:100%;--y:0%"></div><div><h2>Slinky</h2><p lang="es" class="translation">Resorte Slinky</p><p class="question">What gave Richard James the idea for the Slinky?</p><p lang="es" class="translation">¿Qué le dio a Richard James la idea para el Slinky?</p></div></div><ol type="A"><li>A wheel that turned</li><li>A ball that bounced</li><li>A spring that fell</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>He saw a spring fall and move like it walked.</p><p lang="es" class="translation">Vio caer un resorte y moverse como si caminara.</p><a class="source" href="https://www.museumofplay.org/toys/slinky/">The Strong National Museum of Play</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Etch A Sketch" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:0%;--y:100%"></div><div><h2>Etch A Sketch</h2><p lang="es" class="translation">Pizarra mágica Etch A Sketch</p><p class="question">What did people first call the Etch A Sketch?</p><p lang="es" class="translation">¿Cómo llamaron al Etch A Sketch al principio?</p></div></div><ol type="A"><li>Magna Doodle</li><li>L’Écran Magique</li><li>Magic Slate</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>They called it L’Écran Magique.</p><p lang="es" class="translation">Lo llamaron L’Écran Magique.</p><a class="source" href="https://www.museumofplay.org/toys/etch-a-sketch/">The Strong National Museum of Play</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Yo-yo" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:25%;--y:100%"></div><div><h2>Yo-yo</h2><p lang="es" class="translation">Yoyó</p><p class="question">Who made the yo-yo popular in the United States in the 1920s?</p><p lang="es" class="translation">¿Quién popularizó el yoyó en Estados Unidos en los años veinte?</p></div></div><ol type="A"><li>Pedro Flores</li><li>Donald Duncan</li><li>Louis Marx</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Pedro Flores made it popular.</p><p lang="es" class="translation">Pedro Flores lo popularizó.</p><a class="source" href="https://www.museumofplay.org/toys/duncan-yo-yo/">The Strong National Museum of Play</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Monopoly" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:50%;--y:100%"></div><div><h2>Monopoly</h2><p lang="es" class="translation">Monopoly</p><p class="question">Which earlier game gave people the idea for Monopoly?</p><p lang="es" class="translation">¿Qué juego anterior dio la idea para Monopoly?</p></div></div><ol type="A"><li>The Game of Life</li><li>The Mansion of Happiness</li><li>The Landlord’s Game</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>Lizzie Magie’s The Landlord’s Game gave people the idea.</p><p lang="es" class="translation">El juego The Landlord’s Game de Lizzie Magie dio la idea.</p><a class="source" href="https://invention.si.edu/invention-stories/woman-inventor-behind-monopoly">Smithsonian Lemelson Center</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Play-Doh" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:75%;--y:100%"></div><div><h2>Play-Doh</h2><p lang="es" class="translation">Masa moldeable Play-Doh</p><p class="question">What did people first use Play-Doh for?</p><p lang="es" class="translation">¿Para qué usaba la gente la plastilina Play-Doh al principio?</p></div></div><ol type="A"><li>To wash windows</li><li>To clean wallpaper</li><li>To polish shoes</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>People used it to clean wallpaper.</p><p lang="es" class="translation">La gente la usaba para limpiar el papel tapiz.</p><a class="source" href="https://www.museumofplay.org/toys/play-doh/">The Strong National Museum of Play</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Teddy bear" style="--sheet:url('../famous-origins/images/icons-1.webp');--x:100%;--y:100%"></div><div><h2>Teddy bear</h2><p lang="es" class="translation">Osito de peluche</p><p class="question">Which president gave the teddy bear its name?</p><p lang="es" class="translation">¿Qué presidente le dio su nombre al osito de peluche?</p></div></div><ol type="A"><li>Theodore Roosevelt</li><li>William Howard Taft</li><li>Woodrow Wilson</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>The teddy bear got its name from Theodore Roosevelt.</p><p lang="es" class="translation">El osito de peluche recibió su nombre de Theodore Roosevelt.</p><a class="source" href="https://americanhistory.si.edu/collections/object/nmah_491375">Smithsonian National Museum of American History</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A strip of film frames" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:0%;--y:0%"></div><div><h2>Mickey Mouse</h2><p lang="es" class="translation">Mickey Mouse</p><p class="question">Who created Mickey Mouse?</p><p lang="es" class="translation">¿Quién creó a Mickey Mouse?</p></div></div><ol type="A"><li>William Hanna and Joseph Barbera</li><li>Bob Kane and Bill Finger</li><li>Walt Disney and Ub Iwerks</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>Walt Disney and Ub Iwerks created him.</p><p lang="es" class="translation">Walt Disney y Ub Iwerks lo crearon.</p><a class="source" href="https://americanhistory.si.edu/explore/stories/mickey-mouse-turns-90">Smithsonian National Museum of American History</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="An arcade joystick" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:25%;--y:0%"></div><div><h2>Super Mario</h2><p lang="es" class="translation">Super Mario</p><p class="question">In which game did Mario first appear?</p><p lang="es" class="translation">¿En qué juego apareció Mario por primera vez?</p></div></div><ol type="A"><li>Super Mario Bros.</li><li>Donkey Kong</li><li>Mario Bros.</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Mario first appeared in Donkey Kong in 1981.</p><p lang="es" class="translation">Mario apareció por primera vez en Donkey Kong en 1981.</p><a class="source" href="https://www.nintendo.com/en-ca/whatsnew/wahoo-see-the-platforming-history-of-super-mario-and-even-get-a-few-fun-facts/">Nintendo</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A yellow lightning bolt" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:50%;--y:0%"></div><div><h2>Pikachu</h2><p lang="es" class="translation">Pikachu</p><p class="question">Who first designed Pikachu?</p><p lang="es" class="translation">¿Quién diseñó a Pikachu originalmente?</p></div></div><ol type="A"><li>Atsuko Nishida</li><li>Ken Sugimori</li><li>Koji Nishino</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Atsuko Nishida designed the first version of Pikachu.</p><p lang="es" class="translation">Atsuko Nishida diseñó la primera versión de Pikachu.</p><a class="source" href="https://www.pokemon.com/us/pokemon-news/creator-profile-the-creators-of-pikachu">The Pokémon Company, interviews with the creators</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A red ribbon bow" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:75%;--y:0%"></div><div><h2>Hello Kitty</h2><p lang="es" class="translation">Hello Kitty</p><p class="question">When did Yuko Shimizu design Hello Kitty?</p><p lang="es" class="translation">¿Cuándo diseñó Yuko Shimizu a Hello Kitty?</p></div></div><ol type="A"><li>1974</li><li>1976</li><li>1972</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>She designed the character in 1974.</p><p lang="es" class="translation">Diseñó el personaje en 1974.</p><a class="source" href="https://www.bbc.co.uk/programmes/w3ct5ydn">BBC Witness History, interview with Yuko Shimizu</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A dog" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:100%;--y:0%"></div><div><h2>Snoopy</h2><p lang="es" class="translation">Snoopy</p><p class="question">When did Snoopy first appear in Peanuts?</p><p lang="es" class="translation">¿Cuándo apareció Snoopy por primera vez en Peanuts?</p></div></div><ol type="A"><li>October 4, 1954</li><li>October 4, 1950</li><li>October 4, 1952</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Snoopy first appeared on October 4, 1950.</p><p lang="es" class="translation">Snoopy apareció por primera vez el 4 de octubre de 1950.</p><a class="source" href="https://www.peanuts.com/about/snoopy">Peanuts Worldwide</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A sponge" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:0%;--y:100%"></div><div><h2>SpongeBob SquarePants</h2><p lang="es" class="translation">Bob Esponja</p><p class="question">Who created SpongeBob SquarePants?</p><p lang="es" class="translation">¿Quién creó a Bob Esponja?</p></div></div><ol type="A"><li>Stephen Hillenburg</li><li>Craig McCracken</li><li>Genndy Tartakovsky</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Stephen Hillenburg created SpongeBob.</p><p lang="es" class="translation">Stephen Hillenburg creó a Bob Esponja.</p><a class="source" href="https://www.televisionacademy.com/bios/stephen-hillenburg">Television Academy</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A ringed planet" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:25%;--y:100%"></div><div><h2>Darth Vader</h2><p lang="es" class="translation">Darth Vader</p><p class="question">Who wore the Darth Vader costume in the first Star Wars movie?</p><p lang="es" class="translation">¿Quién usó el traje de Darth Vader en la primera película de Star Wars?</p></div></div><ol type="A"><li>James Earl Jones</li><li>Peter Mayhew</li><li>David Prowse</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>David Prowse wore the costume. James Earl Jones gave Vader his voice.</p><p lang="es" class="translation">David Prowse usó el traje. James Earl Jones le dio su voz a Vader.</p><a class="source" href="https://www.starwars.com/news/david-prowse">Lucasfilm, StarWars.com</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A bat" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:50%;--y:100%"></div><div><h2>Batman</h2><p lang="es" class="translation">Batman</p><p class="question">Who created Batman?</p><p lang="es" class="translation">¿Quién creó a Batman?</p></div></div><ol type="A"><li>Stan Lee and Steve Ditko</li><li>Bob Kane and Bill Finger</li><li>Jerry Siegel and Joe Shuster</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Bob Kane and Bill Finger created Batman.</p><p lang="es" class="translation">Bob Kane y Bill Finger crearon a Batman.</p><a class="source" href="https://www.dc.com/blog/2019/03/19/batman-a-history-of-heroics-the-beginning">DC</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A caped superhero" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:75%;--y:100%"></div><div><h2>Superman</h2><p lang="es" class="translation">Superman</p><p class="question">Who created Superman?</p><p lang="es" class="translation">¿Quién creó a Superman?</p></div></div><ol type="A"><li>Jerry Siegel and Joe Shuster</li><li>Bob Kane and Bill Finger</li><li>Stan Lee and Jack Kirby</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Jerry Siegel and Joe Shuster created Superman.</p><p lang="es" class="translation">Jerry Siegel y Joe Shuster crearon a Superman.</p><a class="source" href="https://www.dc.com/blog/2018/03/16/celebrating-action-comics-1000-and-80-years-of-superman">DC</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="A pixelated arcade alien" style="--sheet:url('../famous-origins/images/icons-2.webp');--x:100%;--y:100%"></div><div><h2>Pac-Man</h2><p lang="es" class="translation">Pac-Man</p><p class="question">Where did Pac-Man first appear in 1980?</p><p lang="es" class="translation">¿Dónde apareció Pac-Man por primera vez en 1980?</p></div></div><ol type="A"><li>South Korea</li><li>Taiwan</li><li>Japan</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>Pac-Man first appeared in Japan.</p><p lang="es" class="translation">Pac-Man apareció por primera vez en Japón.</p><a class="source" href="https://pacman.com/en/history/">Bandai Namco, official Pac-Man history</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Frida Kahlo" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:0%;--y:0%"></div><div><h2>Frida Kahlo</h2><p lang="es" class="translation">Frida Kahlo</p><p class="question">Where did Frida Kahlo show her paintings at her first solo exhibition?</p><p lang="es" class="translation">¿Dónde mostró Frida Kahlo sus pinturas en su primera exposición individual?</p></div></div><ol type="A"><li>Mexico City</li><li>New York City</li><li>Paris</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>She showed them in New York City.</p><p lang="es" class="translation">Las mostró en la ciudad de Nueva York.</p><a class="source" href="https://www.museofridakahlo.org.mx/frida/?lang=en">Museo Frida Kahlo</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Selena Quintanilla" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:25%;--y:0%"></div><div><h2>Selena Quintanilla</h2><p lang="es" class="translation">Selena Quintanilla</p><p class="question">Which album earned Selena a Grammy in 1994?</p><p lang="es" class="translation">¿Con qué álbum ganó Selena un Grammy en 1994?</p></div></div><ol type="A"><li>Live</li><li>Amor Prohibido</li><li>Dreaming of You</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Selena won a Grammy for Live.</p><p lang="es" class="translation">Selena ganó un Grammy por Live.</p><a class="source" href="https://www.grammy.com/artists/selena/10071/">Recording Academy</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Shakira" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:50%;--y:0%"></div><div><h2>Shakira</h2><p lang="es" class="translation">Shakira</p><p class="question">When did Shakira win her first Grammy?</p><p lang="es" class="translation">¿Cuándo ganó Shakira su primer Grammy?</p></div></div><ol type="A"><li>2001</li><li>2003</li><li>1999</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Shakira won her first Grammy in 2001.</p><p lang="es" class="translation">Shakira ganó su primer Grammy en 2001.</p><a class="source" href="https://www.grammy.com/news/grammy-rewind-shakira-wins-her-first-grammy-best-latin-pop-album-2001/">Recording Academy</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Lionel Messi" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:75%;--y:0%"></div><div><h2>Lionel Messi</h2><p lang="es" class="translation">Lionel Messi</p><p class="question">What award did Messi win as the best player at the 2022 World Cup?</p><p lang="es" class="translation">¿Qué premio ganó Messi como mejor jugador del Mundial de 2022?</p></div></div><ol type="A"><li>Golden Glove</li><li>Golden Ball</li><li>Golden Boot</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Messi won the Golden Ball.</p><p lang="es" class="translation">Messi ganó el Balón de Oro.</p><a class="source" href="https://www.fifa.com/en/watch/14Q9we1dyweTi2XNhL9tGY">FIFA</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Pelé" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:100%;--y:0%"></div><div><h2>Pelé</h2><p lang="es" class="translation">Pelé</p><p class="question">How many World Cups did Pelé win?</p><p lang="es" class="translation">¿Cuántos Mundiales ganó Pelé?</p></div></div><ol type="A"><li>Two</li><li>Three</li><li>Four</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Pelé won three World Cups with Brazil.</p><p lang="es" class="translation">Pelé ganó tres Mundiales con Brasil.</p><a class="source" href="https://www.fifa.com/en/tournaments/mens/worldcup/articles/pele-three-world-cup-titles-only-player">FIFA</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Muhammad Ali" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:0%;--y:100%"></div><div><h2>Muhammad Ali</h2><p lang="es" class="translation">Muhammad Ali</p><p class="question">What medal did Muhammad Ali win at the 1960 Olympics?</p><p lang="es" class="translation">¿Qué medalla ganó Muhammad Ali en los Juegos Olímpicos de 1960?</p></div></div><ol type="A"><li>Silver</li><li>Bronze</li><li>Gold</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>He won a gold medal in boxing.</p><p lang="es" class="translation">Ganó una medalla de oro en boxeo.</p><a class="source" href="https://usopm.org/muhammad-ali/">U.S. Olympic &amp; Paralympic Museum</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Serena Williams" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:25%;--y:100%"></div><div><h2>Serena Williams</h2><p lang="es" class="translation">Serena Williams</p><p class="question">Where did Serena Williams win her first Grand Slam singles title?</p><p lang="es" class="translation">¿Dónde ganó Serena Williams su primer título individual de Grand Slam?</p></div></div><ol type="A"><li>Australian Open</li><li>US Open</li><li>Wimbledon</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>She won it at the US Open.</p><p lang="es" class="translation">Lo ganó en el Abierto de Estados Unidos.</p><a class="source" href="https://www.usopen.org/en_US/content/50_champions.html">US Open</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Albert Einstein" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:50%;--y:100%"></div><div><h2>Albert Einstein</h2><p lang="es" class="translation">Albert Einstein</p><p class="question">What discovery helped Einstein win the Nobel Prize?</p><p lang="es" class="translation">¿Qué descubrimiento ayudó a Einstein a ganar el Premio Nobel?</p></div></div><ol type="A"><li>The photoelectric effect</li><li>General relativity</li><li>Special relativity</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>His work on the photoelectric effect helped him win the prize.</p><p lang="es" class="translation">Su trabajo sobre el efecto fotoeléctrico lo ayudó a ganar el premio.</p><a class="source" href="https://www.nobelprize.org/prizes/physics/1921/summary/">Nobel Prize</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Marie Curie" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:75%;--y:100%"></div><div><h2>Marie Curie</h2><p lang="es" class="translation">Marie Curie</p><p class="question">When did Marie Curie win her first Nobel Prize?</p><p lang="es" class="translation">¿Cuándo ganó Marie Curie su primer Premio Nobel?</p></div></div><ol type="A"><li>1903</li><li>1905</li><li>1901</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Marie Curie won her first Nobel Prize in 1903.</p><p lang="es" class="translation">Marie Curie ganó su primer Premio Nobel en 1903.</p><a class="source" href="https://www.nobelprize.org/prizes/physics/1903/marie-curie/questions-and-answers/">Nobel Prize</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Amelia Earhart" style="--sheet:url('../famous-origins/images/icons-3.webp');--x:100%;--y:100%"></div><div><h2>Amelia Earhart</h2><p lang="es" class="translation">Amelia Earhart</p><p class="question">What award did Amelia Earhart receive after she flew across the Atlantic alone?</p><p lang="es" class="translation">¿Qué premio recibió Amelia Earhart después de cruzar el Atlántico sola?</p></div></div><ol type="A"><li>Medal of Honor</li><li>Distinguished Flying Cross</li><li>Congressional Gold Medal</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>She received the Distinguished Flying Cross.</p><p lang="es" class="translation">Recibió la Cruz de Vuelo Distinguido.</p><a class="source" href="https://postalmuseum.si.edu/exhibition/fad-to-fundamental-airmail-in-america-airmail-pilot-stories-mail-by-female/amelia-earhart">Smithsonian National Postal Museum</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Eiffel Tower" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:0%;--y:0%"></div><div><h2>Eiffel Tower</h2><p lang="es" class="translation">Torre Eiffel</p><p class="question">Why did Paris build the Eiffel Tower?</p><p lang="es" class="translation">¿Por qué construyó París la Torre Eiffel?</p></div></div><ol type="A"><li>For the 1889 World’s Fair</li><li>For the 1900 World’s Fair</li><li>For the 1924 Olympics</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Paris built it for the 1889 World’s Fair.</p><p lang="es" class="translation">París la construyó para la Exposición Universal de 1889.</p><a class="source" href="https://www.toureiffel.paris/en/the-monument/history">Official Eiffel Tower website</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Statue of Liberty" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:25%;--y:0%"></div><div><h2>Statue of Liberty</h2><p lang="es" class="translation">Estatua de la Libertad</p><p class="question">Which country gave the Statue of Liberty to the United States?</p><p lang="es" class="translation">¿Qué país le regaló la Estatua de la Libertad a Estados Unidos?</p></div></div><ol type="A"><li>Spain</li><li>Italy</li><li>France</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>France gave the statue to the United States.</p><p lang="es" class="translation">Francia le regaló la estatua a Estados Unidos.</p><a class="source" href="https://home.nps.gov/stli/index.htm">U.S. National Park Service</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Taj Mahal" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:50%;--y:0%"></div><div><h2>Taj Mahal</h2><p lang="es" class="translation">Taj Mahal</p><p class="question">Who did Shah Jahan honor with the Taj Mahal?</p><p lang="es" class="translation">¿A quién honró Shah Jahan con el Taj Mahal?</p></div></div><ol type="A"><li>Jahanara Begum</li><li>Mumtaz Mahal</li><li>Nur Jahan</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>He honored his wife, Mumtaz Mahal.</p><p lang="es" class="translation">Honró a su esposa, Mumtaz Mahal.</p><a class="source" href="https://whc.unesco.org/en/list/252/">UNESCO World Heritage Centre</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Great Wall of China" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:75%;--y:0%"></div><div><h2>Great Wall of China</h2><p lang="es" class="translation">Gran Muralla China</p><p class="question">Why did Qin Shi Huang join parts of older walls?</p><p lang="es" class="translation">¿Por qué unió Qin Shi Huang partes de murallas antiguas?</p></div></div><ol type="A"><li>To protect China from attacks</li><li>To mark a trade route</li><li>To connect farming towns</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>He joined them to protect China from attacks from the north.</p><p lang="es" class="translation">Las unió para proteger a China de ataques desde el norte.</p><a class="source" href="https://whc.unesco.org/en/list/438/">UNESCO World Heritage Centre</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Machu Picchu" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:100%;--y:0%"></div><div><h2>Machu Picchu</h2><p lang="es" class="translation">Machu Picchu</p><p class="question">When did the Incas build Machu Picchu?</p><p lang="es" class="translation">¿Cuándo construyeron los incas Machu Picchu?</p></div></div><ol type="A"><li>15th century</li><li>16th century</li><li>14th century</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>The Incas built it in the 15th century.</p><p lang="es" class="translation">Los incas lo construyeron en el siglo XV.</p><a class="source" href="https://whc.unesco.org/en/list/274/">UNESCO World Heritage Centre</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Colosseum" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:0%;--y:100%"></div><div><h2>Colosseum</h2><p lang="es" class="translation">Coliseo de Roma</p><p class="question">What shows did people watch at the Colosseum?</p><p lang="es" class="translation">¿Qué espectáculos veía la gente en el Coliseo?</p></div></div><ol type="A"><li>Boat races and dances</li><li>Gladiator fights and animal hunts</li><li>Horse races and parades</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>People watched gladiator fights and animal hunts.</p><p lang="es" class="translation">La gente veía combates de gladiadores y cacerías de animales.</p><a class="source" href="https://colosseo.it/en/area/colosseo/">Colosseum Archaeological Park</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Sydney Opera House" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:25%;--y:100%"></div><div><h2>Sydney Opera House</h2><p lang="es" class="translation">Ópera de Sídney</p><p class="question">Who designed the Sydney Opera House?</p><p lang="es" class="translation">¿Quién diseñó la Ópera de Sídney?</p></div></div><ol type="A"><li>Jørn Utzon</li><li>Frank Lloyd Wright</li><li>Le Corbusier</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Jørn Utzon designed it.</p><p lang="es" class="translation">Jørn Utzon la diseñó.</p><a class="source" href="https://www.sydneyoperahouse.com/our-story">Sydney Opera House</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Golden Gate Bridge" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:50%;--y:100%"></div><div><h2>Golden Gate Bridge</h2><p lang="es" class="translation">Puente Golden Gate</p><p class="question">When did the Golden Gate Bridge open to cars?</p><p lang="es" class="translation">¿Cuándo abrió el puente Golden Gate al tráfico de carros?</p></div></div><ol type="A"><li>1937</li><li>1939</li><li>1935</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>It opened to cars on May 28, 1937.</p><p lang="es" class="translation">Abrió al tráfico de carros el 28 de mayo de 1937.</p><a class="source" href="https://www.goldengate.org/bridge/history-research/statistics-data/faqs/">Golden Gate Bridge, Highway and Transportation District</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Christ the Redeemer" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:75%;--y:100%"></div><div><h2>Christ the Redeemer</h2><p lang="es" class="translation">Cristo Redentor</p><p class="question">Where did workers build Christ the Redeemer?</p><p lang="es" class="translation">¿Dónde construyeron los trabajadores el Cristo Redentor?</p></div></div><ol type="A"><li>Mount Urca</li><li>Corcovado Mountain</li><li>Sugarloaf Mountain</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>They built it on Corcovado Mountain.</p><p lang="es" class="translation">Lo construyeron en el cerro del Corcovado.</p><a class="source" href="https://www.tremdocorcovado.rio/en/news/cristo-redentor-brasil">Corcovado Train</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Angel Falls" style="--sheet:url('../famous-origins/images/icons-4.webp');--x:100%;--y:100%"></div><div><h2>Angel Falls</h2><p lang="es" class="translation">Salto Ángel</p><p class="question">Whose name did Angel Falls get in English?</p><p lang="es" class="translation">¿De quién tomó su nombre en inglés el Salto Ángel?</p></div></div><ol type="A"><li>Jimmie Angel</li><li>Amelia Earhart</li><li>Charles Lindbergh</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Angel Falls got its English name from the pilot Jimmie Angel.</p><p lang="es" class="translation">El Salto Ángel tomó su nombre en inglés del piloto Jimmie Angel.</p><a class="source" href="https://www.guinnessworldrecords.com/world-records/highest-waterfall">Guinness World Records</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Telephone" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:0%;--y:0%"></div><div><h2>Telephone</h2><p lang="es" class="translation">Teléfono</p><p class="question">Who received a telephone patent in 1876?</p><p lang="es" class="translation">¿Quién recibió una patente de teléfono en 1876?</p></div></div><ol type="A"><li>Thomas Edison</li><li>Guglielmo Marconi</li><li>Alexander Graham Bell</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>Alexander Graham Bell received a telephone patent in 1876.</p><p lang="es" class="translation">Alexander Graham Bell recibió una patente de teléfono en 1876.</p><a class="source" href="https://www.loc.gov/everyday-mysteries/categories/technology/item/who-is-credited-with-inventing-the-telephone/">Library of Congress</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Electric light bulb" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:25%;--y:0%"></div><div><h2>Electric light bulb</h2><p lang="es" class="translation">Bombillo eléctrico</p><p class="question">Where did Edison’s team develop a practical light bulb?</p><p lang="es" class="translation">¿Dónde desarrolló el equipo de Edison un bombillo práctico?</p></div></div><ol type="A"><li>Chicago, Illinois</li><li>Menlo Park, New Jersey</li><li>Boston, Massachusetts</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>They developed it in Menlo Park, New Jersey.</p><p lang="es" class="translation">Lo desarrollaron en Menlo Park, Nueva Jersey.</p><a class="source" href="https://www.nps.gov/edis/learn/kidsyouth/the-electric-light-system-phonograph-motion-pictures.htm">U.S. National Park Service</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of World Wide Web" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:50%;--y:0%"></div><div><h2>World Wide Web</h2><p lang="es" class="translation">La Web</p><p class="question">Why did Tim Berners-Lee create the Web?</p><p lang="es" class="translation">¿Por qué creó Tim Berners-Lee la Web?</p></div></div><ol type="A"><li>To help scientists share information</li><li>To help banks send money</li><li>To help stores sell products</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>He created it to help scientists share information.</p><p lang="es" class="translation">La creó para ayudar a los científicos a compartir información.</p><a class="source" href="https://home.cern/science/computing/the-birth-of-the-web">CERN</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Velcro" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:75%;--y:0%"></div><div><h2>Velcro</h2><p lang="es" class="translation">Velcro</p><p class="question">What gave George de Mestral the idea for Velcro?</p><p lang="es" class="translation">¿Qué le dio a George de Mestral la idea para el velcro?</p></div></div><ol type="A"><li>Leaves that floated on water</li><li>Flowers that opened in the sun</li><li>Seeds that stuck to clothes</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice C.</strong></p><p>He noticed small seeds that stuck to clothes and dog fur.</p><p lang="es" class="translation">Notó pequeñas semillas que se pegaban a la ropa y al pelo de su perro.</p><a class="source" href="https://www.velcro.com/original-thinking/our-story/">Velcro Companies</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Microwave oven" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:100%;--y:0%"></div><div><h2>Microwave oven</h2><p lang="es" class="translation">Horno microondas</p><p class="question">What melted in Percy Spencer’s pocket during his work with radar?</p><p lang="es" class="translation">¿Qué se derritió en el bolsillo de Percy Spencer mientras trabajaba con radar?</p></div></div><ol type="A"><li>A stick of butter</li><li>A chocolate bar</li><li>A piece of cheese</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>A chocolate bar melted in his pocket.</p><p lang="es" class="translation">Una barra de chocolate se derritió en su bolsillo.</p><a class="source" href="https://invention.si.edu/invention-stories/recognize-unusual">Smithsonian Lemelson Center</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Polaroid instant camera" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:0%;--y:100%"></div><div><h2>Polaroid instant camera</h2><p lang="es" class="translation">Cámara instantánea Polaroid</p><p class="question">When did Polaroid make the first Model 95 camera?</p><p lang="es" class="translation">¿Cuándo fabricó Polaroid la primera cámara modelo 95?</p></div></div><ol type="A"><li>1946</li><li>1948</li><li>1950</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>Polaroid made it in 1948.</p><p lang="es" class="translation">Polaroid la fabricó en 1948.</p><a class="source" href="https://www.si.edu/object/nmah_1154069">Smithsonian National Museum of American History</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Ballpoint pen" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:25%;--y:100%"></div><div><h2>Ballpoint pen</h2><p lang="es" class="translation">Bolígrafo</p><p class="question">When did John Loud get a patent for his early ballpoint pen?</p><p lang="es" class="translation">¿Cuándo obtuvo John Loud una patente para su primer bolígrafo?</p></div></div><ol type="A"><li>1888</li><li>1890</li><li>1886</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>He got the patent in 1888.</p><p lang="es" class="translation">Obtuvo la patente en 1888.</p><a class="source" href="https://americanhistory.si.edu/collections/object/nmah_855485">Smithsonian National Museum of American History</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Safety bicycle" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:50%;--y:100%"></div><div><h2>Safety bicycle</h2><p lang="es" class="translation">Bicicleta de seguridad</p><p class="question">Where did the Rover Company make its 1885 safety bicycle?</p><p lang="es" class="translation">¿Dónde fabricó la empresa Rover su bicicleta de seguridad de 1885?</p></div></div><ol type="A"><li>Manchester, England</li><li>Coventry, England</li><li>Birmingham, England</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice B.</strong></p><p>The company made it in Coventry, England.</p><p lang="es" class="translation">La empresa la fabricó en Coventry, Inglaterra.</p><a class="source" href="https://collection.sciencemuseumgroup.org.uk/objects/co25833/rover-safety-bicycle-1885-">Science Museum Group</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of Coca-Cola" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:75%;--y:100%"></div><div><h2>Coca-Cola</h2><p lang="es" class="translation">Coca-Cola</p><p class="question">Where did people first buy Coca-Cola?</p><p lang="es" class="translation">¿Dónde compró la gente Coca-Cola por primera vez?</p></div></div><ol type="A"><li>At a pharmacy in Atlanta</li><li>At a café in Boston</li><li>At a shop in Chicago</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>People first bought it at Jacobs’ Pharmacy in Atlanta.</p><p lang="es" class="translation">La gente la compró por primera vez en la farmacia Jacobs de Atlanta.</p><a class="source" href="https://www.coca-colacompany.com/about-us/history/the-birth-of-a-refreshing-idea">The Coca-Cola Company</a></details></article>
+<article class="card"><div class="card-top"><div class="item-picture" role="img" aria-label="Illustration of iPhone" style="--sheet:url('../famous-origins/images/icons-5.webp');--x:100%;--y:100%"></div><div><h2>iPhone</h2><p lang="es" class="translation">iPhone</p><p class="question">When did Apple introduce the first iPhone?</p><p lang="es" class="translation">¿Cuándo presentó Apple el primer iPhone?</p></div></div><ol type="A"><li>January 2007</li><li>January 2008</li><li>January 2006</li></ol><details class="answer"><summary>Reveal answer</summary><p><strong>Correct choice A.</strong></p><p>Apple introduced it in January 2007.</p><p lang="es" class="translation">Apple lo presentó en enero de 2007.</p><a class="source" href="https://www.apple.com/uk/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/">Apple’s original press release</a></details></article>
 </section>
 <footer class="translation" style="margin-top:24px;font-size:.8rem">Character clues use <a class="source" href="https://github.com/jdecked/twemoji" target="_blank" rel="noopener noreferrer">Twemoji graphics</a> by Twitter, Inc. and contributors, resized and arranged under <a class="source" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.</footer>
 </main>
@@ -145,7 +145,13 @@ const cards = [
     "modelEs": "LEGO solicitó la patente en 1958.",
     "source": "LEGO History",
     "url": "https://www.lego.com/en-nz/history/articles/d-the-stud-and-tube-principle",
-    "imageIndex": 0
+    "imageIndex": 0,
+    "choices": [
+      "1955",
+      "1958",
+      "1961"
+    ],
+    "correct": "1958"
   },
   {
     "item": "Rubik’s Cube",
@@ -156,7 +162,13 @@ const cards = [
     "modelEs": "Ernő Rubik lo inventó en 1974.",
     "source": "Rubik’s",
     "url": "https://rubiks.com/history",
-    "imageIndex": 1
+    "imageIndex": 1,
+    "choices": [
+      "Ernő Rubik",
+      "Piet Hein",
+      "John Spinello"
+    ],
+    "correct": "Ernő Rubik"
   },
   {
     "item": "Post-it Notes",
@@ -167,7 +179,13 @@ const cards = [
     "modelEs": "Usó un pegamento suave que hizo Spencer Silver.",
     "source": "Post-it Brand, 3M",
     "url": "https://www.post-it.com/3M/en_US/post-it/contact-us/about-us/",
-    "imageIndex": 2
+    "imageIndex": 2,
+    "choices": [
+      "A weak glue",
+      "A strong glue",
+      "A thick paste"
+    ],
+    "correct": "A weak glue"
   },
   {
     "item": "Barbie doll",
@@ -178,7 +196,13 @@ const cards = [
     "modelEs": "Barbie apareció por primera vez en 1959.",
     "source": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/toys/barbie/",
-    "imageIndex": 3
+    "imageIndex": 3,
+    "choices": [
+      "1957",
+      "1959",
+      "1961"
+    ],
+    "correct": "1959"
   },
   {
     "item": "Slinky",
@@ -189,7 +213,13 @@ const cards = [
     "modelEs": "Vio caer un resorte y moverse como si caminara.",
     "source": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/toys/slinky/",
-    "imageIndex": 4
+    "imageIndex": 4,
+    "choices": [
+      "A spring that fell",
+      "A wheel that turned",
+      "A ball that bounced"
+    ],
+    "correct": "A spring that fell"
   },
   {
     "item": "Etch A Sketch",
@@ -200,7 +230,13 @@ const cards = [
     "modelEs": "Lo llamaron L’Écran Magique.",
     "source": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/toys/etch-a-sketch/",
-    "imageIndex": 5
+    "imageIndex": 5,
+    "choices": [
+      "L’Écran Magique",
+      "Magic Slate",
+      "Magna Doodle"
+    ],
+    "correct": "L’Écran Magique"
   },
   {
     "item": "Yo-yo",
@@ -211,7 +247,13 @@ const cards = [
     "modelEs": "Pedro Flores lo popularizó.",
     "source": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/toys/duncan-yo-yo/",
-    "imageIndex": 6
+    "imageIndex": 6,
+    "choices": [
+      "Pedro Flores",
+      "Donald Duncan",
+      "Louis Marx"
+    ],
+    "correct": "Pedro Flores"
   },
   {
     "item": "Monopoly",
@@ -222,7 +264,13 @@ const cards = [
     "modelEs": "El juego The Landlord’s Game de Lizzie Magie dio la idea.",
     "source": "Smithsonian Lemelson Center",
     "url": "https://invention.si.edu/invention-stories/woman-inventor-behind-monopoly",
-    "imageIndex": 7
+    "imageIndex": 7,
+    "choices": [
+      "The Landlord’s Game",
+      "The Game of Life",
+      "The Mansion of Happiness"
+    ],
+    "correct": "The Landlord’s Game"
   },
   {
     "item": "Play-Doh",
@@ -233,7 +281,13 @@ const cards = [
     "modelEs": "La gente la usaba para limpiar el papel tapiz.",
     "source": "The Strong National Museum of Play",
     "url": "https://www.museumofplay.org/toys/play-doh/",
-    "imageIndex": 8
+    "imageIndex": 8,
+    "choices": [
+      "To clean wallpaper",
+      "To polish shoes",
+      "To wash windows"
+    ],
+    "correct": "To clean wallpaper"
   },
   {
     "item": "Teddy bear",
@@ -244,7 +298,13 @@ const cards = [
     "modelEs": "El osito de peluche recibió su nombre de Theodore Roosevelt.",
     "source": "Smithsonian National Museum of American History",
     "url": "https://americanhistory.si.edu/collections/object/nmah_491375",
-    "imageIndex": 9
+    "imageIndex": 9,
+    "choices": [
+      "Theodore Roosevelt",
+      "William Howard Taft",
+      "Woodrow Wilson"
+    ],
+    "correct": "Theodore Roosevelt"
   },
   {
     "item": "Mickey Mouse",
@@ -256,7 +316,13 @@ const cards = [
     "source": "Smithsonian National Museum of American History",
     "url": "https://americanhistory.si.edu/explore/stories/mickey-mouse-turns-90",
     "imageIndex": 10,
-    "imageAlt": "A strip of film frames"
+    "imageAlt": "A strip of film frames",
+    "choices": [
+      "Walt Disney and Ub Iwerks",
+      "William Hanna and Joseph Barbera",
+      "Bob Kane and Bill Finger"
+    ],
+    "correct": "Walt Disney and Ub Iwerks"
   },
   {
     "item": "Super Mario",
@@ -268,7 +334,13 @@ const cards = [
     "source": "Nintendo",
     "url": "https://www.nintendo.com/en-ca/whatsnew/wahoo-see-the-platforming-history-of-super-mario-and-even-get-a-few-fun-facts/",
     "imageIndex": 11,
-    "imageAlt": "An arcade joystick"
+    "imageAlt": "An arcade joystick",
+    "choices": [
+      "Donkey Kong",
+      "Mario Bros.",
+      "Super Mario Bros."
+    ],
+    "correct": "Donkey Kong"
   },
   {
     "item": "Pikachu",
@@ -280,7 +352,13 @@ const cards = [
     "source": "The Pokémon Company, interviews with the creators",
     "url": "https://www.pokemon.com/us/pokemon-news/creator-profile-the-creators-of-pikachu",
     "imageIndex": 12,
-    "imageAlt": "A yellow lightning bolt"
+    "imageAlt": "A yellow lightning bolt",
+    "choices": [
+      "Atsuko Nishida",
+      "Ken Sugimori",
+      "Koji Nishino"
+    ],
+    "correct": "Atsuko Nishida"
   },
   {
     "item": "Hello Kitty",
@@ -292,7 +370,13 @@ const cards = [
     "source": "BBC Witness History, interview with Yuko Shimizu",
     "url": "https://www.bbc.co.uk/programmes/w3ct5ydn",
     "imageIndex": 13,
-    "imageAlt": "A red ribbon bow"
+    "imageAlt": "A red ribbon bow",
+    "choices": [
+      "1972",
+      "1974",
+      "1976"
+    ],
+    "correct": "1974"
   },
   {
     "item": "Snoopy",
@@ -304,7 +388,13 @@ const cards = [
     "source": "Peanuts Worldwide",
     "url": "https://www.peanuts.com/about/snoopy",
     "imageIndex": 14,
-    "imageAlt": "A dog"
+    "imageAlt": "A dog",
+    "choices": [
+      "October 4, 1950",
+      "October 4, 1952",
+      "October 4, 1954"
+    ],
+    "correct": "October 4, 1950"
   },
   {
     "item": "SpongeBob SquarePants",
@@ -316,7 +406,13 @@ const cards = [
     "source": "Television Academy",
     "url": "https://www.televisionacademy.com/bios/stephen-hillenburg",
     "imageIndex": 15,
-    "imageAlt": "A sponge"
+    "imageAlt": "A sponge",
+    "choices": [
+      "Stephen Hillenburg",
+      "Craig McCracken",
+      "Genndy Tartakovsky"
+    ],
+    "correct": "Stephen Hillenburg"
   },
   {
     "item": "Darth Vader",
@@ -328,7 +424,13 @@ const cards = [
     "source": "Lucasfilm, StarWars.com",
     "url": "https://www.starwars.com/news/david-prowse",
     "imageIndex": 16,
-    "imageAlt": "A ringed planet"
+    "imageAlt": "A ringed planet",
+    "choices": [
+      "David Prowse",
+      "James Earl Jones",
+      "Peter Mayhew"
+    ],
+    "correct": "David Prowse"
   },
   {
     "item": "Batman",
@@ -340,7 +442,13 @@ const cards = [
     "source": "DC",
     "url": "https://www.dc.com/blog/2019/03/19/batman-a-history-of-heroics-the-beginning",
     "imageIndex": 17,
-    "imageAlt": "A bat"
+    "imageAlt": "A bat",
+    "choices": [
+      "Bob Kane and Bill Finger",
+      "Jerry Siegel and Joe Shuster",
+      "Stan Lee and Steve Ditko"
+    ],
+    "correct": "Bob Kane and Bill Finger"
   },
   {
     "item": "Superman",
@@ -352,7 +460,13 @@ const cards = [
     "source": "DC",
     "url": "https://www.dc.com/blog/2018/03/16/celebrating-action-comics-1000-and-80-years-of-superman",
     "imageIndex": 18,
-    "imageAlt": "A caped superhero"
+    "imageAlt": "A caped superhero",
+    "choices": [
+      "Jerry Siegel and Joe Shuster",
+      "Bob Kane and Bill Finger",
+      "Stan Lee and Jack Kirby"
+    ],
+    "correct": "Jerry Siegel and Joe Shuster"
   },
   {
     "item": "Pac-Man",
@@ -364,7 +478,13 @@ const cards = [
     "source": "Bandai Namco, official Pac-Man history",
     "url": "https://pacman.com/en/history/",
     "imageIndex": 19,
-    "imageAlt": "A pixelated arcade alien"
+    "imageAlt": "A pixelated arcade alien",
+    "choices": [
+      "Japan",
+      "South Korea",
+      "Taiwan"
+    ],
+    "correct": "Japan"
   },
   {
     "item": "Frida Kahlo",
@@ -375,7 +495,13 @@ const cards = [
     "source": "Museo Frida Kahlo",
     "url": "https://www.museofridakahlo.org.mx/frida/?lang=en",
     "itemEs": "Frida Kahlo",
-    "imageIndex": 20
+    "imageIndex": 20,
+    "choices": [
+      "New York City",
+      "Paris",
+      "Mexico City"
+    ],
+    "correct": "New York City"
   },
   {
     "item": "Selena Quintanilla",
@@ -386,7 +512,13 @@ const cards = [
     "source": "Recording Academy",
     "url": "https://www.grammy.com/artists/selena/10071/",
     "itemEs": "Selena Quintanilla",
-    "imageIndex": 21
+    "imageIndex": 21,
+    "choices": [
+      "Live",
+      "Amor Prohibido",
+      "Dreaming of You"
+    ],
+    "correct": "Live"
   },
   {
     "item": "Shakira",
@@ -397,7 +529,13 @@ const cards = [
     "source": "Recording Academy",
     "url": "https://www.grammy.com/news/grammy-rewind-shakira-wins-her-first-grammy-best-latin-pop-album-2001/",
     "itemEs": "Shakira",
-    "imageIndex": 22
+    "imageIndex": 22,
+    "choices": [
+      "1999",
+      "2001",
+      "2003"
+    ],
+    "correct": "2001"
   },
   {
     "item": "Lionel Messi",
@@ -408,7 +546,13 @@ const cards = [
     "source": "FIFA",
     "url": "https://www.fifa.com/en/watch/14Q9we1dyweTi2XNhL9tGY",
     "itemEs": "Lionel Messi",
-    "imageIndex": 23
+    "imageIndex": 23,
+    "choices": [
+      "Golden Ball",
+      "Golden Boot",
+      "Golden Glove"
+    ],
+    "correct": "Golden Ball"
   },
   {
     "item": "Pelé",
@@ -419,7 +563,13 @@ const cards = [
     "source": "FIFA",
     "url": "https://www.fifa.com/en/tournaments/mens/worldcup/articles/pele-three-world-cup-titles-only-player",
     "itemEs": "Pelé",
-    "imageIndex": 24
+    "imageIndex": 24,
+    "choices": [
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "correct": "Three"
   },
   {
     "item": "Muhammad Ali",
@@ -430,7 +580,13 @@ const cards = [
     "source": "U.S. Olympic & Paralympic Museum",
     "url": "https://usopm.org/muhammad-ali/",
     "itemEs": "Muhammad Ali",
-    "imageIndex": 25
+    "imageIndex": 25,
+    "choices": [
+      "Gold",
+      "Silver",
+      "Bronze"
+    ],
+    "correct": "Gold"
   },
   {
     "item": "Serena Williams",
@@ -441,7 +597,13 @@ const cards = [
     "source": "US Open",
     "url": "https://www.usopen.org/en_US/content/50_champions.html",
     "itemEs": "Serena Williams",
-    "imageIndex": 26
+    "imageIndex": 26,
+    "choices": [
+      "US Open",
+      "Wimbledon",
+      "Australian Open"
+    ],
+    "correct": "US Open"
   },
   {
     "item": "Albert Einstein",
@@ -452,7 +614,13 @@ const cards = [
     "source": "Nobel Prize",
     "url": "https://www.nobelprize.org/prizes/physics/1921/summary/",
     "itemEs": "Albert Einstein",
-    "imageIndex": 27
+    "imageIndex": 27,
+    "choices": [
+      "The photoelectric effect",
+      "General relativity",
+      "Special relativity"
+    ],
+    "correct": "The photoelectric effect"
   },
   {
     "item": "Marie Curie",
@@ -463,7 +631,13 @@ const cards = [
     "source": "Nobel Prize",
     "url": "https://www.nobelprize.org/prizes/physics/1903/marie-curie/questions-and-answers/",
     "itemEs": "Marie Curie",
-    "imageIndex": 28
+    "imageIndex": 28,
+    "choices": [
+      "1901",
+      "1903",
+      "1905"
+    ],
+    "correct": "1903"
   },
   {
     "item": "Amelia Earhart",
@@ -474,7 +648,13 @@ const cards = [
     "source": "Smithsonian National Postal Museum",
     "url": "https://postalmuseum.si.edu/exhibition/fad-to-fundamental-airmail-in-america-airmail-pilot-stories-mail-by-female/amelia-earhart",
     "itemEs": "Amelia Earhart",
-    "imageIndex": 29
+    "imageIndex": 29,
+    "choices": [
+      "Distinguished Flying Cross",
+      "Congressional Gold Medal",
+      "Medal of Honor"
+    ],
+    "correct": "Distinguished Flying Cross"
   },
   {
     "item": "Eiffel Tower",
@@ -485,7 +665,13 @@ const cards = [
     "modelEs": "París la construyó para la Exposición Universal de 1889.",
     "source": "Official Eiffel Tower website",
     "url": "https://www.toureiffel.paris/en/the-monument/history",
-    "imageIndex": 30
+    "imageIndex": 30,
+    "choices": [
+      "For the 1889 World’s Fair",
+      "For the 1900 World’s Fair",
+      "For the 1924 Olympics"
+    ],
+    "correct": "For the 1889 World’s Fair"
   },
   {
     "item": "Statue of Liberty",
@@ -496,7 +682,13 @@ const cards = [
     "modelEs": "Francia le regaló la estatua a Estados Unidos.",
     "source": "U.S. National Park Service",
     "url": "https://home.nps.gov/stli/index.htm",
-    "imageIndex": 31
+    "imageIndex": 31,
+    "choices": [
+      "France",
+      "Spain",
+      "Italy"
+    ],
+    "correct": "France"
   },
   {
     "item": "Taj Mahal",
@@ -507,7 +699,13 @@ const cards = [
     "modelEs": "Honró a su esposa, Mumtaz Mahal.",
     "source": "UNESCO World Heritage Centre",
     "url": "https://whc.unesco.org/en/list/252/",
-    "imageIndex": 32
+    "imageIndex": 32,
+    "choices": [
+      "Mumtaz Mahal",
+      "Nur Jahan",
+      "Jahanara Begum"
+    ],
+    "correct": "Mumtaz Mahal"
   },
   {
     "item": "Great Wall of China",
@@ -518,7 +716,13 @@ const cards = [
     "modelEs": "Las unió para proteger a China de ataques desde el norte.",
     "source": "UNESCO World Heritage Centre",
     "url": "https://whc.unesco.org/en/list/438/",
-    "imageIndex": 33
+    "imageIndex": 33,
+    "choices": [
+      "To protect China from attacks",
+      "To mark a trade route",
+      "To connect farming towns"
+    ],
+    "correct": "To protect China from attacks"
   },
   {
     "item": "Machu Picchu",
@@ -529,7 +733,13 @@ const cards = [
     "modelEs": "Los incas lo construyeron en el siglo XV.",
     "source": "UNESCO World Heritage Centre",
     "url": "https://whc.unesco.org/en/list/274/",
-    "imageIndex": 34
+    "imageIndex": 34,
+    "choices": [
+      "14th century",
+      "15th century",
+      "16th century"
+    ],
+    "correct": "15th century"
   },
   {
     "item": "Colosseum",
@@ -540,7 +750,13 @@ const cards = [
     "modelEs": "La gente veía combates de gladiadores y cacerías de animales.",
     "source": "Colosseum Archaeological Park",
     "url": "https://colosseo.it/en/area/colosseo/",
-    "imageIndex": 35
+    "imageIndex": 35,
+    "choices": [
+      "Gladiator fights and animal hunts",
+      "Horse races and parades",
+      "Boat races and dances"
+    ],
+    "correct": "Gladiator fights and animal hunts"
   },
   {
     "item": "Sydney Opera House",
@@ -551,7 +767,13 @@ const cards = [
     "modelEs": "Jørn Utzon la diseñó.",
     "source": "Sydney Opera House",
     "url": "https://www.sydneyoperahouse.com/our-story",
-    "imageIndex": 36
+    "imageIndex": 36,
+    "choices": [
+      "Jørn Utzon",
+      "Frank Lloyd Wright",
+      "Le Corbusier"
+    ],
+    "correct": "Jørn Utzon"
   },
   {
     "item": "Golden Gate Bridge",
@@ -562,7 +784,13 @@ const cards = [
     "modelEs": "Abrió al tráfico de carros el 28 de mayo de 1937.",
     "source": "Golden Gate Bridge, Highway and Transportation District",
     "url": "https://www.goldengate.org/bridge/history-research/statistics-data/faqs/",
-    "imageIndex": 37
+    "imageIndex": 37,
+    "choices": [
+      "1935",
+      "1937",
+      "1939"
+    ],
+    "correct": "1937"
   },
   {
     "item": "Christ the Redeemer",
@@ -573,7 +801,13 @@ const cards = [
     "modelEs": "Lo construyeron en el cerro del Corcovado.",
     "source": "Corcovado Train",
     "url": "https://www.tremdocorcovado.rio/en/news/cristo-redentor-brasil",
-    "imageIndex": 38
+    "imageIndex": 38,
+    "choices": [
+      "Corcovado Mountain",
+      "Sugarloaf Mountain",
+      "Mount Urca"
+    ],
+    "correct": "Corcovado Mountain"
   },
   {
     "item": "Angel Falls",
@@ -584,7 +818,13 @@ const cards = [
     "modelEs": "El Salto Ángel tomó su nombre en inglés del piloto Jimmie Angel.",
     "source": "Guinness World Records",
     "url": "https://www.guinnessworldrecords.com/world-records/highest-waterfall",
-    "imageIndex": 39
+    "imageIndex": 39,
+    "choices": [
+      "Jimmie Angel",
+      "Amelia Earhart",
+      "Charles Lindbergh"
+    ],
+    "correct": "Jimmie Angel"
   },
   {
     "item": "Telephone",
@@ -595,7 +835,13 @@ const cards = [
     "modelEs": "Alexander Graham Bell recibió una patente de teléfono en 1876.",
     "source": "Library of Congress",
     "url": "https://www.loc.gov/everyday-mysteries/categories/technology/item/who-is-credited-with-inventing-the-telephone/",
-    "imageIndex": 40
+    "imageIndex": 40,
+    "choices": [
+      "Alexander Graham Bell",
+      "Thomas Edison",
+      "Guglielmo Marconi"
+    ],
+    "correct": "Alexander Graham Bell"
   },
   {
     "item": "Electric light bulb",
@@ -606,7 +852,13 @@ const cards = [
     "modelEs": "Lo desarrollaron en Menlo Park, Nueva Jersey.",
     "source": "U.S. National Park Service",
     "url": "https://www.nps.gov/edis/learn/kidsyouth/the-electric-light-system-phonograph-motion-pictures.htm",
-    "imageIndex": 41
+    "imageIndex": 41,
+    "choices": [
+      "Menlo Park, New Jersey",
+      "Boston, Massachusetts",
+      "Chicago, Illinois"
+    ],
+    "correct": "Menlo Park, New Jersey"
   },
   {
     "item": "World Wide Web",
@@ -617,7 +869,13 @@ const cards = [
     "modelEs": "La creó para ayudar a los científicos a compartir información.",
     "source": "CERN",
     "url": "https://home.cern/science/computing/the-birth-of-the-web",
-    "imageIndex": 42
+    "imageIndex": 42,
+    "choices": [
+      "To help scientists share information",
+      "To help banks send money",
+      "To help stores sell products"
+    ],
+    "correct": "To help scientists share information"
   },
   {
     "item": "Velcro",
@@ -628,7 +886,13 @@ const cards = [
     "modelEs": "Notó pequeñas semillas que se pegaban a la ropa y al pelo de su perro.",
     "source": "Velcro Companies",
     "url": "https://www.velcro.com/original-thinking/our-story/",
-    "imageIndex": 43
+    "imageIndex": 43,
+    "choices": [
+      "Seeds that stuck to clothes",
+      "Leaves that floated on water",
+      "Flowers that opened in the sun"
+    ],
+    "correct": "Seeds that stuck to clothes"
   },
   {
     "item": "Microwave oven",
@@ -639,7 +903,13 @@ const cards = [
     "modelEs": "Una barra de chocolate se derritió en su bolsillo.",
     "source": "Smithsonian Lemelson Center",
     "url": "https://invention.si.edu/invention-stories/recognize-unusual",
-    "imageIndex": 44
+    "imageIndex": 44,
+    "choices": [
+      "A chocolate bar",
+      "A piece of cheese",
+      "A stick of butter"
+    ],
+    "correct": "A chocolate bar"
   },
   {
     "item": "Polaroid instant camera",
@@ -650,7 +920,13 @@ const cards = [
     "modelEs": "Polaroid la fabricó en 1948.",
     "source": "Smithsonian National Museum of American History",
     "url": "https://www.si.edu/object/nmah_1154069",
-    "imageIndex": 45
+    "imageIndex": 45,
+    "choices": [
+      "1946",
+      "1948",
+      "1950"
+    ],
+    "correct": "1948"
   },
   {
     "item": "Ballpoint pen",
@@ -661,7 +937,13 @@ const cards = [
     "modelEs": "Obtuvo la patente en 1888.",
     "source": "Smithsonian National Museum of American History",
     "url": "https://americanhistory.si.edu/collections/object/nmah_855485",
-    "imageIndex": 46
+    "imageIndex": 46,
+    "choices": [
+      "1886",
+      "1888",
+      "1890"
+    ],
+    "correct": "1888"
   },
   {
     "item": "Safety bicycle",
@@ -672,7 +954,13 @@ const cards = [
     "modelEs": "La empresa la fabricó en Coventry, Inglaterra.",
     "source": "Science Museum Group",
     "url": "https://collection.sciencemuseumgroup.org.uk/objects/co25833/rover-safety-bicycle-1885-",
-    "imageIndex": 47
+    "imageIndex": 47,
+    "choices": [
+      "Coventry, England",
+      "Birmingham, England",
+      "Manchester, England"
+    ],
+    "correct": "Coventry, England"
   },
   {
     "item": "Coca-Cola",
@@ -683,7 +971,13 @@ const cards = [
     "modelEs": "La gente la compró por primera vez en la farmacia Jacobs de Atlanta.",
     "source": "The Coca-Cola Company",
     "url": "https://www.coca-colacompany.com/about-us/history/the-birth-of-a-refreshing-idea",
-    "imageIndex": 48
+    "imageIndex": 48,
+    "choices": [
+      "At a pharmacy in Atlanta",
+      "At a café in Boston",
+      "At a shop in Chicago"
+    ],
+    "correct": "At a pharmacy in Atlanta"
   },
   {
     "item": "iPhone",
@@ -694,7 +988,13 @@ const cards = [
     "modelEs": "Apple lo presentó en enero de 2007.",
     "source": "Apple’s original press release",
     "url": "https://www.apple.com/uk/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/",
-    "imageIndex": 49
+    "imageIndex": 49,
+    "choices": [
+      "January 2006",
+      "January 2007",
+      "January 2008"
+    ],
+    "correct": "January 2007"
   }
 ];
 const byId = id => document.getElementById(id);
@@ -728,6 +1028,17 @@ function drawCard(moveFocus) {
   picture.style.setProperty('--x', (indexOnSheet % 5) * 25 + '%');
   picture.style.setProperty('--y', Math.floor(indexOnSheet / 5) * 100 + '%');
   picture.setAttribute('aria-label', current.imageAlt || ('Illustration of ' + current.item));
+  const choices = [...current.choices];
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  byId('choices').replaceChildren(...choices.map(choice => {
+    const option = document.createElement('li');
+    option.textContent = choice;
+    return option;
+  }));
+  byId('correct-choice').textContent = 'Correct choice ' + 'ABC'[choices.indexOf(current.correct)];
   byId('model').textContent = current.model;
   byId('model-es').textContent = current.modelEs;
 
