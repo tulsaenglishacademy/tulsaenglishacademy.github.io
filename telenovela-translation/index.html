@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Telenovela Translation · A2 Simple Past</title>
+<meta name="description" content="Translate simple past lines inspired by Marimar and Rosalinda.">
+<style>
+:root{color-scheme:dark;--background:#151120;--panel:#211a30;--edge:#4d3b62;--gold:#ffd485;--text:#f8f4fd;--muted:#c7bad8}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 0,#352242,var(--background) 70%);color:var(--text);font:1rem/1.55 system-ui,sans-serif;min-height:100vh}
+main{width:min(820px,calc(100% - 32px));margin:auto;padding:clamp(28px,6vw,62px) 0}
+.kicker,.label{font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(2.4rem,7vw,4.3rem);letter-spacing:-.055em;line-height:1.05;margin:.24em 0}
+.lead{max-width:62ch;margin:12px 0 4px}
+.translation,.muted{color:var(--muted)}
+.translation{margin:4px 0 0}
+.pool-count{font-size:.9rem;margin:18px 0}
+.card{background:var(--panel);padding:clamp(20px,5vw,36px);border:1px solid var(--edge);border-radius:22px;box-shadow:0 18px 42px #0004}
+.tags,.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.tag{padding:5px 12px;border-radius:30px;background:#392b4a;font-weight:750}
+.direction{color:var(--gold)}
+h2{font-size:clamp(1.55rem,4vw,2.35rem);line-height:1.28;margin:10px 0}
+.origin{margin:18px 0 0}
+.actions{margin-top:24px}
+button{font:inherit;font-weight:800;min-height:46px;padding:10px 16px;border-radius:12px;border:1px solid var(--edge);background:#392b4a;color:var(--text);cursor:pointer}
+.primary{background:var(--gold);color:#251937;border-color:var(--gold)}
+:focus-visible{outline:3px solid #ffe8b9;outline-offset:4px}
+.answer{margin-top:20px;border:1px solid var(--edge);border-left:4px solid var(--gold);border-radius:12px;padding:17px;background:#2c223c}
+.answer p{margin:6px 0}
+#model{font-size:1.25rem;font-weight:750}
+#source{color:var(--gold)}
+.tip{font-size:.9rem}
+.fallback-card{margin-top:14px}
+.fallback-card summary{cursor:pointer;font-weight:800;color:var(--gold)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body><main>
+<header><div class="kicker">Tulsa English Academy · A2</div>
+<h1>Telenovela Translation</h1>
+<p class="lead">Read the English line aloud and ask, “How do you say it in Spanish?” Let the group try, then reveal the translation.</p>
+<p class="translation" lang="es">Lee la frase en inglés y pregunta cómo se dice en español. Deja que el grupo responda y luego muestra la traducción.</p>
+<p class="tip muted">24 simple past practice lines inspired by Marimar and Rosalinda.</p></header>
+<article class="card" id="game" hidden>
+<p id="show" class="label"></p><h2 id="line" tabindex="-1"></h2>
+<div class="actions"><button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal Spanish</button>
+<button id="draw" type="button" class="primary">Next random line →</button></div>
+<section class="answer" id="answer" hidden aria-label="Spanish translation" aria-live="polite"><p id="spanish" lang="es"></p></section>
+</article>
+<section id="fallback" aria-label="Translation cards"><article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar walked along the beach.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar caminó por la playa.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>She lived near the sea.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Ella vivía cerca del mar.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar smiled at Sergio.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar le sonrió a Sergio.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Sergio rode his horse.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Sergio montó a caballo.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar found a shell in the sand.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar encontró una concha en la arena.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>She took her dog to the beach.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Ella llevó a su perro a la playa.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Pulgoso ran after Marimar.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Pulgoso corrió detrás de Marimar.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar brought some fish home.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar llevó pescado a casa.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Sergio waited outside the house.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Sergio esperó afuera de la casa.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar didn't open the door.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar no abrió la puerta.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Sergio wrote a short letter.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Sergio escribió una carta corta.</p></details></article>
+<article class="card fallback-card"><p class="label">Marimar</p><h2>Marimar read the letter that night.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Marimar leyó la carta esa noche.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda sold flowers.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda vendió flores.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>She worked in a flower shop.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Ella trabajaba en una floristería.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda put the flowers on the table.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda puso las flores sobre la mesa.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Fernando José played the piano.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Fernando José tocó el piano.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda heard the music.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda escuchó la música.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Fernando José bought some roses.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Fernando José compró unas rosas.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>He gave Rosalinda a red rose.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Él le dio una rosa roja a Rosalinda.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda wore a blue dress.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda llevaba un vestido azul.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Fernando José arrived late.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Fernando José llegó tarde.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda didn't see him at the door.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda no lo vio en la puerta.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>They talked in the garden.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Ellos hablaron en el jardín.</p></details></article>
+<article class="card fallback-card"><p class="label">Rosalinda</p><h2>Rosalinda went home before dinner.</h2><details class="answer"><summary>Reveal Spanish</summary><p lang="es">Rosalinda se fue a casa antes de cenar.</p></details></article></section>
+</main>
+<script>
+const cards = [
+  {
+    "show": "Marimar",
+    "en": "Marimar walked along the beach.",
+    "es": "Marimar caminó por la playa."
+  },
+  {
+    "show": "Marimar",
+    "en": "She lived near the sea.",
+    "es": "Ella vivía cerca del mar."
+  },
+  {
+    "show": "Marimar",
+    "en": "Marimar smiled at Sergio.",
+    "es": "Marimar le sonrió a Sergio."
+  },
+  {
+    "show": "Marimar",
+    "en": "Sergio rode his horse.",
+    "es": "Sergio montó a caballo."
+  },
+  {
+    "show": "Marimar",
+    "en": "Marimar found a shell in the sand.",
+    "es": "Marimar encontró una concha en la arena."
+  },
+  {
+    "show": "Marimar",
+    "en": "She took her dog to the beach.",
+    "es": "Ella llevó a su perro a la playa."
+  },
+  {
+    "show": "Marimar",
+    "en": "Pulgoso ran after Marimar.",
+    "es": "Pulgoso corrió detrás de Marimar."
+  },
+  {
+    "show": "Marimar",
+    "en": "Marimar brought some fish home.",
+    "es": "Marimar llevó pescado a casa."
+  },
+  {
+    "show": "Marimar",
+    "en": "Sergio waited outside the house.",
+    "es": "Sergio esperó afuera de la casa."
+  },
+  {
+    "show": "Marimar",
+    "en": "Marimar didn't open the door.",
+    "es": "Marimar no abrió la puerta."
+  },
+  {
+    "show": "Marimar",
+    "en": "Sergio wrote a short letter.",
+    "es": "Sergio escribió una carta corta."
+  },
+  {
+    "show": "Marimar",
+    "en": "Marimar read the letter that night.",
+    "es": "Marimar leyó la carta esa noche."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda sold flowers.",
+    "es": "Rosalinda vendió flores."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "She worked in a flower shop.",
+    "es": "Ella trabajaba en una floristería."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda put the flowers on the table.",
+    "es": "Rosalinda puso las flores sobre la mesa."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Fernando José played the piano.",
+    "es": "Fernando José tocó el piano."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda heard the music.",
+    "es": "Rosalinda escuchó la música."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Fernando José bought some roses.",
+    "es": "Fernando José compró unas rosas."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "He gave Rosalinda a red rose.",
+    "es": "Él le dio una rosa roja a Rosalinda."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda wore a blue dress.",
+    "es": "Rosalinda llevaba un vestido azul."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Fernando José arrived late.",
+    "es": "Fernando José llegó tarde."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda didn't see him at the door.",
+    "es": "Rosalinda no lo vio en la puerta."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "They talked in the garden.",
+    "es": "Ellos hablaron en el jardín."
+  },
+  {
+    "show": "Rosalinda",
+    "en": "Rosalinda went home before dinner.",
+    "es": "Rosalinda se fue a casa antes de cenar."
+  }
+];
+const get = id => document.getElementById(id);
+const answer = get('answer');
+const reveal = get('reveal');
+let remaining = [];
+let current;
+
+function showTranslation(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide Spanish' : 'Reveal Spanish';
+}
+
+function draw(moveFocus) {
+  if (remaining.length === 0) remaining = [...cards];
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  showTranslation(false);
+  get('show').textContent = current.show;
+  get('line').textContent = current.en;
+  get('spanish').textContent = current.es;
+  if (moveFocus) get('line').focus();
+}
+
+reveal.addEventListener('click', () => showTranslation(answer.hidden));
+get('draw').addEventListener('click', () => draw(true));
+draw(false);
+get('game').hidden = false;
+get('fallback').hidden = true;
+</script></body></html>
