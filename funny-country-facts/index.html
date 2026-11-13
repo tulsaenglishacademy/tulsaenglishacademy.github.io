@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Funny Country Facts · A2 Simple Past | Tulsa English Academy</title>
+<meta name="description" content="Guess funny country facts and practice the simple past with 12 bilingual multiple-choice cards.">
+<style>
+:root {
+  color-scheme: dark;
+  --page: #111b31;
+  --card: #1a2945;
+  --edge: #405779;
+  --text: #fff9ec;
+  --muted: #cbd7ec;
+  --gold: #ffdc9c;
+  --red: #445a82;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(ellipse at top, #263f65, var(--page) 72%); color: var(--text); font: 1rem/1.55 system-ui, sans-serif; min-height: 100vh; }
+main { width: min(780px, calc(100% - 32px)); margin: auto; padding: clamp(26px, 6vw, 64px) 0; }
+.school, .label { color: var(--gold); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 800; }
+h1, h2 { font-family: Georgia, serif; font-weight: 700; }
+h1 { font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1.03; margin: .18em 0; }
+h2 { font-size: clamp(1.9rem, 5vw, 3rem); line-height: 1.15; margin: .2em 0; overflow-wrap: anywhere; }
+.intro { max-width: 62ch; margin: 14px 0 4px; }
+.translation { color: var(--muted); margin: 4px 0 0; }
+.card { margin-top: 26px; padding: clamp(18px, 5vw, 34px); background: var(--card); border: 1px solid var(--edge); border-radius: 20px; box-shadow: 0 18px 46px #0003; }
+.card-top { display: grid; grid-template-columns: minmax(120px, 185px) minmax(0, 1fr); gap: clamp(16px, 4vw, 30px); align-items: center; }
+.item-picture { width: 100%; aspect-ratio: 1 / 1; border: 1px solid var(--edge); border-radius: 12px; background: var(--page) var(--sheet) var(--x) var(--y) / 500% 200% no-repeat; }
+.grammar { margin: 18px 0 0; color: var(--muted); }
+.grammar strong { color: var(--gold); }
+@media (max-width: 520px) {
+  .card-top { grid-template-columns: 1fr; gap: 14px; }
+  .item-picture { width: min(100%, 140px); }
+}
+.question { margin: 20px 0 4px; font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 700; }
+.actions { margin-top: 23px; display: flex; flex-wrap: wrap; gap: 10px; }
+button { font: inherit; font-weight: 800; border: 1px solid #7086ab; border-radius: 10px; min-height: 48px; padding: 9px 15px; color: var(--text); background: var(--red); cursor: pointer; }
+button.primary { background: var(--gold); border-color: var(--gold); color: #203127; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.answer { margin-top: 20px; padding: 16px; border: 1px solid var(--edge); border-left: 4px solid var(--gold); border-radius: 12px; background: #14223b; }
+.answer p { margin: 8px 0; }
+.story { font-size: 1.13rem; }
+.source { color: var(--gold); overflow-wrap: anywhere; }
+summary { cursor: pointer; font-weight: 750; color: var(--gold); }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="school">Tulsa English Academy</div>
+<h1>Funny Country Facts · A2 Simple Past</h1>
+<p class="intro">Draw a card and ask the question aloud. Choose A, B, or C. Say your guess in a full simple past sentence. Reveal the answer and read it aloud.</p>
+<p class="translation" lang="es">Saca una tarjeta y lee la pregunta en voz alta. Elige A, B o C y responde con una oración completa en pasado simple. Luego muestra la respuesta y léela en voz alta.</p>
+</header>
+
+<article class="card" id="game" aria-label="Famous origin card" hidden>
+<div class="card-top">
+<div id="picture" aria-hidden="true" style="font-size:4rem;text-align:center"></div>
+<div>
+<h2 id="item" tabindex="-1" aria-describedby="question">Featured icon</h2>
+<p id="item-es" class="translation" lang="es"></p>
+<p id="question" class="question"></p>
+<p id="question-es" class="translation" lang="es"></p>
+</div></div>
+<p class="grammar">Say your guess in a full sentence in the simple past.</p><ol id="choices" type="A" aria-label="Answer choices"></ol><p class="translation" lang="es">Responde con una oración completa en pasado simple.</p>
+<div class="actions">
+<button id="reveal" type="button" aria-controls="answer" aria-expanded="false">Reveal answer</button>
+<button id="draw" class="primary" type="button">Draw another card</button>
+</div>
+<section id="answer" class="answer" aria-label="Origin story" aria-live="polite" hidden>
+<p class="label">Model simple past answer</p>
+<p id="correct-choice" class="label"></p><p id="model" class="story"><strong></strong></p>
+<p id="model-es" class="translation" lang="es"></p>
+
+<p><a id="source" class="source" target="_blank" rel="noopener noreferrer"></a></p>
+</section>
+</article>
+
+<section id="fallback" aria-label="Funny Country Facts · A2 Simple Past cards">
+<p>Choose a card and open <strong>Reveal answer</strong> after the group guesses.</p>
+<article class="card"><h2>🇯🇵 Japan</h2><p>Who got a job at a train station in Wakayama?</p><p lang="es">¿Quién consiguió trabajo en una estación de tren en Wakayama?</p><ol type="A"><li>A cat named Tama</li><li>A dog named Pochi</li><li>A rabbit named Momo</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice A.</p><p>Tama the cat became a stationmaster. She wore a tiny hat.</p><p lang="es">La gata Tama se convirtió en jefa de estación. Llevaba un sombrerito.</p><a class="source" href="https://visitwakayama.jp/en/attractions/detail_590.html">Visit Wakayama</a></details></article>
+<article class="card"><h2>🇳🇴 Norway</h2><p>Which animal did Norway’s King’s Guard make its mascot?</p><p lang="es">¿Qué animal eligió como mascota la Guardia Real de Noruega?</p><ol type="A"><li>A puffin</li><li>A polar bear</li><li>A penguin</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice C.</p><p>The guard chose a penguin. Sir Nils Olav even got a military rank.</p><p lang="es">La guardia eligió un pingüino. Sir Nils Olav hasta recibió un rango militar.</p><a class="source" href="https://www.edinburghzoo.org.uk/news/major-general-sir-nils-olav-baron-bouvet-islands">Edinburgh Zoo</a></details></article>
+<article class="card"><h2>🇲🇽 Mexico</h2><p>What did artists carve for a festival in Oaxaca?</p><p lang="es">¿Qué tallaron los artistas para un festival en Oaxaca?</p><ol type="A"><li>Potatoes</li><li>Radishes</li><li>Carrots</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice B.</p><p>They carved radishes. Even the vegetables got dressed up for the festival.</p><p lang="es">Tallaron rábanos. Hasta los vegetales se vistieron para la fiesta.</p><a class="source" href="https://sic.cultura.gob.mx/ficha.php?disciplina=&table=festividad&table_id=118">Secretaría de Cultura</a></details></article>
+<article class="card"><h2>🇨🇦 Canada</h2><p>What did thieves steal from a reserve in Quebec?</p><p lang="es">¿Qué robaron los ladrones de una reserva en Quebec?</p><ol type="A"><li>Maple syrup</li><li>Honey</li><li>Blueberry jam</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice A.</p><p>They stole maple syrup. It was a very sticky crime.</p><p lang="es">Robaron jarabe de arce. Fue un crimen muy pegajoso.</p><a class="source" href="https://scc-csc.ca/judgments-jugements/cb/2022/39162/">Supreme Court of Canada</a></details></article>
+<article class="card"><h2>🇳🇿 New Zealand</h2><p>Who gave speeches in Christchurch’s Cathedral Square?</p><p lang="es">¿Quién dio discursos en la plaza de la catedral de Christchurch?</p><ol type="A"><li>A man who called himself a pirate</li><li>A man who called himself a king</li><li>A man who called himself a wizard</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice C.</p><p>A man who called himself a wizard gave speeches there. His name was Ian Brackenbury Channell.</p><p lang="es">Un hombre que se hacía llamar mago dio discursos allí. Se llamaba Ian Brackenbury Channell.</p><a class="source" href="https://my.christchurchcitylibraries.com/the-wizard/">Christchurch City Libraries</a></details></article>
+<article class="card"><h2>🇮🇸 Iceland</h2><p>How many Yule Lads did an Icelandic poem make famous?</p><p lang="es">¿Cuántos duendes navideños hizo famosos un poema islandés?</p><ol type="A"><li>Twelve</li><li>Thirteen</li><li>Seven</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice B.</p><p>The poem made thirteen Yule Lads famous. That was a big Christmas crew.</p><p lang="es">El poema hizo famosos a trece duendes navideños. ¡Era un gran grupo navideño!</p><a class="source" href="https://landsbokasafn.is/en/jolin-koma-christmas-arrives-finished/">National and University Library of Iceland</a></details></article>
+<article class="card"><h2>🇬🇧 United Kingdom</h2><p>What did the name Big Ben originally refer to?</p><p lang="es">¿A qué se refería originalmente el nombre Big Ben?</p><ol type="A"><li>A bell</li><li>A clock face</li><li>A tower</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice A.</p><p>It referred to the bell inside the tower. The bell got the famous nickname.</p><p lang="es">Se refería a la campana dentro de la torre. La campana recibió el famoso apodo.</p><a class="source" href="https://www.parliament.uk/globalassets/documents/commons-information-office/Big-Ben.pdf">UK Parliament</a></details></article>
+<article class="card"><h2>🇳🇱 Netherlands</h2><p>What did workers use a giant claw to pull out of Amsterdam’s canals?</p><p lang="es">¿Qué sacaron los trabajadores de los canales de Ámsterdam con una garra gigante?</p><ol type="A"><li>Scooters</li><li>Shopping carts</li><li>Bicycles</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice C.</p><p>They pulled out bicycles. It was a very unusual kind of fishing.</p><p lang="es">Sacaron bicicletas. Fue un tipo de pesca muy extraño.</p><a class="source" href="https://www.guinnessworldrecords.com/world-records/637317-most-bicycles-recovered-from-waterways-city">Guinness World Records</a></details></article>
+<article class="card"><h2>🇪🇸 Spain</h2><p>What did people throw at La Tomatina in Buñol?</p><p lang="es">¿Qué lanzó la gente en La Tomatina de Buñol?</p><ol type="A"><li>Peppers</li><li>Tomatoes</li><li>Oranges</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice B.</p><p>They threw tomatoes. The street looked like a giant bowl of salsa.</p><p lang="es">Lanzaron tomates. La calle parecía un tazón gigante de salsa.</p><a class="source" href="https://turismo.bunyol.es/la-tomatina/">Ayuntamiento de Buñol</a></details></article>
+<article class="card"><h2>🇹🇭 Thailand</h2><p>Who got a buffet at a festival in Lopburi?</p><p lang="es">¿Quién recibió un bufé en un festival de Lopburi?</p><ol type="A"><li>Monkeys</li><li>Parrots</li><li>Elephants</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice A.</p><p>The monkeys got a buffet. They were the guests of honor.</p><p lang="es">Los monos recibieron un bufé. Fueron los invitados de honor.</p><a class="source" href="https://www.tatnews.org/2020/11/lopburi-monkey-buffet-festival-2020-to-take-place-on-29-november/">Tourism Authority of Thailand</a></details></article>
+<article class="card"><h2>🇩🇪 Germany</h2><p>What snack did Herta Heuwer make famous in Berlin?</p><p lang="es">¿Qué comida popularizó Herta Heuwer en Berlín?</p><ol type="A"><li>A pretzel</li><li>A schnitzel</li><li>Currywurst</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice C.</p><p>She made currywurst famous. It was sausage with a curry sauce.</p><p lang="es">Popularizó la currywurst. Era una salchicha con salsa de curry.</p><a class="source" href="https://www.berlin.de/ba-charlottenburg-wilmersdorf/ueber-den-bezirk/geschichte/persoenlichkeiten-und-gedenktafeln/artikel.125670.php">City of Berlin</a></details></article>
+<article class="card"><h2>🇫🇮 Finland</h2><p>Who did runners carry in a race in Sonkajärvi?</p><p lang="es">¿A quién cargaron los corredores en una carrera en Sonkajärvi?</p><ol type="A"><li>A referee</li><li>A partner</li><li>A coach</li></ol><details class="answer"><summary>Reveal answer</summary><p>Correct choice B.</p><p>They carried a partner. In this race, one person did the running for two.</p><p lang="es">Cargaron a una pareja. En esta carrera, una persona corrió por dos.</p><a class="source" href="https://eukonkanto.fi/en/front-page/">Wife Carrying World Championship</a></details></article>
+</section>
+
+</main>
+<script>
+const cards = [
+  {
+    "item": "Japan",
+    "itemEs": "Japón",
+    "flag": "🇯🇵",
+    "question": "Who got a job at a train station in Wakayama?",
+    "questionEs": "¿Quién consiguió trabajo en una estación de tren en Wakayama?",
+    "choices": [
+      "A cat named Tama",
+      "A dog named Pochi",
+      "A rabbit named Momo"
+    ],
+    "correct": "A cat named Tama",
+    "model": "Tama the cat became a stationmaster. She wore a tiny hat.",
+    "modelEs": "La gata Tama se convirtió en jefa de estación. Llevaba un sombrerito.",
+    "source": "Visit Wakayama",
+    "url": "https://visitwakayama.jp/en/attractions/detail_590.html"
+  },
+  {
+    "item": "Norway",
+    "itemEs": "Noruega",
+    "flag": "🇳🇴",
+    "question": "Which animal did Norway’s King’s Guard make its mascot?",
+    "questionEs": "¿Qué animal eligió como mascota la Guardia Real de Noruega?",
+    "choices": [
+      "A penguin",
+      "A puffin",
+      "A polar bear"
+    ],
+    "correct": "A penguin",
+    "model": "The guard chose a penguin. Sir Nils Olav even got a military rank.",
+    "modelEs": "La guardia eligió un pingüino. Sir Nils Olav hasta recibió un rango militar.",
+    "source": "Edinburgh Zoo",
+    "url": "https://www.edinburghzoo.org.uk/news/major-general-sir-nils-olav-baron-bouvet-islands"
+  },
+  {
+    "item": "Mexico",
+    "itemEs": "México",
+    "flag": "🇲🇽",
+    "question": "What did artists carve for a festival in Oaxaca?",
+    "questionEs": "¿Qué tallaron los artistas para un festival en Oaxaca?",
+    "choices": [
+      "Radishes",
+      "Carrots",
+      "Potatoes"
+    ],
+    "correct": "Radishes",
+    "model": "They carved radishes. Even the vegetables got dressed up for the festival.",
+    "modelEs": "Tallaron rábanos. Hasta los vegetales se vistieron para la fiesta.",
+    "source": "Secretaría de Cultura",
+    "url": "https://sic.cultura.gob.mx/ficha.php?disciplina=&table=festividad&table_id=118"
+  },
+  {
+    "item": "Canada",
+    "itemEs": "Canadá",
+    "flag": "🇨🇦",
+    "question": "What did thieves steal from a reserve in Quebec?",
+    "questionEs": "¿Qué robaron los ladrones de una reserva en Quebec?",
+    "choices": [
+      "Maple syrup",
+      "Honey",
+      "Blueberry jam"
+    ],
+    "correct": "Maple syrup",
+    "model": "They stole maple syrup. It was a very sticky crime.",
+    "modelEs": "Robaron jarabe de arce. Fue un crimen muy pegajoso.",
+    "source": "Supreme Court of Canada",
+    "url": "https://scc-csc.ca/judgments-jugements/cb/2022/39162/"
+  },
+  {
+    "item": "New Zealand",
+    "itemEs": "Nueva Zelanda",
+    "flag": "🇳🇿",
+    "question": "Who gave speeches in Christchurch’s Cathedral Square?",
+    "questionEs": "¿Quién dio discursos en la plaza de la catedral de Christchurch?",
+    "choices": [
+      "A man who called himself a wizard",
+      "A man who called himself a pirate",
+      "A man who called himself a king"
+    ],
+    "correct": "A man who called himself a wizard",
+    "model": "A man who called himself a wizard gave speeches there. His name was Ian Brackenbury Channell.",
+    "modelEs": "Un hombre que se hacía llamar mago dio discursos allí. Se llamaba Ian Brackenbury Channell.",
+    "source": "Christchurch City Libraries",
+    "url": "https://my.christchurchcitylibraries.com/the-wizard/"
+  },
+  {
+    "item": "Iceland",
+    "itemEs": "Islandia",
+    "flag": "🇮🇸",
+    "question": "How many Yule Lads did an Icelandic poem make famous?",
+    "questionEs": "¿Cuántos duendes navideños hizo famosos un poema islandés?",
+    "choices": [
+      "Thirteen",
+      "Seven",
+      "Twelve"
+    ],
+    "correct": "Thirteen",
+    "model": "The poem made thirteen Yule Lads famous. That was a big Christmas crew.",
+    "modelEs": "El poema hizo famosos a trece duendes navideños. ¡Era un gran grupo navideño!",
+    "source": "National and University Library of Iceland",
+    "url": "https://landsbokasafn.is/en/jolin-koma-christmas-arrives-finished/"
+  },
+  {
+    "item": "United Kingdom",
+    "itemEs": "Reino Unido",
+    "flag": "🇬🇧",
+    "question": "What did the name Big Ben originally refer to?",
+    "questionEs": "¿A qué se refería originalmente el nombre Big Ben?",
+    "choices": [
+      "A bell",
+      "A clock face",
+      "A tower"
+    ],
+    "correct": "A bell",
+    "model": "It referred to the bell inside the tower. The bell got the famous nickname.",
+    "modelEs": "Se refería a la campana dentro de la torre. La campana recibió el famoso apodo.",
+    "source": "UK Parliament",
+    "url": "https://www.parliament.uk/globalassets/documents/commons-information-office/Big-Ben.pdf"
+  },
+  {
+    "item": "Netherlands",
+    "itemEs": "Países Bajos",
+    "flag": "🇳🇱",
+    "question": "What did workers use a giant claw to pull out of Amsterdam’s canals?",
+    "questionEs": "¿Qué sacaron los trabajadores de los canales de Ámsterdam con una garra gigante?",
+    "choices": [
+      "Bicycles",
+      "Scooters",
+      "Shopping carts"
+    ],
+    "correct": "Bicycles",
+    "model": "They pulled out bicycles. It was a very unusual kind of fishing.",
+    "modelEs": "Sacaron bicicletas. Fue un tipo de pesca muy extraño.",
+    "source": "Guinness World Records",
+    "url": "https://www.guinnessworldrecords.com/world-records/637317-most-bicycles-recovered-from-waterways-city"
+  },
+  {
+    "item": "Spain",
+    "itemEs": "España",
+    "flag": "🇪🇸",
+    "question": "What did people throw at La Tomatina in Buñol?",
+    "questionEs": "¿Qué lanzó la gente en La Tomatina de Buñol?",
+    "choices": [
+      "Tomatoes",
+      "Oranges",
+      "Peppers"
+    ],
+    "correct": "Tomatoes",
+    "model": "They threw tomatoes. The street looked like a giant bowl of salsa.",
+    "modelEs": "Lanzaron tomates. La calle parecía un tazón gigante de salsa.",
+    "source": "Ayuntamiento de Buñol",
+    "url": "https://turismo.bunyol.es/la-tomatina/"
+  },
+  {
+    "item": "Thailand",
+    "itemEs": "Tailandia",
+    "flag": "🇹🇭",
+    "question": "Who got a buffet at a festival in Lopburi?",
+    "questionEs": "¿Quién recibió un bufé en un festival de Lopburi?",
+    "choices": [
+      "Monkeys",
+      "Parrots",
+      "Elephants"
+    ],
+    "correct": "Monkeys",
+    "model": "The monkeys got a buffet. They were the guests of honor.",
+    "modelEs": "Los monos recibieron un bufé. Fueron los invitados de honor.",
+    "source": "Tourism Authority of Thailand",
+    "url": "https://www.tatnews.org/2020/11/lopburi-monkey-buffet-festival-2020-to-take-place-on-29-november/"
+  },
+  {
+    "item": "Germany",
+    "itemEs": "Alemania",
+    "flag": "🇩🇪",
+    "question": "What snack did Herta Heuwer make famous in Berlin?",
+    "questionEs": "¿Qué comida popularizó Herta Heuwer en Berlín?",
+    "choices": [
+      "Currywurst",
+      "A pretzel",
+      "A schnitzel"
+    ],
+    "correct": "Currywurst",
+    "model": "She made currywurst famous. It was sausage with a curry sauce.",
+    "modelEs": "Popularizó la currywurst. Era una salchicha con salsa de curry.",
+    "source": "City of Berlin",
+    "url": "https://www.berlin.de/ba-charlottenburg-wilmersdorf/ueber-den-bezirk/geschichte/persoenlichkeiten-und-gedenktafeln/artikel.125670.php"
+  },
+  {
+    "item": "Finland",
+    "itemEs": "Finlandia",
+    "flag": "🇫🇮",
+    "question": "Who did runners carry in a race in Sonkajärvi?",
+    "questionEs": "¿A quién cargaron los corredores en una carrera en Sonkajärvi?",
+    "choices": [
+      "A partner",
+      "A coach",
+      "A referee"
+    ],
+    "correct": "A partner",
+    "model": "They carried a partner. In this race, one person did the running for two.",
+    "modelEs": "Cargaron a una pareja. En esta carrera, una persona corrió por dos.",
+    "source": "Wife Carrying World Championship",
+    "url": "https://eukonkanto.fi/en/front-page/"
+  }
+];
+const byId = id => document.getElementById(id);
+const reveal = byId('reveal');
+const answer = byId('answer');
+let remaining = [];
+let current;
+
+function setAnswerVisibility(visible) {
+  answer.hidden = !visible;
+  reveal.setAttribute('aria-expanded', String(visible));
+  reveal.textContent = visible ? 'Hide answer' : 'Reveal answer';
+}
+
+function drawCard(moveFocus) {
+  if (remaining.length === 0) remaining = [...cards];
+  let index = Math.floor(Math.random() * remaining.length);
+  if (remaining.length > 1 && remaining[index] === current) {
+    index = (index + 1) % remaining.length;
+  }
+  current = remaining.splice(index, 1)[0];
+  setAnswerVisibility(false);
+  byId('item').textContent = current.item;
+  byId('item-es').textContent = current.itemEs;
+  byId('question').textContent = current.question;
+  byId('question-es').textContent = current.questionEs;
+  byId('picture').textContent = current.flag;
+  const choices = [...current.choices];
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
+  byId('choices').replaceChildren(...choices.map(choice => {
+    const option = document.createElement('li');
+    option.textContent = choice;
+    return option;
+  }));
+  byId('correct-choice').textContent = 'Correct choice ' + 'ABC'[choices.indexOf(current.correct)];
+  byId('model').textContent = current.model;
+  byId('model-es').textContent = current.modelEs;
+
+
+  const source = byId('source');
+  source.textContent = current.source;
+  source.href = current.url;
+  if (moveFocus) byId('item').focus();
+}
+
+reveal.addEventListener('click', () => setAnswerVisibility(answer.hidden));
+byId('draw').addEventListener('click', () => drawCard(true));
+drawCard(false);
+byId('game').hidden = false;
+byId('fallback').hidden = true;
+</script>
+</body>
+</html>
